@@ -11,3 +11,5 @@
 | [0005](0005-knowledge-base-git.md) | База знаний — Git /docs | ✅ Accepted |
 | [0006](0006-cms-deferred.md) | Выбор CMS отложен (требования зафиксированы) | 🟡 Deferred |
 | [0007](0007-approved-ia.md) | Утверждённая структура навигации (IA) | ✅ Accepted |
+| [0008](0008-no-ecommerce.md) | Без e-commerce (только лидген) | ✅ Accepted |
+| [0009](0009-free-first-inhouse.md) | Free-first, разработка своими силами | ✅ Accepted |
