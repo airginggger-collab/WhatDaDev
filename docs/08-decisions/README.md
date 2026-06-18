@@ -10,3 +10,4 @@
 | [0004](0004-seo-first-stack.md) | SEO-first + SSR/SSG стек | ✅ Accepted |
 | [0005](0005-knowledge-base-git.md) | База знаний — Git /docs | ✅ Accepted |
 | [0006](0006-cms-deferred.md) | Выбор CMS отложен (требования зафиксированы) | 🟡 Deferred |
+| [0007](0007-approved-ia.md) | Утверждённая структура навигации (IA) | ✅ Accepted |
