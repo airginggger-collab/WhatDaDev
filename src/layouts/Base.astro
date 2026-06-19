@@ -65,6 +65,18 @@ const blocks = [org, website, ...jsonld];
         const open = n.classList.toggle('open');
         t.setAttribute('aria-expanded', String(open));
       });
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (!e.isIntersecting) continue;
+          e.target.classList.add('in');
+          if (e.target.dataset.p) {
+            const fg = e.target.querySelector('.fg');
+            if (fg) fg.style.setProperty('--p', e.target.dataset.p);
+          }
+          io.unobserve(e.target);
+        }
+      }, { threshold: 0.2 });
+      document.querySelectorAll('.reveal, [data-p]').forEach((el) => io.observe(el));
     </script>
   </body>
 </html>
