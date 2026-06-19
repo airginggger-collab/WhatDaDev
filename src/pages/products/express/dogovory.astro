@@ -1,5 +1,6 @@
 ---
 import Base from "../../../layouts/Base.astro";
+import Breadcrumbs from "../../../components/Breadcrumbs.astro";
 const title = "Согласование договоров на ELMA365 электронно | WhatDaDev";
 const description = "Электронное согласование договоров на ELMA365: маршруты, сроки, контроль, единый реестр. Доходные договоры из коробки.";
 const faq = [
@@ -13,6 +14,7 @@ const jsonld = [{ "@context": "https://schema.org", "@type": "FAQPage", mainEnti
 <Base title={title} description={description} jsonld={jsonld}>
   <section class="hero">
     <div class="container">
+      <Breadcrumbs items={[{ name: "Главная", href: "/" }, { name: "Экспресс внедрение", href: "/products/express/" }, { name: "Согласование договоров" }]} />
       <div class="eyebrow" style="color:#a5b4fc">Экспресс внедрение (Coordo) · Контур</div>
       <h1>Согласование договоров на ELMA365 — электронно, по маршрутам</h1>
       <p class="lead">Договор проходит путь от инициации до подписания по заданному маршруту: со сроками, контролем и единым реестром. Без потерянных листов согласования и бесконечных пересылок.</p>
