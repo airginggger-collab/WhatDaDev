@@ -13,3 +13,4 @@
 | [0007](0007-approved-ia.md) | Утверждённая структура навигации (IA) | ✅ Accepted |
 | [0008](0008-no-ecommerce.md) | Без e-commerce (только лидген) | ✅ Accepted |
 | [0009](0009-free-first-inhouse.md) | Free-first, разработка своими силами | ✅ Accepted |
+| [0010](0010-product-naming.md) | Нейминг продукта: «Экспресс внедрение (Coordo)» | ✅ Accepted |
