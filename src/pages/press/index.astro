@@ -1,0 +1,30 @@
+---
+import Base from "../../layouts/Base.astro";
+const title = "Пресс-центр WhatDaDev — статьи об ELMA365 и ЭДО | WhatDaDev";
+const description = "Статьи, сравнения и обзоры об ELMA365, документообороте и автоматизации процессов.";
+const articles = [
+  { name: "ELMA365 или Битрикс24: что выбрать", href: "/press/articles/elma365-vs-bitrix24/", tag: "Сравнение", live: true },
+  { name: "Коробочный ЭДО или облачный", href: "/press/articles/korobochnyy-edo-vs-oblachnyy/", tag: "Сравнение", live: true },
+  { name: "Что такое ELMA365: возможности и модули", href: null, tag: "Обзор", live: false },
+  { name: "Как ускорить согласование договоров", href: null, tag: "Гайд", live: false },
+  { name: "КЭДО в 2026: как перейти", href: null, tag: "Гайд", live: false },
+  { name: "Как выбрать СЭД: критерии и ошибки", href: null, tag: "Гайд", live: false },
+];
+---
+<Base title={title} description={description}>
+  <section class="hero">
+    <div class="container">
+      <h1>Пресс-центр</h1>
+      <p class="lead">Статьи, сравнения и обзоры об ELMA365, документообороте и автоматизации процессов.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-3">
+        {articles.map((a) => a.live
+          ? (<a class="card" href={a.href}><span class="tag">{a.tag}</span><h3 style="margin-top:12px">{a.name}</h3><p class="muted">Читать →</p></a>)
+          : (<div class="card"><span class="tag">{a.tag}</span><h3 style="margin-top:12px">{a.name}</h3><p class="muted">Скоро</p></div>))}
+      </div>
+    </div>
+  </section>
+</Base>
