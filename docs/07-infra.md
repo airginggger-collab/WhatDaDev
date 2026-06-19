@@ -32,3 +32,14 @@
 
 ## Безопасность/право
 - Согласие на обработку ПД (ФЗ-152 РФ), политика конфиденциальности, cookie-уведомление.
+
+## Прототип (v0.17)
+- Стек прототипа: **Astro 5** (SSG), без CMS пока (контент в .astro). Стили — CSS-переменные из `tokens.json`.
+- Страницы: `/`, `/products/express/`, `/services/`, `/contacts/`. Сборка: `npm run build` → `dist/` (статика, ~40KB).
+- **Cloudflare Pages** (подключение через дашборд → Connect to Git):
+  - Repository: `airginggger-collab/WhatDaDev`
+  - Framework preset: **Astro**
+  - Build command: `npm run build`
+  - Build output directory: `dist`
+  - Env: `NODE_VERSION = 20` (или 22)
+- Деплой делает заказчик (нужен вход в CF-аккаунт). Авто-деплой при пуше в `main`.

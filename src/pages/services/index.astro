@@ -1,0 +1,41 @@
+---
+import Base from "../../layouts/Base.astro";
+const title = "Услуги по ELMA365: внедрение, разработка, поддержка | WhatDaDev";
+const description = "Полный цикл работы с ELMA365: внедрение под ключ, разработка и интеграции, аутстаффинг, аудит, консалтинг, обучение. РФ и КЗ.";
+const services = [
+  ["Внедрение", "CRM, ЭДО, ServiceDesk, закупки, маркетинг, проекты, КЭДО и другие процессы."],
+  ["Разработка", "Модули, интеграции (1С, API), доработки под ваши задачи."],
+  ["Аутстаффинг", "Наши специалисты усиливают вашу команду."],
+  ["Аудит", "Проверка и оптимизация внедрённых решений."],
+  ["Консалтинг", "Цифровая трансформация и оптимизация процессов."],
+  ["Обучение", "Чтобы команда работала в системе самостоятельно."],
+  ["Покупка лицензий", "Подбор и поставка лицензий ELMA365."],
+];
+---
+<Base title={title} description={description}>
+  <section class="hero">
+    <div class="container">
+      <h1>Услуги по ELMA365: от внедрения до поддержки</h1>
+      <p class="lead">Внедряем, дорабатываем, обучаем и сопровождаем ELMA365. Под РФ и КЗ.</p>
+      <div class="btn-row"><a class="btn" href="/contacts/">Обсудить проект</a></div>
+      <div class="proof"><span><b>12</b> внедрений</span><span>сертифицированные эксперты</span></div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <h2>Что мы делаем</h2>
+      <div class="grid grid-3" style="margin-top:24px">
+        {services.map(([t, d]) => (
+          <div class="card"><h3>{t}</h3><p>{d}</p></div>
+        ))}
+      </div>
+    </div>
+  </section>
+  <section class="hero">
+    <div class="container center">
+      <h2 style="color:#fff">Обсудим вашу задачу</h2>
+      <p class="lead" style="margin:0 auto">Расскажите о процессах — предложим решение и оценку.</p>
+      <div class="btn-row" style="justify-content:center"><a class="btn" href="/contacts/">Обсудить проект</a></div>
+    </div>
+  </section>
+</Base>

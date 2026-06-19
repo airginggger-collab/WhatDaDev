@@ -1,0 +1,50 @@
+---
+import "../styles/global.css";
+const { title = "WhatDaDev — внедрение ELMA365 и готовый ЭДО из коробки", description = "Внедрение ELMA365 под ключ и коробочные продукты для документооборота. РФ и КЗ." } = Astro.props;
+---
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap&subset=cyrillic" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a class="logo" href="/">What<b>Da</b>Dev</a>
+        <nav class="nav">
+          <a href="/services/">Услуги</a>
+          <a href="/products/express/">Продукты</a>
+          <a href="/#cases">Кейсы</a>
+          <a href="/contacts/">Контакты</a>
+          <a class="btn" href="/contacts/">Записаться на демо</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <div class="logo" style="color:#fff;margin-bottom:8px">What<b>Da</b>Dev</div>
+          <p>Внедрение ELMA365 и готовые продукты для документооборота. РФ и КЗ.</p>
+        </div>
+        <div>
+          <p><b style="color:#fff">Контакты</b></p>
+          <p>Telegram: @WhatDaDev<br/>WhatsApp: +7 980 471-57-72<br/>sales@whatdadev.ru</p>
+        </div>
+        <div>
+          <p><b style="color:#fff">Разделы</b></p>
+          <p><a href="/services/">Услуги</a><br/><a href="/products/express/">Экспресс внедрение</a><br/><a href="/contacts/">Контакты</a></p>
+        </div>
+      </div>
+      <div class="container" style="margin-top:24px;opacity:.6">© 2026 WhatDaDev · прототип</div>
+    </footer>
+  </body>
+</html>
