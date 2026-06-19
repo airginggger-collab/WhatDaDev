@@ -13,17 +13,36 @@ const description = "Свяжитесь с WhatDaDev: Telegram, WhatsApp, email.
   <section class="section">
     <div class="container grid grid-2">
       <div class="card">
-        <h3>Связаться</h3>
+        <h3>Записаться на демо</h3>
+        <form class="form" id="leadForm" style="margin-top:12px">
+          <label>Имя<input name="name" required autocomplete="name" /></label>
+          <label>Телефон<input name="phone" type="tel" required autocomplete="tel" /></label>
+          <label>Email<input name="email" type="email" autocomplete="email" /></label>
+          <label>Компания<input name="company" autocomplete="organization" /></label>
+          <label>Сообщение<textarea name="message"></textarea></label>
+          <label class="row"><input type="checkbox" required style="width:auto" /> <span>Согласен на обработку персональных данных</span></label>
+          <button class="btn" type="submit">Записаться на демо</button>
+          <p class="form-note" id="formMsg">Прототип: отправка подключается к ELMA365 на этапе разработки.</p>
+        </form>
+      </div>
+      <div class="card alt">
+        <h3>Связаться напрямую</h3>
         <p>Telegram: <a href="https://t.me/WhatDaDev">@WhatDaDev</a></p>
         <p>WhatsApp / тел: +7 980 471-57-72</p>
         <p>Email: <a href="mailto:sales@whatdadev.ru">sales@whatdadev.ru</a></p>
-        <div class="btn-row"><a class="btn" href="https://t.me/WhatDaDev">Написать в Telegram</a></div>
-      </div>
-      <div class="card alt">
-        <h3>Реквизиты</h3>
+        <h3 style="margin-top:22px">Реквизиты</h3>
         <p class="muted">РФ: ИП Перушев Игорь Петрович<br/>КЗ: ИП «Бауырсак»</p>
-        <p class="muted" style="font-size:13px">Прототип — реквизиты и форма заявки в ELMA CRM подключаются на этапе разработки.</p>
       </div>
     </div>
   </section>
+  <script>
+    const f = document.getElementById('leadForm');
+    f && f.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const m = document.getElementById('formMsg');
+      m.textContent = 'Спасибо! Заявка принята (демо-режим). Скоро подключим отправку в CRM.';
+      m.classList.add('form-ok');
+      f.reset();
+    });
+  </script>
 </Base>
