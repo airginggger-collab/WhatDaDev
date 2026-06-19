@@ -26,8 +26,8 @@ const jsonld = [{ "@context": "https://schema.org", "@type": "Service", name: "�
   <section class="section alt">
     <div class="container">
       <h2>Как мы работаем</h2>
-      <div class="grid grid-3" style="margin-top:24px">
-        {steps.map((s, i) => (<div class="card"><div class="price" style="font-size:22px;color:var(--accent)">{i + 1}</div><p>{s}</p></div>))}
+      <div class="steps">
+        {steps.map((s, i) => (<div class="step reveal"><div class="num">{i + 1}</div><p>{s}</p></div>))}
       </div>
     </div>
   </section>
