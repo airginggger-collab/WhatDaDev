@@ -42,4 +42,5 @@
   - Build command: `npm run build`
   - Build output directory: `dist`
   - Env: `NODE_VERSION = 20` (или 22)
-- Деплой делает заказчик (нужен вход в CF-аккаунт). Авто-деплой при пуше в `main`.
+- Деплой: Cloudflare (Workers Static Assets) через `wrangler.jsonc` (assets → `dist`, без SSR-воркера/адаптера). Авто-деплой при пуше в `main`.
+- Важно: НЕ добавлять cloudflare-адаптер Astro (`astro add cloudflare`) — сайт статический, адаптер ломает деплой (ошибка `public/.assetsignore`). Конфиг деплоя — наш `wrangler.jsonc`.
