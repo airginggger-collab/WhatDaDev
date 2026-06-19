@@ -51,7 +51,12 @@ import Base from "../layouts/Base.astro";
       <h2>Цифры, а не слайды</h2>
       <div class="grid grid-3" style="margin-top:28px">
         <div class="card"><div class="price">9 → 2</div><p>дня на согласование договора (производственный холдинг)</p></div>
-        <div class="card"><div class="price">−40%</div><p>времени на ОРД (ритейл, ~800 сотрудников)</p></div>
+        <div class="card" data-p="40">
+          <div class="ring-wrap">
+            <svg class="ring" viewBox="0 0 120 120" aria-hidden="true"><circle class="bg" cx="60" cy="60" r="54"></circle><circle class="fg" cx="60" cy="60" r="54"></circle></svg>
+            <div><div class="ring-num">−40%</div><p>времени на ОРД (ритейл, ~800 сотрудников)</p></div>
+          </div>
+        </div>
         <div class="card"><div class="price">0</div><p>потерянных писем — единый учёт корреспонденции (логистика)</p></div>
       </div>
       <p class="muted" style="margin-top:14px;font-size:14px">Кейсы анонимны; имена и логотипы — по согласованию с клиентами.</p>
