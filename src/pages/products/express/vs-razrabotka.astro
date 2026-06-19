@@ -1,5 +1,6 @@
 ---
 import Base from "../../../layouts/Base.astro";
+import Breadcrumbs from "../../../components/Breadcrumbs.astro";
 const title = "Коробка или разработка ЭДО с нуля — как выбрать | WhatDaDev";
 const description = "Честное сравнение: готовый ЭДО на ELMA365 из коробки или разработка с нуля. Когда что выгоднее.";
 const faq = [
@@ -12,6 +13,7 @@ const jsonld = [{ "@context": "https://schema.org", "@type": "FAQPage", mainEnti
 <Base title={title} description={description} jsonld={jsonld}>
   <section class="hero">
     <div class="container">
+      <Breadcrumbs items={[{ name: "Главная", href: "/" }, { name: "Экспресс внедрение", href: "/products/express/" }, { name: "Коробка или разработка" }]} />
       <div class="eyebrow" style="color:#a5b4fc">Сравнение</div>
       <h1>ЭДО на ELMA365: готовое из коробки или разработка с нуля?</h1>
       <p class="lead">Честное сравнение двух путей. Для типовых процессов согласования коробка выигрывает по срокам и цене; для уникальных — нужна разработка (её мы тоже делаем).</p>

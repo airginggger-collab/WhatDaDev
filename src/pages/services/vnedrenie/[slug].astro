@@ -1,5 +1,6 @@
 ---
 import Base from "../../../layouts/Base.astro";
+import Breadcrumbs from "../../../components/Breadcrumbs.astro";
 import { directions } from "../../../data/directions.js";
 export function getStaticPaths() {
   return directions.map((d) => ({ params: { slug: d.slug }, props: { d } }));
@@ -10,6 +11,7 @@ const jsonld = [{ "@context": "https://schema.org", "@type": "Service", name: d.
 <Base title={d.title} description={d.desc} jsonld={jsonld}>
   <section class="hero">
     <div class="container">
+      <Breadcrumbs items={[{ name: "Главная", href: "/" }, { name: "Услуги", href: "/services/" }, { name: "Внедрение", href: "/services/vnedrenie/" }, { name: d.h1 }]} />
       <div class="eyebrow" style="color:#a5b4fc">Услуги · Внедрение</div>
       <h1>{d.h1}</h1>
       <p class="lead">{d.lead}</p>

@@ -1,11 +1,13 @@
 ---
 import Base from "../../../layouts/Base.astro";
+import Breadcrumbs from "../../../components/Breadcrumbs.astro";
 const title = "ELMA365 или Битрикс24: что выбрать для процессов | WhatDaDev";
 const description = "Сравнение ELMA365 и Битрикс24: где сильнее каждая платформа и кому что подойдёт. Без рекламы.";
 ---
 <Base title={title} description={description}>
   <section class="hero">
     <div class="container">
+      <Breadcrumbs items={[{ name: "Главная", href: "/" }, { name: "ELMA365 или Битрикс24" }]} />
       <div class="eyebrow" style="color:#a5b4fc">Сравнение</div>
       <h1>ELMA365 или Битрикс24: что выбрать для автоматизации процессов</h1>
       <p class="lead">Оба — российские платформы, но решают разные задачи. Разбираем без рекламы: где сильнее каждая и кому что подойдёт.</p>
