@@ -2,6 +2,11 @@
 
 Все значимые изменения спеки проекта. Формат: семантические версии.
 
+## [v0.9] — 2026-06-18 — тексты Волны 1 + product-in-motion
+### Added
+- `12-copy/`: home, products-express-ord, products-express-korrespondenciya, services-vnedrenie (черновой копирайт + FAQ под schema).
+- `04-design` — паттерн «product-in-motion» (зацикленные клипы интерфейса, референс cursor.com) + требования к перфу/доступности.
+
 ## [v0.8] — 2026-06-18 — черновые тексты продуктовых страниц
 ### Added
 - `12-copy/products-express.md` — копирайт продуктового pillar (hero, проблема, контуры, ядро без кода, цена, безопасность, FAQ, CTA).
