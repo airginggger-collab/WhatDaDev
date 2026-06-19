@@ -1,0 +1,22 @@
+---
+import Base from "../../layouts/Base.astro";
+import { industries } from "../../data/industries.js";
+const title = "ELMA365 по отраслям: производство, ритейл, девелопмент, логистика, финансы | WhatDaDev";
+const description = "Документооборот и автоматизация процессов на ELMA365 под вашу отрасль. РФ и КЗ.";
+---
+<Base title={title} description={description}>
+  <section class="hero">
+    <div class="container">
+      <h1>ELMA365 под вашу отрасль</h1>
+      <p class="lead">Документооборот и процессы под специфику отрасли — на готовых контурах и под ключ.</p>
+      <div class="btn-row"><a class="btn" href="/contacts/">Записаться на демо</a></div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-3" style="margin-top:8px">
+        {industries.map((x) => (<a class="card" href={`/industries/${x.slug}/`}><h3>{x.h1.split(":")[0].replace("ELMA365 для ", "").replace("ELMA365 для", "")}</h3><p>{x.lead}</p></a>))}
+      </div>
+    </div>
+  </section>
+</Base>

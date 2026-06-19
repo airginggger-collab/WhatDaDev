@@ -1,0 +1,40 @@
+---
+import Base from "../../../layouts/Base.astro";
+import { directions } from "../../../data/directions.js";
+const title = "Внедрение ELMA365 под ключ — быстро и надёжно | WhatDaDev";
+const description = "Внедряем ELMA365 под ключ: CRM, ЭДО, ServiceDesk, закупки, проекты, КЭДО. Аналитика, настройка, поддержка. 12 внедрений.";
+const steps = ["Выявление потребностей", "Заключение договора", "Детальная аналитика", "Проектная документация", "Разработка и тестирование", "Эксплуатация и поддержка"];
+const jsonld = [{ "@context": "https://schema.org", "@type": "Service", name: "Внедрение ELMA365 под ключ", serviceType: "Внедрение ELMA365", url: "https://whatdadev.ru/services/vnedrenie", areaServed: ["RU", "KZ"], provider: { "@type": "Organization", name: "WhatDaDev", url: "https://whatdadev.ru" } }];
+---
+<Base title={title} description={description} jsonld={jsonld}>
+  <section class="hero">
+    <div class="container">
+      <h1>Внедрение ELMA365 под ключ</h1>
+      <p class="lead">От анализа процессов до запуска и поддержки. Настраиваем ELMA365 под ваши задачи — CRM, документооборот, сервис, закупки, проекты, КЭДО.</p>
+      <div class="btn-row"><a class="btn" href="/contacts/">Обсудить проект</a></div>
+      <div class="proof"><span><b>12</b> внедрений</span><span>сертифицированные эксперты</span><span>РФ и КЗ</span></div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <h2>Что автоматизируем на ELMA365</h2>
+      <div class="grid grid-3" style="margin-top:24px">
+        {directions.map((d) => (<a class="card" href={`/services/vnedrenie/${d.slug}/`}><h3>{d.h1.replace(/^Внедрение |^Автоматизация |^Управление /, "")}</h3><p>{d.lead}</p></a>))}
+      </div>
+    </div>
+  </section>
+  <section class="section alt">
+    <div class="container">
+      <h2>Как мы работаем</h2>
+      <div class="grid grid-3" style="margin-top:24px">
+        {steps.map((s, i) => (<div class="card"><div class="price" style="font-size:22px;color:var(--accent)">{i + 1}</div><p>{s}</p></div>))}
+      </div>
+    </div>
+  </section>
+  <section class="hero">
+    <div class="container center">
+      <h2 style="color:#fff">Обсудим вашу задачу</h2>
+      <div class="btn-row" style="justify-content:center"><a class="btn" href="/contacts/">Обсудить проект</a></div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,41 @@
+---
+import Base from "../layouts/Base.astro";
+const title = "ELMA365: что это, возможности, наша экспертиза | WhatDaDev";
+const description = "Что такое ELMA365: BPM, CRM, КЭДО, документооборот на одной low-code платформе. Наша экспертиза и опыт внедрений.";
+const mods = ["BPM — управление процессами", "Документооборот (ECM/CSP)", "CRM — продажи и клиенты", "Service Desk — заявки и SLA", "КЭДО — кадровый ЭДО", "Проекты, закупки, маркетинг"];
+---
+<Base title={title} description={description}>
+  <section class="hero">
+    <div class="container">
+      <h1>ELMA365 — low-code платформа автоматизации бизнеса</h1>
+      <p class="lead">Российская платформа, где процессы и документооборот собираются как из конструктора — и меняются без программистов.</p>
+      <div class="btn-row"><a class="btn" href="/contacts/">Записаться на демо</a><a class="btn btn-ghost" href="/services/vnedrenie/">Внедрение</a></div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <h2>Из чего состоит платформа</h2>
+      <div class="grid grid-3" style="margin-top:24px">
+        {mods.map((m) => (<div class="card"><p>{m}</p></div>))}
+      </div>
+    </div>
+  </section>
+  <section class="section alt">
+    <div class="container">
+      <h2>Почему low-code это выгодно</h2>
+      <div class="grid grid-3" style="margin-top:24px">
+        <div class="card"><p>Быстрые изменения процессов без разработчиков.</p></div>
+        <div class="card"><p>Меньше зависимость от подрядчика — администратор управляет сам.</p></div>
+        <div class="card"><p>Единая платформа вместо «зоопарка» программ.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">Наша экспертиза</div>
+      <h2>Мы сами работаем на ELMA365</h2>
+      <p class="lead">Свой документооборот и процессы ведём на ELMA365 и собственных продуктах. Внедряем по опыту ежедневной работы, а не по учебнику. 4+ года, сертифицированные эксперты, 12 внедрений.</p>
+      <div class="btn-row"><a class="btn" href="/services/vnedrenie/">Обсудить внедрение</a></div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,43 @@
+---
+import Base from "../../../layouts/Base.astro";
+const title = "Коробка или разработка ЭДО с нуля — как выбрать | WhatDaDev";
+const description = "Честное сравнение: готовый ЭДО на ELMA365 из коробки или разработка с нуля. Когда что выгоднее.";
+const faq = [
+  ["Коробку можно доработать под нас?", "Да — маршруты настраиваются без кода, нестандартное дорабатываем отдельно."],
+  ["Что дешевле в итоге?", "Для типовых процессов — коробка: фиксированная цена против растущего бюджета разработки."],
+  ["А если часть процессов уникальна?", "Берём коробку как фундамент и дорабатываем только уникальную часть."],
+];
+const jsonld = [{ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) }];
+---
+<Base title={title} description={description} jsonld={jsonld}>
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow" style="color:#a5b4fc">Сравнение</div>
+      <h1>ЭДО на ELMA365: готовое из коробки или разработка с нуля?</h1>
+      <p class="lead">Честное сравнение двух путей. Для типовых процессов согласования коробка выигрывает по срокам и цене; для уникальных — нужна разработка (её мы тоже делаем).</p>
+      <div class="btn-row"><a class="btn" href="/contacts/">Записаться на демо</a></div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-2">
+        <div class="card"><h3>Готовое — Экспресс внедрение (Coordo)</h3><p>Запуск за недели · фиксированная разовая цена · отлажено на внедрениях · маршруты без кода · низкий риск.</p><p class="muted">Когда: типовые договоры, ОРД, корреспонденция.</p></div>
+        <div class="card"><h3>Разработка с нуля</h3><p>Сроки — месяцы · бюджет растёт по ходу · любые сценарии · выше риск нового кода.</p><p class="muted">Когда: уникальные процессы, нестандартная логика.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="section alt">
+    <div class="container">
+      <div class="eyebrow">Наш подход</div>
+      <h2>Коробка как старт, разработка — точечно</h2>
+      <p class="lead">Начинаем с готовых контуров (быстро и дёшево), а уникальное дорабатываем как услугу. Так вы не платите за «изобретение» того, что уже отлажено.</p>
+      <div class="btn-row"><a class="btn" href="/products/express/">Смотреть продукт</a><a class="btn btn-ghost" href="/services/razrabotka/">Разработка</a></div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container faq">
+      <h2>Частые вопросы</h2>
+      {faq.map(([q, a]) => (<details><summary>{q}</summary><p>{a}</p></details>))}
+    </div>
+  </section>
+</Base>

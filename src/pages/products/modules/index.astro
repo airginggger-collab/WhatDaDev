@@ -1,0 +1,30 @@
+---
+import Base from "../../../layouts/Base.astro";
+const title = "Модули и решения для ELMA365 | WhatDaDev";
+const description = "Готовые модули для ELMA365: замещения, аудит СМК, экспорт объектной модели, связанные процессы, управление файлами.";
+const modules = [
+  { name: "Замещения", desc: "Задачи не встают из-за отпусков и отсутствий.", href: "/products/modules/zameshcheniya/" },
+  { name: "Аудит СМК", desc: "Проведение аудитов по стандартам качества.", href: null },
+  { name: "Экспорт объектной модели", desc: "Выгрузка структуры решения.", href: null },
+  { name: "Связанные бизнес-процессы", desc: "Связки между процессами и документами.", href: null },
+  { name: "Визуализация и управление файлами", desc: "Удобная работа с файлами и документами.", href: null },
+];
+---
+<Base title={title} description={description}>
+  <section class="hero">
+    <div class="container">
+      <h1>Готовые модули и решения для ELMA365</h1>
+      <p class="lead">Отдельные модули, которые усиливают вашу ELMA365 — подключаются быстро, без разработки с нуля.</p>
+      <div class="btn-row"><a class="btn" href="/contacts/">Записаться на демо</a></div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-3">
+        {modules.map((m) => m.href
+          ? (<a class="card" href={m.href}><h3>{m.name}</h3><p>{m.desc}</p></a>)
+          : (<div class="card"><h3>{m.name}</h3><p>{m.desc}</p><span class="tag" style="margin-top:10px">страница скоро</span></div>))}
+      </div>
+    </div>
+  </section>
+</Base>
