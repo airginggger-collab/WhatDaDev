@@ -2,6 +2,10 @@
 
 Все значимые изменения спеки проекта. Формат: семантические версии.
 
+## [v0.10] — 2026-06-18 — JSON-LD schema.org
+### Added
+- `13-schema/` — готовые к вставке JSON-LD блоки: Organization, WebSite, SoftwareApplication+Offer, FAQPage, Service, BreadcrumbList, ContactPage. С реальными данными WhatDaDev и картой «какой блок на какую страницу».
+
 ## [v0.9] — 2026-06-18 — тексты Волны 1 + product-in-motion
 ### Added
 - `12-copy/`: home, products-express-ord, products-express-korrespondenciya, services-vnedrenie (черновой копирайт + FAQ под schema).
