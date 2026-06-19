@@ -1,0 +1,31 @@
+---
+import Base from "../../layouts/Base.astro";
+const title = "Разработка и интеграции ELMA365 (1С, API) | WhatDaDev";
+const description = "Кастомная разработка на ELMA365: интеграции с 1С и по API, доработка процессов, собственные модули и приложения.";
+const items = ["Интеграция с 1С (коннектор)", "Интеграции по API", "Доработка процессов", "Собственные модули", "Кастомные приложения", "Интеграция с Диадок/ЭЦП"];
+const jsonld = [{ "@context": "https://schema.org", "@type": "Service", name: "Разработка решений, модулей и интеграций на ELMA365", url: "https://whatdadev.ru/services/razrabotka", areaServed: ["RU", "KZ"], provider: { "@type": "Organization", name: "WhatDaDev", url: "https://whatdadev.ru" } }];
+---
+<Base title={title} description={description} jsonld={jsonld}>
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow" style="color:#a5b4fc">Услуги</div>
+      <h1>Разработка решений, модулей и интеграций на ELMA365</h1>
+      <p class="lead">Кастомная разработка на ELMA365: интеграции с 1С и по API, доработка процессов, собственные модули и приложения.</p>
+      <div class="btn-row"><a class="btn" href="/contacts/">Обсудить задачу</a></div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <h2>Что делаем</h2>
+      <div class="grid grid-3" style="margin-top:24px">
+        {items.map((it) => (<div class="card"><p>{it}</p></div>))}
+      </div>
+    </div>
+  </section>
+  <section class="hero">
+    <div class="container center">
+      <h2 style="color:#fff">Расскажите о задаче</h2>
+      <div class="btn-row" style="justify-content:center"><a class="btn" href="/contacts/">Обсудить задачу</a></div>
+    </div>
+  </section>
+</Base>

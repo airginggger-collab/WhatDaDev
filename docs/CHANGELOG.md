@@ -2,6 +2,15 @@
 
 Все значимые изменения спеки проекта. Формат: семантические версии.
 
+## [v0.21] — 2026-06-19 — полное наполнение прототипа (30 страниц)
+### Added
+- Направления внедрения: /services/vnedrenie/ + 8 (crm, edo, service-desk, zakupki, marketing, proekty, kedo, prochee) — на данных (`src/data/directions.js`).
+- Отрасли: /industries/ + 5 (производство, ритейл, девелопмент, логистика, финансы) — на данных (`src/data/industries.js`).
+- Продукты: /products/modules/ + /zameshcheniya; /products/express/vs-razrabotka.
+- Сравнения: /press/articles/{elma365-vs-bitrix24,korobochnyy-edo-vs-oblachnyy}.
+- /elma365, /company/about, /services/razrabotka. Связаны хаб услуг и навигация.
+- JSON-LD Service/FAQPage на новых страницах; sitemap = 30 URL.
+
 ## [v0.20] — 2026-06-19 — наполнение прототипа + SEO-обвязка
 ### Added
 - Страницы контуров: /products/express/{dogovory,ord,korrespondenciya} (тексты + FAQ).

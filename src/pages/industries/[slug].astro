@@ -1,0 +1,41 @@
+---
+import Base from "../../layouts/Base.astro";
+import { industries } from "../../data/industries.js";
+export function getStaticPaths() {
+  return industries.map((x) => ({ params: { slug: x.slug }, props: { x } }));
+}
+const { x } = Astro.props;
+const jsonld = [{ "@context": "https://schema.org", "@type": "Service", name: x.h1, url: `https://whatdadev.ru/industries/${x.slug}`, areaServed: ["RU", "KZ"], provider: { "@type": "Organization", name: "WhatDaDev", url: "https://whatdadev.ru" } }];
+---
+<Base title={x.title} description={x.desc} jsonld={jsonld}>
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow" style="color:#a5b4fc">Отрасль</div>
+      <h1>{x.h1}</h1>
+      <p class="lead">{x.lead}</p>
+      <div class="btn-row"><a class="btn" href="/contacts/">Записаться на демо</a></div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <h2>Боли отрасли</h2>
+      <div class="grid grid-2" style="margin-top:24px">
+        {x.pains.map((p) => (<div class="card"><p>{p}</p></div>))}
+      </div>
+    </div>
+  </section>
+  <section class="section alt">
+    <div class="container">
+      <h2>Что автоматизируем</h2>
+      <div class="grid grid-2" style="margin-top:24px">
+        {x.items.map((it) => (<div class="card"><p>{it}</p></div>))}
+      </div>
+    </div>
+  </section>
+  <section class="hero">
+    <div class="container center">
+      <h2 style="color:#fff">Покажем на ваших процессах</h2>
+      <div class="btn-row" style="justify-content:center"><a class="btn" href="/contacts/">Записаться на демо</a></div>
+    </div>
+  </section>
+</Base>
