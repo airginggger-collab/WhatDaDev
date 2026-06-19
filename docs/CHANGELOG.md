@@ -2,6 +2,13 @@
 
 Все значимые изменения спеки проекта. Формат: семантические версии.
 
+## [v0.20] — 2026-06-19 — наполнение прототипа + SEO-обвязка
+### Added
+- Страницы контуров: /products/express/{dogovory,ord,korrespondenciya} (тексты + FAQ).
+- JSON-LD: Organization+WebSite на всех страницах (Base), SoftwareApplication+Offer+FAQPage на /products/express, FAQPage на контурах.
+- @astrojs/sitemap (sitemap-index.xml) + robots.txt.
+- Карточки контуров на /products/express кликабельны.
+
 ## [v0.19] — 2026-06-19 — фикс деплоя Cloudflare
 ### Fixed
 - Деплой падал: CF-проект — Worker (`npx wrangler deploy`), авто-настройка `astro add cloudflare` ломалась на `public/.assetsignore`.

@@ -1,0 +1,50 @@
+---
+import Base from "../../../layouts/Base.astro";
+const title = "Согласование договоров на ELMA365 электронно | WhatDaDev";
+const description = "Электронное согласование договоров на ELMA365: маршруты, сроки, контроль, единый реестр. Доходные договоры из коробки.";
+const faq = [
+  ["Можно настроить разные маршруты для разных договоров?", "Да — условные маршруты, например по сумме или типу, настраиваются без кода."],
+  ["Поддерживается электронная подпись?", "Да; интеграции с Диадок и СБИС — в дорожной карте продукта."],
+  ["Это отдельный продукт или часть ELMA365?", "Готовый контур на платформе ELMA365 в составе Экспресс внедрения (Coordo)."],
+  ["Есть единый реестр договоров?", "Да — с поиском, статусами и контролем сроков действия."],
+];
+const jsonld = [{ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) }];
+---
+<Base title={title} description={description} jsonld={jsonld}>
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow" style="color:#a5b4fc">Экспресс внедрение (Coordo) · Контур</div>
+      <h1>Согласование договоров на ELMA365 — электронно, по маршрутам</h1>
+      <p class="lead">Договор проходит путь от инициации до подписания по заданному маршруту: со сроками, контролем и единым реестром. Без потерянных листов согласования и бесконечных пересылок.</p>
+      <div class="btn-row"><a class="btn" href="/contacts/">Записаться на демо</a></div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <h2>Когда договоры согласуют в почте и мессенджерах</h2>
+      <div class="grid grid-3" style="margin-top:24px">
+        <div class="card"><p>Документы теряются, версии путаются, сроки срываются.</p></div>
+        <div class="card"><p>Непонятно, у кого «завис» договор и почему.</p></div>
+        <div class="card"><p>Нет единого реестра — найти нужный договор сложно.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="section alt">
+    <div class="container">
+      <h2>Маршрут вместо хаоса</h2>
+      <div class="grid grid-2" style="margin-top:24px">
+        <div class="card"><h3>Инициация и согласование</h3><p>Договор по шаблону идёт по маршруту: параллельно, последовательно или по условиям (например, по сумме).</p></div>
+        <div class="card"><h3>Сроки и контроль</h3><p>Видно, на каком этапе договор и кто задерживает; эскалация при просрочке.</p></div>
+        <div class="card"><h3>Подписание</h3><p>Электронной подписью; интеграция с Диадок/СБИС — в дорожной карте.</p></div>
+        <div class="card"><h3>Реестр и архив</h3><p>Единый реестр договоров с поиском и статусами.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container faq">
+      <h2>Частые вопросы</h2>
+      {faq.map(([q, a]) => (<details><summary>{q}</summary><p>{a}</p></details>))}
+      <div class="btn-row"><a class="btn" href="/contacts/">Записаться на демо</a></div>
+    </div>
+  </section>
+</Base>

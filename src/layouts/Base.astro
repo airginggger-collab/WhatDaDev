@@ -1,6 +1,15 @@
 ---
 import "../styles/global.css";
-const { title = "WhatDaDev — внедрение ELMA365 и готовый ЭДО из коробки", description = "Внедрение ELMA365 под ключ и коробочные продукты для документооборота. РФ и КЗ." } = Astro.props;
+const { title = "WhatDaDev — внедрение ELMA365 и готовый ЭДО из коробки", description = "Внедрение ELMA365 под ключ и коробочные продукты для документооборота. РФ и КЗ.", jsonld = [] } = Astro.props;
+const org = {
+  "@context": "https://schema.org", "@type": "Organization",
+  name: "WhatDaDev", url: "https://whatdadev.ru",
+  description: "Внедрение ELMA365 под ключ и готовые продукты для документооборота. РФ и КЗ.",
+  email: "sales@whatdadev.ru", telephone: "+7-980-471-57-72",
+  areaServed: ["RU", "KZ"], sameAs: ["https://t.me/WhatDaDev"],
+};
+const website = { "@context": "https://schema.org", "@type": "WebSite", name: "WhatDaDev", url: "https://whatdadev.ru", inLanguage: ["ru", "en"] };
+const blocks = [org, website, ...jsonld];
 ---
 <!doctype html>
 <html lang="ru">
@@ -12,6 +21,7 @@ const { title = "WhatDaDev — внедрение ELMA365 и готовый ЭД
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap&subset=cyrillic" rel="stylesheet" />
+    {blocks.map((b) => <script type="application/ld+json" set:html={JSON.stringify(b)} />)}
   </head>
   <body>
     <header class="site-header">

@@ -1,0 +1,49 @@
+---
+import Base from "../../../layouts/Base.astro";
+const title = "Согласование приказов и ОРД на ELMA365 | WhatDaDev";
+const description = "Электронное согласование и ознакомление с приказами и ОРД на ELMA365: маршруты, листы ознакомления, контроль сроков.";
+const faq = [
+  ["Поддерживаются листы ознакомления?", "Да — электронные, с фиксацией кто и когда ознакомился."],
+  ["Можно настроить разные маршруты для разных приказов?", "Да, без кода — условные маршруты по типу документа."],
+  ["Это часть ELMA365?", "Да, готовый контур на ELMA365 в составе Экспресс внедрения (Coordo)."],
+];
+const jsonld = [{ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) }];
+---
+<Base title={title} description={description} jsonld={jsonld}>
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow" style="color:#a5b4fc">Экспресс внедрение (Coordo) · Контур</div>
+      <h1>Согласование приказов и ОРД на ELMA365</h1>
+      <p class="lead">Приказы, распоряжения и служебные записки — по электронному маршруту, с листами ознакомления и контролем исполнения. Без бумаги и потерянных подписей.</p>
+      <div class="btn-row"><a class="btn" href="/contacts/">Записаться на демо</a></div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <h2>Когда приказы живут в бумаге и почте</h2>
+      <div class="grid grid-3" style="margin-top:24px">
+        <div class="card"><p>Листы ознакомления теряются, кто прочитал — неизвестно.</p></div>
+        <div class="card"><p>Согласование тянется, статус непрозрачен.</p></div>
+        <div class="card"><p>Нет единого реестра ОРД и контроля исполнения.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="section alt">
+    <div class="container">
+      <h2>От проекта приказа до ознакомления — в одном маршруте</h2>
+      <div class="grid grid-2" style="margin-top:24px">
+        <div class="card"><h3>Создание и согласование</h3><p>По готовым шаблонам ОРД, маршрут с участниками, сроками и эскалацией.</p></div>
+        <div class="card"><h3>Подписание</h3><p>Электронной подписью.</p></div>
+        <div class="card"><h3>Ознакомление</h3><p>Автоматическая рассылка и электронный лист ознакомления — видно, кто и когда прочитал.</p></div>
+        <div class="card"><h3>Контроль</h3><p>Поручения по приказу и отслеживание исполнения.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container faq">
+      <h2>Частые вопросы</h2>
+      {faq.map(([q, a]) => (<details><summary>{q}</summary><p>{a}</p></details>))}
+      <div class="btn-row"><a class="btn" href="/contacts/">Записаться на демо</a></div>
+    </div>
+  </section>
+</Base>
