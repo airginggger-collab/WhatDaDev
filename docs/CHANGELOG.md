@@ -2,6 +2,12 @@
 
 Все значимые изменения спеки проекта. Формат: семантические версии.
 
+## [v0.11] — 2026-06-18 — сравнительные страницы
+### Added
+- `14-comparisons/`: vs-razrabotka (коробка/разработка), elma365-vs-bitrix24, korobka-vs-oblako — спеки + черновые тексты + FAQ. Незанятая ниша конкурентов.
+### Note
+- Факты о конкурентах помечены `{{verify}}` — сверить перед публикацией; тон корректный, без очернения.
+
 ## [v0.10] — 2026-06-18 — JSON-LD schema.org
 ### Added
 - `13-schema/` — готовые к вставке JSON-LD блоки: Organization, WebSite, SoftwareApplication+Offer, FAQPage, Service, BreadcrumbList, ContactPage. С реальными данными WhatDaDev и картой «какой блок на какую страницу».
