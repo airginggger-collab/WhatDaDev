@@ -2,6 +2,14 @@
 import Base from "../../layouts/Base.astro";
 const title = "Пресс-центр WhatDaDev — статьи об ELMA365 и ЭДО | WhatDaDev";
 const description = "Статьи, сравнения и обзоры об ELMA365, документообороте и автоматизации процессов.";
+const collectionPage = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Пресс-центр WhatDaDev",
+  description,
+  url: "https://whatdadev.ru/press/",
+  inLanguage: "ru",
+};
 const articles = [
   { name: "ELMA365 или Битрикс24: что выбрать", href: "/press/articles/elma365-vs-bitrix24/", tag: "Сравнение", live: true },
   { name: "Коробочный ЭДО или облачный", href: "/press/articles/korobochnyy-edo-vs-oblachnyy/", tag: "Сравнение", live: true },
@@ -11,7 +19,7 @@ const articles = [
   { name: "Как выбрать СЭД: критерии и ошибки", href: null, tag: "Гайд", live: false },
 ];
 ---
-<Base title={title} description={description}>
+<Base title={title} description={description} jsonld={[collectionPage]}>
   <section class="hero">
     <div class="container">
       <h1>Пресс-центр</h1>

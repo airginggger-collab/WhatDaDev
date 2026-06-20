@@ -3,8 +3,18 @@ import Base from "../../../layouts/Base.astro";
 import Breadcrumbs from "../../../components/Breadcrumbs.astro";
 const title = "ELMA365 или Битрикс24: что выбрать для процессов | WhatDaDev";
 const description = "Сравнение ELMA365 и Битрикс24: где сильнее каждая платформа и кому что подойдёт. Без рекламы.";
+const article = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "ELMA365 или Битрикс24: что выбрать для автоматизации процессов",
+  description,
+  author: { "@type": "Organization", name: "WhatDaDev", url: "https://whatdadev.ru" },
+  publisher: { "@type": "Organization", name: "WhatDaDev", url: "https://whatdadev.ru" },
+  url: "https://whatdadev.ru/press/articles/elma365-vs-bitrix24/",
+  inLanguage: "ru",
+};
 ---
-<Base title={title} description={description}>
+<Base title={title} description={description} jsonld={[article]}>
   <section class="hero">
     <div class="container">
       <Breadcrumbs items={[{ name: "Главная", href: "/" }, { name: "ELMA365 или Битрикс24" }]} />

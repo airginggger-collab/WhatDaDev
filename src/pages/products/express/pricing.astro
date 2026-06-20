@@ -1,0 +1,113 @@
+---
+import Base from "../../../layouts/Base.astro";
+import Breadcrumbs from "../../../components/Breadcrumbs.astro";
+const title = "Цена Экспресс внедрения (Coordo) — стоимость запуска ЭДО на ELMA365 | WhatDaDev";
+const description = "Стоимость Экспресс внедрения на ELMA365: фиксированная цена, что входит, сроки запуска. Получите расчёт под вашу задачу.";
+const faq = [
+  ["Почему фиксированная цена, а не Time & Material?", "Экспресс внедрение — это готовый продукт с ограниченным, но чётко определённым scope. Фиксированная цена снимает риск перерасхода бюджета."],
+  ["Что входит в стоимость?", "Настройка выбранных контуров (договоры, ОРД, корреспонденция), обучение пользователей, техническая поддержка на старте. Детально — в коммерческом предложении."],
+  ["Сколько времени займёт запуск?", "Уточняется — в среднем несколько недель с момента согласования. Первые пользователи работают ещё до официальной сдачи — поэтапный запуск по контурам."],
+  ["Нужны ли лицензии ELMA365 отдельно?", "Да, лицензии ELMA365 приобретаются отдельно. Поможем подобрать нужный пакет и купить по партнёрской цене."],
+];
+const jsonld = [
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })),
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Offer",
+    name: "Экспресс внедрение (Coordo)",
+    description: "Готовый ЭДО на ELMA365 за фиксированную цену",
+    seller: { "@type": "Organization", name: "WhatDaDev", url: "https://whatdadev.ru" },
+    priceCurrency: "RUB",
+    availability: "https://schema.org/InStock",
+    url: "https://whatdadev.ru/products/express/pricing/",
+  },
+];
+---
+<Base title={title} description={description} jsonld={jsonld}>
+  <section class="hero">
+    <div class="container">
+      <Breadcrumbs items={[
+        { name: "Главная", href: "/" },
+        { name: "Экспресс внедрение", href: "/products/express/" },
+        { name: "Стоимость" }
+      ]} />
+      <div class="eyebrow" style="color:#a5b4fc">Экспресс внедрение (Coordo)</div>
+      <h1>Стоимость запуска ЭДО на ELMA365 — фиксированная цена</h1>
+      <p class="lead">Никаких почасовых ставок. Знаете цену до старта — платите ровно столько, сколько договорились.</p>
+      <div class="btn-row">
+        <a class="btn" href="/contacts/">Получить расчёт</a>
+        <a class="btn btn-ghost" href="/products/express/">Что входит в продукт</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Из чего складывается цена</h2>
+      <div class="grid grid-3" style="margin-top:24px">
+        <div class="card">
+          <h3>Контуры</h3>
+          <p>Выбираете нужные контуры: договоры, ОРД, корреспонденция. Цена зависит от набора.</p>
+        </div>
+        <div class="card">
+          <h3>Количество пользователей</h3>
+          <p>Фиксированная цена рассчитывается под ваш масштаб — от небольшой команды до холдинга.</p>
+        </div>
+        <div class="card">
+          <h3>Опции</h3>
+          <p>Интеграции, кастомные маршруты, дополнительное обучение — по запросу.</p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:40px;text-align:center;padding:48px 24px">
+        <div class="eyebrow">Стоимость</div>
+        <div style="font-size:clamp(36px,5vw,56px);font-weight:700;margin:12px 0">от <span style="color:var(--accent)">N ₽</span></div>
+        <p style="color:var(--muted);font-size:14px;margin:4px 0 0">Точная цена уточняется — запросите расчёт</p>
+        <p class="lead" style="margin:0 auto">Точная цена — после короткого звонка. Обычно занимает 20 минут.</p>
+        <div class="btn-row" style="justify-content:center;margin-top:28px">
+          <a class="btn" href="/contacts/">Получить расчёт</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <h2>Что включено в любой пакет</h2>
+      <div class="grid grid-2" style="margin-top:24px">
+        <div class="card"><h3>Настройка и запуск</h3><p>Разворачиваем выбранные контуры на вашей ELMA365, настраиваем маршруты под ваши процессы.</p></div>
+        <div class="card"><h3>Обучение пользователей</h3><p>Обучаем ключевых сотрудников, записываем видеоинструкции под вашу конфигурацию.</p></div>
+        <div class="card"><h3>Поддержка на старте</h3><p>Н недель сопровождения после запуска — отвечаем на вопросы, помогаем с первыми процессами.</p></div>
+        <div class="card"><h3>Фиксированные сроки</h3><p>Запуск за Н недель с момента старта. Поэтапно — первые пользователи работают раньше финальной сдачи.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Часто задаваемые вопросы</h2>
+      <div style="margin-top:24px;display:flex;flex-direction:column;gap:16px">
+        {faq.map(([q, a]) => (
+          <div class="card">
+            <h3 style="margin-bottom:8px">{q}</h3>
+            <p style="margin:0;color:var(--muted)">{a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="hero">
+    <div class="container center">
+      <h2 style="color:#fff">Узнайте цену под вашу задачу</h2>
+      <p style="color:var(--dark-muted);margin-bottom:0">Расчёт — бесплатно. Звонок займёт 20 минут.</p>
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn" href="/contacts/">Получить расчёт</a>
+      </div>
+    </div>
+  </section>
+</Base>

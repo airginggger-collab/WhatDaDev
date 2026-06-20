@@ -3,8 +3,18 @@ import Base from "../../../layouts/Base.astro";
 import Breadcrumbs from "../../../components/Breadcrumbs.astro";
 const title = "Коробочный ЭДО или облачный: что выбрать | WhatDaDev";
 const description = "Коробочный ЭДО для внутреннего согласования vs облачные операторы для обмена с контрагентами. В чём разница.";
+const article = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Коробочный ЭДО или облачный: что выбрать для внутреннего документооборота",
+  description,
+  author: { "@type": "Organization", name: "WhatDaDev", url: "https://whatdadev.ru" },
+  publisher: { "@type": "Organization", name: "WhatDaDev", url: "https://whatdadev.ru" },
+  url: "https://whatdadev.ru/press/articles/korobochnyy-edo-vs-oblachnyy/",
+  inLanguage: "ru",
+};
 ---
-<Base title={title} description={description}>
+<Base title={title} description={description} jsonld={[article]}>
   <section class="hero">
     <div class="container">
       <Breadcrumbs items={[{ name: "Главная", href: "/" }, { name: "Коробочный или облачный ЭДО" }]} />

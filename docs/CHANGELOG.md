@@ -2,6 +2,16 @@
 
 Все значимые изменения спеки проекта. Формат: семантические версии.
 
+## [v0.38] — 2026-06-20 — JSON-LD схемы + pricing-страница (33 стр.)
+### Added
+- `src/pages/products/express/pricing.astro` — страница стоимости: FAQPage + Offer JSON-LD, CTA «Получить расчёт», заглушки цены/сроков для Фазы 0. Коммерческий фактор Яндекса.
+### Changed
+- JSON-LD `Article` на обе статьи пресс-центра (`elma365-vs-bitrix24`, `korobochnyy-edo-vs-oblachnyy`).
+- JSON-LD `AboutPage` на `/company/about/`.
+- JSON-LD `CollectionPage` на `/press/`.
+- JSON-LD `ItemList` на `/products/modules/`.
+- Итого страниц: **33** (было 32).
+
 ## [v0.37] — 2026-06-20 — P2 доки: ARCHITECTURE, 20-domain-binding
 ### Added
 - `docs/ARCHITECTURE.md` — единая архитектурная карта: структура `src/`, таблица всех 32 URL, CSS-токены, конфиги (`astro.config.mjs`, `wrangler.jsonc`), поток данных.

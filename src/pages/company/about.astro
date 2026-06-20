@@ -3,8 +3,16 @@ import Base from "../../layouts/Base.astro";
 import { team } from "../../data/team.js";
 const title = "О компании WhatDaDev — эксперты ELMA365 | РФ и КЗ";
 const description = "WhatDaDev — внедрение ELMA365 и собственные продукты. 4+ года, сертифицированные эксперты, 12 внедрений. Работаем в РФ и Казахстане.";
+const aboutPage = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  name: "О компании WhatDaDev",
+  description,
+  url: "https://whatdadev.ru/company/about/",
+  inLanguage: "ru",
+};
 ---
-<Base title={title} description={description}>
+<Base title={title} description={description} jsonld={[aboutPage]}>
   <section class="hero">
     <div class="container">
       <h1>О WhatDaDev — сертифицированные эксперты ELMA365</h1>
