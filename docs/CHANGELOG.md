@@ -2,6 +2,23 @@
 
 Все значимые изменения спеки проекта. Формат: семантические версии.
 
+## [v0.34] — 2026-06-20 — исправление устаревших слагов /coordo в доках
+### Fixed
+- `docs/03-content-model.md`: коллекция `coordo_modules` → `express_modules`, ссылка `/coordo/*` → `/products/express/*`.
+- `docs/05-seo/README.md`: все вхождения `/coordo` и `/coordo/*` → `/products/express`, `/products/express/vs-razrabotka`, `/products/express/pricing`, `/products/express/*`.
+- `docs/08-decisions/0001-two-funnels-5050.md`: pillar-URL `/coordo` → `/products/express`, добавлена заметка об изменении при ADR-0007.
+- `docs/HANDOFF.md`: добавлено правило «каждое изменение обновлять в CHANGELOG + HANDOFF», список Phase-0 страниц вынесен явно.
+
+## [v0.33] — 2026-06-20 — чистка репо + ревизия документации
+### Changed
+- Из git-трекинга убраны ~24MB случайных бинарников в корне репо (`git rm --cached`), перенесены на диск в gitignored-папку `_local-assets/`. `.gitignore` теперь блокирует бинарники в корне (`/*.png /*.jpg /*.jpeg /*.pdf /*.mov /*.svg`) и `_local-assets/`.
+- `README.md` (корень) и `CLAUDE.md` переписаны под текущую реальность: точные версии из `package.json`, команды, деплой Cloudflare Workers Static Assets, правило «без бинарников в корне».
+- `07-infra.md` приведён к факту: стек = Astro 5 + ванильный CSS (Tailwind НЕ используется), хостинг = Cloudflare Workers Static Assets (не «Cloudflare Pages»), статус 🟢.
+- `10-budget.md`: строка хостинга уточнена (Workers Static Assets free tier).
+- `HANDOFF.md` обновлён до 2026-06-20 (v0.33): чистка бинарников, бэклог по git-истории, корректный счёт страниц (32 вкл. 404).
+### Backlog
+- 🟡 ~24MB старых бинарников остаются в git-ИСТОРИИ; полная очистка `.git` — `git filter-repo` + force-push (отдельная задача).
+
 ## [v0.32] — 2026-06-19 — инструкция по правке + HANDOFF
 ### Added
 - `editing-guide.md` — пошаговая инструкция для новичка: как править сайт руками (через GitHub-сайт или локально), карта файлов, частые задачи, откат, что нельзя трогать.

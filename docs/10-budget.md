@@ -9,7 +9,7 @@
 ## Старт — бесплатно (~0₽/мес)
 | Что | Решение | Цена |
 |---|---|---|
-| Хостинг (SSG) | Cloudflare Pages / Netlify free | 0₽ |
+| Хостинг (SSG) | Cloudflare Workers Static Assets (free tier) | 0₽ |
 | Домен whatdadev.ru | уже есть | ~200–500₽/год |
 | SSL | Let's Encrypt / CF | 0₽ |
 | Аналитика | Я.Метрика + Вебмастер + GA/GSC | 0₽ |

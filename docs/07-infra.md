@@ -1,12 +1,13 @@
 # 07 — Инфраструктура и стек
 
-Статус: 🟡 черновик · версия v0.1
+Статус: 🟢 актуально (прототип live) · версия v0.2
 
-## Стек (кандидаты, ADR-0004)
-- **Фронт/рендер:** Astro (контент/маркетинг, лучший SEO/перф) **или** Next.js (если нужен интерактив/калькуляторы). SSR/SSG обязателен — отдаём готовый HTML.
-- **CMS:** 🔴 отложено (Directus / PayloadCMS self-hosted — кандидаты, ADR-0006).
-- **Стили:** Tailwind + токены (`04-design/tokens.json`).
-- **Анимации:** отложенная загрузка, не ломать Core Web Vitals.
+## Стек (зафиксировано, ADR-0004)
+- **Фронт/рендер:** **Astro 5** (SSG) — отдаём готовый HTML, лучший SEO/перф. Выбран из кандидатов Astro / Next.js; интерактив (анимации, форма-демо) делается на лёгком клиентском JS без фреймворка.
+- **Sitemap:** `@astrojs/sitemap` (генерирует `sitemap.xml`).
+- **CMS:** 🔴 отложено (Directus / PayloadCMS self-hosted — кандидаты, ADR-0006). Пока контент в `.astro`-страницах и `src/data/*.js`.
+- **Стили:** обычный CSS с CSS-переменными в `src/styles/global.css`. Источник токенов — `04-design/tokens.json`. **Tailwind НЕ используется** (отказались в пользу лёгкого ванильного CSS).
+- **Анимации:** отложенная загрузка / reveal-on-scroll, reduced-motion-safe, не ломать Core Web Vitals.
 
 ## Домены и локали
 - `whatdadev.ru` — RU, основной (РФ).
@@ -15,8 +16,8 @@
 - hreflang между локалями.
 
 ## Хостинг
-- Требование: данные/CMS — РФ/КЗ (резидентность). Хостинг под РФ-аудиторию + Яндекс (скорость из РФ).
-- Решить: VPS/облако РФ vs текущий хостинг. 🔴
+- **Текущий (прототип):** Cloudflare Workers Static Assets (`wrangler.jsonc`, `assets.directory = ./dist`, `not_found_handling = 404-page`). Авто-деплой при пуше в `main`. Живой сайт: https://whatdadev.airg-inggger.workers.dev/
+- 🔴 Открытый вопрос для прода: требование резидентности данных/CMS РФ/КЗ (ФЗ-152) и скорость из РФ/под Яндекс — возможно, понадобится РФ-хостинг/CDN или гибрид. Cloudflare-вариант — это прототип/витрина, не финальное решение по резидентности.
 
 ## CI/CD
 - Git → автодеплой (превью на PR, прод на main).
@@ -33,14 +34,17 @@
 ## Безопасность/право
 - Согласие на обработку ПД (ФЗ-152 РФ), политика конфиденциальности, cookie-уведомление.
 
-## Прототип (v0.17)
-- Стек прототипа: **Astro 5** (SSG), без CMS пока (контент в .astro). Стили — CSS-переменные из `tokens.json`.
-- Страницы: `/`, `/products/express/`, `/services/`, `/contacts/`. Сборка: `npm run build` → `dist/` (статика, ~40KB).
-- **Cloudflare Pages** (подключение через дашборд → Connect to Git):
+## Прототип → текущий сайт
+- Стек: **Astro 5** (SSG), без CMS (контент в `.astro` и `src/data/*.js`). Стили — CSS-переменные из `tokens.json` в `src/styles/global.css`.
+- Сейчас собирается **32 страницы** (вкл. 404) — полная карта в `02-sitemap-ia.md`. Сборка: `npm run build` → `dist/` (статика).
+- **Деплой — Cloudflare Workers Static Assets** через `wrangler.jsonc` (`assets.directory = ./dist`, `not_found_handling = 404-page`). Авто-деплой при пуше в `main`.
   - Repository: `airginggger-collab/WhatDaDev`
-  - Framework preset: **Astro**
   - Build command: `npm run build`
   - Build output directory: `dist`
-  - Env: `NODE_VERSION = 20` (или 22)
-- Деплой: Cloudflare (Workers Static Assets) через `wrangler.jsonc` (assets → `dist`, без SSR-воркера/адаптера). Авто-деплой при пуше в `main`.
-- Важно: НЕ добавлять cloudflare-адаптер Astro (`astro add cloudflare`) — сайт статический, адаптер ломает деплой (ошибка `public/.assetsignore`). Конфиг деплоя — наш `wrangler.jsonc`.
+  - Env: `NODE_VERSION = 20`
+- ⚠️ Важно: НЕ добавлять cloudflare-адаптер Astro (`astro add cloudflare`) — сайт статический, адаптер ломает деплой (ошибка `public/.assetsignore`). Конфиг деплоя — наш `wrangler.jsonc`. (Раньше в плане фигурировал «Cloudflare Pages» — по факту используется Workers Static Assets.)
+
+## Гигиена репозитория (2026-06-20)
+- В корне репо НЕ держим бинарники. `.gitignore` блокирует `/*.png /*.jpg /*.jpeg /*.pdf /*.mov /*.svg` и папку `_local-assets/`.
+- Курируемые ассеты → `references/` или `deliverables/`. Локальный мусор/черновики/скриншоты → `_local-assets/` (на диске, не в git).
+- 🟡 Бэклог: ~24MB старых бинарников остаются в git-ИСТОРИИ. Полная очистка `.git` — `git filter-repo` + force-push (отдельная задача).
