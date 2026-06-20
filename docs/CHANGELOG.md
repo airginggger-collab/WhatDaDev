@@ -2,6 +2,12 @@
 
 Все значимые изменения спеки проекта. Формат: семантические версии.
 
+## [v0.35] — 2026-06-20 — правила агента + бэклог доков в CLAUDE.md
+### Changed
+- `CLAUDE.md`: добавлена шапка «Правила для агента» (русский язык, факты из кода, не коммитить без команды, синхронное обновление доков).
+- `CLAUDE.md`: добавлен раздел «Бэклог доков» — план файлов P1 (dev-guide, seo/IMPLEMENTATION, 19-cms-migration) и P2 (ARCHITECTURE, 20-domain-binding).
+- `docs/HANDOFF.md`: версия обновлена до v0.35.
+
 ## [v0.34] — 2026-06-20 — исправление устаревших слагов /coordo в доках
 ### Fixed
 - `docs/03-content-model.md`: коллекция `coordo_modules` → `express_modules`, ссылка `/coordo/*` → `/products/express/*`.
