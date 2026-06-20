@@ -7,3 +7,14 @@ dist/
 .vercel/
 .astro/
 .next/
+
+# local scratch assets (kept on disk, never committed)
+_local-assets/
+
+# stray binaries dumped at repo root (curated assets live in references/ & deliverables/)
+/*.png
+/*.jpg
+/*.jpeg
+/*.pdf
+/*.mov
+/*.svg
