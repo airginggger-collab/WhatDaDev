@@ -29,7 +29,7 @@ const description = "WhatDaDev — внедрение ELMA365 и собстве�
       <div class="team">
         {team.map((m) => (
           <div class="member reveal">
-            <div class="avatar">{m.initials}</div>
+            {m.photo ? <img class="avatar-photo" src={m.photo} alt={m.name} width="64" height="64" loading="lazy" /> : <div class="avatar">{m.initials}</div>}
             <h3>{m.name}</h3>
             <span class="role">{m.role}</span>
             <p>{m.bio}</p>

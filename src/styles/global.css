@@ -99,6 +99,7 @@ a.card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(15,23,42,.10
 .team{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:28px}
 .member{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
 .avatar{width:64px;height:64px;border-radius:50%;background:var(--accent-50);color:var(--accent-600);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:20px;margin-bottom:14px}
+.avatar-photo{width:64px;height:64px;border-radius:50%;object-fit:cover;margin-bottom:14px;display:block}
 .member h3{margin:0 0 8px;font-size:18px}
 .member .role{display:inline-block;background:var(--surface-alt);border-radius:9999px;padding:4px 12px;font-size:13px;color:var(--muted);margin-bottom:12px}
 .member p{margin:0;color:var(--muted);font-size:14px}
