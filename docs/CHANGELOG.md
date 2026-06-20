@@ -2,6 +2,12 @@
 
 Все значимые изменения спеки проекта. Формат: семантические версии.
 
+## [v0.37] — 2026-06-20 — P2 доки: ARCHITECTURE, 20-domain-binding
+### Added
+- `docs/ARCHITECTURE.md` — единая архитектурная карта: структура `src/`, таблица всех 32 URL, CSS-токены, конфиги (`astro.config.mjs`, `wrangler.jsonc`), поток данных.
+- `docs/20-domain-binding.md` — план привязки домена `whatdadev.ru`: шаги (Cloudflare custom domain, NS, 301-редиректы, Вебмастер), блокеры, SEO-риски.
+- `docs/HANDOFF.md` и `docs/README.md`: версия обновлена до v0.37.
+
 ## [v0.36] — 2026-06-20 — P1 доки: dev-guide, seo/IMPLEMENTATION, 19-cms-migration
 ### Added
 - `docs/dev-guide.md` — гайд разработчика: структура `src/`, команды, динамические роуты, CSS/git-конвенции. Факты из реального кода.

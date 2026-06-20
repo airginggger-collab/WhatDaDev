@@ -16,9 +16,9 @@
 - `docs/05-seo/IMPLEMENTATION.md` — SEO чеклист реализации (что уже сделано, что нет)
 - `docs/19-cms-migration.md` — план миграции на CMS (бэклог, ADR-0006)
 
-**P2:**
-- `docs/ARCHITECTURE.md` — единая архитектурная карта проекта (src/, data/, layouts, компоненты)
-- `docs/20-domain-binding.md` — план привязки домена whatdadev.ru → Cloudflare
+**P2 — выполнено:**
+- ✅ `docs/ARCHITECTURE.md` — единая архитектурная карта проекта
+- ✅ `docs/20-domain-binding.md` — план привязки домена whatdadev.ru
 
 ## TL;DR
 
