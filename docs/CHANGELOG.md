@@ -2,6 +2,11 @@
 
 Все значимые изменения спеки проекта. Формат: семантические версии.
 
+## [v0.40] — 2026-06-20 — composite typography токены для Figma Text Styles
+### Added
+- `tokens/typography.json` — 9 composite typography токенов (display, h1–h4, body, bodyMedium, small, caption, label). Ссылаются на `global` через `{typography.*}`. Синхронизируются в Figma как Text Styles через Tokens Studio.
+- `tokens/$metadata.json` обновлён: порядок `["global", "typography"]`.
+
 ## [v0.39] — 2026-06-20 — Tokens Studio DTCG-формат
 ### Added
 - `tokens/global.json` — все токены в DTCG-формате (color, typography, borderRadius, spacing, boxShadow, motion). Совместимо с Tokens Studio GitHub sync.
