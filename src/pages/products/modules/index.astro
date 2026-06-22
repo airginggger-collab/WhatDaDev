@@ -1,5 +1,6 @@
 ---
 import Base from "../../../layouts/Base.astro";
+import Breadcrumbs from "../../../components/Breadcrumbs.astro";
 const title = "Модули и решения для ELMA365 | WhatDaDev";
 const description = "Готовые модули для ELMA365: замещения, аудит СМК, экспорт объектной модели, связанные процессы, управление файлами.";
 const itemList = {
@@ -21,6 +22,7 @@ const modules = [
 <Base title={title} description={description} jsonld={[itemList]}>
   <section class="hero">
     <div class="container">
+      <Breadcrumbs items={[{ name: "Главная", href: "/" }, { name: "Продукты" }]} />
       <h1>Готовые модули и решения для ELMA365</h1>
       <p class="lead">Отдельные модули, которые усиливают вашу ELMA365 — подключаются быстро, без разработки с нуля.</p>
       <div class="btn-row"><a class="btn" href="/contacts/">Записаться на демо</a></div>

@@ -1,5 +1,6 @@
 ---
 import Base from "../../../layouts/Base.astro";
+import Breadcrumbs from "../../../components/Breadcrumbs.astro";
 import { directions } from "../../../data/directions.js";
 const title = "Внедрение ELMA365 под ключ — быстро и надёжно | WhatDaDev";
 const description = "Внедряем ELMA365 под ключ: CRM, ЭДО, ServiceDesk, закупки, проекты, КЭДО. Аналитика, настройка, поддержка. 12 внедрений.";
@@ -9,6 +10,7 @@ const jsonld = [{ "@context": "https://schema.org", "@type": "Service", name: "�
 <Base title={title} description={description} jsonld={jsonld}>
   <section class="hero">
     <div class="container">
+      <Breadcrumbs items={[{ name: "Главная", href: "/" }, { name: "Услуги", href: "/services/" }, { name: "Внедрение" }]} />
       <h1>Внедрение ELMA365 под ключ</h1>
       <p class="lead">От анализа процессов до запуска и поддержки. Настраиваем ELMA365 под ваши задачи — CRM, документооборот, сервис, закупки, проекты, КЭДО.</p>
       <div class="btn-row"><a class="btn" href="/contacts/">Обсудить проект</a></div>

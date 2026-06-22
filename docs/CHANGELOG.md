@@ -2,6 +2,16 @@
 
 Все значимые изменения спеки проекта. Формат: семантические версии.
 
+## [v0.47] — 2026-06-22 — Breadcrumbs: добавлены на все 10 страниц без крошек
+### Added
+- Хлебные крошки (`<Breadcrumbs>`) добавлены на 10 страниц, которые их не имели:
+  `contacts`, `elma365`, `company/about`, `industries/index`, `press/index`,
+  `products/express`, `products/modules/index`, `services/index`,
+  `services/razrabotka`, `services/vnedrenie/index`.
+- Каждая страница получила корректный путь: Главная → раздел → страница (где применимо).
+- JSON-LD `BreadcrumbList` генерируется автоматически компонентом `Breadcrumbs.astro`.
+- Теперь все 31 контентная страница (кроме 404 и главной) имеют хлебные крошки.
+
 ## [v0.46] — 2026-06-22 — Dashboard card: IntersectionObserver + countUp + bar grow
 ### Changed
 - `src/pages/index.astro`: карточка «Аналитика» — анимации теперь триггерятся при входе в viewport (IntersectionObserver, threshold 0.3), не при загрузке страницы.

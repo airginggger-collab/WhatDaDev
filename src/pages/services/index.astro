@@ -1,5 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
 const title = "Услуги по ELMA365: внедрение, разработка, поддержка | WhatDaDev";
 const description = "Полный цикл работы с ELMA365: внедрение под ключ, разработка и интеграции, аутстаффинг, аудит, консалтинг, обучение. РФ и КЗ.";
 const services = [
@@ -15,6 +16,7 @@ const services = [
 <Base title={title} description={description}>
   <section class="hero">
     <div class="container">
+      <Breadcrumbs items={[{ name: "Главная", href: "/" }, { name: "Услуги" }]} />
       <h1>Услуги по ELMA365: от внедрения до поддержки</h1>
       <p class="lead">Внедряем, дорабатываем, обучаем и сопровождаем ELMA365. Под РФ и КЗ.</p>
       <div class="btn-row"><a class="btn" href="/contacts/">Обсудить проект</a></div>

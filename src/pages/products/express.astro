@@ -1,5 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
 const title = "Экспресс‑внедрение ЭДО на ELMA365 из коробки | WhatDaDev";
 const description = "Готовый электронный документооборот на ELMA365: договоры, ОРД, корреспонденция. Запуск без долгой разработки. Разово, без подписки.";
 const faq = [
@@ -24,6 +25,7 @@ const jsonld = [
   <section class="hero">
     <div class="container hero-split">
       <div>
+        <Breadcrumbs items={[{ name: "Главная", href: "/" }, { name: "Продукты", href: "/products/modules/" }, { name: "Экспресс внедрение" }]} />
         <div class="eyebrow" style="color:#a5b4fc">Продукт · Экспресс внедрение (Coordo)</div>
         <h1>Экспресс‑внедрение ЭДО на ELMA365 — из коробки, без месяцев разработки</h1>
         <p class="lead">Готовые контуры согласования договоров, ОРД и корреспонденции на ELMA365. Запуск за недели. Один раз — без подписки и доплат за пользователей.</p>

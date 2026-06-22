@@ -1,11 +1,13 @@
 ---
 import Base from "../layouts/Base.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
 const title = "Контакты WhatDaDev — внедрение ELMA365 | РФ и КЗ";
 const description = "Свяжитесь с WhatDaDev: Telegram, WhatsApp, email. Записаться на демо или обсудить внедрение ELMA365.";
 ---
 <Base title={title} description={description}>
   <section class="hero">
     <div class="container">
+      <Breadcrumbs items={[{ name: "Главная", href: "/" }, { name: "Контакты" }]} />
       <h1>Контакты</h1>
       <p class="lead">Запишитесь на демо или обсудите внедрение ELMA365. Ответим в Telegram, WhatsApp или на почту.</p>
     </div>

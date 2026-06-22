@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
 const title = "ELMA365: что это, возможности, наша экспертиза | WhatDaDev";
 const description = "Что такое ELMA365: BPM, CRM, КЭДО, документооборот на одной low-code платформе. Наша экспертиза и опыт внедрений.";
 const mods = ["BPM — управление процессами", "Документооборот (ECM/CSP)", "CRM — продажи и клиенты", "Service Desk — заявки и SLA", "КЭДО — кадровый ЭДО", "Проекты, закупки, маркетинг"];
@@ -7,6 +8,7 @@ const mods = ["BPM — управление процессами", "Докуме
 <Base title={title} description={description}>
   <section class="hero">
     <div class="container">
+      <Breadcrumbs items={[{ name: "Главная", href: "/" }, { name: "ELMA365" }]} />
       <h1>ELMA365 — low-code платформа автоматизации бизнеса</h1>
       <p class="lead">Российская платформа, где процессы и документооборот собираются как из конструктора — и меняются без программистов.</p>
       <div class="btn-row"><a class="btn" href="/contacts/">Записаться на демо</a><a class="btn btn-ghost" href="/services/vnedrenie/">Внедрение</a></div>

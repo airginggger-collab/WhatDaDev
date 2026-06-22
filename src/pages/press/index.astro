@@ -1,5 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
 const title = "Пресс-центр WhatDaDev — статьи об ELMA365 и ЭДО | WhatDaDev";
 const description = "Статьи, сравнения и обзоры об ELMA365, документообороте и автоматизации процессов.";
 const collectionPage = {
@@ -22,6 +23,7 @@ const articles = [
 <Base title={title} description={description} jsonld={[collectionPage]}>
   <section class="hero">
     <div class="container">
+      <Breadcrumbs items={[{ name: "Главная", href: "/" }, { name: "Пресс-центр" }]} />
       <h1>Пресс-центр</h1>
       <p class="lead">Статьи, сравнения и обзоры об ELMA365, документообороте и автоматизации процессов.</p>
     </div>
