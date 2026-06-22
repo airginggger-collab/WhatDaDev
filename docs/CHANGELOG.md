@@ -2,6 +2,14 @@
 
 Все значимые изменения спеки проекта. Формат: семантические версии.
 
+## [v0.41] — 2026-06-20 — UX-паттерны: навигация 5 пунктов, hero два страха, trust-форма
+### Changed
+- `src/layouts/Base.astro`: ELMA365 убрана из главного меню (остаётся в футере и на `/elma365/`). Теперь 5 пунктов + CTA — соответствует правилу «не больше 5».
+- `src/pages/index.astro`: hero усилен — добавлен eyebrow «Внедрение ELMA365 · РФ и КЗ», lead-текст закрывает два B2B-страха (что это + dogfooding = почему доверять), добавлен proof-пункт «dogfooding — сами на ELMA365».
+- `src/pages/contacts.astro`: под кнопкой формы добавлена trust-строка «Ответим в течение рабочего дня. Без спама».
+### Added
+- `docs/08-decisions/0012-ux-patterns.md` — ADR-0012: UX-паттерны адаптированы для B2B-сайта (навигация, hero, формы, глубина до действия).
+
 ## [v0.40] — 2026-06-20 — composite typography токены для Figma Text Styles
 ### Added
 - `tokens/typography.json` — 9 composite typography токенов (display, h1–h4, body, bodyMedium, small, caption, label). Ссылаются на `global` через `{typography.*}`. Синхронизируются в Figma как Text Styles через Tokens Studio.
