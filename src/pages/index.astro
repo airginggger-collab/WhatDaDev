@@ -4,33 +4,97 @@ import Base from "../layouts/Base.astro";
 <Base>
   <section class="hero">
     <div class="container">
-      <div class="eyebrow" style="color:#a5b4fc">Внедрение ELMA365 · РФ и КЗ</div>
-      <h1>Автоматизация процессов на ELMA365: внедрение под ключ и готовый ЭДО из коробки</h1>
-      <p class="lead">Настраиваем ELMA365 под ваши задачи или запускаем готовые продукты за фиксированную цену. Сами работаем на ELMA365 — внедряем по живому опыту, не по учебнику.</p>
-      <div class="btn-row">
-        <a class="btn" href="/contacts/">Записаться на демо</a>
-        <a class="btn btn-ghost" href="/services/">Обсудить внедрение</a>
-      </div>
-      <div class="proof">
-        <span><b>12</b> внедрений</span>
-        <span><b>4+</b> года на ELMA365</span>
-        <span>сертифицированные эксперты</span>
-        <span>РФ и КЗ</span>
-        <span>dogfooding — сами на ELMA365</span>
+      <div class="hero-split">
+        <!-- левая колонка: текст + CTA -->
+        <div>
+          <div class="eyebrow" style="color:#a5b4fc">Внедрение ELMA365 · РФ и КЗ</div>
+          <h1>Автоматизация процессов на ELMA365: внедрение под ключ и готовый ЭДО из коробки</h1>
+          <p class="lead">Настраиваем ELMA365 под ваши задачи или запускаем готовые продукты за фиксированную цену. Сами работаем на ELMA365 — внедряем по живому опыту, не по учебнику.</p>
+          <div class="btn-row">
+            <a class="btn" href="/contacts/">Записаться на демо</a>
+            <a class="btn btn-ghost" href="/services/">Обсудить внедрение</a>
+          </div>
+          <div class="proof">
+            <span><b>12</b> внедрений</span>
+            <span><b>4+</b> года на ELMA365</span>
+            <span>сертифицированные эксперты</span>
+            <span>РФ и КЗ</span>
+          </div>
+        </div>
+        <!-- правая колонка: looping video card -->
+        <div class="video-card" id="heroVideoCard">
+          <div class="video-card-chrome">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="url">elma365 · согласование договора</span>
+          </div>
+          <!-- Замените src на реальный файл /video/demo.mp4 -->
+          <video id="heroVideo" autoplay muted loop playsinline poster="">
+            <source src="/video/demo.mp4" type="video/mp4" />
+          </video>
+          <!-- Плейсхолдер показывается пока нет видеофайла -->
+          <div class="video-placeholder" id="videoPlaceholder">
+            <div class="vp-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <p>Демо-видео появится здесь<br/><span style="color:#475569">Загрузите /public/video/demo.mp4</span></p>
+          </div>
+          <button class="video-play-btn" id="videoPlayBtn" aria-label="Пауза">
+            <!-- pause icon -->
+            <svg id="iconPause" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+            <!-- play icon, hidden by default -->
+            <svg id="iconPlay" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display:none"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+        </div>
       </div>
     </div>
   </section>
 
+  <script>
+    const video = document.getElementById('heroVideo') as HTMLVideoElement | null;
+    const btn = document.getElementById('videoPlayBtn');
+    const iconPause = document.getElementById('iconPause');
+    const iconPlay = document.getElementById('iconPlay');
+    const placeholder = document.getElementById('videoPlaceholder');
+
+    if (video) {
+      // скрыть плейсхолдер если видео загрузилось
+      video.addEventListener('loadeddata', () => {
+        if (placeholder) placeholder.style.display = 'none';
+      });
+      video.addEventListener('error', () => {
+        video.style.display = 'none';
+      });
+    }
+
+    if (btn && video && iconPause && iconPlay) {
+      btn.addEventListener('click', () => {
+        if (video.paused) {
+          video.play();
+          iconPause.style.display = '';
+          iconPlay.style.display = 'none';
+          btn.setAttribute('aria-label', 'Пауза');
+        } else {
+          video.pause();
+          iconPause.style.display = 'none';
+          iconPlay.style.display = '';
+          btn.setAttribute('aria-label', 'Воспроизвести');
+        }
+      });
+    }
+  </script>
+
   <section class="section">
     <div class="container">
-      <div class="center"><h2>С чего начнём?</h2></div>
+      <div class="center reveal"><h2>С чего начнём?</h2></div>
       <div class="grid grid-2" style="margin-top:32px">
-        <a class="card" href="/products/express/">
+        <a class="card reveal" href="/products/express/">
           <span class="tag">Продукты</span>
           <h3 style="margin-top:14px">Экспресс внедрение (Coordo)</h3>
           <p>Готовый ЭДО из коробки: согласование договоров, ОРД, корреспонденции и модули на ELMA365.</p>
         </a>
-        <a class="card" href="/services/">
+        <a class="card reveal" href="/services/">
           <span class="tag">Услуги</span>
           <h3 style="margin-top:14px">Внедрение под ключ</h3>
           <p>CRM, ЭДО, ServiceDesk, закупки, проекты, КЭДО — настраиваем ELMA365 под ваши процессы.</p>
@@ -41,16 +105,16 @@ import Base from "../layouts/Base.astro";
 
   <section class="section alt">
     <div class="container">
-      <div class="eyebrow">Почему мы</div>
-      <h2>Не подрядчик «со стороны» — мы сами живём в ELMA365</h2>
+      <div class="eyebrow reveal">Почему мы</div>
+      <h2 class="reveal">Не подрядчик «со стороны» — мы сами живём в ELMA365</h2>
       <p class="lead">Свой документооборот, задачи и процессы мы ведём на ELMA365 и собственных продуктах. Поэтому внедряем не по учебнику, а по опыту ежедневной работы.</p>
     </div>
   </section>
 
   <section class="section" id="cases">
     <div class="container">
-      <div class="eyebrow">Результат</div>
-      <h2>Цифры, а не слайды</h2>
+      <div class="eyebrow reveal">Результат</div>
+      <h2 class="reveal">Цифры, а не слайды</h2>
       <div class="grid grid-3" style="margin-top:28px">
         <div class="card"><div class="price">9 → 2</div><p>дня на согласование договора (производственный холдинг)</p></div>
         <div class="card" data-p="40">
@@ -67,8 +131,8 @@ import Base from "../layouts/Base.astro";
 
   <section class="section alt">
     <div class="container">
-      <div class="eyebrow">Отрасли</div>
-      <h2>Решения под вашу сферу</h2>
+      <div class="eyebrow reveal">Отрасли</div>
+      <h2 class="reveal">Решения под вашу сферу</h2>
       <div class="grid grid-3" style="margin-top:24px">
         <a class="card" href="/industries/proizvodstvo/"><h3>Производство</h3><p>Договоры, ОРД, регламенты и СМК между площадками.</p></a>
         <a class="card" href="/industries/ritejl/"><h3>Ритейл</h3><p>Договоры поставки и согласование распределённой сети.</p></a>

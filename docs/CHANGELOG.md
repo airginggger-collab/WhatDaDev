@@ -2,6 +2,27 @@
 
 Все значимые изменения спеки проекта. Формат: семантические версии.
 
+## [v0.43] — 2026-06-22 — Hero video card: looping demo в split-layout
+### Changed
+- `src/pages/index.astro`: hero перестроен в `hero-split` — текст слева, video-карточка справа.
+- Video-карточка: `<video autoplay muted loop playsinline>`, browser-chrome mockup сверху, кнопка пауза/воспроизведение снизу. Плейсхолдер отображается пока нет файла `/public/video/demo.mp4`.
+### Added
+- `src/styles/global.css`: компонент `.video-card` — тёмный фон, структурная сетка 32×32px (accent-tinted), accent-glow бордер, `.video-card-chrome`, `.video-play-btn`, `.video-placeholder`.
+### Notes
+- Для добавления реального демо: положить экранную запись в `/public/video/demo.mp4` (рекомендуется: H.264, ≤8 MB, 16:10, без звука). Плейсхолдер скроется автоматически при загрузке видео.
+
+## [v0.42] — 2026-06-22 — UI-тренды 2026: fluid type, structural grid, purposeful motion
+### Changed
+- `src/styles/global.css`: h3 и .lead переведены на `clamp()` (fluid typography тренд 5). h3: `clamp(18px,1.8vw,22px)`, .lead: `clamp(16px,1.5vw,19px)`.
+- `src/styles/global.css`: `.btn` — purposeful micro-interaction (тренд 2): плавный lift `translateY(-2px)` + тень `rgba(79,70,229,.32)` при hover, нейтрализуется через `prefers-reduced-motion`.
+- `src/styles/global.css`: `.hero::before` — тонкая структурная сетка 64×64px (тренд 3: raw/schematic aesthetic). Только hero-секции.
+- `src/styles/global.css`: `.proof` — переработан в горизонтальный бар с разделителями (структурный стиль вместо loose flex).
+- `src/pages/index.astro`: добавлены классы `.reveal` на заголовки и карточки всех секций — scroll-in анимация.
+### Notes
+- Тренд 1 (AI copilot) — не применим (нет AI-фич)
+- Тренд 6 (handcrafted authorship) — релевантен при добавлении About/команда страницы
+- Тренд 7 (function-first) — уже реализован: glassmorphism удалён ранее при де-glass редизайне
+
 ## [v0.41] — 2026-06-20 — UX-паттерны: навигация 5 пунктов, hero два страха, trust-форма
 ### Changed
 - `src/layouts/Base.astro`: ELMA365 убрана из главного меню (остаётся в футере и на `/elma365/`). Теперь 5 пунктов + CTA — соответствует правилу «не больше 5».
