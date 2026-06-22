@@ -85,6 +85,58 @@ import Base from "../layouts/Base.astro";
     }
   </script>
 
+  <script>
+  /* ─── Dashboard card animation ─── */
+  (function() {
+    const card = document.getElementById('dashCard');
+    if (!card) return;
+    let played = false;
+
+    function easeOutExpo(t: number) { return t === 1 ? 1 : 1 - Math.pow(2, -10 * t); }
+
+    function countUp(el: HTMLElement, from: number, to: number, duration: number, prefix: string, suffix: string, arrow: boolean) {
+      el.classList.add('counting');
+      const start = performance.now();
+      function frame(now: number) {
+        const p = Math.min((now - start) / duration, 1);
+        const val = Math.round(from + (to - from) * easeOutExpo(p));
+        el.textContent = arrow
+          ? (9 - Math.round(7 * easeOutExpo(p))) + '→2'
+          : prefix + val + suffix;
+        if (p < 1) requestAnimationFrame(frame);
+        else { el.textContent = arrow ? '9→2' : prefix + to + suffix; el.classList.remove('counting'); }
+      }
+      requestAnimationFrame(frame);
+    }
+
+    function playDash() {
+      if (played) return;
+      played = true;
+
+      card.querySelectorAll<HTMLElement>('.dkm-anim').forEach(el => el.classList.add('in'));
+
+      card.querySelectorAll<HTMLElement>('.mb-fill').forEach((fill, i) => {
+        const h = (fill as HTMLElement).dataset.h || '50';
+        setTimeout(() => { fill.style.height = h + '%'; }, 120 + i * 90);
+      });
+
+      card.querySelectorAll<HTMLElement>('.dkm-n[data-to]').forEach((el, i) => {
+        const from = parseInt(el.dataset.from || '0');
+        const to   = parseInt(el.dataset.to   || '0');
+        const pre  = el.dataset.prefix || '';
+        const suf  = el.dataset.suffix || '';
+        const arr  = el.dataset.arrow === 'true';
+        setTimeout(() => countUp(el, from, to, 900, pre, suf, arr), 250 + i * 130);
+      });
+    }
+
+    const io = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) { playDash(); io.disconnect(); }
+    }, { threshold: 0.3 });
+    io.observe(card);
+  })();
+  </script>
+
   <!-- ═══ Feature Bento ═══ -->
   <section class="section fb-section">
     <div class="container">
@@ -189,20 +241,29 @@ import Base from "../layouts/Base.astro";
         </div>
 
         <!-- Card 3 — Аналитика (wide) -->
-        <div class="fb-card fb-wide reveal">
+        <div class="fb-card fb-wide reveal" id="dashCard">
           <div class="fb-screen fb-screen-dash">
             <div class="dash-kpis-mini">
-              <div class="dkm"><span class="dkm-n">9→2</span><span class="dkm-l">дня на договор</span></div>
-              <div class="dkm"><span class="dkm-n">−40%</span><span class="dkm-l">время на ОРД</span></div>
-              <div class="dkm"><span class="dkm-n">100%</span><span class="dkm-l">писем учтено</span></div>
+              <div class="dkm dkm-anim" style="--di:0">
+                <span class="dkm-n" data-from="9" data-to="2" data-prefix="" data-suffix="" data-arrow="true">9→2</span>
+                <span class="dkm-l">дня на договор</span>
+              </div>
+              <div class="dkm dkm-anim" style="--di:1">
+                <span class="dkm-n" data-from="0" data-to="40" data-prefix="−" data-suffix="%">0%</span>
+                <span class="dkm-l">время на ОРД</span>
+              </div>
+              <div class="dkm dkm-anim" style="--di:2">
+                <span class="dkm-n" data-from="0" data-to="100" data-prefix="" data-suffix="%">0%</span>
+                <span class="dkm-l">писем учтено</span>
+              </div>
             </div>
-            <div class="mini-bars">
-              <div class="mb-bar"><div class="mb-fill" style="--mh:55%"></div><span>Янв</span></div>
-              <div class="mb-bar"><div class="mb-fill" style="--mh:70%"></div><span>Фев</span></div>
-              <div class="mb-bar"><div class="mb-fill" style="--mh:60%"></div><span>Мар</span></div>
-              <div class="mb-bar"><div class="mb-fill" style="--mh:85%"></div><span>Апр</span></div>
-              <div class="mb-bar"><div class="mb-fill" style="--mh:75%"></div><span>Май</span></div>
-              <div class="mb-bar mb-bar-accent"><div class="mb-fill" style="--mh:95%"></div><span>Июн</span></div>
+            <div class="mini-bars" id="dashBars">
+              <div class="mb-bar"><div class="mb-fill" data-h="55"></div><span>Янв</span></div>
+              <div class="mb-bar"><div class="mb-fill" data-h="70"></div><span>Фев</span></div>
+              <div class="mb-bar"><div class="mb-fill" data-h="60"></div><span>Мар</span></div>
+              <div class="mb-bar"><div class="mb-fill" data-h="85"></div><span>Апр</span></div>
+              <div class="mb-bar"><div class="mb-fill" data-h="75"></div><span>Май</span></div>
+              <div class="mb-bar mb-bar-accent"><div class="mb-fill" data-h="95"></div><span>Июн</span></div>
             </div>
             <div class="dash-caption">Эффективность согласований по месяцам</div>
           </div>
@@ -316,26 +377,25 @@ import Base from "../layouts/Base.astro";
   /* ─── Dashboard (Card 3) ─── */
   .fb-screen-dash{padding:22px 24px 16px;justify-content:flex-start;gap:16px}
   .dash-kpis-mini{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;position:relative;z-index:1}
-  .dkm{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:12px 14px}
-  .dkm-n{display:block;font-size:20px;font-weight:700;color:#e2e8f0}
+  .dkm{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:12px 14px;opacity:0;transform:translateY(10px)}
+  .dkm-anim.in{animation:kpiIn .45s cubic-bezier(0.16,1,0.3,1) forwards}
+  .dkm-anim{animation-delay:calc(var(--di,0) * 100ms)}
+  @keyframes kpiIn{to{opacity:1;transform:none}}
+  .dkm-n{display:block;font-size:20px;font-weight:700;color:#e2e8f0;transition:color .3s}
+  .dkm-n.counting{color:#a5b4fc}
   .dkm-l{font-size:11px;color:#64748b;margin-top:2px;display:block}
   .mini-bars{display:flex;align-items:flex-end;gap:10px;height:100px;position:relative;z-index:1}
   .mb-bar{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end}
-  .mb-fill{width:100%;background:rgba(79,70,229,.45);border-radius:4px 4px 0 0;height:var(--mh,20%);transform:scaleY(0);transform-origin:bottom;animation:barGrow .7s ease-out forwards}
-  .mb-bar:nth-child(1) .mb-fill{animation-delay:.1s}
-  .mb-bar:nth-child(2) .mb-fill{animation-delay:.2s}
-  .mb-bar:nth-child(3) .mb-fill{animation-delay:.3s}
-  .mb-bar:nth-child(4) .mb-fill{animation-delay:.4s}
-  .mb-bar:nth-child(5) .mb-fill{animation-delay:.5s}
-  .mb-bar:nth-child(6) .mb-fill{animation-delay:.6s}
+  .mb-fill{width:100%;background:rgba(79,70,229,.45);border-radius:4px 4px 0 0;height:0%;transform-origin:bottom;transition:height .6s cubic-bezier(0.16,1,0.3,1)}
   .mb-bar-accent .mb-fill{background:var(--accent) !important}
   .mb-bar span{font-size:10px;color:#475569}
-  @keyframes barGrow{to{transform:scaleY(1)}}
   .dash-caption{font-size:11px;color:#475569;position:relative;z-index:1}
 
   /* ─── reduced motion ─── */
   @media(prefers-reduced-motion:reduce){
-    .af-s2 .af-node,.af-s3 .af-node,.af-s4 .af-node,.af-s2 .af-check,.af-s3 .af-check,.af-s4 .af-check,.af-fill1,.af-fill2,.af-fill3,.af-doc-badge,.inbox-item,.ii-new,.mb-fill{animation:none;opacity:1;transform:none;width:100%}
+    .af-s2 .af-node,.af-s3 .af-node,.af-s4 .af-node,.af-s2 .af-check,.af-s3 .af-check,.af-s4 .af-check,.af-fill1,.af-fill2,.af-fill3,.af-doc-badge,.inbox-item,.ii-new{animation:none;opacity:1;transform:none;width:100%}
+    .dkm{opacity:1;transform:none;animation:none}
+    .mb-fill{transition:none;height:var(--mh-final,50%)}
   }
   </style>
 

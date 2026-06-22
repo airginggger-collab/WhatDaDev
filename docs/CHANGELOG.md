@@ -2,6 +2,14 @@
 
 Все значимые изменения спеки проекта. Формат: семантические версии.
 
+## [v0.46] — 2026-06-22 — Dashboard card: IntersectionObserver + countUp + bar grow
+### Changed
+- `src/pages/index.astro`: карточка «Аналитика» — анимации теперь триггерятся при входе в viewport (IntersectionObserver, threshold 0.3), не при загрузке страницы.
+- KPI-числа считаются от 0: «9→2» (обратный отсчёт), «−40%», «100%» — easeOutExpo, 900ms, stagger 130ms между тайлами.
+- KPI-тайлы появляются с `translateY(10px)→0` + `opacity 0→1`, stagger 100ms.
+- Бары растут через `height: 0→N%` + `transition cubic-bezier(0.16,1,0.3,1)`, stagger 90ms между столбцами.
+- `prefers-reduced-motion`: анимации отключены, состояние сразу финальное.
+
 ## [v0.45] — 2026-06-22 — Feature bento: три карточки с CSS-анимированными процессами
 ### Added
 - `src/pages/index.astro`: новая секция «Автоматизация» после hero — bento-grid из 3 карточек:
