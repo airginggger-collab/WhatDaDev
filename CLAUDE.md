@@ -79,6 +79,7 @@ npm run preview  # предпросмотр собранного dist/
   ```
 - Версии спеки — git-теги `v0.x` (см. CHANGELOG). Значимое изменение → запись в `docs/CHANGELOG.md`.
 - Деплой — Cloudflare Workers Static Assets, авто при пуше в `main`.
+- **После каждого коммита — `git push origin main`.** Commit без push = изменения не на проде.
 - ⚠️ **Не** добавлять Astro-адаптер Cloudflare (`astro add cloudflare`) — сайт статический, адаптер ломает деплой (ошибка `public/.assetsignore`).
 - 📌 Бэклог инфры: в git-ИСТОРИИ остаются ~24MB старых бинарников, удалённых из трекинга 2026-06-20. Полное уменьшение `.git` потребует переписывания истории (`git filter-repo` + force-push) — отдельная задача, делать осознанно.
 
