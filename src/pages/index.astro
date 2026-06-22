@@ -85,6 +85,260 @@ import Base from "../layouts/Base.astro";
     }
   </script>
 
+  <!-- ═══ Feature Bento ═══ -->
+  <section class="section fb-section">
+    <div class="container">
+      <div class="eyebrow reveal">Автоматизация</div>
+      <h2 class="reveal">Видите процесс — не хаос</h2>
+      <p class="lead reveal" style="margin-bottom:40px">Любой документ проходит маршрут, фиксируется и закрывается в срок. Без звонков и пересылок по почте.</p>
+
+      <div class="fb-grid">
+
+        <!-- Card 1 — Согласование договора -->
+        <div class="fb-card fb-wide reveal">
+          <div class="fb-screen">
+            <div class="approval-flow">
+              <div class="af-step af-s1">
+                <div class="af-node"><span>ИН</span></div>
+                <div class="af-label">Инициатор</div>
+                <div class="af-check">✓</div>
+              </div>
+              <div class="af-track"><div class="af-fill af-fill1"></div></div>
+              <div class="af-step af-s2">
+                <div class="af-node"><span>ЮР</span></div>
+                <div class="af-label">Юрист</div>
+                <div class="af-check">✓</div>
+              </div>
+              <div class="af-track"><div class="af-fill af-fill2"></div></div>
+              <div class="af-step af-s3">
+                <div class="af-node"><span>ФД</span></div>
+                <div class="af-label">Фин. директор</div>
+                <div class="af-check">✓</div>
+              </div>
+              <div class="af-track"><div class="af-fill af-fill3"></div></div>
+              <div class="af-step af-s4">
+                <div class="af-node af-final"><span>✍</span></div>
+                <div class="af-label">Подписан</div>
+                <div class="af-check af-final-check">✓</div>
+              </div>
+            </div>
+            <div class="af-doc">
+              <div class="af-doc-icon">📄</div>
+              <div class="af-doc-meta">
+                <div class="af-doc-title">Договор_Поставка_2025.pdf</div>
+                <div class="af-doc-sub">Срок: 2 дня &nbsp;·&nbsp; Маршрут: Стандартный</div>
+              </div>
+              <div class="af-doc-badge">На согласовании</div>
+            </div>
+          </div>
+          <div class="fb-label">
+            <span class="tag">Согласование</span>
+            <h3>Договор согласован за 2 дня, а не 9</h3>
+            <p>Автоматический маршрут запускается при создании — не нужно напоминать вручную.</p>
+          </div>
+        </div>
+
+        <!-- Card 2 — Корреспонденция (tall) -->
+        <div class="fb-card fb-tall reveal">
+          <div class="fb-screen fb-screen-inbox">
+            <div class="inbox-header">Входящие · <span class="inbox-count">4</span></div>
+            <div class="inbox-list">
+              <div class="inbox-item ii-1">
+                <div class="ii-icon">📄</div>
+                <div class="ii-body">
+                  <div class="ii-title">Вх. №2025-341</div>
+                  <div class="ii-from">ООО «Ромашка»</div>
+                </div>
+                <div class="ii-badge ii-new">Новое</div>
+              </div>
+              <div class="inbox-item ii-2">
+                <div class="ii-icon">📋</div>
+                <div class="ii-body">
+                  <div class="ii-title">Приказ №47</div>
+                  <div class="ii-from">Внутренний</div>
+                </div>
+                <div class="ii-badge ii-done">Исполнен</div>
+              </div>
+              <div class="inbox-item ii-3">
+                <div class="ii-icon">📨</div>
+                <div class="ii-body">
+                  <div class="ii-title">Вх. №2025-340</div>
+                  <div class="ii-from">МФЦ Казахстан</div>
+                </div>
+                <div class="ii-badge ii-progress">В работе</div>
+              </div>
+              <div class="inbox-item ii-4">
+                <div class="ii-icon">📄</div>
+                <div class="ii-body">
+                  <div class="ii-title">Вх. №2025-339</div>
+                  <div class="ii-from">ИП Петров</div>
+                </div>
+                <div class="ii-badge ii-done">Исполнен</div>
+              </div>
+            </div>
+            <div class="inbox-stat">
+              <span class="is-num">0</span>
+              <span class="is-label">потерянных писем</span>
+            </div>
+          </div>
+          <div class="fb-label">
+            <span class="tag">Корреспонденция</span>
+            <h3>Ни одно письмо не потеряется</h3>
+            <p>Единый реестр: учёт, статус, исполнитель, срок.</p>
+          </div>
+        </div>
+
+        <!-- Card 3 — Аналитика (wide) -->
+        <div class="fb-card fb-wide reveal">
+          <div class="fb-screen fb-screen-dash">
+            <div class="dash-kpis-mini">
+              <div class="dkm"><span class="dkm-n">9→2</span><span class="dkm-l">дня на договор</span></div>
+              <div class="dkm"><span class="dkm-n">−40%</span><span class="dkm-l">время на ОРД</span></div>
+              <div class="dkm"><span class="dkm-n">100%</span><span class="dkm-l">писем учтено</span></div>
+            </div>
+            <div class="mini-bars">
+              <div class="mb-bar"><div class="mb-fill" style="--mh:55%"></div><span>Янв</span></div>
+              <div class="mb-bar"><div class="mb-fill" style="--mh:70%"></div><span>Фев</span></div>
+              <div class="mb-bar"><div class="mb-fill" style="--mh:60%"></div><span>Мар</span></div>
+              <div class="mb-bar"><div class="mb-fill" style="--mh:85%"></div><span>Апр</span></div>
+              <div class="mb-bar"><div class="mb-fill" style="--mh:75%"></div><span>Май</span></div>
+              <div class="mb-bar mb-bar-accent"><div class="mb-fill" style="--mh:95%"></div><span>Июн</span></div>
+            </div>
+            <div class="dash-caption">Эффективность согласований по месяцам</div>
+          </div>
+          <div class="fb-label">
+            <span class="tag">Аналитика</span>
+            <h3>Видите, где тормозит процесс</h3>
+            <p>Дашборд показывает узкие места — без выгрузки в Excel.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <style>
+  /* ─── Feature Bento Grid ─── */
+  .fb-grid{display:grid;grid-template-columns:1.55fr 1fr;grid-template-rows:auto auto;gap:16px;margin-top:12px}
+  .fb-wide{grid-column:1/2}
+  .fb-tall{grid-column:2/3;grid-row:1/3}
+  @media(max-width:840px){.fb-grid{grid-template-columns:1fr}.fb-tall{grid-row:auto}.fb-wide,.fb-tall{grid-column:1/-1}}
+
+  .fb-card{background:var(--dark-surface);border:1px solid var(--dark-border);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s}
+  .fb-card:hover{border-color:rgba(79,70,229,.45)}
+
+  .fb-screen{flex:1;min-height:220px;background:#0d1424;position:relative;overflow:hidden;padding:28px 24px 20px;display:flex;flex-direction:column;justify-content:center;gap:20px}
+  .fb-screen::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(79,70,229,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(79,70,229,.05) 1px,transparent 1px);background-size:28px 28px;pointer-events:none}
+
+  .fb-label{padding:20px 22px 22px;border-top:1px solid var(--dark-border)}
+  .fb-label h3{color:var(--dark-text);margin:10px 0 6px;font-size:clamp(16px,1.5vw,19px)}
+  .fb-label p{color:var(--dark-muted);margin:0;font-size:14px;line-height:1.5}
+
+  /* ─── Approval Flow (Card 1) ─── */
+  .approval-flow{display:flex;align-items:flex-start;justify-content:center;gap:0;position:relative;z-index:1;padding:0 8px}
+  .af-step{display:flex;flex-direction:column;align-items:center;gap:8px;position:relative;min-width:72px}
+  .af-node{width:48px;height:48px;border-radius:50%;background:rgba(79,70,229,.12);border:1.5px solid rgba(79,70,229,.3);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:#94a3b8;transition:all .3s;position:relative}
+  .af-label{font-size:11px;color:#64748b;text-align:center;line-height:1.3;max-width:72px}
+  .af-check{position:absolute;top:-6px;right:-6px;width:18px;height:18px;border-radius:50%;background:#22c55e;color:#fff;font-size:10px;display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(0);font-weight:700}
+
+  .af-track{flex:1;height:2px;background:rgba(255,255,255,.08);position:relative;margin-top:24px;min-width:20px}
+  .af-fill{position:absolute;inset:0;background:linear-gradient(90deg,#22c55e,#4ade80);width:0%;border-radius:2px}
+
+  /* step 1 always done */
+  .af-s1 .af-node{background:rgba(34,197,94,.15);border-color:#22c55e;color:#4ade80}
+  .af-s1 .af-check{opacity:1;transform:scale(1)}
+
+  /* step 2: activates at 20% of 7s = 1.4s, done at 40% = 2.8s */
+  .af-s2 .af-node{animation:nodeActivate 7s 0s infinite}
+  .af-s2 .af-check{animation:checkPop 7s 0s infinite}
+  .af-fill1{animation:fillLine 7s 0s infinite}
+
+  /* step 3: offset 2s */
+  .af-s3 .af-node{animation:nodeActivate 7s -2.3s infinite}
+  .af-s3 .af-check{animation:checkPop 7s -2.3s infinite}
+  .af-fill2{animation:fillLine 7s -2.3s infinite}
+
+  /* step 4: offset 4s */
+  .af-s4 .af-node{animation:nodeActivate 7s -4.6s infinite}
+  .af-s4 .af-final-check{animation:checkPop 7s -4.6s infinite}
+  .af-fill3{animation:fillLine 7s -4.6s infinite}
+
+  @keyframes nodeActivate{
+    0%{background:rgba(79,70,229,.12);border-color:rgba(79,70,229,.3);color:#94a3b8}
+    20%{background:rgba(79,70,229,.35);border-color:#6366f1;color:#c7d2fe;box-shadow:0 0 16px rgba(79,70,229,.4)}
+    45%{background:rgba(34,197,94,.15);border-color:#22c55e;color:#4ade80;box-shadow:none}
+    100%{background:rgba(34,197,94,.15);border-color:#22c55e;color:#4ade80}
+  }
+  @keyframes checkPop{
+    0%,18%{opacity:0;transform:scale(0)}
+    42%{opacity:1;transform:scale(1.15)}
+    50%,100%{opacity:1;transform:scale(1)}
+  }
+  @keyframes fillLine{
+    0%{width:0%}
+    18%{width:0%}
+    45%{width:100%}
+    100%{width:100%}
+  }
+
+  .af-doc{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:11px 14px;position:relative;z-index:1}
+  .af-doc-icon{font-size:20px;flex-shrink:0}
+  .af-doc-meta{flex:1;min-width:0}
+  .af-doc-title{font-size:13px;color:#e2e8f0;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .af-doc-sub{font-size:11px;color:#64748b;margin-top:2px}
+  .af-doc-badge{font-size:11px;background:rgba(79,70,229,.2);color:#a5b4fc;border-radius:9999px;padding:4px 10px;white-space:nowrap;animation:badgePulse 7s infinite}
+  @keyframes badgePulse{0%,44%{background:rgba(79,70,229,.2);color:#a5b4fc}50%,100%{background:rgba(34,197,94,.2);color:#86efac}}
+
+  /* ─── Inbox (Card 2) ─── */
+  .fb-screen-inbox{gap:0;padding:20px 18px;justify-content:flex-start}
+  .inbox-header{font-size:12px;font-weight:600;color:#64748b;letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px;position:relative;z-index:1}
+  .inbox-count{color:#a5b4fc}
+  .inbox-list{display:flex;flex-direction:column;gap:6px;position:relative;z-index:1}
+  .inbox-item{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:9px 11px;opacity:0;transform:translateX(-8px)}
+  .inbox-item.ii-1{animation:slideIn .4s .1s forwards}
+  .inbox-item.ii-2{animation:slideIn .4s .25s forwards}
+  .inbox-item.ii-3{animation:slideIn .4s .4s forwards}
+  .inbox-item.ii-4{animation:slideIn .4s .55s forwards}
+  @keyframes slideIn{to{opacity:1;transform:none}}
+  .ii-icon{font-size:16px;flex-shrink:0}
+  .ii-body{flex:1;min-width:0}
+  .ii-title{font-size:12px;font-weight:500;color:#e2e8f0}
+  .ii-from{font-size:11px;color:#475569;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .ii-badge{font-size:10px;border-radius:9999px;padding:3px 8px;font-weight:500;white-space:nowrap}
+  .ii-new{background:rgba(79,70,229,.2);color:#a5b4fc;animation:newBadge 3s 1s infinite}
+  .ii-done{background:rgba(34,197,94,.15);color:#86efac}
+  .ii-progress{background:rgba(251,191,36,.15);color:#fcd34d}
+  @keyframes newBadge{0%,100%{background:rgba(79,70,229,.2);color:#a5b4fc}50%{background:rgba(79,70,229,.4);color:#c7d2fe}}
+  .inbox-stat{margin-top:14px;display:flex;align-items:center;gap:8px;position:relative;z-index:1}
+  .is-num{font-size:28px;font-weight:700;color:#4ade80;line-height:1}
+  .is-label{font-size:12px;color:#64748b}
+
+  /* ─── Dashboard (Card 3) ─── */
+  .fb-screen-dash{padding:22px 24px 16px;justify-content:flex-start;gap:16px}
+  .dash-kpis-mini{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;position:relative;z-index:1}
+  .dkm{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:12px 14px}
+  .dkm-n{display:block;font-size:20px;font-weight:700;color:#e2e8f0}
+  .dkm-l{font-size:11px;color:#64748b;margin-top:2px;display:block}
+  .mini-bars{display:flex;align-items:flex-end;gap:10px;height:100px;position:relative;z-index:1}
+  .mb-bar{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end}
+  .mb-fill{width:100%;background:rgba(79,70,229,.45);border-radius:4px 4px 0 0;height:var(--mh,20%);transform:scaleY(0);transform-origin:bottom;animation:barGrow .7s ease-out forwards}
+  .mb-bar:nth-child(1) .mb-fill{animation-delay:.1s}
+  .mb-bar:nth-child(2) .mb-fill{animation-delay:.2s}
+  .mb-bar:nth-child(3) .mb-fill{animation-delay:.3s}
+  .mb-bar:nth-child(4) .mb-fill{animation-delay:.4s}
+  .mb-bar:nth-child(5) .mb-fill{animation-delay:.5s}
+  .mb-bar:nth-child(6) .mb-fill{animation-delay:.6s}
+  .mb-bar-accent .mb-fill{background:var(--accent) !important}
+  .mb-bar span{font-size:10px;color:#475569}
+  @keyframes barGrow{to{transform:scaleY(1)}}
+  .dash-caption{font-size:11px;color:#475569;position:relative;z-index:1}
+
+  /* ─── reduced motion ─── */
+  @media(prefers-reduced-motion:reduce){
+    .af-s2 .af-node,.af-s3 .af-node,.af-s4 .af-node,.af-s2 .af-check,.af-s3 .af-check,.af-s4 .af-check,.af-fill1,.af-fill2,.af-fill3,.af-doc-badge,.inbox-item,.ii-new,.mb-fill{animation:none;opacity:1;transform:none;width:100%}
+  }
+  </style>
+
   <section class="section">
     <div class="container">
       <div class="center reveal"><h2>С чего начнём?</h2></div>
