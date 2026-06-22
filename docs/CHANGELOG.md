@@ -2,6 +2,13 @@
 
 Все значимые изменения спеки проекта. Формат: семантические версии.
 
+## [v0.39] — 2026-06-20 — Tokens Studio DTCG-формат
+### Added
+- `tokens/global.json` — все токены в DTCG-формате (color, typography, borderRadius, spacing, boxShadow, motion). Совместимо с Tokens Studio GitHub sync.
+- `tokens/$metadata.json` — порядок наборов токенов.
+- `tokens/$themes.json` — пустой файл тем (готов к расширению).
+- Источник правды остаётся в `docs/04-design/tokens.json`; `tokens/` — это Figma-зеркало.
+
 ## [v0.38] — 2026-06-20 — JSON-LD схемы + pricing-страница (33 стр.)
 ### Added
 - `src/pages/products/express/pricing.astro` — страница стоимости: FAQPage + Offer JSON-LD, CTA «Получить расчёт», заглушки цены/сроков для Фазы 0. Коммерческий фактор Яндекса.
