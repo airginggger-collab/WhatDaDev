@@ -152,7 +152,7 @@ import Base from "../layouts/Base.astro";
       <div class="fb-grid">
 
         <!-- Card 1 — Согласование договора -->
-        <div class="fb-card fb-wide reveal">
+        <div class="fb-card fb-wide reveal" style="transition-delay:0ms">
           <div class="fb-screen">
             <div class="approval-flow">
               <div class="af-step af-s1">
@@ -196,7 +196,7 @@ import Base from "../layouts/Base.astro";
         </div>
 
         <!-- Card 2 — Корреспонденция (tall) -->
-        <div class="fb-card fb-tall reveal">
+        <div class="fb-card fb-tall reveal" style="transition-delay:80ms">
           <div class="fb-screen fb-screen-inbox">
             <div class="inbox-header">Входящие · <span class="inbox-count">4</span></div>
             <div class="inbox-list">
@@ -246,7 +246,7 @@ import Base from "../layouts/Base.astro";
         </div>
 
         <!-- Card 3 — Аналитика (wide) -->
-        <div class="fb-card fb-wide reveal" id="dashCard">
+        <div class="fb-card fb-wide reveal" id="dashCard" style="transition-delay:160ms">
           <div class="fb-screen fb-screen-dash">
             <div class="dash-kpis-mini">
               <div class="dkm dkm-anim" style="--di:0">
@@ -408,12 +408,12 @@ import Base from "../layouts/Base.astro";
     <div class="container">
       <div class="center reveal"><h2>С чего начнём?</h2></div>
       <div class="grid grid-2" style="margin-top:32px">
-        <a class="card reveal" href="/products/express/">
+        <a class="card reveal" href="/products/express/" style="transition-delay:0ms">
           <span class="tag">Продукты</span>
           <h3 style="margin-top:14px">Экспресс внедрение (Coordo)</h3>
           <p>Готовый ЭДО из коробки: согласование договоров, ОРД, корреспонденции и модули на ELMA365.</p>
         </a>
-        <a class="card reveal" href="/services/">
+        <a class="card reveal" href="/services/" style="transition-delay:80ms">
           <span class="tag">Услуги</span>
           <h3 style="margin-top:14px">Внедрение под ключ</h3>
           <p>CRM, ЭДО, ServiceDesk, закупки, проекты, КЭДО — настраиваем ELMA365 под ваши процессы.</p>

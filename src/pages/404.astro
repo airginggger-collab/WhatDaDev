@@ -1,16 +1,32 @@
 ---
-import Base from "../layouts/Base.astro";
+import Base from '../layouts/Base.astro';
 ---
-<Base title="Страница не найдена — WhatDaDev" description="Такой страницы нет. Вернитесь на главную или посмотрите продукты и услуги.">
+<Base title="404 — Страница не найдена" description="Страница не найдена">
   <section class="hero">
-    <div class="container center" style="padding-top:120px;padding-bottom:120px">
-      <div class="price" style="color:var(--accent);font-size:64px">404</div>
-      <h1 style="margin-top:8px">Такой страницы нет</h1>
-      <p class="lead" style="margin:0 auto">Возможно, ссылка устарела. Вернитесь на главную или загляните в продукты и услуги.</p>
-      <div class="btn-row" style="justify-content:center">
+    <div class="container center" style="padding-top:100px;padding-bottom:80px">
+      <div style="font-size:80px;font-weight:700;color:var(--accent);line-height:1">404</div>
+      <h1 style="margin:16px 0 8px">Страница не найдена</h1>
+      <p class="lead" style="margin:0 auto 32px;max-width:480px">Возможно, ссылка устарела или адрес изменился. Попробуй один из разделов ниже.</p>
+      <div class="btn-row" style="justify-content:center;margin-bottom:48px">
         <a class="btn" href="/">На главную</a>
-        <a class="btn btn-ghost" href="/products/express/">Продукты</a>
-        <a class="btn btn-ghost" href="/services/">Услуги</a>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;max-width:800px;margin:0 auto">
+        <a class="card" href="/products/express/" style="text-decoration:none">
+          <h3 style="margin:0 0 6px">Экспресс внедрение</h3>
+          <p style="margin:0;font-size:14px;color:var(--muted)">Готовый продукт для быстрого старта</p>
+        </a>
+        <a class="card" href="/services/" style="text-decoration:none">
+          <h3 style="margin:0 0 6px">Услуги</h3>
+          <p style="margin:0;font-size:14px;color:var(--muted)">Внедрение, разработка, обучение</p>
+        </a>
+        <a class="card" href="/contacts/" style="text-decoration:none">
+          <h3 style="margin:0 0 6px">Связаться</h3>
+          <p style="margin:0;font-size:14px;color:var(--muted)">Ответим за 2 часа</p>
+        </a>
       </div>
     </div>
   </section>
