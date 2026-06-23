@@ -2,6 +2,14 @@
 
 Все значимые изменения спеки проекта. Формат: семантические версии.
 
+## v0.50 — 2026-06-23
+
+### Контент и форма
+- Статьи волна 3.1 (2 из 10): `elma365-chto-eto`, `kak-uskorit-soglasovanie-dogovorov` — live
+- `/press/` index переведён на `src/data/articles.js` (динамический листинг, 12 статей — 4 live, 8 «скоро»)
+- `/contacts/`: placeholder-примеры в форме + стиль `::placeholder` (курсив, `#94a3b8`)
+- Sitemap подтверждён: генерируется при сборке → `https://whatdadev.ru/sitemap-index.xml`
+
 ## v0.49 — 2026-06-23
 
 ### Фикс UI-багов
