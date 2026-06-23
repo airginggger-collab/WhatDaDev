@@ -1,0 +1,41 @@
+---
+import Base from "../../../layouts/Base.astro";
+import Breadcrumbs from "../../../components/Breadcrumbs.astro";
+const title = "Глоссарий по ЭДО и автоматизации процессов | WhatDaDev";
+const description = "Словарь терминов: ЭДО, СЭД, BPM, КЭДО, ОРД, ЭЦП, ЮЗЭДО и другие понятия документооборота.";
+const terms = [
+  { slug:"edo", name:"ЭДО — электронный документооборот" },
+  { slug:"sed", name:"СЭД — система электронного документооборота" },
+  { slug:"ecm", name:"ECM — Enterprise Content Management" },
+  { slug:"bpm", name:"BPM — Business Process Management" },
+  { slug:"kedo", name:"КЭДО — кадровый электронный документооборот" },
+  { slug:"ord", name:"ОРД — организационно-распорядительные документы" },
+  { slug:"ep", name:"ЭП / ЭЦП — электронная подпись" },
+  { slug:"marshrut-soglasovaniya", name:"Маршрут согласования" },
+  { slug:"low-code", name:"Low-code — разработка без кода" },
+  { slug:"yuzedo", name:"ЮЗЭДО — юридически значимый ЭДО" },
+  { slug:"nomenklatura-del", name:"Номенклатура дел" },
+  { slug:"reestr-dogovorov", name:"Реестр договоров" },
+  { slug:"zameshchenie", name:"Замещение / делегирование в СЭД" },
+  { slug:"service-desk", name:"Service Desk" },
+  { slug:"sla", name:"SLA — Service Level Agreement" },
+];
+---
+<Base title={title} description={description}>
+  <section class="hero">
+    <div class="container">
+      <Breadcrumbs items={[{ name:"Главная", href:"/" }, { name:"Пресс-центр", href:"/press/" }, { name:"Глоссарий" }]} />
+      <h1>Глоссарий по ЭДО и автоматизации процессов</h1>
+      <p class="lead">Словарь терминов: от ЭДО и СЭД до BPM и ЮЗЭДО. Коротко и по делу.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-3">
+        {terms.map(t => (
+          <a class="card" href={"/press/glossary/" + t.slug + "/"}><h3>{t.name}</h3><p class="muted">Читать &rarr;</p></a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

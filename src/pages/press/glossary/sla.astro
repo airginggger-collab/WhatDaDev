@@ -1,0 +1,101 @@
+---
+import Base from "../../../layouts/Base.astro";
+import Breadcrumbs from "../../../components/Breadcrumbs.astro";
+const title = "SLA — что это такое: определение и применение | WhatDaDev";
+const description = "Что такое SLA (Service Level Agreement): определение, применение в документообороте и автоматизации процессов.";
+const faq = [
+  ["Чем SLA отличается от договора?", "Договор фиксирует предмет и цену. SLA — конкретные параметры качества: время реакции, доступность, штрафы за нарушение. Он может быть частью договора или отдельным приложением."],
+  ["Можно ли настроить SLA в ELMA365 без программиста?", "Да. В ELMA365 SLA настраивается через конструктор: выбираете процесс, задаёте сроки для каждого этапа и условия эскалации. Без написания кода."],
+  ["Что происходит при нарушении SLA?", "Система автоматически фиксирует просрочку, отправляет уведомление ответственному и руководителю, меняет приоритет задачи. Данные попадают в отчёты для последующего анализа."],
+  ["SLA нужен только крупным компаниям?", "Нет. Даже небольшой команде полезно зафиксировать: документ визирует юрист за 1 день, бухгалтерия обрабатывает счёт за 3 дня. Это убирает разночтения и ускоряет работу."],
+];
+const jsonld = [
+  { "@context":"https://schema.org","@type":"Article", headline:"SLA: что это такое", description, author:{"@type":"Organization","name":"WhatDaDev","url":"https://whatdadev.ru"}, publisher:{"@type":"Organization","name":"WhatDaDev","url":"https://whatdadev.ru"}, url:"https://whatdadev.ru/press/glossary/sla/", inLanguage:"ru" },
+  { "@context":"https://schema.org","@type":"FAQPage", mainEntity:faq.map(([q,a])=>({ "@type":"Question",name:q,acceptedAnswer:{"@type":"Answer",text:a} })) },
+];
+---
+<Base title={title} description={description} jsonld={jsonld}>
+  <section class="hero">
+    <div class="container">
+      <Breadcrumbs items={[{ name:"Главная", href:"/" }, { name:"Пресс-центр", href:"/press/" }, { name:"Глоссарий", href:"/press/glossary/" }, { name:"SLA" }]} />
+      <div class="eyebrow" style="color:#a5b4fc">Глоссарий</div>
+      <h1>SLA — что это такое</h1>
+      <p class="lead">Service Level Agreement — соглашение об уровне сервиса. Документ, который фиксирует, насколько быстро и качественно исполнитель обязуется выполнять задачи: сроки ответа, время решения, доступность системы.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="prose">
+        <h2>Что такое SLA простыми словами</h2>
+        <p>SLA — это договорённость с измеримыми параметрами. Вместо «сделаем быстро» — «ответим за 2 часа, решим за 8 рабочих часов, доступность системы — 99,5% в месяц». Если параметры нарушены, сторона несёт ответственность: штраф, компенсация, иное согласованное последствие.</p>
+        <p>В IT SLA используется повсеместно: между заказчиком и вендором ПО, между бизнес-подразделениями внутри компании (внутренний SLA), между компанией и её клиентами.</p>
+
+        <h2>Зачем SLA нужен бизнесу</h2>
+        <p>Без SLA каждый понимает «вовремя» по-своему. С SLA — есть общий измеримый стандарт. Это снимает конфликты, даёт основу для отчётности и позволяет улучшать процессы на основе данных, а не ощущений.</p>
+        <p>Типичные параметры SLA:</p>
+        <ul>
+          <li><strong>Время реакции</strong> — когда исполнитель подтвердил получение задачи.</li>
+          <li><strong>Время решения</strong> — когда задача полностью закрыта.</li>
+          <li><strong>Доступность</strong> — процент времени, когда система или услуга работает (uptime).</li>
+          <li><strong>Эскалация</strong> — правила передачи задачи на более высокий уровень при нарушении сроков.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <div class="prose">
+        <h2>SLA в документообороте и ELMA365</h2>
+        <p>В <a href="/elma365/">ELMA365</a> SLA встроен в логику процессов. Для каждого этапа маршрута можно задать срок выполнения, настроить автоматическое напоминание исполнителю и эскалацию руководителю при просрочке. Система фиксирует факт нарушения и включает его в аналитику.</p>
+        <p>Пример: процесс согласования договора. SLA по этапам:</p>
+      </div>
+      <div class="grid grid-2" style="margin-top:1.5rem">
+        <div class="card">
+          <div class="eyebrow">Этап 1</div>
+          <p><strong>Юридическая проверка</strong><br><span class="muted">Срок: 1 рабочий день. При просрочке — уведомление руководителю юротдела.</span></p>
+        </div>
+        <div class="card">
+          <div class="eyebrow">Этап 2</div>
+          <p><strong>Финансовое согласование</strong><br><span class="muted">Срок: 2 рабочих дня. При просрочке — эскалация финдиректору.</span></p>
+        </div>
+        <div class="card">
+          <div class="eyebrow">Этап 3</div>
+          <p><strong>Подпись руководителя</strong><br><span class="muted">Срок: 4 часа после поступления. При просрочке — повторное уведомление.</span></p>
+        </div>
+        <div class="card">
+          <div class="eyebrow">Результат</div>
+          <p><strong>Отчёт по SLA</strong><br><span class="muted">Процент нарушений, среднее время по этапам, топ нарушителей — в реальном времени.</span></p>
+        </div>
+      </div>
+      <div class="prose" style="margin-top:1.5rem">
+        <p>Такой подход доступен в рамках <a href="/services/vnedrenie/">внедрения ELMA365</a> — настройка SLA входит в стандартный проект автоматизации документооборота.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Частые вопросы о SLA</h2>
+      <div class="faq">
+        {faq.map(([q, a]) => (
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">{q}</button>
+            <div class="faq-a">{a}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container" style="text-align:center">
+      <h2>Хотите настроить SLA в своих процессах?</h2>
+      <p class="lead">Расскажите о задаче — покажем, как это работает в ELMA365 на вашем примере.</p>
+      <div class="btn-row">
+        <a href="/contacts/" class="btn">Обсудить проект</a>
+      </div>
+    </div>
+  </section>
+</Base>

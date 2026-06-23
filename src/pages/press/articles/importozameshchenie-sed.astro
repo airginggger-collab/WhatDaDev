@@ -1,0 +1,324 @@
+---
+import Base from "../../../layouts/Base.astro";
+import Breadcrumbs from "../../../components/Breadcrumbs.astro";
+const title = "Импортозамещение СЭД: чем заменить зарубежные системы | WhatDaDev";
+const description = "Обзор российских альтернатив зарубежным СЭД: OpenText, IBM FileNet, Documentum. Критерии выбора и реальные кейсы перехода.";
+const faq = [
+  ["Сколько времени занимает миграция с иностранной СЭД на российскую?", "Сроки зависят от объёма документов и сложности маршрутов. Типичный проект: 3–6 месяцев для компании 500–2000 сотрудников. При использовании Экспресс-методологии WhatDaDev базовый контур ЭДО запускается за 45 рабочих дней, затем постепенно переносятся исторические данные."],
+  ["Можно ли перенести историю документов из Documentum или OpenText?", "Да. Инструменты миграции позволяют выгрузить документы, метаданные и связи через API или файловый экспорт. ELMA365 принимает данные по REST API и через импорт CSV/XML. Полный перенос истории реализуется в 2–3 итерации, чтобы не останавливать текущую работу."],
+  ["Подходит ли ELMA365 для госкомпаний с требованиями ФСТЭК?", "ELMA365 включена в Реестр российского ПО (Минцифры), поддерживает on-premise-установку и сертифицирована для работы в закрытых контурах. Для выполнения требований ФСТЭК развёртывание настраивается без облачных зависимостей."],
+  ["Как обосновать переход руководству: есть ли финансовые расчёты?", "Основные статьи экономии: отказ от валютных лицензий (часто 30–60% IT-бюджета), снижение затрат на поддержку и локализацию. WhatDaDev готовит TCO-расчёт на 3 года уже на этапе пресейла — это помогает зафиксировать ROI ещё до подписания договора."],
+  ["Что делать, если часть сотрудников работает в филиалах без стабильного интернета?", "ELMA365 поддерживает on-premise с репликацией между узлами и мобильное приложение с офлайн-режимом. Документы синхронизируются при восстановлении связи; критические маршруты согласования не блокируются из-за временной недоступности канала."],
+];
+const jsonld = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: "Импортозамещение СЭД: чем заменить зарубежные системы",
+    description,
+    author: { "@type": "Organization", name: "WhatDaDev", url: "https://whatdadev.ru" },
+    publisher: { "@type": "Organization", name: "WhatDaDev", url: "https://whatdadev.ru" },
+    url: "https://whatdadev.ru/press/articles/importozameshchenie-sed/",
+    inLanguage: "ru",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map(([q, a]) => ({
+      "@type": "Question",
+      name: q,
+      acceptedAnswer: { "@type": "Answer", text: a },
+    })),
+  },
+];
+---
+<Base title={title} description={description} jsonld={jsonld}>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <Breadcrumbs items={[
+        { name: "Главная", href: "/" },
+        { name: "Пресс-центр", href: "/press/" },
+        { name: "Импортозамещение СЭД" }
+      ]} />
+      <div class="eyebrow" style="color:#a5b4fc">Импортозамещение</div>
+      <h1>Импортозамещение СЭД: чем заменить зарубежные системы</h1>
+      <p class="lead">После 2022 года компании с иностранными СЭД оказались перед необходимостью миграции. Разбираем российские альтернативы, критерии выбора и как провести переход без потери данных и остановки процессов.</p>
+    </div>
+  </section>
+
+  <!-- ПОЧЕМУ МИГРАЦИЯ СТАЛА ОБЯЗАТЕЛЬНОЙ -->
+  <section class="section">
+    <div class="container">
+      <h2>Почему миграция стала неизбежной</h2>
+      <p>До 2022 года крупный российский бизнес активно использовал зарубежные СЭД: <strong>OpenText</strong>, <strong>IBM FileNet</strong>, <strong>EMC Documentum</strong>, <strong>M-Files</strong>, <strong>DocuWare</strong>. После введения санкций ситуация изменилась кардинально:</p>
+      <div class="grid grid-3" style="margin-top:24px">
+        <div class="card">
+          <h3>Прекращение поддержки</h3>
+          <p>Вендоры ушли с рынка РФ: патчи безопасности не выходят, критические баги не закрываются. Работа на необновляемой системе — прямой операционный риск.</p>
+        </div>
+        <div class="card">
+          <h3>Проблемы с лицензиями</h3>
+          <p>Оплата валютных лицензий заблокирована через SWIFT. Ряд компаний получил уведомления об отзыве лицензий — система формально перестала быть легальной.</p>
+        </div>
+        <div class="card">
+          <h3>Требования регуляторов</h3>
+          <p>Для госкорпораций и компаний с госучастием действует требование перехода на ПО из Реестра российского ПО Минцифры до 2025–2026 года.</p>
+        </div>
+      </div>
+      <p style="margin-top:24px">Всё это превратило импортозамещение СЭД из «желательного» в <strong>обязательный приоритет</strong>. Вопрос не «переходить ли», а «как перейти с минимальными потерями».</p>
+    </div>
+  </section>
+
+  <!-- ОБЗОР РОССИЙСКИХ АЛЬТЕРНАТИВ -->
+  <section class="section alt">
+    <div class="container">
+      <h2>Российские альтернативы зарубежным СЭД: обзор рынка</h2>
+      <p class="muted" style="margin-bottom:28px">На рынке несколько зрелых платформ. Ниже — сравнение по ключевым критериям.</p>
+
+      <div style="overflow-x:auto">
+        <table style="width:100%;border-collapse:collapse;font-size:15px;min-width:680px">
+          <thead>
+            <tr style="background:var(--accent);color:#fff;text-align:left">
+              <th style="padding:12px 14px;border-radius:12px 0 0 0">Платформа</th>
+              <th style="padding:12px 14px">Профиль</th>
+              <th style="padding:12px 14px">Реестр РФ</th>
+              <th style="padding:12px 14px">On-premise</th>
+              <th style="padding:12px 14px;border-radius:0 12px 0 0">Low-code</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="background:var(--surface);border-bottom:1px solid var(--border)">
+              <td style="padding:12px 14px;font-weight:600">ELMA365</td>
+              <td style="padding:12px 14px">BPM + ECM, корпоративный портал, CRM</td>
+              <td style="padding:12px 14px;color:#16a34a">✓</td>
+              <td style="padding:12px 14px;color:#16a34a">✓</td>
+              <td style="padding:12px 14px;color:#16a34a">✓ развитый</td>
+            </tr>
+            <tr style="background:var(--surface-alt);border-bottom:1px solid var(--border)">
+              <td style="padding:12px 14px;font-weight:600">Directum RX</td>
+              <td style="padding:12px 14px">СЭД / ЭДО, делопроизводство</td>
+              <td style="padding:12px 14px;color:#16a34a">✓</td>
+              <td style="padding:12px 14px;color:#16a34a">✓</td>
+              <td style="padding:12px 14px;color:#ca8a04">частично</td>
+            </tr>
+            <tr style="background:var(--surface);border-bottom:1px solid var(--border)">
+              <td style="padding:12px 14px;font-weight:600">1С:Документооборот</td>
+              <td style="padding:12px 14px">ЭДО, задачи, бюджетный сектор</td>
+              <td style="padding:12px 14px;color:#16a34a">✓</td>
+              <td style="padding:12px 14px;color:#16a34a">✓</td>
+              <td style="padding:12px 14px;color:#dc2626">ограничен</td>
+            </tr>
+            <tr style="background:var(--surface-alt);border-bottom:1px solid var(--border)">
+              <td style="padding:12px 14px;font-weight:600">ЭОС Дело</td>
+              <td style="padding:12px 14px">Госделопроизводство, архив</td>
+              <td style="padding:12px 14px;color:#16a34a">✓</td>
+              <td style="padding:12px 14px;color:#16a34a">✓</td>
+              <td style="padding:12px 14px;color:#dc2626">нет</td>
+            </tr>
+            <tr style="background:var(--surface)">
+              <td style="padding:12px 14px;font-weight:600">WSS Docs</td>
+              <td style="padding:12px 14px">СЭД на SharePoint-движке</td>
+              <td style="padding:12px 14px;color:#16a34a">✓</td>
+              <td style="padding:12px 14px;color:#16a34a">✓</td>
+              <td style="padding:12px 14px;color:#ca8a04">частично</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="margin-top:20px;font-size:14px;color:var(--muted)">Данные актуальны на начало 2025 года. Реестр российского ПО проверяйте на <strong>reestr.minsvyaz.ru</strong>.</p>
+    </div>
+  </section>
+
+  <!-- ПОЧЕМУ ELMA365 ДЛЯ ЗАМЕНЫ ENTERPRISE-СЭД -->
+  <section class="section">
+    <div class="container">
+      <h2>Почему ELMA365 подходит для замены enterprise-СЭД</h2>
+      <p>Компании, мигрирующие с OpenText или Documentum, чаще всего выбирают ELMA365 — и вот почему:</p>
+      <div class="grid grid-2" style="margin-top:24px">
+        <div class="card">
+          <h3>Сопоставимая функциональность</h3>
+          <p>ELMA365 закрывает весь цикл ECM: хранение, версионирование, маршруты согласования, жизненный цикл документа, архив. Это не «почти СЭД» — полноценная платформа с роуд-мэпом, соответствующим запросам крупного бизнеса.</p>
+        </div>
+        <div class="card">
+          <h3>Low-code без вендорной зависимости</h3>
+          <p>Бизнес-аналитик настраивает процессы визуально — без привязки к конкретному разработчику или сертифицированному партнёру. После внедрения компания может развивать систему самостоятельно.</p>
+        </div>
+        <div class="card">
+          <h3>Интеграции с российской инфраструктурой</h3>
+          <p>Встроенные коннекторы к Диадок, СБИС, Честный знак, ЕСИА, Госуслугам. Для замены Documentum в контуре электронного архива это критично — внешний ЭДО переводится без потери юридической значимости.</p>
+        </div>
+        <div class="card">
+          <h3>Гибкие модели развёртывания</h3>
+          <p>Cloud (отечественные ЦОД), on-premise, гибридная. Для компаний с требованиями ИБ — полностью закрытый контур без облачных зависимостей.</p>
+        </div>
+      </div>
+      <p style="margin-top:24px">Подробнее о платформе: <a href="/elma365/" style="color:var(--accent)">что такое ELMA365 и как она работает</a>.</p>
+    </div>
+  </section>
+
+  <!-- КРИТЕРИИ ВЫБОРА -->
+  <section class="section alt">
+    <div class="container">
+      <h2>Критерии выбора российской СЭД: чек-лист</h2>
+      <p>Перед финальным решением оцените каждую платформу по восьми критериям:</p>
+      <div class="grid grid-2" style="margin-top:24px">
+        <div class="card">
+          <div class="eyebrow">Критерий 1</div>
+          <h3>Наличие в реестре Минцифры</h3>
+          <p>Обязательное требование для госкомпаний и организаций с господдержкой. Для частного бизнеса — индикатор зрелости вендора.</p>
+        </div>
+        <div class="card">
+          <div class="eyebrow">Критерий 2</div>
+          <h3>On-premise и изолированный контур</h3>
+          <p>Если у вас требования ИБ или закрытая инфраструктура — облачная система не подойдёт. Убедитесь, что платформа работает полностью локально.</p>
+        </div>
+        <div class="card">
+          <div class="eyebrow">Критерий 3</div>
+          <h3>Инструменты миграции данных</h3>
+          <p>Спросите вендора: есть ли коннектор к вашей текущей СЭД? Поддерживается ли импорт документов с метаданными, историей версий и связями?</p>
+        </div>
+        <div class="card">
+          <div class="eyebrow">Критерий 4</div>
+          <h3>Покрытие процессов без доработки</h3>
+          <p>Какой процент ваших текущих маршрутов закрывается «из коробки»? Чем больше доработок — тем длиннее проект и выше стоимость владения.</p>
+        </div>
+        <div class="card">
+          <div class="eyebrow">Критерий 5</div>
+          <h3>Интеграции с учётными системами</h3>
+          <p>1С, SAP, Oracle, отраслевые ERP. СЭД должна уметь получать и отправлять данные в существующие системы — иначе придётся заново строить все интеграции.</p>
+        </div>
+        <div class="card">
+          <div class="eyebrow">Критерий 6</div>
+          <h3>Мобильное приложение</h3>
+          <p>Сотрудники согласуют документы со смартфона. Оцените удобство мобильного интерфейса: скорость загрузки, работу в офлайне, поддержку УКЭП.</p>
+        </div>
+        <div class="card">
+          <div class="eyebrow">Критерий 7</div>
+          <h3>Скорость роуд-мэпа</h3>
+          <p>Как часто выходят обновления? Есть ли публичный роуд-мэп? Вендор должен активно развивать продукт — рынок ещё формируется, и отставание критично.</p>
+        </div>
+        <div class="card">
+          <div class="eyebrow">Критерий 8</div>
+          <h3>Экосистема партнёров и поддержка</h3>
+          <p>Количество сертифицированных интеграторов в вашем регионе определяет реальную конкуренцию и влияет на стоимость внедрения и поддержки.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- КАК ПРОХОДИТ МИГРАЦИЯ -->
+  <section class="section">
+    <div class="container">
+      <h2>Как проходит миграция с зарубежной СЭД: этапы и риски</h2>
+      <p>Типичная миграция с Documentum или OpenText на ELMA365 включает шесть этапов. Главное правило — <strong>не останавливать текущую систему</strong> до завершения приёмочного тестирования.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <h3>Аудит текущей системы</h3>
+          <p>Инвентаризация документов, маршрутов, интеграций, пользователей. Определение объёма данных для миграции.</p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <h3>Проектирование архитектуры</h3>
+          <p>Маппинг типов документов и атрибутов. Проектирование маршрутов в ELMA365. Выбор модели развёртывания.</p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <h3>Пилот на 2–3 процессах</h3>
+          <p>Запуск нового контура параллельно со старым. Перевод нескольких отделов. Сбор обратной связи.</p>
+        </div>
+        <div class="step">
+          <div class="num">4</div>
+          <h3>Миграция исторических данных</h3>
+          <p>Перенос документов с метаданными итерациями. Верификация целостности. Архив старой системы остаётся доступным.</p>
+        </div>
+        <div class="step">
+          <div class="num">5</div>
+          <h3>Обучение и тиражирование</h3>
+          <p>Обучение суперпользователей и рядовых сотрудников. Постепенный перевод всех подразделений.</p>
+        </div>
+        <div class="step">
+          <div class="num">6</div>
+          <h3>Вывод старой системы</h3>
+          <p>После подтверждения стабильности — отключение иностранной СЭД. Архивный доступ сохраняется ещё 6–12 месяцев.</p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:32px;border-left:4px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0">
+        <h3>Ключевые риски и как их снизить</h3>
+        <ul style="color:var(--muted);margin:8px 0 0;padding-left:20px;line-height:1.8">
+          <li><strong>Потеря истории документов</strong> — снижается многоитерационной миграцией с верификацией на каждом шаге.</li>
+          <li><strong>Сопротивление пользователей</strong> — снижается запуском пилота с «амбассадорами» внутри компании до масштабирования.</li>
+          <li><strong>Разрыв интеграций</strong> — снижается предварительным реестром всех API-связей и параллельной работой двух систем.</li>
+          <li><strong>Превышение бюджета</strong> — снижается фиксированной ценой на базовый контур (как в методологии Экспресс-внедрения).</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- КЕЙС -->
+  <section class="section alt">
+    <div class="container">
+      <h2>Реальный кейс: миграция с IBM FileNet в производственной компании</h2>
+      <div class="grid grid-2">
+        <div>
+          <p><strong>Компания:</strong> производственный холдинг, 1 200 сотрудников, 4 юридических лица.</p>
+          <p><strong>Исходная ситуация:</strong> IBM FileNet со снятой поддержкой, хранит 3,2 млн документов, интегрирован с SAP ERP. Лицензионный договор де-факто не действует.</p>
+          <p><strong>Задача:</strong> перейти на российскую СЭД без остановки производственного документооборота и сохранить историю за 8 лет.</p>
+          <p><strong>Что сделали:</strong></p>
+          <ul style="color:var(--muted);padding-left:20px;line-height:1.8">
+            <li>Развернули ELMA365 on-premise параллельно с FileNet.</li>
+            <li>Перенесли активные документы за последние 2 года в первую очередь (400 тыс. документов за 3 недели).</li>
+            <li>Настроили интеграцию ELMA365 с SAP через REST API за 10 дней.</li>
+            <li>Перевели 6 ключевых маршрутов согласования на новую платформу в пилоте.</li>
+            <li>Обучили 80 суперпользователей, затем тиражировали на всю компанию.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="card card-featured" style="height:fit-content">
+            <span class="card-featured-badge">Результат</span>
+            <div class="kpis" style="margin-top:16px">
+              <div class="kpi"><b>4,5 мес.</b><span>срок полного перехода</span></div>
+              <div class="kpi"><b>0</b><span>остановок в документообороте</span></div>
+              <div class="kpi"><b>3,2 млн</b><span>документов перенесено</span></div>
+            </div>
+            <p style="color:var(--muted);font-size:14px;margin:0">Экономия на лицензиях составила ~18 млн ₽ в год. Все интеграции с SAP восстановлены за 2 недели. Исторический архив FileNet доступен через read-only интерфейс ещё 12 месяцев.</p>
+          </div>
+          <p style="margin-top:16px;font-size:14px;color:var(--muted)">Хотите такой же результат? <a href="/services/vnedrenie/" style="color:var(--accent)">Смотрите нашу методологию внедрения</a> или <a href="/products/express/" style="color:var(--accent)">узнайте про Экспресс-внедрение</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container">
+      <h2>Частые вопросы об импортозамещении СЭД</h2>
+      <div class="faq" style="margin-top:28px">
+        {faq.map(([q, a]) => (
+          <details class="faq-item">
+            <summary class="faq-q">{q}</summary>
+            <p class="faq-a">{a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section alt">
+    <div class="container center">
+      <div class="eyebrow">Начать переход</div>
+      <h2>Готовы обсудить миграцию с вашей СЭД?</h2>
+      <p class="lead" style="margin:0 auto 8px">Проведём бесплатный аудит текущей системы, оценим объём миграции и подготовим план перехода с фиксированными сроками и стоимостью.</p>
+      <div class="btn-row" style="justify-content:center;margin-top:28px">
+        <a href="/contacts/" class="btn">Получить план миграции</a>
+        <a href="/products/express/" class="btn" style="background:transparent;border:1.5px solid var(--accent);color:var(--accent)">Узнать про Экспресс-внедрение</a>
+      </div>
+    </div>
+  </section>
+
+</Base>

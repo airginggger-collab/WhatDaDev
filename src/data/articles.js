@@ -11,4 +11,12 @@ export const articles = [
   { slug: "bpm-sistema", name: "Что такое BPM-система и кому она нужна", tag: "Обзор", live: true },
   { slug: "korobka-ili-razrabotka-edo", name: "Коробочное ЭДО или разработка с нуля: как выбрать", tag: "Гайд", live: true },
   { slug: "vnutrenniy-edo-vs-kontragenty", name: "Внутренний ЭДО и обмен с контрагентами: в чём разница", tag: "Обзор", live: true },
+  { slug: "elma365-vs-directum", name: "ELMA365 vs Directum: что выбрать", tag: "Сравнение", live: true },
+  { slug: "elma365-vs-1s-dokumentooborot", name: "ELMA365 vs 1С:Документооборот", tag: "Сравнение", live: true },
+  { slug: "kak-vybrat-sed", name: "Как выбрать СЭД: критерии и чек-лист", tag: "Гайд", live: true },
+  { slug: "elektronnaya-podpis-v-dokumentooborote", name: "Электронная подпись в документообороте", tag: "ЭЦП", live: true },
+  { slug: "zameshchenie-sotrudnikov-soglasovaniya", name: "Замещение сотрудников: как не сорвать согласования", tag: "Процессы", live: true },
+  { slug: "kontrol-ispolneniya-porucheniy", name: "Контроль исполнения поручений", tag: "Процессы", live: true },
+  { slug: "importozameshchenie-sed", name: "Импортозамещение СЭД: российские альтернативы", tag: "Импортозамещение", live: true },
+  { slug: "low-code-dlya-biznesa", name: "Low-code: процессы без разработчиков", tag: "Low-code", live: true },
 ];
