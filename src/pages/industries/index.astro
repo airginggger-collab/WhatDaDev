@@ -17,7 +17,7 @@ const description = "Документооборот и автоматизаци�
   <section class="section">
     <div class="container">
       <div class="grid grid-3" style="margin-top:8px">
-        {industries.map((x) => (<a class="card" href={`/industries/${x.slug}/`}><h3>{x.h1.split(":")[0].replace("ELMA365 для ", "").replace("ELMA365 для", "")}</h3><p>{x.lead}</p></a>))}
+        {industries.map((x) => { const name = x.h1.split(":")[0].replace("ELMA365 для ", "").replace("ELMA365 для", ""); const title = name.charAt(0).toUpperCase() + name.slice(1); return (<a class="card" href={`/industries/${x.slug}/`}><h3>{title}</h3><p>{x.lead}</p></a>); })}
       </div>
     </div>
   </section>
