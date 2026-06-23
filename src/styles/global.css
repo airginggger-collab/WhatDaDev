@@ -128,7 +128,7 @@ a.card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(15,23,42,.10
 .form input,.form textarea{font:inherit;padding:12px 14px;border:1px solid var(--border);border-radius:12px;background:var(--surface);color:var(--text);width:100%}
 .form input:focus,.form textarea:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
 .form textarea{min-height:96px;resize:vertical}.form input::placeholder,.form textarea::placeholder{color:#94a3b8;font-style:italic}
-.form .row{flex-direction:row;align-items:center;gap:8px;font-size:13px}
+.form .row{display:flex;flex-direction:row;align-items:center;gap:8px;font-size:13px}
 .form-note{font-size:13px;color:var(--muted);margin:0}
 .form-ok{color:#16A34A;font-weight:500}
 /* team */
