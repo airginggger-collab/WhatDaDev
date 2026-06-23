@@ -2,6 +2,14 @@
 
 Все значимые изменения спеки проекта. Формат: семантические версии.
 
+## v0.51 — 2026-06-23
+
+### Статьи волна 3.1 — полный пакет
+- 10 SEO-статей live в `/press/articles/`: elma365-chto-eto, kak-uskorit-soglasovanie-dogovorov, kak-organizovat-edo, marshruty-soglasovaniya, prikazy-i-ord, elektronnaya-kantselyariya, kedo-2026, bpm-sistema, korobka-ili-razrabotka-edo, vnutrenniy-edo-vs-kontragenty
+- `src/data/articles.js` — все 12 статей live:true
+- `/press/` index показывает все 12 карточек-ссылок
+- Сайт: 43 страницы
+
 ## v0.50 — 2026-06-23
 
 ### Контент и форма
