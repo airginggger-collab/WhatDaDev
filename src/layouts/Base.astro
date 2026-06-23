@@ -135,6 +135,13 @@ const ogImage = new URL("/og.png", Astro.site).href;
           window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
         });
       }
+      document.querySelectorAll('.faq-q').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          btn.nextElementSibling.classList.toggle('open', !expanded);
+        });
+      });
     </script>
   </body>
 </html>

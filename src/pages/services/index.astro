@@ -3,6 +3,15 @@ import Base from "../../layouts/Base.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 const title = "Услуги по ELMA365: внедрение, разработка, поддержка | WhatDaDev";
 const description = "Полный цикл работы с ELMA365: внедрение под ключ, разработка и интеграции, аутстаффинг, аудит, консалтинг, обучение. РФ и СНГ.";
+const faqServices = [
+  ["С чего начать внедрение ELMA365?", "Начинаем с бесплатного демо — разбираем ваши процессы, показываем что можно автоматизировать. Занимает 30–45 минут онлайн."],
+  ["Вы работаете с малым бизнесом?", "Да. Экспресс внедрение специально создано для компаний от 10 сотрудников. Для крупных проектов — полное внедрение под ключ."],
+  ["Что входит в услугу разработки?", "Проектирование бизнес-процессов, разработка модулей ELMA365, интеграции с 1С/CRM/ERP, тестирование и обучение пользователей."],
+  ["Можно ли мигрировать с другой системы?", "Да, помогаем с миграцией с Битрикс24, 1С:Документооборот и других систем. Разрабатываем план без потери данных."],
+];
+const jsonld = [
+  { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqServices.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) },
+];
 const services = [
   ["Внедрение", "CRM, ЭДО, ServiceDesk, закупки, маркетинг, проекты, КЭДО и другие процессы.", "/services/vnedrenie/"],
   ["Разработка", "Модули, интеграции (1С, API), доработки под ваши задачи.", "/services/razrabotka/"],
@@ -13,7 +22,7 @@ const services = [
   ["Покупка лицензий", "Подбор и поставка лицензий ELMA365.", null],
 ];
 ---
-<Base title={title} description={description}>
+<Base title={title} description={description} jsonld={jsonld}>
   <section class="hero">
     <div class="container">
       <Breadcrumbs items={[{ name: "Главная", href: "/" }, { name: "Услуги" }]} />
@@ -30,6 +39,20 @@ const services = [
         {services.map(([t, d, href]) => href
           ? (<a class="card" href={href}><h3>{t}</h3><p>{d}</p></a>)
           : (<div class="card"><h3>{t}</h3><p>{d}</p></div>))}
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container" style="max-width:760px">
+      <div class="eyebrow reveal">FAQ</div>
+      <h2 class="reveal">Частые вопросы об услугах</h2>
+      <div class="faq reveal" style="margin-top:32px">
+        {faqServices.map(([q, a]) => (
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">{q}</button>
+            <div class="faq-a">{a}</div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
