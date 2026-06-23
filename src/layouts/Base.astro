@@ -76,7 +76,7 @@ const ogImage = new URL("/og.png", Astro.site).href;
       </div>
       <div class="container" style="margin-top:24px;opacity:.6">© 2026 WhatDaDev · прототип</div>
     </footer>
-    <button id="backToTop" aria-label="Наверх" style="position:fixed;bottom:24px;right:24px;z-index:50;width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;border:none;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity var(--transition-base);pointer-events:none">↑</button>
+    <button id="backToTop" class="back-to-top" aria-label="Наверх">↑</button>
     <script>
       const t = document.getElementById('navToggle');
       const n = document.getElementById('nav');
@@ -102,8 +102,11 @@ const ogImage = new URL("/og.png", Astro.site).href;
           const show = window.scrollY > 400;
           btt.style.opacity = show ? '1' : '0';
           btt.style.pointerEvents = show ? 'auto' : 'none';
+        }, { passive: true });
+        btt.addEventListener('click', () => {
+          const prefersReduced = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+          window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
         });
-        btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
       }
     </script>
   </body>
