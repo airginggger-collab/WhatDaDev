@@ -17,11 +17,11 @@ const description = "Свяжитесь с WhatDaDev: Telegram, WhatsApp, email.
       <div class="card">
         <h3>Записаться на демо</h3>
         <form class="form" id="leadForm" style="margin-top:12px">
-          <label>Имя<input name="name" required autocomplete="name" /></label>
-          <label>Телефон<input name="phone" type="tel" required autocomplete="tel" /></label>
-          <label>Email<input name="email" type="email" autocomplete="email" /></label>
-          <label>Компания<input name="company" autocomplete="organization" /></label>
-          <label>Сообщение<textarea name="message"></textarea></label>
+          <label>Имя<input name="name" required autocomplete="name" placeholder="Иван Петров" /></label>
+          <label>Телефон<input name="phone" type="tel" required autocomplete="tel" placeholder="+7 900 000-00-00" /></label>
+          <label>Email<input name="email" type="email" autocomplete="email" placeholder="ivan@company.ru" /></label>
+          <label>Компания<input name="company" autocomplete="organization" placeholder="ООО «Ромашка»" /></label>
+          <label>Сообщение<textarea name="message" placeholder="Хочу автоматизировать согласование договоров, 50 сотрудников"></textarea></label>
           <label class="row"><input type="checkbox" required style="width:auto" /> <span>Согласен на обработку персональных данных</span></label>
           <button class="btn" type="submit">Записаться на демо</button>
           <p class="form-note">Ответим в течение рабочего дня. Без спама — только по вашему запросу.</p>
