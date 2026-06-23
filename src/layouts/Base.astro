@@ -10,6 +10,7 @@ const org = {
 };
 const website = { "@context": "https://schema.org", "@type": "WebSite", name: "WhatDaDev", url: "https://whatdadev.ru", inLanguage: ["ru", "en"] };
 const blocks = [org, website, ...jsonld];
+const currentPath = Astro.url.pathname;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const ogImage = new URL("/og.png", Astro.site).href;
 ---
@@ -46,11 +47,11 @@ const ogImage = new URL("/og.png", Astro.site).href;
         <a class="logo" href="/">What<b>Da</b>Dev</a>
         <button class="nav-toggle" id="navToggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav">☰</button>
         <nav class="nav" id="nav">
-          <a href="/products/express/">Продукты</a>
-          <a href="/services/">Услуги</a>
-          <a href="/industries/">Отрасли</a>
-          <a href="/press/">Пресс-центр</a>
-          <a href="/contacts/">Контакты</a>
+          <a href="/products/express/" aria-current={currentPath.startsWith('/products/') ? 'page' : undefined}>Продукты</a>
+          <a href="/services/" aria-current={currentPath.startsWith('/services/') ? 'page' : undefined}>Услуги</a>
+          <a href="/industries/" aria-current={currentPath.startsWith('/industries/') ? 'page' : undefined}>Отрасли</a>
+          <a href="/press/" aria-current={currentPath.startsWith('/press/') ? 'page' : undefined}>Пресс-центр</a>
+          <a href="/contacts/" aria-current={currentPath === '/contacts/' ? 'page' : undefined}>Контакты</a>
           <a class="btn" href="/contacts/">Записаться на демо</a>
         </nav>
       </div>
@@ -75,6 +76,7 @@ const ogImage = new URL("/og.png", Astro.site).href;
       </div>
       <div class="container" style="margin-top:24px;opacity:.6">© 2026 WhatDaDev · прототип</div>
     </footer>
+    <button id="backToTop" aria-label="Наверх" style="position:fixed;bottom:24px;right:24px;z-index:50;width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;border:none;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity var(--transition-base);pointer-events:none">↑</button>
     <script>
       const t = document.getElementById('navToggle');
       const n = document.getElementById('nav');
@@ -94,6 +96,15 @@ const ogImage = new URL("/og.png", Astro.site).href;
         }
       }, { threshold: 0.2 });
       document.querySelectorAll('.reveal, [data-p]').forEach((el) => io.observe(el));
+      const btt = document.getElementById('backToTop');
+      if (btt) {
+        window.addEventListener('scroll', () => {
+          const show = window.scrollY > 400;
+          btt.style.opacity = show ? '1' : '0';
+          btt.style.pointerEvents = show ? 'auto' : 'none';
+        });
+        btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+      }
     </script>
   </body>
 </html>
