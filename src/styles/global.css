@@ -27,6 +27,10 @@ a{color:inherit;text-decoration:none}
 .btn:active{transform:scale(.97)}
 .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,.28);color:#fff}
 .btn-ghost:hover{background:rgba(255,255,255,.08);box-shadow:none}
+.btn-secondary{background:transparent;border:1.5px solid rgba(255,255,255,.22);color:rgba(255,255,255,.7);padding:13px 24px;border-radius:9999px;font-weight:500;font-size:inherit;display:inline-block;transition:var(--transition-hover),background var(--transition-fast)}
+.btn-secondary:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.4);color:#fff}
+.trust-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.trust-chip{font-size:12px;color:rgba(255,255,255,.55);background:rgba(255,255,255,.07);padding:4px 12px;border-radius:99px;border:0.5px solid rgba(255,255,255,.12)}
 .btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
 .proof{display:flex;gap:0;flex-wrap:wrap;margin-top:32px;color:var(--dark-muted);font-size:14px;border:1px solid rgba(255,255,255,.08);border-radius:12px;overflow:hidden;width:fit-content}
 .proof span{padding:10px 20px;border-right:1px solid rgba(255,255,255,.08)}
@@ -49,7 +53,7 @@ a{color:inherit;text-decoration:none}
 .hero-split h1{font-size:clamp(28px,3.6vw,42px)}
 @media(max-width:840px){.hero-split{grid-template-columns:1fr;gap:28px}}
 /* video card */
-.video-card{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid rgba(79,70,229,.35);box-shadow:0 0 0 1px rgba(79,70,229,.12),0 24px 64px rgba(0,0,0,.45);aspect-ratio:16/10;background:var(--dark-surface)}
+.video-card{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid rgba(79,70,229,.35);box-shadow:0 0 48px rgba(79,70,229,.22),0 0 0 1px rgba(79,70,229,.18),0 24px 64px rgba(0,0,0,.45);aspect-ratio:16/10;background:var(--dark-surface)}
 .video-card::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(79,70,229,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(79,70,229,.06) 1px,transparent 1px);background-size:32px 32px;pointer-events:none;z-index:1}
 .video-card video{width:100%;height:100%;object-fit:cover;display:block}
 .video-card-chrome{position:absolute;top:0;left:0;right:0;height:32px;background:rgba(17,24,39,.92);display:flex;align-items:center;padding:0 12px;gap:6px;z-index:2;border-bottom:1px solid rgba(79,70,229,.2)}
