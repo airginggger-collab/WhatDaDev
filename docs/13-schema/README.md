@@ -27,7 +27,7 @@
   "name": "WhatDaDev",
   "url": "https://whatdadev.ru",
   "logo": "{{LOGO_URL}}",
-  "description": "Внедрение ELMA365 под ключ и готовые продукты для документооборота. РФ и КЗ.",
+  "description": "Внедрение ELMA365 под ключ и готовые продукты для документооборота. РФ и СНГ.",
   "email": "sales@whatdadev.ru",
   "telephone": "+7-980-471-57-72",
   "areaServed": ["RU", "KZ"],

@@ -1,10 +1,10 @@
 ---
 import "../styles/global.css";
-const { title = "WhatDaDev — внедрение ELMA365 и готовый ЭДО из коробки", description = "Внедрение ELMA365 под ключ и коробочные продукты для документооборота. РФ и КЗ.", jsonld = [] } = Astro.props;
+const { title = "WhatDaDev — внедрение ELMA365 и готовый ЭДО из коробки", description = "Внедрение ELMA365 под ключ и коробочные продукты для документооборота. РФ и СНГ.", jsonld = [] } = Astro.props;
 const org = {
   "@context": "https://schema.org", "@type": "Organization",
   name: "WhatDaDev", url: "https://whatdadev.ru",
-  description: "Внедрение ELMA365 под ключ и готовые продукты для документооборота. РФ и КЗ.",
+  description: "Внедрение ELMA365 под ключ и готовые продукты для документооборота. РФ и СНГ.",
   email: "sales@whatdadev.ru", telephone: "+7-980-471-57-72",
   areaServed: ["RU", "KZ"], sameAs: ["https://t.me/WhatDaDev"],
 };
@@ -62,7 +62,7 @@ const ogImage = new URL("/og.png", Astro.site).href;
       <div class="container footer-grid">
         <div>
           <div class="logo" style="color:#fff;margin-bottom:8px">What<b>Da</b>Dev</div>
-          <p>Внедрение ELMA365 и готовые продукты для документооборота. РФ и КЗ.</p>
+          <p>Внедрение ELMA365 и готовые продукты для документооборота. РФ и СНГ.</p>
         </div>
         <div>
           <p><b style="color:#fff">Контакты</b></p>
