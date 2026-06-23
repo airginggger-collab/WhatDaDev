@@ -2,6 +2,15 @@
 
 Все значимые изменения спеки проекта. Формат: семантические версии.
 
+## v0.52 — 2026-06-23
+
+### Контент: волна 3.2 + глоссарий + Coordo-лендинг + hero-фиксы
+- **Статьи волна 3.2** (8 штук): elma365-vs-directum, elma365-vs-1s-dokumentooborot, kak-vybrat-sed, elektronnaya-podpis-v-dokumentooborote, zameshchenie-sotrudnikov-soglasovaniya, kontrol-ispolneniya-porucheniy, importozameshchenie-sed, low-code-dlya-biznesa
+- **Глоссарий** `/press/glossary/` — 15 терминов + index (ЭДО, СЭД, BPM, КЭДО, ОРД, ЭП, ЮЗЭДО, low-code и др.)
+- **`/coordo/`** — отдельный лендинг с реальным видео `coordo-demo.mp4`
+- **Hero-фиксы:** `min-height:600px` только на главной (`.hero-split-wrap`); inner pages — по контенту; `demo.mp4` → `coordo-demo.mp4` на главной
+- Сайт: **68 страниц**
+
 ## v0.51 — 2026-06-23
 
 ### Статьи волна 3.1 — полный пакет
