@@ -3,7 +3,7 @@ import Base from "../../layouts/Base.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import { team } from "../../data/team.js";
 const title = "О компании WhatDaDev — эксперты ELMA365 | РФ и СНГ";
-const description = "WhatDaDev — внедрение ELMA365 и собственные продукты. 4+ года, сертифицированные эксперты, 12 внедрений. Работаем в РФ и Казахстане.";
+const description = "WhatDaDev — внедрение ELMA365 и собственные продукты. 4+ года, сертифицированные эксперты, 12 внедрений. Работаем в РФ и СНГ.";
 const aboutPage = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
@@ -16,42 +16,194 @@ const aboutPage = {
 <Base title={title} description={description} jsonld={[aboutPage]}>
   <section class="hero">
     <div class="container">
-      <Breadcrumbs items={[{ name: "Главная", href: "/" }, { name: "Компания", href: "/company/" }, { name: "О нас" }]} />
+      <Breadcrumbs items={[{ name: "Главная", href: "/" }, { name: "О компании" }]} />
       <h1>О WhatDaDev — сертифицированные эксперты ELMA365</h1>
-      <p class="lead">Внедряем ELMA365 и развиваем собственные продукты для документооборота. Работаем в России и Казахстане.</p>
-      <div class="proof"><span><b>4+</b> года на ELMA365</span><span><b>12</b> внедрений</span><span>сертифицированные эксперты</span></div>
-    </div>
-  </section>
-  <section class="section">
-    <div class="container">
-      <h2>Чем мы отличаемся</h2>
-      <div class="grid grid-3" style="margin-top:24px">
-        <div class="card"><h3>Dogfooding</h3><p>Сами работаем на ELMA365 и своих продуктах — внедряем по реальному опыту.</p></div>
-        <div class="card"><h3>Продукты, а не только услуги</h3><p>Готовые решения из коробки ускоряют запуск и снижают стоимость.</p></div>
-        <div class="card"><h3>Под поддержку</h3><p>Решения, которыми клиент управляет сам, без сложных доработок.</p></div>
+      <p class="lead">Внедряем ELMA365 и развиваем собственные продукты для документооборота. Работаем в России и СНГ.</p>
+      <div class="proof">
+        <span><b>4+</b> года на ELMA365</span>
+        <span><b>12</b> внедрений</span>
+        <span>сертифицированные эксперты</span>
+        <span>РФ и СНГ</span>
       </div>
     </div>
   </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow reveal">Подход</div>
+      <h2 class="reveal">Три вещи, которые нас отличают</h2>
+      <div class="grid grid-3" style="margin-top:28px">
+        <div class="card reveal">
+          <div class="about-num">01</div>
+          <h3>Сами работаем на ELMA365</h3>
+          <p>Dogfooding в прямом смысле: все наши внутренние процессы — договоры, задачи, корреспонденция — идут через ELMA365 и Coordo. Внедряем по живому опыту, а не по учебнику вендора.</p>
+        </div>
+        <div class="card reveal">
+          <div class="about-num">02</div>
+          <h3>Продукты, а не только часы</h3>
+          <p>Мы разработали Coordo — готовый ЭДО из коробки. Клиент получает проверенное решение за фиксированную цену, а не смету на «разработку с нуля».</p>
+        </div>
+        <div class="card reveal">
+          <div class="about-num">03</div>
+          <h3>Передаём управление клиенту</h3>
+          <p>После запуска администратор меняет маршруты согласования сам — в интерфейсе, без разработчика. Мы строим системы, которыми умеют пользоваться без нас.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section alt">
     <div class="container">
-      <div class="eyebrow">Команда</div>
-      <h2>Мы будем с вами работать</h2>
-      <div class="team">
+      <div class="eyebrow reveal">Команда</div>
+      <h2 class="reveal">Люди, с которыми вы будете работать</h2>
+      <div class="team-grid">
         {team.map((m) => (
-          <div class="member reveal">
-            {m.photo ? <img class="avatar-photo" src={m.photo} alt={m.name} width="64" height="64" loading="lazy" /> : <div class="avatar">{m.initials}</div>}
-            <h3>{m.name}</h3>
-            <span class="role">{m.role}</span>
-            <p>{m.bio}</p>
+          <div class="team-card reveal">
+            <div class="team-photo-wrap">
+              {m.photo
+                ? <img class="team-photo" src={m.photo} alt={m.name} width="280" height="280" loading="lazy" />
+                : <div class="team-photo-placeholder">{m.initials}</div>
+              }
+            </div>
+            <div class="team-info">
+              <div class="team-role">{m.role}</div>
+              <h3 class="team-name">{m.name}</h3>
+              <p class="team-bio">{m.bio}</p>
+              {(m.telegram || m.linkedin) && (
+                <div class="team-socials">
+                  {m.telegram && (
+                    <a href={`https://t.me/${m.telegram}`} class="team-social" target="_blank" rel="noopener" aria-label={`Telegram ${m.name}`}>
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.17 13.99l-2.965-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.983.569z"/></svg>
+                      Telegram
+                    </a>
+                  )}
+                  {m.linkedin && (
+                    <a href={m.linkedin} class="team-social" target="_blank" rel="noopener" aria-label={`LinkedIn ${m.name}`}>
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                      LinkedIn
+                    </a>
+                  )}
+                </div>
+              )}
+            </div>
           </div>
         ))}
       </div>
     </div>
   </section>
+
   <section class="hero">
     <div class="container center">
       <h2 style="color:#fff">Обсудим вашу задачу</h2>
-      <div class="btn-row" style="justify-content:center"><a class="btn" href="/contacts/">Связаться</a></div>
+      <p class="lead" style="color:#94a3b8;margin-bottom:28px">Ответим в течение рабочего дня. Без продающих скриптов.</p>
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn" href="/contacts/">Связаться с командой</a>
+      </div>
     </div>
   </section>
 </Base>
+
+<style>
+.about-num {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.team-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform .2s, box-shadow .2s;
+}
+.team-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,.08);
+}
+
+.team-photo-wrap {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #f1f5f9;
+}
+.team-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform .3s;
+}
+.team-card:hover .team-photo {
+  transform: scale(1.03);
+}
+.team-photo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 52px;
+  font-weight: 700;
+  color: var(--accent);
+  background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+}
+
+.team-info {
+  padding: 18px 20px 22px;
+}
+.team-role {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.team-name {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 8px;
+}
+.team-bio {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.55;
+  margin: 0 0 14px;
+}
+.team-socials {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.team-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 4px 10px;
+  border: 1px solid rgba(79,70,229,.3);
+  border-radius: 6px;
+  transition: background .15s, border-color .15s;
+}
+.team-social:hover {
+  background: rgba(79,70,229,.07);
+  border-color: var(--accent);
+}
+</style>
