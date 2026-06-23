@@ -2,6 +2,40 @@
 
 Все значимые изменения спеки проекта. Формат: семантические версии.
 
+## v0.48 — 2026-06-23
+
+### UI/UX Full Upgrade
+
+**Motion & визуал:**
+- Motion tokens (`--transition-fast/base/slow/hover`) в `global.css`
+- Hover карточек: `translateY(-2px)` + тень через токены
+- `::selection` indigo, `:focus-visible` единый стиль, `@media print`
+- `.prose a` стиль для ссылок в тексте
+
+**Hero:**
+- CTA-иерархия: главная кнопка primary, вторая — `.btn-secondary`
+- Trust-чипы под CTA: «без предоплаты · ответ за 2 часа · NDA по запросу»
+- Видео-карточка — ambient indigo-свечение
+- Reveal stagger на элементах hero (0/60/120/180/240ms)
+
+**Навигация:**
+- Active state: `aria-current="page"` + indigo underline
+- Кнопка «Наверх» — появляется после 400px скролла, `prefers-reduced-motion`
+- Мобильное меню — fade transition
+
+**Футер:**
+- Расширен до 4 колонок: Бренд+контакты / Продукты / Услуги / Компания
+- Убрано «прототип» из копирайта
+
+**Страницы:**
+- Pricing: featured badge «Узнать стоимость» на CTA-карточке
+- 404: три карточки-ссылки на ключевые разделы
+- FAQ-аккордеоны на `/products/express/` и `/services/` + FAQPage JSON-LD
+
+**Карточки:**
+- Reveal stagger на bento и основных карточках (0/80/160ms)
+- `a.card` — `cursor:pointer`, `text-decoration:none`
+
 ## [v0.47] — 2026-06-22 — Breadcrumbs: добавлены на все 10 страниц без крошек
 ### Added
 - Хлебные крошки (`<Breadcrumbs>`) добавлены на 10 страниц, которые их не имели:
