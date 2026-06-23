@@ -151,7 +151,14 @@ a.card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(15,23,42,.10
 .nav a[aria-current="page"]::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--accent);border-radius:2px}
 .site-footer{background:var(--dark-bg);color:var(--dark-muted);padding:48px 0;font-size:14px}
 .site-footer a{color:var(--dark-text)}
-.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}
+.footer-heading{color:#fff;font-weight:500;font-size:13px;margin-bottom:10px;text-transform:uppercase;letter-spacing:.06em}
+.site-footer nav{display:flex;flex-direction:column;gap:8px}
+.site-footer nav a{font-size:14px;color:var(--dark-muted);transition:color var(--transition-fast)}
+.site-footer nav a:hover{color:#fff}
+.footer-bottom{margin-top:32px;padding-top:20px;border-top:1px solid var(--dark-border);display:flex;justify-content:space-between;font-size:13px;opacity:.5}
+@media(max-width:840px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
 .nav-toggle{display:none;background:none;border:0;color:#fff;font-size:26px;line-height:1;cursor:pointer;padding:4px 8px}
 @media(max-width:840px){
   .nav-toggle{display:block}
