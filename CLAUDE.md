@@ -47,7 +47,7 @@
   - Markdown-канон → только `docs/`.
   - Экспорты (.docx/.xlsx) → только `deliverables/` (пере-генерируем из docs, руками не правим).
   - Картинки-референсы → только `references/`.
-  - **Никаких бинарников в корне репозитория.** Курируемые ассеты идут в `references/` или `deliverables/`; локальный мусор/черновики/скриншоты — в `_local-assets/` (gitignored). `.gitignore` блокирует `/*.png /*.jpg /*.jpeg /*.pdf /*.mov /*.svg` в корне.
+  - **Никаких бинарников в корне репозитория.** Курируемые ассеты идут в `references/` или `deliverables/`; локальный мусор/черновики/скриншоты — в `_local-assets/` или `скрины/` (оба gitignored). `.gitignore` блокирует `/*.png /*.jpg /*.jpeg /*.pdf /*.mov /*.svg` в корне.
 - Сайт: страницы `src/pages/` (вкл. динамические `[slug].astro`), общий каркас `src/layouts/Base.astro`, компоненты `src/components/`, контент-данные `src/data/*.js`, стили `src/styles/global.css`.
 
 ## Конвенции

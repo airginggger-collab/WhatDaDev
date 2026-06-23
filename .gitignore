@@ -13,6 +13,7 @@ dist/
 
 # local scratch assets (kept on disk, never committed)
 _local-assets/
+скрины/
 
 # stray binaries dumped at repo root (curated assets live in references/ & deliverables/)
 /*.png
