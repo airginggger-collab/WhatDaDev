@@ -150,7 +150,7 @@ a.card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(15,23,42,.10
 .logo b{color:var(--accent)}
 .nav{display:flex;gap:22px;align-items:center;font-size:15px;color:#cbd5e1}
 .nav a:hover{color:#fff}
-.nav a[aria-current="page"]{color:#fff;font-weight:500;position:relative}
+.nav a[aria-current="page"]{color:#fff;font-weight:500;position:relative}.nav-highlight{color:#a5b4fc;font-weight:600;border:1px solid rgba(165,180,252,.35);border-radius:6px;padding:3px 10px;transition:background .2s,color .2s}.nav-highlight:hover{background:rgba(165,180,252,.12);color:#c7d2fe}
 .nav a[aria-current="page"]::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--accent);border-radius:2px}
 .site-footer{background:var(--dark-bg);color:var(--dark-muted);padding:48px 0;font-size:14px}
 .site-footer a{color:var(--dark-text)}
