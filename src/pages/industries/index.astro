@@ -12,6 +12,13 @@ const industryColors: Record<string, string> = {
   "logistika":    "#0D9488",
   "finance":      "#7C3AED",
 };
+const industryCovers: Record<string, string> = {
+  "proizvodstvo": "/covers/vnedrenie.png",
+  "ritejl":       "/covers/crm.webp",
+  "development":  "/covers/razrabotka.webp",
+  "logistika":    "/covers/bpm.webp",
+  "finance":      "/covers/contracts.webp",
+};
 
 const getLabel = (h1: string) => h1.split(":")[0].replace("ELMA365 для ", "").replace("ELMA365 для", "");
 const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
@@ -35,9 +42,8 @@ const rest = industries.slice(1);
 
       <!-- FEATURED -->
       <a class="ind-featured reveal" href={`/industries/${featured.slug}/`}>
-        <div class="ind-cover" style={`background:${industryColors[featured.slug] ?? '#4F46E5'}`}>
+        <div class="ind-cover" style={`--c:${industryColors[featured.slug] ?? '#4F46E5'};background-image:url(${industryCovers[featured.slug] ?? ''})`}>
           <span class="ind-cover-label">{capitalize(getLabel(featured.h1))}</span>
-          <div class="ind-lines"><span></span><span></span><span></span></div>
         </div>
         <div class="ind-body">
           <span class="ind-badge" style={`background:${industryColors[featured.slug] ?? '#4F46E5'}22;color:${industryColors[featured.slug] ?? '#4F46E5'}`}>{capitalize(getLabel(featured.h1))}</span>
@@ -54,8 +60,7 @@ const rest = industries.slice(1);
           const color = industryColors[x.slug] ?? '#4F46E5';
           return (
             <a class="ind-card reveal" href={`/industries/${x.slug}/`} style={`transition-delay:${(i%2)*60}ms`}>
-              <div class="ind-card-cover" style={`background:${color}`}>
-                <div class="ind-lines-sm"><span></span><span></span></div>
+              <div class="ind-card-cover" style={`--c:${color};background-image:url(${industryCovers[x.slug] ?? ''})`}>
               </div>
               <div class="ind-card-body">
                 <span class="ind-card-tag" style={`color:${color}`}>{label}</span>
@@ -104,6 +109,15 @@ const rest = industries.slice(1);
     align-items: flex-end;
     padding: 28px;
     overflow: hidden;
+    background-size: cover;
+    background-position: center top;
+  }
+  .ind-cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: color-mix(in srgb, var(--c) 72%, transparent);
+    z-index: 0;
   }
   .ind-cover-label {
     color: #fff;
@@ -114,11 +128,6 @@ const rest = industries.slice(1);
     position: relative;
     z-index: 1;
   }
-  .ind-lines { position: absolute; inset: 0; overflow: hidden; opacity: .15; }
-  .ind-lines span { display:block; height:1px; background:#fff; position:absolute; width:140%; transform:rotate(-15deg); }
-  .ind-lines span:nth-child(1) { top:30%; left:-20%; }
-  .ind-lines span:nth-child(2) { top:55%; left:-20%; }
-  .ind-lines span:nth-child(3) { top:78%; left:-20%; }
   .ind-body {
     padding: 36px 40px;
     display: flex;
@@ -154,11 +163,19 @@ const rest = industries.slice(1);
     transition: box-shadow .2s, transform .2s;
   }
   .ind-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,.08); transform: translateY(-3px); }
-  .ind-card-cover { height: 96px; position: relative; overflow: hidden; }
-  .ind-lines-sm { position: absolute; inset: 0; opacity: .15; }
-  .ind-lines-sm span { display:block; height:1px; background:#fff; position:absolute; width:140%; transform:rotate(-15deg); }
-  .ind-lines-sm span:nth-child(1) { top:35%; left:-20%; }
-  .ind-lines-sm span:nth-child(2) { top:70%; left:-20%; }
+  .ind-card-cover {
+    height: 104px;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center top;
+  }
+  .ind-card-cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: color-mix(in srgb, var(--c) 68%, transparent);
+  }
   .ind-card-body {
     padding: 20px;
     flex: 1;
