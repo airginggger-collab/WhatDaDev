@@ -53,7 +53,7 @@ const rest = services.slice(1);
 
       <!-- FEATURED -->
       <a class="srv-featured reveal" href={featured.href!}>
-        <div class="srv-cover" style={`--c:${serviceColors[featured.name]};background-image:url(${featured.cover})`}>
+        <div class="srv-cover" style={`background-image:url(${featured.cover})`}>
           <span class="srv-cover-label">{featured.name}</span>
         </div>
         <div class="srv-body">
@@ -69,7 +69,7 @@ const rest = services.slice(1);
         {rest.map((s, i) => s.href
           ? (
             <a class="srv-card reveal" href={s.href} style={`transition-delay:${(i%3)*60}ms`}>
-              <div class="srv-card-cover" style={`--c:${serviceColors[s.name]};background-image:url(${s.cover})`}>
+              <div class="srv-card-cover" style={`background-image:url(${s.cover})`}>
               </div>
               <div class="srv-card-body">
                 <span class="srv-card-tag" style={`color:${serviceColors[s.name]}`}>{s.name}</span>
@@ -80,7 +80,7 @@ const rest = services.slice(1);
             </a>
           ) : (
             <div class="srv-card reveal" style={`transition-delay:${(i%3)*60}ms`}>
-              <div class="srv-card-cover" style={`--c:${serviceColors[s.name]};background-image:url(${s.cover})`}>
+              <div class="srv-card-cover" style={`background-image:url(${s.cover})`}>
               </div>
               <div class="srv-card-body">
                 <span class="srv-card-tag" style={`color:${serviceColors[s.name]}`}>{s.name}</span>
@@ -152,7 +152,7 @@ const rest = services.slice(1);
     content: '';
     position: absolute;
     inset: 0;
-    background: color-mix(in srgb, var(--c) 72%, transparent);
+    background: linear-gradient(to top, rgba(0,0,0,.55) 0%, rgba(0,0,0,.0) 50%);
     z-index: 0;
   }
   .srv-cover-label {
@@ -211,7 +211,7 @@ const rest = services.slice(1);
     content: '';
     position: absolute;
     inset: 0;
-    background: color-mix(in srgb, var(--c) 68%, transparent);
+    background: linear-gradient(to top, rgba(0,0,0,.35) 0%, rgba(0,0,0,.0) 60%);
   }
   .srv-card-body {
     padding: 20px;

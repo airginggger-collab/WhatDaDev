@@ -42,7 +42,7 @@ const rest = industries.slice(1);
 
       <!-- FEATURED -->
       <a class="ind-featured reveal" href={`/industries/${featured.slug}/`}>
-        <div class="ind-cover" style={`--c:${industryColors[featured.slug] ?? '#4F46E5'};background-image:url(${industryCovers[featured.slug] ?? ''})`}>
+        <div class="ind-cover" style={`background-image:url(${industryCovers[featured.slug] ?? ''})`}>
           <span class="ind-cover-label">{capitalize(getLabel(featured.h1))}</span>
         </div>
         <div class="ind-body">
@@ -60,7 +60,7 @@ const rest = industries.slice(1);
           const color = industryColors[x.slug] ?? '#4F46E5';
           return (
             <a class="ind-card reveal" href={`/industries/${x.slug}/`} style={`transition-delay:${(i%2)*60}ms`}>
-              <div class="ind-card-cover" style={`--c:${color};background-image:url(${industryCovers[x.slug] ?? ''})`}>
+              <div class="ind-card-cover" style={`background-image:url(${industryCovers[x.slug] ?? ''})`}>
               </div>
               <div class="ind-card-body">
                 <span class="ind-card-tag" style={`color:${color}`}>{label}</span>
@@ -116,7 +116,7 @@ const rest = industries.slice(1);
     content: '';
     position: absolute;
     inset: 0;
-    background: color-mix(in srgb, var(--c) 72%, transparent);
+    background: linear-gradient(to top, rgba(0,0,0,.55) 0%, rgba(0,0,0,.0) 50%);
     z-index: 0;
   }
   .ind-cover-label {
@@ -174,7 +174,7 @@ const rest = industries.slice(1);
     content: '';
     position: absolute;
     inset: 0;
-    background: color-mix(in srgb, var(--c) 68%, transparent);
+    background: linear-gradient(to top, rgba(0,0,0,.35) 0%, rgba(0,0,0,.0) 60%);
   }
   .ind-card-body {
     padding: 20px;
