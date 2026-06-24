@@ -18,12 +18,12 @@ const tagColors: Record<string, string> = {
 };
 const tagCovers: Record<string, string> = {
   "Сравнение":        "/covers/crm.webp",
-  "Обзор":            "/covers/vnedrenie.png",
+  "Обзор":            "/covers/vnedrenie.webp",
   "Гайд":             "/covers/razrabotka.webp",
   "КЭДО":             "/covers/edo.webp",
   "ЭЦП":              "/covers/contracts.webp",
   "Процессы":         "/covers/bpm.webp",
-  "Импортозамещение": "/covers/audit.png",
+  "Импортозамещение": "/covers/audit.webp",
   "Low-code":         "/covers/razrabotka.webp",
 };
 
@@ -56,7 +56,7 @@ const collectionPage = {
 
       <!-- FEATURED -->
       <a class="press-featured reveal" href={`/press/articles/${featured.slug}/`} data-tag={featured.tag}>
-        <div class="press-featured-cover" style={`background-image:url(${tagCovers[featured.tag] ?? '/covers/vnedrenie.png'})`}>
+        <div class="press-featured-cover" style={`background-image:url(${tagCovers[featured.tag] ?? '/covers/vnedrenie.webp'})`}>
           <span class="pf-tag">{featured.tag}</span>
           <div class="pf-lines">
             <span></span><span></span><span></span>
@@ -86,7 +86,7 @@ const collectionPage = {
             data-tag={a.tag}
             style={`transition-delay:${(i % 3) * 60}ms`}
           >
-            <div class="pc-cover" style={`background-image:url(${tagCovers[a.tag] ?? '/covers/vnedrenie.png'})`}>
+            <div class="pc-cover" style={`background-image:url(${tagCovers[a.tag] ?? '/covers/vnedrenie.webp'})`}>
             </div>
             <div class="pc-body">
               <span class="pc-tag" style={`color:${tagColors[a.tag] ?? '#4F46E5'}`}>{a.tag}</span>

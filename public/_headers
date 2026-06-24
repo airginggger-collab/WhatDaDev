@@ -1,0 +1,33 @@
+# Cloudflare Workers Static Assets — cache headers
+
+# HTML — не кэшируем (всегда свежий контент)
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Immutable assets (хеш в имени — Astro генерирует)
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Изображения — 1 неделя
+/covers/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/team/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/*.png
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/*.svg
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+# Видео — 1 день (большой файл, но может обновляться)
+/video/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=3600
+
+# Sitemap / robots — 1 день
+/sitemap*.xml
+  Cache-Control: public, max-age=86400
+
+/robots.txt
+  Cache-Control: public, max-age=86400
