@@ -254,7 +254,7 @@ const jsonld = [
       <h2 class="reveal">Универсальный движок процессов</h2>
       <p class="lead reveal">Ядро Coordo — это инструмент настройки маршрутов: согласования, подписания, ознакомления и постановки поручений. Для одного объекта можно задать несколько маршрутов в зависимости от условий — значении суммы, типе документа, контрагенте или любом другом поле.</p>
 
-      <div class="grid grid-2" style="margin-top:32px;gap:24px">
+      <div class="grid grid-2" style="margin-top:32px;gap:24px;align-items:start">
         <div>
           <h3 style="margin-bottom:16px">Возможности ядра</h3>
           <ul class="coordo-list good">
@@ -409,10 +409,13 @@ const jsonld = [
           <p>Инструмент для массового ознакомления сотрудников с документами — приказами, регламентами, политиками. Фиксация факта ознакомления.</p>
         </div>
       </div>
-      <div class="card alt reveal" style="margin-top:32px;max-width:600px">
-        <h3>Ваш голос важен</h3>
-        <p>Дорожная карта Coordo формируется в том числе на основе запросов от реальных пользователей. Если у вас есть идеи по новым модулям или доработкам — напишите нам, мы это учитываем при планировании релизов.</p>
-        <a class="btn-secondary" href="/contacts/" style="display:inline-block;margin-top:12px">Предложить идею</a>
+      <div class="voice-card reveal" style="margin-top:32px">
+        <div>
+          <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#a5b4fc;margin-bottom:10px">Ваш голос важен</div>
+          <h3 style="color:#fff;margin-bottom:10px">Предложите идею для дорожной карты</h3>
+          <p style="color:rgba(255,255,255,.7);font-size:15px">Дорожная карта Coordo формируется в том числе на основе запросов от реальных пользователей. Если у вас есть идеи по новым модулям или доработкам — напишите нам.</p>
+        </div>
+        <a class="btn" href="/contacts/" style="white-space:nowrap;flex-shrink:0">Предложить идею</a>
       </div>
     </div>
   </section>
@@ -472,16 +475,16 @@ const jsonld = [
           <div style="padding-top:32px">
             <h3>Coordo — полная экосистема</h3>
             <div style="margin:12px 0 4px">
-              <span class="price-old cur-rub">990 000 ₽</span>
-              <span class="price-old cur-kzt" style="display:none">5 940 000 ₸</span>
-              <span class="price-old cur-usd" style="display:none">$11 000</span>
-              <span class="price-old cur-eur" style="display:none">€10 200</span>
+              <span class="price-old price-val price-val-rub">990 000 ₽</span>
+              <span class="price-old price-val price-val-kzt" style="display:none">5 940 000 ₸</span>
+              <span class="price-old price-val price-val-usd" style="display:none">$11 000</span>
+              <span class="price-old price-val price-val-eur" style="display:none">€10 200</span>
             </div>
             <div style="font-size:clamp(28px,4vw,40px);font-weight:700;color:var(--accent)">
-              <span class="cur-rub">690 000 ₽</span>
-              <span class="cur-kzt" style="display:none">4 140 000 ₸</span>
-              <span class="cur-usd" style="display:none">$7 700</span>
-              <span class="cur-eur" style="display:none">€7 100</span>
+              <span class="price-val price-val-rub">690 000 ₽</span>
+              <span class="price-val price-val-kzt" style="display:none">4 140 000 ₸</span>
+              <span class="price-val price-val-usd" style="display:none">$7 700</span>
+              <span class="price-val price-val-eur" style="display:none">€7 100</span>
             </div>
             <p style="font-size:14px;color:var(--muted);margin:8px 0 20px">Единоразовый платёж. Без абонентской платы, SaaS-подписок и доплат за каждого нового сотрудника.</p>
             <ul class="coordo-list good" style="font-size:14px">
@@ -605,6 +608,18 @@ const jsonld = [
   .cur-tab { background:transparent; border:1px solid var(--border); border-radius:6px; padding:6px 14px; font-size:14px; cursor:pointer; transition:.2s; color:var(--text); }
   .cur-tab.active { background:var(--accent); color:#fff; border-color:var(--accent); }
   .price-old { font-size:1rem; color:var(--muted); text-decoration:line-through; display:inline-block; }
+
+  /* voice card */
+  .voice-card {
+    background: var(--dark-bg, #0f172a);
+    border-radius: 16px;
+    padding: 32px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
 </style>
 
 <script>
@@ -615,11 +630,11 @@ const jsonld = [
       tabs.forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
       const cur = tab.dataset.cur;
-      document.querySelectorAll('[class*="cur-"]').forEach(el => {
-        el.style.display = el.classList.contains('cur-' + cur) ? '' : 'none';
+      document.querySelectorAll('.price-val').forEach(el => {
+        el.style.display = el.classList.contains('price-val-' + cur) ? '' : 'none';
       });
     });
   });
-  // init: show rub
-  document.querySelectorAll('.cur-kzt, .cur-usd, .cur-eur').forEach(el => el.style.display = 'none');
+  // init: show rub only
+  document.querySelectorAll('.price-val-kzt, .price-val-usd, .price-val-eur').forEach(el => el.style.display = 'none');
 </script>
