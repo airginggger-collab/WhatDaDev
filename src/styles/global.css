@@ -109,7 +109,7 @@ a.card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(15,23,42,.10
 .ring-wrap{display:flex;align-items:center;gap:18px}
 .ring-num{font-size:30px;font-weight:700}
 /* mini dashboard (charts) */
-.dash{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;box-shadow:0 12px 40px rgba(15,23,42,.10)}
+.dash{background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:var(--radius);padding:24px;box-shadow:0 12px 40px rgba(15,23,42,.10)}
 .dash-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;flex-wrap:wrap;gap:8px}
 .dash-head h3{margin:0}
 .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:22px}
