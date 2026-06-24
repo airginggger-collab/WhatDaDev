@@ -2,8 +2,26 @@
 import Base from "../../layouts/Base.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import { articles } from "../../data/articles.js";
+
 const title = "Пресс-центр WhatDaDev — статьи об ELMA365 и ЭДО | WhatDaDev";
 const description = "Статьи, сравнения и обзоры об ELMA365, документообороте и автоматизации процессов.";
+
+const tagColors: Record<string, string> = {
+  "Сравнение":        "#4F46E5",
+  "Обзор":            "#3B82F6",
+  "Гайд":             "#10B981",
+  "КЭДО":             "#7C3AED",
+  "ЭЦП":              "#F59E0B",
+  "Процессы":         "#0D9488",
+  "Импортозамещение": "#DC2626",
+  "Low-code":         "#EC4899",
+};
+
+const liveArticles = articles.filter(a => a.live);
+const featured = liveArticles[0];
+const rest = liveArticles.slice(1);
+const allTags = [...new Set(liveArticles.map(a => a.tag))];
+
 const collectionPage = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
@@ -14,6 +32,7 @@ const collectionPage = {
 };
 ---
 <Base title={title} description={description} jsonld={[collectionPage]}>
+
   <section class="hero">
     <div class="container">
       <Breadcrumbs items={[{ name: "Главная", href: "/" }, { name: "Пресс-центр" }]} />
@@ -21,16 +40,58 @@ const collectionPage = {
       <p class="lead">Статьи, сравнения и обзоры об ELMA365, документообороте и автоматизации процессов.</p>
     </div>
   </section>
+
   <section class="section">
     <div class="container">
-      <div class="grid grid-3">
-        {articles.map((a) => a.live
-          ? (<a class="card" href={`/press/articles/${a.slug}/`}><span class="tag">{a.tag}</span><h3 style="margin-top:12px">{a.name}</h3><p class="muted">Читать →</p></a>)
-          : (<div class="card"><span class="tag">{a.tag}</span><h3 style="margin-top:12px">{a.name}</h3><p class="muted">Скоро</p></div>))}
+
+      <!-- FEATURED -->
+      <a class="press-featured reveal" href={`/press/articles/${featured.slug}/`} data-tag={featured.tag}>
+        <div class="press-featured-cover" style={`background:${tagColors[featured.tag] ?? '#4F46E5'}`}>
+          <span class="pf-tag">{featured.tag}</span>
+          <div class="pf-lines">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+        <div class="press-featured-body">
+          <span class="press-tag-badge" style={`background:${tagColors[featured.tag] ?? '#4F46E5'}22;color:${tagColors[featured.tag] ?? '#4F46E5'}`}>{featured.tag}</span>
+          <h2 style="margin-top:14px;margin-bottom:12px">{featured.name}</h2>
+          <p class="muted">Читать статью →</p>
+        </div>
+      </a>
+
+      <!-- FILTERS -->
+      <div class="press-filters reveal" style="margin-top:48px;margin-bottom:28px">
+        <button class="pf-btn active" data-filter="all">Все</button>
+        {allTags.map(tag => (
+          <button class="pf-btn" data-filter={tag} style={`--tc:${tagColors[tag] ?? '#4F46E5'}`}>{tag}</button>
+        ))}
       </div>
+
+      <!-- GRID -->
+      <div class="press-grid" id="pressGrid">
+        {rest.map((a, i) => (
+          <a
+            class="press-card reveal"
+            href={`/press/articles/${a.slug}/`}
+            data-tag={a.tag}
+            style={`transition-delay:${(i % 3) * 60}ms`}
+          >
+            <div class="pc-cover" style={`background:${tagColors[a.tag] ?? '#4F46E5'}`}>
+              <div class="pc-lines"><span></span><span></span></div>
+            </div>
+            <div class="pc-body">
+              <span class="pc-tag" style={`color:${tagColors[a.tag] ?? '#4F46E5'}`}>{a.tag}</span>
+              <h3>{a.name}</h3>
+              <p class="muted pc-read">Читать →</p>
+            </div>
+          </a>
+        ))}
+      </div>
+
     </div>
   </section>
 
+  <!-- GLOSSARY CTA -->
   <section class="section alt">
     <div class="container">
       <div class="eyebrow">Справочник</div>
@@ -41,4 +102,170 @@ const collectionPage = {
       </div>
     </div>
   </section>
+
 </Base>
+
+<style>
+  /* ── FEATURED ── */
+  .press-featured {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow .25s, transform .25s;
+  }
+  .press-featured:hover { box-shadow: 0 8px 32px rgba(0,0,0,.1); transform: translateY(-3px); }
+  .press-featured-cover {
+    min-height: 260px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 28px;
+    overflow: hidden;
+  }
+  .pf-tag {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+  }
+  .pf-lines {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    opacity: .15;
+  }
+  .pf-lines span {
+    display: block;
+    height: 1px;
+    background: #fff;
+    position: absolute;
+    width: 140%;
+    transform: rotate(-15deg);
+  }
+  .pf-lines span:nth-child(1) { top: 30%; left: -20%; }
+  .pf-lines span:nth-child(2) { top: 55%; left: -20%; }
+  .pf-lines span:nth-child(3) { top: 78%; left: -20%; }
+  .press-featured-body {
+    padding: 36px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .press-featured-body h2 {
+    font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+    line-height: 1.3;
+  }
+
+  /* ── FILTERS ── */
+  .press-filters { display: flex; gap: 8px; flex-wrap: wrap; }
+  .pf-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: .2s;
+    color: var(--text);
+    font-family: inherit;
+  }
+  .pf-btn:hover { border-color: var(--tc, var(--accent)); color: var(--tc, var(--accent)); }
+  .pf-btn.active { background: var(--tc, var(--accent)); border-color: var(--tc, var(--accent)); color: #fff; }
+  .pf-btn[data-filter="all"] { --tc: var(--accent); }
+
+  /* ── GRID ── */
+  .press-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .press-card {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow .2s, transform .2s;
+  }
+  .press-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,.08); transform: translateY(-3px); }
+  .press-card.hidden { display: none; }
+  .pc-cover {
+    height: 96px;
+    position: relative;
+    overflow: hidden;
+  }
+  .pc-lines {
+    position: absolute;
+    inset: 0;
+    opacity: .15;
+  }
+  .pc-lines span {
+    display: block;
+    height: 1px;
+    background: #fff;
+    position: absolute;
+    width: 140%;
+    transform: rotate(-15deg);
+  }
+  .pc-lines span:nth-child(1) { top: 35%; left: -20%; }
+  .pc-lines span:nth-child(2) { top: 70%; left: -20%; }
+  .pc-body {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .pc-tag { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .4px; }
+  .pc-body h3 { font-size: clamp(.9rem, 1.4vw, 1rem); line-height: 1.4; flex: 1; }
+  .pc-read { font-size: 13px; margin-top: auto; }
+  .press-tag-badge {
+    display: inline-block;
+    width: fit-content;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: .4px;
+  }
+
+  @media (max-width: 900px) {
+    .press-featured { grid-template-columns: 1fr; }
+    .press-featured-cover { min-height: 160px; }
+    .press-featured-body { padding: 24px; }
+    .press-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .press-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script>
+  const btns = document.querySelectorAll<HTMLButtonElement>('.pf-btn');
+  const cards = document.querySelectorAll<HTMLElement>('.press-card');
+
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      cards.forEach(card => {
+        if (filter === 'all' || card.dataset.tag === filter) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
+</script>
