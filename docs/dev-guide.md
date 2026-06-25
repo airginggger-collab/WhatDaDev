@@ -22,6 +22,28 @@ npm run preview  # предпросмотр dist/
 
 Деплой — только через `git push origin main` (Cloudflare Workers Static Assets соберёт сам).
 
+## Проверка после деплоя
+
+Хостинг — **Cloudflare Workers Static Assets** (НЕ Pages; конфиг — `wrangler.jsonc`, `assets.directory = ./dist`). Авто-деплой при пуше в `main`. Боевой URL — `https://whatdadev.airg-inggger.workers.dev/` (домен `whatdadev.ru` ещё не привязан — см. `docs/20-domain-binding.md`).
+
+После пуша в `main` убедись, что прод действительно отдаёт текущую сборку:
+
+1. **Локальный HEAD = `origin/main`.** Нет рассинхрона с пушем:
+   ```bash
+   git fetch origin
+   git rev-parse HEAD            # должно совпасть с
+   git rev-parse origin/main
+   ```
+2. **Прод отдаёт текущую сборку.** Сравни хэши ассетов на проде с локальным `dist/index.html` (имена `/_astro/*.css|js` меняются при каждой пересборке — расхождение значит, что прод ещё старый / деплой не доехал):
+   ```bash
+   # хэши ассетов на проде
+   curl -s https://whatdadev.airg-inggger.workers.dev/ | grep -oE '/_astro/[^"]+\.(css|js)'
+   # хэши ассетов в локальной сборке (после npm run build)
+   grep -oE '/_astro/[^"]+\.(css|js)' dist/index.html
+   ```
+   Совпадают → прод = HEAD. Расходятся → подожди завершения деплоя Cloudflare и повтори.
+3. **Проверяй боевой `*.workers.dev`**, а НЕ `whatdadev.ru` — последний пока указывает на старый WordPress и не привязан к Workers.
+
 ## Стек
 
 | Инструмент | Версия | Роль |
