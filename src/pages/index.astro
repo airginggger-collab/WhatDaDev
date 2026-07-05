@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import home from "../data/home.json";
 ---
 <Base>
   <section class="hero">
@@ -7,24 +8,21 @@ import Base from "../layouts/Base.astro";
       <div class="hero-split">
         <!-- левая колонка: текст + CTA -->
         <div>
-          <div class="eyebrow reveal" style="color:#8FBBE0">Внедрение ELMA365 · РФ и КЗ</div>
-          <h1 class="reveal" style="transition-delay:60ms">Автоматизация процессов на ELMA365: внедрение под ключ и готовый ЭДО из коробки</h1>
-          <p class="lead reveal" style="transition-delay:120ms">Настраиваем ELMA365 под ваши задачи или запускаем готовые продукты за фиксированную цену. Сами работаем на ELMA365 и внедряем по собственному ежедневному опыту.</p>
+          <div class="eyebrow reveal" style="color:#8FBBE0">{home.hero.eyebrow}</div>
+          <h1 class="reveal" style="transition-delay:60ms">{home.hero.title}</h1>
+          <p class="lead reveal" style="transition-delay:120ms">{home.hero.lead}</p>
           <div class="btn-row reveal" style="transition-delay:180ms">
-            <a class="btn" href="/contacts/">Записаться на демо</a>
-            <a class="btn-secondary" href="/services/">Обсудить внедрение</a>
+            <a class="btn" href="/contacts/">{home.hero.cta_primary}</a>
+            <a class="btn-secondary" href="/services/">{home.hero.cta_secondary}</a>
           </div>
           <div class="proof">
-            <span><b>4+</b> года на ELMA365</span>
-            <span>работаем с релиза платформы</span>
-            <span>сертифицированные эксперты</span>
-            <span>РФ и КЗ</span>
+            {home.hero.proof.map((p) => (<span>{p.value && <b>{p.value} </b>}{p.label}</span>))}
           </div>
         </div>
         <!-- правая колонка: запись экрана ELMA365 -->
         <div class="video-card" id="heroVideoCard">
           <div class="video-card-chrome">
-            <span class="url">elma365 · согласование договора · запись экрана</span>
+            <span class="url">{home.hero.video_caption}</span>
           </div>
           <video id="heroVideo" autoplay muted loop playsinline preload="none">
             <source src="/video/coordo-demo.mp4" type="video/mp4" />
@@ -77,49 +75,25 @@ import Base from "../layouts/Base.astro";
   <!-- Возможности: реальные экраны ELMA365 -->
   <section class="section">
     <div class="container">
-      <div class="eyebrow reveal">Автоматизация</div>
-      <h2 class="reveal">Видите процесс — не хаос</h2>
-      <p class="lead reveal" style="margin-bottom:8px">Любой документ проходит маршрут, фиксируется и закрывается в срок. Без звонков и пересылок по почте.</p>
+      <div class="eyebrow reveal">{home.features_section.eyebrow}</div>
+      <h2 class="reveal">{home.features_section.title}</h2>
+      <p class="lead reveal" style="margin-bottom:8px">{home.features_section.lead}</p>
 
       <div class="feat-rows">
-        <article class="feat reveal">
-          <span class="feat-num">01</span>
-          <div class="feat-body">
-            <h3>Согласование договоров до 5 раз быстрее</h3>
-            <p>Маршрут запускается автоматически при создании документа. Юрист, финдиректор и подписант видят свой шаг и срок — напоминать вручную не нужно.</p>
-            <p class="feat-note">Контур «Согласование договоров»</p>
-          </div>
-          <figure class="feat-shot">
-            <img src="/covers/contracts.webp" alt="Реестр договоров в ELMA365" width="800" height="553" loading="lazy" />
-            <figcaption>elma365 · реестр договоров</figcaption>
-          </figure>
-        </article>
-
-        <article class="feat reveal">
-          <span class="feat-num">02</span>
-          <div class="feat-body">
-            <h3>Ни одно письмо не потеряется</h3>
-            <p>Единый реестр корреспонденции: учёт, статус, исполнитель, срок. Входящие не оседают в личных почтах сотрудников.</p>
-            <p class="feat-note">Контур «Корреспонденция»</p>
-          </div>
-          <figure class="feat-shot">
-            <img src="/covers/edo.webp" alt="Учёт корреспонденции в ELMA365" width="800" height="571" loading="lazy" />
-            <figcaption>elma365 · корреспонденция</figcaption>
-          </figure>
-        </article>
-
-        <article class="feat reveal">
-          <span class="feat-num">03</span>
-          <div class="feat-body">
-            <h3>Видите, где тормозит процесс</h3>
-            <p>Дашборд показывает узкие места по этапам и исполнителям — без выгрузки в Excel и ручных отчётов.</p>
-            <p class="feat-note">Аналитика процессов</p>
-          </div>
-          <figure class="feat-shot">
-            <img src="/covers/bpm.webp" alt="Схема процесса в ELMA365" width="641" height="600" loading="lazy" />
-            <figcaption>elma365 · схема процесса</figcaption>
-          </figure>
-        </article>
+        {home.features.map((f, i) => (
+          <article class="feat reveal">
+            <span class="feat-num">{String(i + 1).padStart(2, "0")}</span>
+            <div class="feat-body">
+              <h3>{f.title}</h3>
+              <p>{f.text}</p>
+              <p class="feat-note">{f.note}</p>
+            </div>
+            <figure class="feat-shot">
+              <img src={f.image} alt={f.alt} width={f.width} height={f.height} loading="lazy" />
+              <figcaption>{f.caption}</figcaption>
+            </figure>
+          </article>
+        ))}
       </div>
     </div>
   </section>
@@ -157,30 +131,17 @@ import Base from "../layouts/Base.astro";
 
   <section class="section" id="advantages">
     <div class="container">
-      <div class="eyebrow reveal">Почему мы</div>
-      <h2 class="reveal">Мы сами работаем в ELMA365 каждый день</h2>
-      <p class="lead reveal">Свой документооборот, задачи и процессы ведём на ELMA365 и собственных продуктах, поэтому внедряем по опыту, а не по учебнику.</p>
+      <div class="eyebrow reveal">{home.advantages_section.eyebrow}</div>
+      <h2 class="reveal">{home.advantages_section.title}</h2>
+      <p class="lead reveal">{home.advantages_section.lead}</p>
       <div class="grid grid-2" style="margin-top:32px">
-        <div class="card reveal">
-          <span class="tag">Опыт</span>
-          <h3 style="margin-top:14px">Более 4 лет с ELMA365</h3>
-          <p>Работаем с платформой с момента её релиза — глубоко понимаем её возможности и эволюцию.</p>
-        </div>
-        <div class="card reveal" style="transition-delay:60ms">
-          <span class="tag">Цены</span>
-          <h3 style="margin-top:14px">Конкурентные цены без компромиссов в качестве</h3>
-          <p>Стоимость ниже за счёт оптимизированных расходов: без затрат на офис и сопутствующую инфраструктуру.</p>
-        </div>
-        <div class="card reveal" style="transition-delay:120ms">
-          <span class="tag">Поддержка</span>
-          <h3 style="margin-top:14px">Лёгкость поддержки и администрирования</h3>
-          <p>Решения проектируем с учётом будущей поддержки: администраторы заказчика самостоятельно управляют и настраивают систему.</p>
-        </div>
-        <div class="card reveal" style="transition-delay:180ms">
-          <span class="tag">Квалификация</span>
-          <h3 style="margin-top:14px">Эксперты с подтверждённой квалификацией</h3>
-          <p>Каждый специалист сертифицирован и имеет многолетний опыт работы в сфере автоматизации.</p>
-        </div>
+        {home.advantages.map((a, i) => (
+          <div class="card reveal" style={`transition-delay:${i * 60}ms`}>
+            <span class="tag">{a.tag}</span>
+            <h3 style="margin-top:14px">{a.title}</h3>
+            <p>{a.text}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -202,9 +163,9 @@ import Base from "../layouts/Base.astro";
 
   <section class="section">
     <div class="container">
-      <div class="eyebrow reveal">Команда</div>
-      <h2 class="reveal">Люди, с которыми вы будете работать</h2>
-      <p class="lead reveal" style="max-width:560px;margin-bottom:32px">5 сертифицированных экспертов ELMA365. Сами работаем на своих продуктах.</p>
+      <div class="eyebrow reveal">{home.team_section.eyebrow}</div>
+      <h2 class="reveal">{home.team_section.title}</h2>
+      <p class="lead reveal" style="max-width:560px;margin-bottom:32px">{home.team_section.lead}</p>
       <div class="team-home reveal">
         <a class="team-home-card" href="/company/about/">
           <div class="team-home-avatars">
@@ -225,9 +186,9 @@ import Base from "../layouts/Base.astro";
 
   <section class="hero">
     <div class="container center">
-      <h2 style="color:var(--dark-text)">Покажем за час, что подойдёт именно вам</h2>
-      <p class="lead" style="margin:0 auto">Разберём задачу и предложим путь — продукт из коробки или внедрение под ключ.</p>
-      <div class="btn-row" style="justify-content:center"><a class="btn" href="/contacts/">Записаться на демо</a></div>
+      <h2 style="color:var(--dark-text)">{home.cta.title}</h2>
+      <p class="lead" style="margin:0 auto">{home.cta.lead}</p>
+      <div class="btn-row" style="justify-content:center"><a class="btn" href="/contacts/">{home.cta.button}</a></div>
     </div>
   </section>
 </Base>

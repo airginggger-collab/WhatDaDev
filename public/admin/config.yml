@@ -1,0 +1,168 @@
+backend:
+  name: github
+  repo: airginggger-collab/WhatDaDev
+  branch: main
+  commit_messages:
+    update: "content(cabinet): {{path}}"
+    uploadMedia: "content(cabinet): загрузка {{path}}"
+
+site_url: https://whatdadev.airg-inggger.workers.dev
+display_url: https://whatdadev.airg-inggger.workers.dev
+media_folder: public/uploads
+public_folder: /uploads
+
+collections:
+  - name: site
+    label: Тексты и данные сайта
+    files:
+      - name: home
+        label: Главная страница
+        file: src/data/home.json
+        fields:
+          - name: hero
+            label: Первый экран (hero)
+            widget: object
+            fields:
+              - { name: eyebrow, label: Надзаголовок, widget: string }
+              - { name: title, label: Заголовок H1, widget: text }
+              - { name: lead, label: Подзаголовок, widget: text }
+              - { name: cta_primary, label: Кнопка (главная), widget: string }
+              - { name: cta_secondary, label: Кнопка (вторая), widget: string }
+              - { name: video_caption, label: Подпись к видео, widget: string }
+              - name: proof
+                label: Плашка фактов
+                widget: list
+                fields:
+                  - { name: value, label: "Цифра (можно пусто)", widget: string, required: false, default: "" }
+                  - { name: label, label: Текст, widget: string }
+          - name: features_section
+            label: Секция «Возможности» — шапка
+            widget: object
+            fields:
+              - { name: eyebrow, label: Надзаголовок, widget: string }
+              - { name: title, label: Заголовок, widget: string }
+              - { name: lead, label: Подзаголовок, widget: text }
+          - name: features
+            label: Возможности (3 блока со скриншотами)
+            widget: list
+            fields:
+              - { name: title, label: Заголовок, widget: string }
+              - { name: text, label: Текст, widget: text }
+              - { name: note, label: Подпись-ярлык, widget: string }
+              - { name: image, label: Скриншот, widget: image, media_folder: /public/covers, public_folder: /covers }
+              - { name: alt, label: Alt-текст картинки, widget: string }
+              - { name: caption, label: Подпись под картинкой, widget: string }
+              - { name: width, label: Ширина картинки (px), widget: number }
+              - { name: height, label: Высота картинки (px), widget: number }
+          - name: advantages_section
+            label: Секция «Почему мы» — шапка
+            widget: object
+            fields:
+              - { name: eyebrow, label: Надзаголовок, widget: string }
+              - { name: title, label: Заголовок, widget: string }
+              - { name: lead, label: Подзаголовок, widget: text }
+          - name: advantages
+            label: Преимущества (4 карточки)
+            widget: list
+            fields:
+              - { name: tag, label: Ярлык, widget: string }
+              - { name: title, label: Заголовок, widget: string }
+              - { name: text, label: Текст, widget: text }
+          - name: team_section
+            label: Секция «Команда» — шапка
+            widget: object
+            fields:
+              - { name: eyebrow, label: Надзаголовок, widget: string }
+              - { name: title, label: Заголовок, widget: string }
+              - { name: lead, label: Подзаголовок, widget: text }
+          - name: cta
+            label: Нижний призыв к действию
+            widget: object
+            fields:
+              - { name: title, label: Заголовок, widget: string }
+              - { name: lead, label: Текст, widget: text }
+              - { name: button, label: Кнопка, widget: string }
+
+      - name: pricing
+        label: Цены и акция Coordo
+        file: src/data/pricing.json
+        fields:
+          - { name: promo_until, label: "Акция действует до (текст)", widget: string }
+          - { name: price_number_rub, label: "Цена числом для поисковиков (только цифры)", widget: string, pattern: ["^[0-9]+$", "Только цифры, без пробелов"] }
+          - { name: price_rub, label: Цена в рублях, widget: string }
+          - { name: price_kzt, label: Цена в тенге, widget: string }
+          - { name: price_usd, label: Цена в долларах, widget: string }
+          - { name: price_eur, label: Цена в евро, widget: string }
+          - { name: old_price_rub, label: Старая цена в рублях, widget: string }
+          - { name: old_price_kzt, label: Старая цена в тенге, widget: string }
+          - { name: old_price_usd, label: Старая цена в долларах, widget: string }
+          - { name: old_price_eur, label: Старая цена в евро, widget: string }
+          - { name: express_from, label: "Цена на странице продукта («от …»)", widget: string }
+          - { name: support_renewal, label: Условие продления поддержки, widget: string }
+
+      - name: contacts
+        label: Контакты и реквизиты
+        file: src/data/contacts.json
+        fields:
+          - { name: phone, label: "Телефон (как показывается)", widget: string }
+          - { name: phone_href, label: "Телефон для ссылок (+7XXXXXXXXXX)", widget: string }
+          - { name: telegram, label: "Telegram для заявок (без @)", widget: string }
+          - { name: telegram_channel, label: "Telegram-канал блога (без @)", widget: string }
+          - { name: email, label: Почта отдела продаж, widget: string }
+          - { name: support_email, label: Почта поддержки, widget: string }
+          - { name: career_email, label: Почта для резюме, widget: string }
+          - { name: requisites_ru, label: Реквизиты РФ, widget: string }
+          - { name: requisites_kz, label: Реквизиты КЗ, widget: string }
+          - { name: instagram, label: Instagram (ссылка), widget: string }
+          - { name: youtube, label: YouTube (ссылка), widget: string }
+          - { name: vk, label: ВКонтакте (ссылка), widget: string }
+          - { name: tiktok, label: TikTok (ссылка), widget: string }
+
+      - name: team
+        label: Команда
+        file: src/data/team.json
+        fields:
+          - name: members
+            label: Сотрудники
+            widget: list
+            fields:
+              - { name: name, label: Имя и фамилия, widget: string }
+              - { name: initials, label: Инициалы (если нет фото), widget: string }
+              - { name: role, label: Должность, widget: string }
+              - { name: photo, label: Фото, widget: image, required: false, media_folder: /public/team, public_folder: /team }
+              - { name: bio, label: Кратко о специалисте, widget: text }
+              - { name: telegram, label: "Telegram (без @, можно пусто)", widget: string, required: false }
+              - { name: linkedin, label: "LinkedIn (ссылка, можно пусто)", widget: string, required: false }
+
+      - name: directions
+        label: Направления услуг (внедрение)
+        file: src/data/directions.json
+        fields:
+          - name: items
+            label: Направления
+            widget: list
+            fields:
+              - { name: slug, label: "Адрес страницы (латиницей, не менять без разработчика)", widget: string }
+              - { name: h1, label: Заголовок H1, widget: string }
+              - { name: title, label: "Title (для поисковиков)", widget: string }
+              - { name: desc, label: "Description (для поисковиков)", widget: text }
+              - { name: lead, label: Подзаголовок, widget: text }
+              - { name: items, label: Пункты списка, widget: list, field: { name: item, label: Пункт, widget: string } }
+              - { name: note, label: "Примечание (можно пусто)", widget: string, required: false }
+              - { name: noteHref, label: "Ссылка примечания (можно пусто)", widget: string, required: false }
+
+      - name: industries
+        label: Отрасли
+        file: src/data/industries.json
+        fields:
+          - name: items
+            label: Отрасли
+            widget: list
+            fields:
+              - { name: slug, label: "Адрес страницы (латиницей, не менять без разработчика)", widget: string }
+              - { name: h1, label: Заголовок H1, widget: string }
+              - { name: title, label: "Title (для поисковиков)", widget: string }
+              - { name: desc, label: "Description (для поисковиков)", widget: text }
+              - { name: lead, label: Подзаголовок, widget: text }
+              - { name: pains, label: Боли отрасли, widget: list, field: { name: pain, label: Пункт, widget: string } }
+              - { name: items, label: Что автоматизируем, widget: list, field: { name: item, label: Пункт, widget: string } }

@@ -4,13 +4,14 @@ import "@fontsource-variable/piazzolla";
 import "@fontsource/ibm-plex-mono/400.css";
 import "@fontsource/ibm-plex-mono/500.css";
 import "../styles/global.css";
+import contacts from "../data/contacts.json";
 const { title = "WhatDaDev — внедрение ELMA365 и готовый ЭДО из коробки", description = "Внедрение ELMA365 под ключ и коробочные продукты для документооборота. РФ и КЗ.", jsonld = [] } = Astro.props;
 const org = {
   "@context": "https://schema.org", "@type": "Organization",
   name: "WhatDaDev", url: "https://whatdadev.ru",
   description: "Внедрение ELMA365 под ключ и готовые продукты для документооборота. РФ и КЗ.",
-  email: "sales@whatdadev.ru", telephone: "+7-980-471-57-72",
-  areaServed: ["RU", "KZ"], sameAs: ["https://t.me/WhatDaDev"],
+  email: contacts.email, telephone: contacts.phone,
+  areaServed: ["RU", "KZ"], sameAs: [`https://t.me/${contacts.telegram}`],
 };
 const website = { "@context": "https://schema.org", "@type": "WebSite", name: "WhatDaDev", url: "https://whatdadev.ru", inLanguage: ["ru", "en"] };
 const blocks = [org, website, ...jsonld];
@@ -80,9 +81,9 @@ const ogImage = new URL("/og.png", Astro.site).href;
           <div class="logo" style="color:var(--dark-text);margin-bottom:10px">What<b>Da</b>Dev</div>
           <p style="max-width:220px">Внедрение ELMA365 и готовые продукты для документооборота. РФ и КЗ.</p>
           <div style="margin-top:16px;font-size:13px">
-            <p>Telegram: @WhatDaDev</p>
-            <p>WhatsApp: +7 980 471-57-72</p>
-            <p><a href="mailto:sales@whatdadev.ru">sales@whatdadev.ru</a></p>
+            <p>Telegram: @{contacts.telegram}</p>
+            <p>WhatsApp: {contacts.phone}</p>
+            <p><a href={`mailto:${contacts.email}`}>{contacts.email}</a></p>
           </div>
         </div>
         <div>

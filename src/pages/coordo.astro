@@ -1,6 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
+import pricing from "../data/pricing.json";
 const title = "Coordo — согласование документов и рабочих процессов без разработки с нуля | WhatDaDev";
 const description = "Универсальный инструмент настройки маршрутов согласования и три готовых контура для старта в первый день. Договоры, ОРД, корреспонденция + замещения на ELMA365.";
 const jsonld = [
@@ -11,7 +12,7 @@ const jsonld = [
     operatingSystem: "ELMA365",
     url: "https://whatdadev.ru/coordo/",
     description: "Готовые контуры согласования документов на ELMA365. Без разработки с нуля.",
-    offers: { "@type": "Offer", price: "690000", priceCurrency: "RUB", availability: "https://schema.org/InStock" },
+    offers: { "@type": "Offer", price: pricing.price_number_rub, priceCurrency: "RUB", availability: "https://schema.org/InStock" },
     provider: { "@type": "Organization", name: "WhatDaDev", url: "https://whatdadev.ru" },
   },
 ];
@@ -47,11 +48,11 @@ const jsonld = [
   <section style="background:var(--accent);padding:18px 0">
     <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
       <div style="color:#fff">
-        <strong>Акция до 31 июля 2026</strong> — специальная цена на полную экосистему
+        <strong>Акция до {pricing.promo_until}</strong> — специальная цена на полную экосистему
       </div>
       <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
-        <span style="color:rgba(255,255,255,.6);text-decoration:line-through;font-size:1.1rem">990 000 ₽</span>
-        <span style="color:#fff;font-size:1.4rem;font-weight:700">690 000 ₽</span>
+        <span style="color:rgba(255,255,255,.6);text-decoration:line-through;font-size:1.1rem">{pricing.old_price_rub}</span>
+        <span style="color:#fff;font-size:1.4rem;font-weight:700">{pricing.price_rub}</span>
         <a class="btn" href="/contacts/" style="background:#fff;color:var(--accent);border-color:#fff">Записаться на демо</a>
       </div>
     </div>
@@ -474,20 +475,20 @@ const jsonld = [
 
       <div class="grid grid-2" style="margin-top:28px;gap:24px;align-items:start">
         <div class="card reveal" style="position:relative;overflow:hidden">
-          <div style="position:absolute;top:0;left:0;right:0;background:var(--accent);color:#fff;text-align:center;font-size:13px;font-weight:600;padding:6px">Акция до 31 июля 2026</div>
+          <div style="position:absolute;top:0;left:0;right:0;background:var(--accent);color:#fff;text-align:center;font-size:13px;font-weight:600;padding:6px">Акция до {pricing.promo_until}</div>
           <div style="padding-top:32px">
             <h3>Coordo — полная экосистема</h3>
             <div style="margin:12px 0 4px">
-              <span class="price-old price-val price-val-rub">990 000 ₽</span>
-              <span class="price-old price-val price-val-kzt" style="display:none">5 940 000 ₸</span>
-              <span class="price-old price-val price-val-usd" style="display:none">$11 000</span>
-              <span class="price-old price-val price-val-eur" style="display:none">€10 200</span>
+              <span class="price-old price-val price-val-rub">{pricing.old_price_rub}</span>
+              <span class="price-old price-val price-val-kzt" style="display:none">{pricing.old_price_kzt}</span>
+              <span class="price-old price-val price-val-usd" style="display:none">{pricing.old_price_usd}</span>
+              <span class="price-old price-val price-val-eur" style="display:none">{pricing.old_price_eur}</span>
             </div>
             <div style="font-size:clamp(28px,4vw,40px);font-weight:700;color:var(--accent)">
-              <span class="price-val price-val-rub">690 000 ₽</span>
-              <span class="price-val price-val-kzt" style="display:none">4 140 000 ₸</span>
-              <span class="price-val price-val-usd" style="display:none">$7 700</span>
-              <span class="price-val price-val-eur" style="display:none">€7 100</span>
+              <span class="price-val price-val-rub">{pricing.price_rub}</span>
+              <span class="price-val price-val-kzt" style="display:none">{pricing.price_kzt}</span>
+              <span class="price-val price-val-usd" style="display:none">{pricing.price_usd}</span>
+              <span class="price-val price-val-eur" style="display:none">{pricing.price_eur}</span>
             </div>
             <p style="font-size:14px;color:var(--muted);margin:8px 0 20px">Единоразовый платёж. Без абонентской платы, SaaS-подписок и доплат за каждого нового сотрудника.</p>
             <ul class="coordo-list good" style="font-size:14px">
@@ -508,7 +509,7 @@ const jsonld = [
           <div class="card alt reveal" style="transition-delay:80ms">
             <h3>Продление поддержки</h3>
             <p style="margin:8px 0 12px">После завершения 6 месяцев поддержка продлевается ежегодно. Включает приоритетные обновления, новые модули и сопровождение.</p>
-            <div style="font-size:1.3rem;font-weight:700;color:var(--accent);margin-bottom:16px">30% в год от стоимости ваших лицензий ELMA365</div>
+            <div style="font-size:1.3rem;font-weight:700;color:var(--accent);margin-bottom:16px">{pricing.support_renewal}</div>
             <ul class="coordo-list good" style="font-size:14px">
               <li>Приоритетная обработка обращений</li>
               <li>Все новые модули экосистемы</li>

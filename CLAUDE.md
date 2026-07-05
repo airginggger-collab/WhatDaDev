@@ -16,7 +16,7 @@
 **P1 — исправить слаги `/coordo/*` → `/products/express` при создании:**
 - `docs/dev-guide.md` — гайд разработчика (как запустить, структура src/, conventions)
 - `docs/05-seo/IMPLEMENTATION.md` — SEO чеклист реализации (что уже сделано, что нет)
-- `docs/19-cms-migration.md` — план миграции на CMS (бэклог, ADR-0006)
+- ✅ `docs/19-cms-migration.md` — создан; кабинет live (ADR-0015), инструкция — `docs/editing-cabinet.md`
 
 **P2 — выполнено:**
 - ✅ `docs/ARCHITECTURE.md` — единая архитектурная карта проекта

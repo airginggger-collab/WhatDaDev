@@ -1,5 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
+import pricing from "../../data/pricing.json";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 const title = "Экспресс‑внедрение ЭДО на ELMA365 из коробки | WhatDaDev";
 const description = "Готовый электронный документооборот на ELMA365: договоры, ОРД, корреспонденция. Запуск без долгой разработки. Разово, без подписки.";
@@ -16,7 +17,7 @@ const jsonld = [
     name: "Экспресс внедрение (Coordo)", applicationCategory: "BusinessApplication",
     operatingSystem: "ELMA365", url: "https://whatdadev.ru/products/express/",
     description: "Готовый ЭДО на ELMA365: согласование договоров, ОРД и корреспонденции. Маршруты без кода. Разово, без подписки.",
-    offers: { "@type": "Offer", price: "690000", priceCurrency: "RUB", availability: "https://schema.org/InStock", url: "https://whatdadev.ru/products/express/" },
+    offers: { "@type": "Offer", price: pricing.price_number_rub, priceCurrency: "RUB", availability: "https://schema.org/InStock", url: "https://whatdadev.ru/products/express/" },
     provider: { "@type": "Organization", name: "WhatDaDev", url: "https://whatdadev.ru" },
   },
   { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) },
@@ -101,7 +102,7 @@ const jsonld = [
   <section class="section alt">
     <div class="container center">
       <h2>Один раз — и навсегда. Без подписки</h2>
-      <div class="price" style="color:var(--accent);margin:8px 0">от 690 000 ₽</div>
+      <div class="price" style="color:var(--accent);margin:8px 0">{pricing.express_from}</div>
       <p class="muted">Ядро + готовые контуры · установка и адаптация · 6 месяцев поддержки · обновления. Без доплат за пользователей.</p>
       <div class="btn-row" style="justify-content:center"><a class="btn" href="/contacts/">Записаться на демо</a></div>
     </div>
