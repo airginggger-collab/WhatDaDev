@@ -263,8 +263,10 @@ const jsonld = [
             <li>Возможность привлечения дополнительных согласующих</li>
             <li>Отправка на доработку с комментарием и возвратом к инициатору</li>
             <li>Гибкое управление списком исполнителей по этапам</li>
+            <li>Несколько маршрутов на один объект — выбор по условиям применения</li>
+            <li>Подключение собственных приложений ELMA365 без ограничений</li>
           </ul>
-          <p style="margin-top:16px;font-size:14px;color:var(--muted)">Модули подключаются опционально — берёте только нужное, каждый устанавливается отдельно. Ваши приложения ELMA365 подключаются к маршрутам без ограничений, как готовые модули. Минимум работы в дизайнере БП — основная логика маршрутов настраивается через интерфейс.</p>
+          <p style="margin-top:16px;font-size:14px;color:var(--muted)">Модули подключаются опционально — берёте только нужное, каждый устанавливается отдельно. Минимум работы в дизайнере БП — основная логика маршрутов настраивается через интерфейс.</p>
         </div>
         <div>
           <div class="card alt" style="font-size:14px">
@@ -282,31 +284,32 @@ const jsonld = [
             <div style="margin-top:12px;font-weight:600;margin-bottom:6px">Условия применения маршрута</div>
             <div style="font-size:12px;color:var(--muted)">Стоимость договора &gt; 100 000 ₽</div>
           </div>
+        </div>
+      </div>
 
-          <div style="margin-top:16px">
-            <h3 style="margin-bottom:12px">Модули ядра</h3>
-            <div class="grid grid-2" style="gap:12px">
-              <div class="card" style="padding:14px">
-                <div style="font-size:13px;font-weight:600">Маршруты подписания</div>
-                <div style="font-size:12px;color:var(--muted)">Интеграция с Диадок и СБИС</div>
-                <span class="badge-soon" style="margin-top:6px;display:inline-block">v1.1</span>
-              </div>
-              <div class="card" style="padding:14px">
-                <div style="font-size:13px;font-weight:600">Поручения</div>
-                <div style="font-size:12px;color:var(--muted)">Контроль исполнения</div>
-                <span class="badge-soon" style="margin-top:6px;display:inline-block">v1.4</span>
-              </div>
-              <div class="card" style="padding:14px">
-                <div style="font-size:13px;font-weight:600">Отчёты и дашборды</div>
-                <div style="font-size:12px;color:var(--muted)">Конструктор отчётов</div>
-                <span class="badge-soon" style="margin-top:6px;display:inline-block">v1.6</span>
-              </div>
-              <div class="card" style="padding:14px">
-                <div style="font-size:13px;font-weight:600">Маршруты ознакомлений</div>
-                <div style="font-size:12px;color:var(--muted)">Массовое ознакомление</div>
-                <span class="badge-soon" style="margin-top:6px;display:inline-block">v1.8</span>
-              </div>
-            </div>
+      <div style="margin-top:40px">
+        <h3 style="margin-bottom:6px">Модули ядра</h3>
+        <p style="font-size:14px;color:var(--muted);margin-bottom:16px">Расширяют движок маршрутов по мере выхода — устанавливаются поверх ядра без доработок.</p>
+        <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
+          <div class="card" style="padding:18px">
+            <div style="font-weight:600">Маршруты подписания</div>
+            <div style="font-size:13px;color:var(--muted);margin-top:4px">Универсальный движок подписания, интеграция с Диадок и СБИС</div>
+            <span class="badge-soon" style="margin-top:10px;display:inline-block">v1.1 · Q3 2026</span>
+          </div>
+          <div class="card" style="padding:18px">
+            <div style="font-weight:600">Поручения</div>
+            <div style="font-size:13px;color:var(--muted);margin-top:4px">Постановка поручений по итогам согласования, контроль исполнения и сроки</div>
+            <span class="badge-soon" style="margin-top:10px;display:inline-block">v1.4 · Q4 2026</span>
+          </div>
+          <div class="card" style="padding:18px">
+            <div style="font-weight:600">Отчёты и дашборды</div>
+            <div style="font-size:13px;color:var(--muted);margin-top:4px">Конструктор отчётов: сроки согласования, загрузка исполнителей, узкие места</div>
+            <span class="badge-soon" style="margin-top:10px;display:inline-block">v1.6 · Q4 2026</span>
+          </div>
+          <div class="card" style="padding:18px">
+            <div style="font-weight:600">Маршруты ознакомлений</div>
+            <div style="font-size:13px;color:var(--muted);margin-top:4px">Массовое ознакомление с приказами и регламентами, фиксация факта</div>
+            <span class="badge-soon" style="margin-top:10px;display:inline-block">v1.8 · Q1 2027</span>
           </div>
         </div>
       </div>
