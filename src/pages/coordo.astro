@@ -22,7 +22,7 @@ const jsonld = [
   <section class="hero" style="min-height:auto;padding:0">
     <div class="container" style="padding-top:72px;padding-bottom:56px;width:100%">
       <Breadcrumbs items={[{ name: "Главная", href: "/" }, { name: "Coordo" }]} />
-      <div class="eyebrow reveal" style="color:#9CC4B0;margin-top:16px">Экосистема на базе ELMA365 — by WhatDaDev</div>
+      <div class="eyebrow reveal" style="color:#9AD1AF;margin-top:16px">Экосистема на базе ELMA365 — by WhatDaDev</div>
       <h1 class="reveal" style="transition-delay:60ms;max-width:840px;font-size:clamp(28px,4.2vw,52px)">
         Coordo — согласование документов и рабочих процессов<br>без разработки с нуля
       </h1>
@@ -223,8 +223,8 @@ const jsonld = [
       <p class="lead reveal">Классический подход требовал отдельной разработки под каждый объект — договоры, приказы, письма, поручения. Мы это изменили.</p>
 
       <div class="grid grid-2" style="margin-top:32px;gap:24px">
-        <div class="card" style="border-left:3px solid #f87171">
-          <h3 style="color:#f87171;margin-bottom:16px">Было раньше</h3>
+        <div class="card">
+          <h3 style="margin-bottom:16px;color:var(--muted)">Было раньше</h3>
           <ul class="coordo-list bad">
             <li>Бизнес-процесс разрабатывался под каждый тип документа отдельно — недели работы</li>
             <li>Согласование договора, приказа и письма — три разных БП, три разные задачи</li>
@@ -233,8 +233,8 @@ const jsonld = [
             <li>Каждый маршрут требовал отдельной схемы в дизайнере БП — при изменении логики нужно было возвращаться и перерисовывать процесс</li>
           </ul>
         </div>
-        <div class="card" style="border-left:3px solid #4ade80">
-          <h3 style="color:#4ade80;margin-bottom:16px">Теперь с Coordo</h3>
+        <div class="card" style="border-color:var(--text)">
+          <h3 style="margin-bottom:16px">Теперь с Coordo</h3>
           <ul class="coordo-list good">
             <li>Один инструмент для всех объектов — настроили маршрут, связали с приложением, готово</li>
             <li>Договор, приказ, письмо — маршруты для каждого настраиваются в едином интерфейсе</li>
@@ -267,8 +267,8 @@ const jsonld = [
           <p style="margin-top:16px;font-size:14px;color:var(--muted)">Модули подключаются опционально — берёте только нужное, каждый устанавливается отдельно. Ваши приложения ELMA365 подключаются к маршрутам без ограничений, как готовые модули. Минимум работы в дизайнере БП — основная логика маршрутов настраивается через интерфейс.</p>
         </div>
         <div>
-          <div class="card alt" style="font-family:monospace;font-size:13px">
-            <div style="color:var(--muted);margin-bottom:12px;font-family:inherit">Настройка маршрута ЭДО — демо</div>
+          <div class="card alt" style="font-size:14px">
+            <div class="eyebrow" style="font-size:11px;margin-bottom:14px">Настройка маршрута ЭДО — демо</div>
             <div style="margin-bottom:8px"><strong>Название:</strong> Маршрут согласования договоров</div>
             <div style="margin-bottom:8px"><strong>Приложение:</strong> Договоры и допсоглашения</div>
             <div style="margin-bottom:12px"><strong>Базовый маршрут:</strong> Да</div>
@@ -411,7 +411,7 @@ const jsonld = [
       </div>
       <div class="voice-card reveal" style="margin-top:32px">
         <div>
-          <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#9CC4B0;margin-bottom:10px">Ваш голос важен</div>
+          <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#9AD1AF;margin-bottom:10px">Ваш голос важен</div>
           <h3 style="color:var(--dark-text);margin-bottom:10px">Предложите идею для дорожной карты</h3>
           <p style="color:rgba(255,255,255,.7);font-size:15px">Дорожная карта Coordo формируется в том числе на основе запросов от реальных пользователей. Если у вас есть идеи по новым модулям или доработкам — напишите нам.</p>
         </div>
@@ -579,18 +579,18 @@ const jsonld = [
   /* stats bar */
   .coordo-stats { display:flex; gap:32px; margin-top:40px; flex-wrap:wrap; }
   .cstat { display:flex; flex-direction:column; }
-  .cstat-n { font-size:clamp(24px,3vw,36px); font-weight:700; color:#9CC4B0; line-height:1; }
+  .cstat-n { font-size:clamp(24px,3vw,36px); font-weight:700; color:#9AD1AF; line-height:1; }
   .cstat-l { font-size:13px; color:var(--dark-muted); margin-top:4px; max-width:120px; }
 
   /* badges */
-  .badge-ok { background:#d1fae5; color:#065f46; font-size:11px; font-weight:600; padding:2px 8px; border-radius:4px; white-space:nowrap; flex-shrink:0; }
+  .badge-ok { background:var(--accent-50); color:var(--accent-600); font-size:11px; font-weight:600; padding:2px 8px; border-radius:4px; white-space:nowrap; flex-shrink:0; }
   .badge-soon { background:#F2EFE6; color:var(--muted); font-size:11px; font-weight:600; padding:2px 8px; border-radius:4px; white-space:nowrap; flex-shrink:0; }
 
   /* lists */
   .coordo-list { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px; }
   .coordo-list li { padding-left:22px; position:relative; font-size:15px; line-height:1.5; }
-  .coordo-list.good li::before { content:"✓"; position:absolute; left:0; color:#4ade80; font-weight:700; }
-  .coordo-list.bad li::before { content:"✗"; position:absolute; left:0; color:#f87171; font-weight:700; }
+  .coordo-list.good li::before { content:"✓"; position:absolute; left:0; color:var(--text); font-weight:600; }
+  .coordo-list.bad li::before { content:"—"; position:absolute; left:0; color:var(--muted); font-weight:600; }
 
   /* roadmap */
   .roadmap { display:grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap:20px; }

@@ -6,7 +6,7 @@ const title = "ELMA365 по отраслям: производство, рите
 const description = "Документооборот и автоматизация процессов на ELMA365 под вашу отрасль. РФ и КЗ.";
 
 const industryColors: Record<string, string> = {
-  "proizvodstvo": "#0F6B4F",
+  "proizvodstvo": "#0D8148",
   "ritejl":       "#3B82F6",
   "development":  "#F59E0B",
   "logistika":    "#0D9488",
@@ -46,7 +46,7 @@ const rest = industries.slice(1);
           <span class="ind-cover-label">{capitalize(getLabel(featured.h1))}</span>
         </div>
         <div class="ind-body">
-          <span class="ind-badge" style={`background:${industryColors[featured.slug] ?? '#0F6B4F'}22;color:${industryColors[featured.slug] ?? '#0F6B4F'}`}>{capitalize(getLabel(featured.h1))}</span>
+          <span class="ind-badge" style={`background:${industryColors[featured.slug] ?? '#0D8148'}22;color:${industryColors[featured.slug] ?? '#0D8148'}`}>{capitalize(getLabel(featured.h1))}</span>
           <h2 style="margin-top:14px;margin-bottom:12px">{featured.h1.split(":")[0]}</h2>
           <p style="color:var(--muted);font-size:15px;line-height:1.65">{featured.lead}</p>
           <p class="muted" style="margin-top:16px;font-size:14px">Подробнее →</p>
@@ -57,7 +57,7 @@ const rest = industries.slice(1);
       <div class="ind-grid" style="margin-top:32px">
         {rest.map((x, i) => {
           const label = capitalize(getLabel(x.h1));
-          const color = industryColors[x.slug] ?? '#0F6B4F';
+          const color = industryColors[x.slug] ?? '#0D8148';
           return (
             <a class="ind-card reveal" href={`/industries/${x.slug}/`} style={`transition-delay:${(i%2)*60}ms`}>
               <div class="ind-card-cover" style={`background-image:url(${industryCovers[x.slug] ?? ''})`}>
