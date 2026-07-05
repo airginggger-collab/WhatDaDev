@@ -1,5 +1,5 @@
 :root{
-  --bg:#FAF8F2; --surface:#FFFFFF; --surface-alt:#F2EFE6; --text:#191D1B; --muted:#5A625D; --border:#E2DDCE;
+  --bg:#FAF8F2; --surface:#FFFFFF; --surface-alt:#EEF2EC; --text:#191D1B; --muted:#5A625D; --border:#DFE4DC;
   --dark-bg:#101714; --dark-surface:#18211C; --dark-text:#F4F2E9; --dark-muted:#9AA69E; --dark-border:#273229;
   --accent:#0D8148; --accent-600:#0A6638; --accent-50:#EAF5EE;
   --radius:6px; --radius-sm:4px; --container:1140px;
@@ -73,7 +73,7 @@ a{color:inherit;text-decoration:none}
 .grid-2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
 .grid-3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
 .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:26px;transition:var(--transition-hover)}
-.card:hover{border-color:#B9B29C}
+.card:hover{border-color:#A9B3A6}
 .card-featured{border:2px solid var(--accent);position:relative}
 .card-featured-badge{position:absolute;top:-13px;left:24px;background:var(--accent);color:#fff;font-family:var(--font-mono);font-size:11px;font-weight:500;padding:3px 12px;border-radius:var(--radius-sm);white-space:nowrap}
 a.card{cursor:pointer;text-decoration:none;color:inherit;display:block}
