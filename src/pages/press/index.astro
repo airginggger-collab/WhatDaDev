@@ -7,7 +7,7 @@ const title = "Пресс-центр WhatDaDev — статьи об ELMA365 и 
 const description = "Статьи, сравнения и обзоры об ELMA365, документообороте и автоматизации процессов.";
 
 const tagColors: Record<string, string> = {
-  "Сравнение":        "#0D8148",
+  "Сравнение":        "#1F5B99",
   "Обзор":            "#3B82F6",
   "Гайд":             "#10B981",
   "КЭДО":             "#7C3AED",
@@ -63,7 +63,7 @@ const collectionPage = {
           </div>
         </div>
         <div class="press-featured-body">
-          <span class="press-tag-badge" style={`background:${tagColors[featured.tag] ?? '#0D8148'}22;color:${tagColors[featured.tag] ?? '#0D8148'}`}>{featured.tag}</span>
+          <span class="press-tag-badge" style={`background:${tagColors[featured.tag] ?? '#1F5B99'}22;color:${tagColors[featured.tag] ?? '#1F5B99'}`}>{featured.tag}</span>
           <h2 style="margin-top:14px;margin-bottom:12px">{featured.name}</h2>
           <p class="muted">Читать статью →</p>
         </div>
@@ -73,7 +73,7 @@ const collectionPage = {
       <div class="press-filters reveal" style="margin-top:48px;margin-bottom:28px">
         <button class="pf-btn active" data-filter="all">Все</button>
         {allTags.map(tag => (
-          <button class="pf-btn" data-filter={tag} style={`--tc:${tagColors[tag] ?? '#0D8148'}`}>{tag}</button>
+          <button class="pf-btn" data-filter={tag} style={`--tc:${tagColors[tag] ?? '#1F5B99'}`}>{tag}</button>
         ))}
       </div>
 
@@ -89,7 +89,7 @@ const collectionPage = {
             <div class="pc-cover" style={`background-image:url(${tagCovers[a.tag] ?? '/covers/vnedrenie.webp'})`}>
             </div>
             <div class="pc-body">
-              <span class="pc-tag" style={`color:${tagColors[a.tag] ?? '#0D8148'}`}>{a.tag}</span>
+              <span class="pc-tag" style={`color:${tagColors[a.tag] ?? '#1F5B99'}`}>{a.tag}</span>
               <h3>{a.name}</h3>
               <p class="muted pc-read">Читать →</p>
             </div>
@@ -180,7 +180,7 @@ const collectionPage = {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: .7px;
-    color: #9AD1AF;
+    color: #8FBBE0;
     margin-bottom: 12px;
   }
   .sb-title {
@@ -218,7 +218,7 @@ const collectionPage = {
     width: 44px; height: 44px;
     border-radius: 50%;
     background: rgba(255,255,255,.1);
-    color: var(--pc, #9AD1AF);
+    color: var(--pc, #8FBBE0);
     display: flex; align-items: center; justify-content: center;
   }
   .sb-name { font-size: 12px; font-weight: 600; color: #fff; }
