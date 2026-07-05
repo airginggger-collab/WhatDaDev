@@ -27,7 +27,7 @@
 
 - **Цель:** две равные воронки (Услуги / Продукты, 50/50) + **SEO лучше конкурентов** (ведущее требование).
 - **Стек:** Astro 5 (SSG) + `@astrojs/sitemap`. Стили — обычный CSS с CSS-переменными в `src/styles/global.css` (токены из `docs/04-design/tokens.json`). **Tailwind не используется.** CMS отложена (ADR-0006) — контент в `.astro` и `src/data/*.js`.
-- **Визуал:** тёмный hero → светлый контент (ADR-0002), акцент НЕ красный — финал indigo `#4F46E5` + шрифт Inter (ADR-0011). Паттерн product-in-motion (как cursor.com / CAST AI).
+- **Визуал:** тёмный hero → светлый контент (ADR-0002), акцент НЕ красный (ADR-0003). С v0.63 — **инженерно-издательская идентичность (ADR-0013)**: Piazzolla (H1/H2) + Golos Text (текст) + IBM Plex Mono (цифры/подписи), self-hosted через Fontsource; тёплая бумага + чернила, акцент — глубокий зелёный `#0F6B4F`; радиусы 6/4px, без pill/glow/bento-клише. Реальные скриншоты ELMA365 вместо фейковых интерфейсов. **Не возвращать Inter/indigo** — это «ИИшный» дефолт, от него ушли осознанно.
 - **Хостинг:** Cloudflare **Workers Static Assets** через `wrangler.jsonc` (`assets.directory = ./dist`). Сборка `npm run build` → `dist`. Авто-деплой при пуше в `main`. **Не Pages, не SSR-воркер.**
 
 ## Источник правды — `docs/`
@@ -91,4 +91,4 @@ npm run preview  # предпросмотр собранного dist/
 ## Ссылки
 - Repo: https://github.com/airginggger-collab/WhatDaDev
 - Живой сайт: https://whatdadev.airg-inggger.workers.dev/
-- Целевой домен / старый сайт: https://whatdadev.ru
+- Целевой домен / старый сайт: https://whatdadev.ru — **источник правды по контенту** (утверждён заказчиком, v0.64): факты о компании и продуктах сверять оттуда, метрики не выдумывать. Coordo = 3 готовых контура. Рынки — РФ и КЗ.

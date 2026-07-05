@@ -2,8 +2,8 @@
 import Base from "../../layouts/Base.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import { team } from "../../data/team.js";
-const title = "О компании WhatDaDev — эксперты ELMA365 | РФ и СНГ";
-const description = "WhatDaDev — внедрение ELMA365 и собственные продукты. 4+ года, сертифицированные эксперты, 12 внедрений. Работаем в РФ и СНГ.";
+const title = "О компании WhatDaDev — эксперты ELMA365 | РФ и КЗ";
+const description = "WhatDaDev — внедрение ELMA365 и собственные продукты. С релиза платформы, сертифицированные эксперты. Работаем в РФ и КЗ.";
 const aboutPage = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
@@ -18,12 +18,12 @@ const aboutPage = {
     <div class="container">
       <Breadcrumbs items={[{ name: "Главная", href: "/" }, { name: "О компании" }]} />
       <h1>О WhatDaDev — сертифицированные эксперты ELMA365</h1>
-      <p class="lead">Внедряем ELMA365 и развиваем собственные продукты для документооборота. Работаем в России и СНГ.</p>
+      <p class="lead">Внедряем ELMA365 и развиваем собственные продукты для документооборота. Работаем в России и Казахстане.</p>
       <div class="proof">
         <span><b>4+</b> года на ELMA365</span>
-        <span><b>12</b> внедрений</span>
+        <span>с момента релиза платформы</span>
         <span>сертифицированные эксперты</span>
-        <span>РФ и СНГ</span>
+        <span>РФ и КЗ</span>
       </div>
     </div>
   </section>
@@ -95,7 +95,7 @@ const aboutPage = {
   <section class="hero">
     <div class="container center">
       <h2 style="color:#fff">Обсудим вашу задачу</h2>
-      <p class="lead" style="color:#94a3b8;margin-bottom:28px">Ответим в течение рабочего дня. Без продающих скриптов.</p>
+      <p class="lead" style="color:#9AA69E;margin-bottom:28px">Ответим в течение рабочего дня. Без продающих скриптов.</p>
       <div class="btn-row" style="justify-content:center">
         <a class="btn" href="/contacts/">Связаться с командой</a>
       </div>
@@ -136,7 +136,7 @@ const aboutPage = {
   width: 100%;
   aspect-ratio: 1 / 1;
   overflow: hidden;
-  background: #f1f5f9;
+  background: #F2EFE6;
 }
 .team-photo {
   width: 100%;
@@ -158,7 +158,7 @@ const aboutPage = {
   font-size: 52px;
   font-weight: 700;
   color: var(--accent);
-  background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+  background: linear-gradient(135deg, #EAF2EC 0%, #DCEAE0 100%);
 }
 
 .team-info {
@@ -198,12 +198,12 @@ const aboutPage = {
   color: var(--accent);
   text-decoration: none;
   padding: 4px 10px;
-  border: 1px solid rgba(79,70,229,.3);
+  border: 1px solid rgba(15,107,79,.3);
   border-radius: 6px;
   transition: background .15s, border-color .15s;
 }
 .team-social:hover {
-  background: rgba(79,70,229,.07);
+  background: rgba(15,107,79,.07);
   border-color: var(--accent);
 }
 </style>

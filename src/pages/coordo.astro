@@ -2,7 +2,7 @@
 import Base from "../layouts/Base.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 const title = "Coordo — согласование документов и рабочих процессов без разработки с нуля | WhatDaDev";
-const description = "Универсальный инструмент настройки маршрутов согласования и четыре готовых контура для старта в первый день. Договоры, ОРД, корреспонденция, замещения на ELMA365.";
+const description = "Универсальный инструмент настройки маршрутов согласования и три готовых контура для старта в первый день. Договоры, ОРД, корреспонденция + замещения на ELMA365.";
 const jsonld = [
   {
     "@context": "https://schema.org", "@type": "SoftwareApplication",
@@ -22,12 +22,12 @@ const jsonld = [
   <section class="hero" style="min-height:auto;padding:0">
     <div class="container" style="padding-top:72px;padding-bottom:56px;width:100%">
       <Breadcrumbs items={[{ name: "Главная", href: "/" }, { name: "Coordo" }]} />
-      <div class="eyebrow reveal" style="color:#a5b4fc;margin-top:16px">Экосистема на базе ELMA365 — by WhatDaDev</div>
+      <div class="eyebrow reveal" style="color:#9CC4B0;margin-top:16px">Экосистема на базе ELMA365 — by WhatDaDev</div>
       <h1 class="reveal" style="transition-delay:60ms;max-width:840px;font-size:clamp(28px,4.2vw,52px)">
         Coordo — согласование документов и рабочих процессов<br>без разработки с нуля
       </h1>
       <p class="lead reveal" style="transition-delay:120ms;max-width:640px">
-        Универсальный инструмент настройки маршрутов согласования и четыре готовых контура для старта в первый день. Экосистема, которая растёт вместе с вашим бизнесом.
+        Универсальный инструмент настройки маршрутов согласования и три готовых контура для старта в первый день. Экосистема, которая растёт вместе с вашим бизнесом.
       </p>
       <div class="btn-row reveal" style="transition-delay:180ms">
         <a class="btn" href="/contacts/">Записаться на демонстрацию</a>
@@ -35,7 +35,7 @@ const jsonld = [
       </div>
       <!-- trust stats -->
       <div class="coordo-stats reveal" style="transition-delay:260ms">
-        <div class="cstat"><span class="cstat-n">4</span><span class="cstat-l">готовых контура из коробки</span></div>
+        <div class="cstat"><span class="cstat-n">3</span><span class="cstat-l">готовых контура из коробки</span></div>
         <div class="cstat"><span class="cstat-n">6</span><span class="cstat-l">мес. техническая поддержка</span></div>
         <div class="cstat"><span class="cstat-n">×5</span><span class="cstat-l">быстрее процессы согласования</span></div>
         <div class="cstat"><span class="cstat-n">8+</span><span class="cstat-l">модулей в экосистеме к концу 2026</span></div>
@@ -62,8 +62,7 @@ const jsonld = [
     <div class="container reveal" style="max-width:1000px;width:100%">
       <div class="video-card" style="aspect-ratio:16/9">
         <div class="video-card-chrome">
-          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-          <span class="url">elma365 · согласование договора</span>
+          <span class="url">elma365 · согласование договора · запись экрана</span>
         </div>
         <video
           src="/video/coordo-demo.mp4"
@@ -150,7 +149,7 @@ const jsonld = [
       <div class="grid grid-2" style="margin-top:16px;gap:20px">
         <div class="card alt reveal">
           <h3>Уже выбрали ELMA365</h3>
-          <p>Внедряете платформу и хотите сразу получить ЭДО. Не тратите месяцы на разработку согласований с нуля — Coordo устанавливается поверх ELMA365 и даёт четыре готовых контура в первый же день.</p>
+          <p>Внедряете платформу и хотите сразу получить ЭДО. Не тратите месяцы на разработку согласований с нуля — Coordo устанавливается поверх ELMA365 и даёт готовые контуры согласования в первый же день.</p>
         </div>
         <div class="card alt reveal" style="transition-delay:60ms">
           <h3>Ищете решение для ЭДО</h3>
@@ -201,6 +200,7 @@ const jsonld = [
           <p style="margin-bottom:12px">Вместо долгой разработки ЭДО с нуля — четыре работающих контура в первый день после установки платформы, а также все последующие по мере выхода новых версий.</p>
           <p style="margin-bottom:12px"><strong>Платформа живёт и развивается.</strong> ELMA365 регулярно выпускает собственные продукты: CRM, Проекты, Закупки, ServiceDesk, КЭДО. Выбирая платформу, вы получаете доступ ко всей этой экосистеме.</p>
           <p style="margin-bottom:12px"><strong>Никакого зоопарка систем.</strong> Все процессы компании живут в ELMA365. Не нужно выстраивать интеграции между разрозненными инструментами.</p>
+          <p style="margin-bottom:12px"><strong>Мобильное приложение в комплекте.</strong> Согласовывать документы и решать задачи можно со смартфона — мобильный клиент ELMA365 работает со всеми контурами Coordo.</p>
           <p><strong>Двойная надёжность.</strong> Вы работаете на платформе ELMA365, за которой стоит крупный российский вендор, и с Coordo от WhatDaDev — сертифицированного партнёра ELMA365.</p>
         </div>
         <div class="card alt reveal" style="transition-delay:80ms">
@@ -411,8 +411,8 @@ const jsonld = [
       </div>
       <div class="voice-card reveal" style="margin-top:32px">
         <div>
-          <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#a5b4fc;margin-bottom:10px">Ваш голос важен</div>
-          <h3 style="color:#fff;margin-bottom:10px">Предложите идею для дорожной карты</h3>
+          <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#9CC4B0;margin-bottom:10px">Ваш голос важен</div>
+          <h3 style="color:var(--dark-text);margin-bottom:10px">Предложите идею для дорожной карты</h3>
           <p style="color:rgba(255,255,255,.7);font-size:15px">Дорожная карта Coordo формируется в том числе на основе запросов от реальных пользователей. Если у вас есть идеи по новым модулям или доработкам — напишите нам.</p>
         </div>
         <a class="btn" href="/contacts/" style="white-space:nowrap;flex-shrink:0">Предложить идею</a>
@@ -489,7 +489,7 @@ const jsonld = [
             <p style="font-size:14px;color:var(--muted);margin:8px 0 20px">Единоразовый платёж. Без абонентской платы, SaaS-подписок и доплат за каждого нового сотрудника.</p>
             <ul class="coordo-list good" style="font-size:14px">
               <li>Ядро — универсальный движок маршрутов ЭДО</li>
-              <li>4 готовых контура: договоры, ОРД, корреспонденция, замещения</li>
+              <li>3 готовых контура — договоры, ОРД, корреспонденция — плюс модуль замещений</li>
               <li>Установка и настройка на вашей платформе ELMA365</li>
               <li>20 часов адаптации — настроим поля, формы и атрибуты под специфику вашего бизнеса</li>
               <li>6 месяцев технической поддержки через ServiceDesk</li>
@@ -564,7 +564,7 @@ const jsonld = [
   <!-- CTA -->
   <section class="hero" style="min-height:auto">
     <div class="container center" style="padding-top:72px;padding-bottom:72px;width:100%">
-      <h2 style="color:#fff;max-width:600px;margin:0 auto 16px">Покажем как Coordo работает на ваших процессах</h2>
+      <h2 style="color:var(--dark-text);max-width:600px;margin:0 auto 16px">Покажем как Coordo работает на ваших процессах</h2>
       <p style="color:var(--dark-muted);margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto">Часовая демонстрация — разберём вашу архитектуру согласований, покажем как настраиваются маршруты и что вы получите в первый день после установки.</p>
       <div class="btn-row" style="justify-content:center">
         <a class="btn" href="/contacts/">Записаться на демонстрацию</a>
@@ -579,12 +579,12 @@ const jsonld = [
   /* stats bar */
   .coordo-stats { display:flex; gap:32px; margin-top:40px; flex-wrap:wrap; }
   .cstat { display:flex; flex-direction:column; }
-  .cstat-n { font-size:clamp(24px,3vw,36px); font-weight:700; color:#a5b4fc; line-height:1; }
+  .cstat-n { font-size:clamp(24px,3vw,36px); font-weight:700; color:#9CC4B0; line-height:1; }
   .cstat-l { font-size:13px; color:var(--dark-muted); margin-top:4px; max-width:120px; }
 
   /* badges */
-  .badge-ok { background:#d1fae5; color:#065f46; font-size:11px; font-weight:600; padding:2px 8px; border-radius:20px; white-space:nowrap; flex-shrink:0; }
-  .badge-soon { background:#f1f5f9; color:var(--muted); font-size:11px; font-weight:600; padding:2px 8px; border-radius:20px; white-space:nowrap; flex-shrink:0; }
+  .badge-ok { background:#d1fae5; color:#065f46; font-size:11px; font-weight:600; padding:2px 8px; border-radius:4px; white-space:nowrap; flex-shrink:0; }
+  .badge-soon { background:#F2EFE6; color:var(--muted); font-size:11px; font-weight:600; padding:2px 8px; border-radius:4px; white-space:nowrap; flex-shrink:0; }
 
   /* lists */
   .coordo-list { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px; }
@@ -594,7 +594,7 @@ const jsonld = [
 
   /* roadmap */
   .roadmap { display:grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap:20px; }
-  .rm-item { background:var(--bg-card,#fff); border:1px solid var(--border); border-radius:12px; padding:20px; position:relative; }
+  .rm-item { background:var(--bg-card,#fff); border:1px solid var(--border); border-radius:var(--radius); padding:20px; position:relative; }
   .rm-item.current { border-color:var(--accent); }
   .rm-tag { font-size:11px; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:.5px; margin-bottom:8px; }
   .rm-tag-current { color:var(--accent); }
@@ -611,8 +611,8 @@ const jsonld = [
 
   /* voice card */
   .voice-card {
-    background: var(--dark-bg, #0f172a);
-    border-radius: 16px;
+    background: var(--dark-bg, #191D1B);
+    border-radius: var(--radius);
     padding: 32px 40px;
     display: flex;
     align-items: center;

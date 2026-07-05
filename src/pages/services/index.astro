@@ -2,7 +2,7 @@
 import Base from "../../layouts/Base.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 const title = "Услуги по ELMA365: от внедрения до поддержки | WhatDaDev";
-const description = "Полный цикл работы с ELMA365: внедрение под ключ, разработка и интеграции, аутстаффинг, аудит, консалтинг, обучение. РФ и СНГ.";
+const description = "Полный цикл работы с ELMA365: внедрение под ключ, разработка и интеграции, поддержка и обучение, консалтинг, аудит, аутстаффинг. РФ и КЗ.";
 const faqServices = [
   ["С чего начать внедрение ELMA365?", "Начинаем с бесплатного демо — разбираем ваши процессы, показываем что можно автоматизировать. Занимает 30–45 минут онлайн."],
   ["Вы работаете с малым бизнесом?", "Да. Экспресс внедрение специально создано для компаний от 10 сотрудников. Для крупных проектов — полное внедрение под ключ."],
@@ -14,23 +14,21 @@ const jsonld = [
 ];
 
 const serviceColors: Record<string, string> = {
-  "Внедрение":        "#4F46E5",
-  "Разработка":       "#3B82F6",
-  "Аутстаффинг":      "#0D9488",
-  "Аудит":            "#F59E0B",
-  "Консалтинг":       "#7C3AED",
-  "Обучение":         "#10B981",
-  "Покупка лицензий": "#475569",
+  "Внедрение":            "#0F6B4F",
+  "Разработка":           "#3B82F6",
+  "Поддержка и обучение": "#10B981",
+  "Консалтинг":           "#7C3AED",
+  "Аудит":                "#F59E0B",
+  "Аутстаффинг":          "#0D9488",
 };
 
 const services = [
-  { name: "Внедрение",        desc: "CRM, ЭДО, ServiceDesk, закупки, маркетинг, проекты, КЭДО и другие процессы.", href: "/services/vnedrenie/",   cover: "/covers/vnedrenie.webp"   },
-  { name: "Разработка",       desc: "Модули, интеграции (1С, API), доработки под ваши задачи.",                    href: "/services/razrabotka/",  cover: "/covers/razrabotka.webp" },
-  { name: "Аутстаффинг",      desc: "Наши специалисты ELMA365 усиливают вашу команду.",                            href: null,                     cover: "/covers/crm.webp"        },
-  { name: "Аудит",            desc: "Проверка и оптимизация внедрённых решений.",                                  href: null,                     cover: "/covers/audit.webp"       },
-  { name: "Консалтинг",       desc: "Цифровая трансформация и оптимизация процессов.",                             href: null,                     cover: "/covers/bpm.webp"        },
-  { name: "Обучение",         desc: "Обучение пользователей и администраторов ELMA365.",                           href: null,                     cover: "/covers/edo.webp"        },
-  { name: "Покупка лицензий", desc: "Подбор и поставка лицензий ELMA365 по выгодным условиям.",                   href: null,                     cover: "/covers/contracts.webp"  },
+  { name: "Внедрение",            desc: "Быстрое и качественное внедрение ELMA365 под ключ: CRM, ЭДО, ServiceDesk, закупки, проекты, КЭДО.", href: "/services/vnedrenie/",  cover: "/covers/vnedrenie.webp"  },
+  { name: "Разработка",           desc: "Кастомные приложения и интеграции для ELMA365: 1С, API, доработки под ваши задачи.",                 href: "/services/razrabotka/", cover: "/covers/razrabotka.webp" },
+  { name: "Поддержка и обучение", desc: "Техническая поддержка, сопровождение и обучение сотрудников.",                                       href: null,                    cover: "/covers/edo.webp"        },
+  { name: "Консалтинг",           desc: "Консалтинг по автоматизации и цифровой трансформации.",                                              href: null,                    cover: "/covers/bpm.webp"        },
+  { name: "Аудит",                desc: "Аудит уже внедрённых решений: проверка и оптимизация.",                                              href: null,                    cover: "/covers/audit.webp"      },
+  { name: "Аутстаффинг",          desc: "Аутстаффинг специалистов для работы с ELMA365 — усиливаем вашу команду.",                            href: null,                    cover: "/covers/crm.webp"        },
 ];
 
 const featured = services[0];
@@ -42,9 +40,9 @@ const rest = services.slice(1);
     <div class="container">
       <Breadcrumbs items={[{ name: "Главная", href: "/" }, { name: "Услуги" }]} />
       <h1>Услуги по ELMA365: от внедрения до поддержки</h1>
-      <p class="lead">Внедряем, дорабатываем, обучаем и сопровождаем ELMA365. Под РФ и СНГ.</p>
+      <p class="lead">Внедряем, дорабатываем, обучаем и сопровождаем ELMA365. Под РФ и КЗ.</p>
       <div class="btn-row"><a class="btn" href="/contacts/">Обсудить проект</a></div>
-      <div class="proof"><span><b>12</b> внедрений</span><span>сертифицированные эксперты</span><span>РФ и СНГ</span></div>
+      <div class="proof"><span><b>4+</b> года на ELMA365</span><span>сертифицированные эксперты</span><span>РФ и КЗ</span></div>
     </div>
   </section>
 

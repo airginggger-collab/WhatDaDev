@@ -10,6 +10,9 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
+    "@fontsource-variable/golos-text": "^5.2.8",
+    "@fontsource-variable/piazzolla": "^5.2.8",
+    "@fontsource/ibm-plex-mono": "^5.2.7",
     "astro": "^5.0.0"
   }
 }

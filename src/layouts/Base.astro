@@ -1,10 +1,14 @@
 ---
+import "@fontsource-variable/golos-text";
+import "@fontsource-variable/piazzolla";
+import "@fontsource/ibm-plex-mono/400.css";
+import "@fontsource/ibm-plex-mono/500.css";
 import "../styles/global.css";
-const { title = "WhatDaDev — внедрение ELMA365 и готовый ЭДО из коробки", description = "Внедрение ELMA365 под ключ и коробочные продукты для документооборота. РФ и СНГ.", jsonld = [] } = Astro.props;
+const { title = "WhatDaDev — внедрение ELMA365 и готовый ЭДО из коробки", description = "Внедрение ELMA365 под ключ и коробочные продукты для документооборота. РФ и КЗ.", jsonld = [] } = Astro.props;
 const org = {
   "@context": "https://schema.org", "@type": "Organization",
   name: "WhatDaDev", url: "https://whatdadev.ru",
-  description: "Внедрение ELMA365 под ключ и готовые продукты для документооборота. РФ и СНГ.",
+  description: "Внедрение ELMA365 под ключ и готовые продукты для документооборота. РФ и КЗ.",
   email: "sales@whatdadev.ru", telephone: "+7-980-471-57-72",
   areaServed: ["RU", "KZ"], sameAs: ["https://t.me/WhatDaDev"],
 };
@@ -23,7 +27,7 @@ const ogImage = new URL("/og.png", Astro.site).href;
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="theme-color" content="#0B1220" />
+    <meta name="theme-color" content="#101714" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="WhatDaDev" />
     <meta property="og:title" content={title} />
@@ -36,9 +40,7 @@ const ogImage = new URL("/og.png", Astro.site).href;
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap&subset=cyrillic" rel="stylesheet" />
+    <script is:inline>document.documentElement.classList.add('js');</script>
     {blocks.map((b) => <script type="application/ld+json" set:html={JSON.stringify(b)} />)}
   </head>
   <body>
@@ -52,8 +54,8 @@ const ogImage = new URL("/og.png", Astro.site).href;
             <rect x="35" y="0" width="7" height="34" fill="currentColor"/>
             <ellipse cx="42" cy="17" rx="12" ry="17" fill="currentColor"/>
             <!-- D inner cutout: tight half-ellipse -->
-            <ellipse cx="43" cy="17" rx="7" ry="11" fill="var(--dark-bg,#0f172a)"/>
-            <rect x="35" y="6" width="8" height="22" fill="var(--dark-bg,#0f172a)"/>
+            <ellipse cx="43" cy="17" rx="7" ry="11" fill="var(--dark-bg,#101714)"/>
+            <rect x="35" y="6" width="8" height="22" fill="var(--dark-bg,#101714)"/>
           </svg>
         </a>
         <button class="nav-toggle" id="navToggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav">☰</button>
@@ -76,7 +78,7 @@ const ogImage = new URL("/og.png", Astro.site).href;
       <div class="container footer-grid">
         <div class="footer-brand">
           <div class="logo" style="color:var(--dark-text);margin-bottom:10px">What<b>Da</b>Dev</div>
-          <p style="max-width:220px">Внедрение ELMA365 и готовые продукты для документооборота. РФ и СНГ.</p>
+          <p style="max-width:220px">Внедрение ELMA365 и готовые продукты для документооборота. РФ и КЗ.</p>
           <div style="margin-top:16px;font-size:13px">
             <p>Telegram: @WhatDaDev</p>
             <p>WhatsApp: +7 980 471-57-72</p>
@@ -118,7 +120,7 @@ const ogImage = new URL("/og.png", Astro.site).href;
       </div>
       <div class="container footer-bottom">
         <span>© 2026 WhatDaDev</span>
-        <span>Внедрение ELMA365 в России и СНГ</span>
+        <span>Внедрение ELMA365 в России и Казахстане</span>
       </div>
     </footer>
     <button id="backToTop" class="back-to-top" aria-label="Наверх">↑</button>

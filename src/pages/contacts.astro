@@ -1,7 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
-const title = "Контакты WhatDaDev — внедрение ELMA365 | РФ и СНГ";
+const title = "Контакты WhatDaDev — внедрение ELMA365 | РФ и КЗ";
 const description = "Свяжитесь с WhatDaDev: Telegram, WhatsApp, email. Записаться на демо или обсудить внедрение ELMA365.";
 ---
 <Base title={title} description={description}>
@@ -26,7 +26,7 @@ const description = "Свяжитесь с WhatDaDev: Telegram, WhatsApp, email.
           <label class="row"><input type="checkbox" required style="width:auto" /> <span>Согласен на обработку персональных данных <span class="req" aria-hidden="true">*</span></span></label>
           <button class="btn" type="submit">Записаться на демо</button>
           <p class="form-note">Ответим в течение рабочего дня. Без спама — только по вашему запросу.</p>
-          <p class="form-note" id="formMsg">Прототип: отправка подключается к ELMA365 на этапе разработки.</p>
+          <p class="form-note" id="formMsg">Онлайн-приём заявок подключается к CRM. Быстрее всего — написать нам напрямую в Telegram или WhatsApp.</p>
         </form>
       </div>
       <div class="card alt">
@@ -36,6 +36,7 @@ const description = "Свяжитесь с WhatDaDev: Telegram, WhatsApp, email.
         <p>Тел: <a href="tel:+79804715772">+7 980 471-57-72</a></p>
         <p>Email: <a href="mailto:sales@whatdadev.ru">sales@whatdadev.ru</a></p>
         <p class="muted" style="font-size:13px">Тех. поддержка: <a href="mailto:support@whatdadev.ru">support@whatdadev.ru</a></p>
+        <p class="muted" style="font-size:13px">Карьера: резюме на <a href="mailto:iperushev@whatdadev.ru">iperushev@whatdadev.ru</a>. Работаем удалённо — из любой точки мира.</p>
 
         <h3 style="margin-top:22px">Социальные сети</h3>
         <p><a href="https://t.me/whatdaelma365" target="_blank" rel="noopener">Telegram-канал @whatdaelma365</a> — приёмы ELMA365</p>
@@ -52,9 +53,10 @@ const description = "Свяжитесь с WhatDaDev: Telegram, WhatsApp, email.
     f && f.addEventListener('submit', (e) => {
       e.preventDefault();
       const m = document.getElementById('formMsg');
-      m.textContent = 'Спасибо! Заявка принята (демо-режим). Скоро подключим отправку в CRM.';
+      const data = new FormData(f);
+      const text = 'Заявка на демо: ' + (data.get('name') || '') + ', ' + (data.get('phone') || '') + (data.get('company') ? ', ' + data.get('company') : '') + (data.get('message') ? ' — ' + data.get('message') : '');
+      m.innerHTML = 'Приём заявок через сайт ещё подключается. Чтобы мы точно не потеряли ваш запрос — <a href="https://t.me/WhatDaDev" target="_blank" rel="noopener" style="text-decoration:underline">отправьте его в Telegram</a> или <a href="https://wa.me/79804715772?text=' + encodeURIComponent(text) + '" target="_blank" rel="noopener" style="text-decoration:underline">в WhatsApp одним нажатием</a>.';
       m.classList.add('form-ok');
-      f.reset();
     });
   </script>
 </Base>
