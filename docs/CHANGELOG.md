@@ -36,6 +36,16 @@
 
 **Проверка:** сборка 68 страниц; превью — радиус карточек команды 6px, зебра статьи нейтральная, hero-видео и кнопка play работают, ошибок в консоли нет.
 
+### Полная ревизия доков (сверх аудита)
+
+Пройдены все 43 дока на актуальность текущего состояния (не только то, что нашёл аудит):
+- **Идентичность**: `design-principles.md`, `SESSION-BRIEF.md`, `04-design/README.md`, `portfolio-story.md`, `00b-discovery.md` — indigo/Inter как «текущее/финал» → корпоративный синий `#1F5B99` + Piazzolla/Golos/Plex Mono (ADR-0013/0014). Историю (01-brief, project-kickoff, старые ADR) не переписывали.
+- **CMS-статус**: `03-content-model.md` (+ ранее 07-infra/README/portfolio/SESSION-BRIEF) — «отложено (ADR-0006)» → «Sveltia live (ADR-0015)».
+- **ADR-маркеры**: 0006 и 0011 помечены `⛔ Superseded` (по правилу «не удаляем — помечаем»); индекс `08-decisions/README.md` дополнен ADR 0012–0015.
+- **`docs/README.md`**: версия v0.33 → v0.71; в порядок чтения добавлены ARCHITECTURE, 19-cms, 20-domain, editing-cabinet, dev-guide, design-principles, SESSION-BRIEF, portfolio-story.
+- **CLAUDE.md**: бэклог доков — dev-guide и SEO-IMPLEMENTATION помечены созданными.
+- Версии синхронны: HANDOFF, docs/README, CHANGELOG — все v0.71.
+
 ## v0.70 — 2026-07-06
 
 ### Личный кабинет — Этап 2: статьи и глоссарий в CMS (ADR-0015)

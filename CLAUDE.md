@@ -11,14 +11,12 @@
 5. **Без эмодзи в коде и контенте:** не использовать эмодзи в `.astro`-файлах, текстах страниц, карточках и заголовках. Проект B2B — серьёзный тон. Исключение: только если пользователь явно попросит.
 6. **Визуальные решения — сначала варианты, потом код:** изменения цветов, шрифтов и других элементов идентичности не применять самовольно. Показать пользователю 2–3 варианта (свотчи/мокап), дождаться явного выбора — и только потом менять код и пушить. Механические фиксы (контраст, битые ссылки, опечатки) — можно сразу.
 
-## Бэклог доков (план создать)
+## Бэклог доков
 
-**P1 — исправить слаги `/coordo/*` → `/products/express` при создании:**
-- `docs/dev-guide.md` — гайд разработчика (как запустить, структура src/, conventions)
-- `docs/05-seo/IMPLEMENTATION.md` — SEO чеклист реализации (что уже сделано, что нет)
-- ✅ `docs/19-cms-migration.md` — создан; кабинет live (ADR-0015), инструкция — `docs/editing-cabinet.md`
-
-**P2 — выполнено:**
+**Все ключевые доки созданы:**
+- ✅ `docs/dev-guide.md` — гайд разработчика (запуск, структура src/, conventions)
+- ✅ `docs/05-seo/IMPLEMENTATION.md` — SEO-чеклист реализации
+- ✅ `docs/19-cms-migration.md` — кабинет live (ADR-0015), инструкция — `docs/editing-cabinet.md`
 - ✅ `docs/ARCHITECTURE.md` — единая архитектурная карта проекта
 - ✅ `docs/20-domain-binding.md` — план привязки домена whatdadev.ru
 
@@ -27,7 +25,7 @@
 Редизайн сайта **WhatDaDev** — компания по внедрению **ELMA365** + собственные продукты («Экспресс внедрение (Coordo)» + модули). Рынки РФ и КЗ. Сайт — **B2B-лидген** (заявка/демо → ELMA CRM → счёт офлайн), **без e-commerce** (ADR-0008).
 
 - **Цель:** две равные воронки (Услуги / Продукты, 50/50) + **SEO лучше конкурентов** (ведущее требование).
-- **Стек:** Astro 5 (SSG) + `@astrojs/sitemap`. Стили — обычный CSS с CSS-переменными в `src/styles/global.css` (токены из `docs/04-design/tokens.json`). **Tailwind не используется.** CMS отложена (ADR-0006) — контент в `.astro` и `src/data/*.js`.
+- **Стек:** Astro 5 (SSG) + `@astrojs/sitemap`. Стили — обычный CSS с CSS-переменными в `src/styles/global.css` (токены из `docs/04-design/tokens.json`). **Tailwind не используется.** **CMS — Sveltia на `/admin/` (ADR-0015):** контент в `src/data/*.json` и markdown-коллекциях `src/content/{articles,glossary}`; разметка страниц — в `.astro`.
 - **Визуал:** тёмный hero → светлый контент (ADR-0002), акцент НЕ красный (ADR-0003). С v0.63 — **инженерно-издательская идентичность (ADR-0013)**: Piazzolla (H1/H2) + Golos Text (текст) + IBM Plex Mono (цифры/подписи), self-hosted через Fontsource; тёплая бумага + чернила, акцент — корпоративный синий `#1F5B99` (ADR-0014); радиусы 6/4px, без pill/glow/bento-клише. Реальные скриншоты ELMA365 вместо фейковых интерфейсов. **Не возвращать Inter/indigo** — это «ИИшный» дефолт, от него ушли осознанно.
 - **Хостинг:** Cloudflare **Workers Static Assets** через `wrangler.jsonc` (`assets.directory = ./dist`). Сборка `npm run build` → `dist`. Авто-деплой при пуше в `main`. **Не Pages, не SSR-воркер.**
 
@@ -50,7 +48,7 @@
   - Экспорты (.docx/.xlsx) → только `deliverables/` (пере-генерируем из docs, руками не правим).
   - Картинки-референсы → только `references/`.
   - **Никаких бинарников в корне репозитория.** Курируемые ассеты идут в `references/` или `deliverables/`; локальный мусор/черновики/скриншоты — в `_local-assets/` или `скрины/` (оба gitignored). `.gitignore` блокирует `/*.png /*.jpg /*.jpeg /*.pdf /*.mov /*.svg` в корне.
-- Сайт: страницы `src/pages/` (вкл. динамические `[slug].astro`), общий каркас `src/layouts/Base.astro`, компоненты `src/components/`, контент-данные `src/data/*.js`, стили `src/styles/global.css`.
+- Сайт: страницы `src/pages/` (вкл. динамические `[slug].astro`), общий каркас `src/layouts/Base.astro`, компоненты `src/components/`, контент-данные `src/data/*.json`, статьи/глоссарий — markdown-коллекции `src/content/{articles,glossary}` (`src/content.config.ts`), стили `src/styles/global.css`.
 
 ## Конвенции
 

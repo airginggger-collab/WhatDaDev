@@ -1,7 +1,7 @@
 # 03 — Модель контента (для CMS)
 
-Статус: 🟡 черновик · версия v0.1
-Продукт CMS — 🔴 отложен (ADR-0006). Кандидаты: self-hosted Directus / PayloadCMS.
+Статус: ✅ реализовано (ADR-0015)
+CMS — **Sveltia** на `/admin/` (git-based, вход по GitHub-токену). Контент в `src/data/*.json` и markdown-коллекциях `src/content/{articles,glossary}`. Инструкция — `docs/editing-cabinet.md`.
 Требование зафиксировано: **менеджер обновляет контент без кода**.
 
 ## Требования к CMS
