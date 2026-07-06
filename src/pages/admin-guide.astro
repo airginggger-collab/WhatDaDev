@@ -1,0 +1,198 @@
+---
+import Base from "../layouts/Base.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+const title = "Личный кабинет — как войти и редактировать сайт | WhatDaDev";
+const description = "Инструкция по личному кабинету WhatDaDev: вход по GitHub-токену, редактирование текстов, цен, контактов, команды и статей.";
+---
+<Base title={title} description={description} noindex={true}>
+  <section class="hero">
+    <div class="container guide-hero">
+      <Breadcrumbs items={[{ name: "Главная", href: "/" }, { name: "Кабинет — инструкция" }]} />
+      <div class="eyebrow" style="color:#8FBBE0">Инструкция · личный кабинет</div>
+      <h1>Личный кабинет: как войти и редактировать сайт</h1>
+      <p class="lead">Правки текста, цен, контактов, команды и статей — без разработчика. Сохранили в кабинете — через 1–2 минуты изменение уже на сайте.</p>
+      <span class="urlchip"><span class="lbl">Адрес</span>whatdadev.airg-inggger.workers.dev/admin/</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container guide">
+      <div class="intro">
+        <span class="intro-k">Как это устроено</span>
+        <p>Кабинет — это редактор поверх вашего репозитория на GitHub (репозиторий — это хранилище всех файлов и текстов сайта). Каждое сохранение записывается в историю и автоматически публикуется на сайт. Ничего не теряется: любую правку можно откатить. После привязки домена адрес станет <span class="field">whatdadev.ru/admin/</span>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container guide">
+      <div class="eyebrow">Шаг за шагом · один раз · ~3 минуты</div>
+      <h2>Первый вход</h2>
+      <p class="muted note">Кабинету нужен ключ доступа (токен), чтобы сохранять правки в репозиторий. Создаётся один раз. Страница GitHub открывается на английском — названия полей ниже даны так же, как на экране, ищите их по этим подписям.</p>
+      <ol class="steps">
+        <li><div class="st-body"><p>Войдите на <a href="https://github.com" target="_blank" rel="noopener">GitHub</a> под аккаунтом <strong>airginggger-collab</strong>.</p><p>Проверьте в правом верхнем углу, что вошли именно под <strong>airginggger-collab</strong>, а не под другим аккаунтом — иначе на следующих шагах проект <code>WhatDaDev</code> не появится в списке.</p></div></li>
+        <li><div class="st-body"><p>Откройте страницу создания токена: <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">github.com/settings/personal-access-tokens/new</a></p></div></li>
+        <li><div class="st-body">
+          <p>Заполните поля токена:</p>
+          <div class="callout">
+            <p class="callout-t">Настройки токена</p>
+            <ul>
+              <li><strong>Token name</strong> — <code>whatdadev-cabinet</code></li>
+              <li><strong>Expiration</strong> — 1 год (или «No expiration», если не хотите продлевать)</li>
+              <li><strong>Resource owner</strong> — выберите <code>airginggger-collab</code> (аккаунт, которому принадлежит репозиторий). Если его нет в списке или дальше не находится WhatDaDev — напишите разработчику.</li>
+              <li><strong>Repository access</strong> — «Only select repositories» → выберите <code>WhatDaDev</code></li>
+              <li><strong>Permissions → Repository permissions → Contents</strong> — найдите строку <strong>Contents</strong> и переключите её на <code>Read and write</code> (по умолчанию там «No access»). Остальные права не трогайте. GitHub сам добавит <strong>Metadata</strong> (Read-only) — так и должно быть.</li>
+            </ul>
+          </div>
+        </div></li>
+        <li><div class="st-body"><p>Нажмите <strong>Generate token</strong> и <strong>скопируйте токен</strong> — он показывается только один раз.</p></div></li>
+        <li><div class="st-body"><p>Откройте <span class="field">/admin/</span>, нажмите <strong>«Sign In Using Access Token»</strong> и вставьте токен.</p><p>Браузер запомнит его — повторно вводить не нужно (до истечения срока токена или смены браузера).</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container guide">
+      <div class="eyebrow">Разделы кабинета</div>
+      <h2>Что можно редактировать</h2>
+      <p class="muted note">Слева в кабинете — три группы: <strong>«Тексты и данные сайта»</strong> (внутри — первые шесть строк таблицы ниже), <strong>«Статьи (пресс-центр)»</strong> и <strong>«Глоссарий (термины)»</strong>. Кабинет управляет содержимым; дизайн (цвета, шрифты, вёрстка) он не трогает.</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Раздел</th><th>Что внутри</th></tr></thead>
+          <tbody>
+            <tr><td class="tname">Главная страница</td><td>Заголовки, тексты, кнопки, плашка фактов, три блока возможностей со скриншотами, преимущества, нижний призыв</td></tr>
+            <tr><td class="tname">Цены и акция Coordo</td><td>Суммы во всех валютах, старые цены, дата акции, условие продления поддержки</td></tr>
+            <tr><td class="tname">Контакты и реквизиты</td><td>Телефон, Telegram, почты, реквизиты РФ и КЗ, ссылки на соцсети</td></tr>
+            <tr><td class="tname">Команда</td><td>Сотрудники: имя, должность, описание, фото</td></tr>
+            <tr><td class="tname">Направления услуг<span class="cnt">8 страниц</span></td><td>Внедрение: заголовки, тексты, списки</td></tr>
+            <tr><td class="tname">Отрасли<span class="cnt">5 страниц</span></td><td>Отраслевые лендинги: заголовки, боли, списки</td></tr>
+            <tr><td class="tname">Статьи<span class="cnt">пресс-центр, 20 шт.</span></td><td>Создавать, редактировать, скрывать. Заголовок, текст, теги, FAQ, поля для поисковиков</td></tr>
+            <tr><td class="tname">Глоссарий<span class="cnt">15 терминов</span></td><td>Создавать и редактировать. Определение, текст, FAQ, поля для поисковиков</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container guide">
+      <div class="eyebrow">Ежедневная работа</div>
+      <h2>Как править и как публиковать</h2>
+      <ol class="steps">
+        <li><div class="st-body"><p>Выберите раздел — откроется форма с полями.</p></div></li>
+        <li><div class="st-body"><p>Измените текст или загрузите фото.</p></div></li>
+        <li><div class="st-body"><p>Нажмите <strong>«Сохранить» (Save)</strong> — правка уйдёт в публикацию.</p></div></li>
+        <li><div class="st-body"><p>Через 1–2 минуты обновите страницу сайта (<span class="field">Ctrl+Shift+R</span>) и проверьте результат.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container guide">
+      <div class="eyebrow">Новая статья или термин</div>
+      <h2>Как написать статью с нуля</h2>
+      <ol class="steps">
+        <li><div class="st-body"><p>Откройте раздел <strong>«Статьи»</strong> (или «Глоссарий») и нажмите <strong>«Создать»</strong>.</p></div></li>
+        <li><div class="st-body">
+          <p>Заполните обязательные поля:</p>
+          <div class="callout">
+            <p class="callout-t">Что заполнить</p>
+            <ul>
+              <li><strong>Название</strong> — как статья называется в списке</li>
+              <li><strong>Адрес страницы</strong> — латиницей, например <code>kak-nastroit-edo</code>. Задаётся один раз — потом менять нельзя, иначе сломается ссылка.</li>
+              <li><strong>Заголовок H1</strong>, <strong>Title</strong> и <strong>Description</strong> (последние два — для поисковиков)</li>
+              <li><strong>Текст статьи</strong> — основной материал в редакторе</li>
+            </ul>
+          </div>
+        </div></li>
+        <li><div class="st-body"><p>Пока пишете — держите галочку <strong>«Черновик»</strong> включённой. Черновик не виден на сайте: можно сохранять недописанное сколько угодно раз.</p></div></li>
+        <li><div class="st-body"><p>Когда готово — <strong>снимите «Черновик»</strong> и нажмите <strong>«Сохранить»</strong>. Через 1–2 минуты статья появится в пресс-центре.</p><p>Поле <strong>«Порядок»</strong>: чем меньше число, тем выше статья в списке; самая первая становится крупной карточкой-обложкой.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container guide">
+      <div class="eyebrow">Стоит помнить</div>
+      <h2>Важное</h2>
+      <ul class="plain">
+        <li><span class="mk">·</span><p><strong>Токен — это ключ с правом менять сайт.</strong> Не пересылайте его в мессенджерах, почте и не показывайте посторонним. Если случайно раскрыли — удалите токен на GitHub (Settings → Developer settings → Personal access tokens) и создайте новый по инструкции «Первый вход» выше.</p></li>
+        <li><span class="mk">·</span><p>Поля «для поисковиков» (<strong>Title</strong>, <strong>Description</strong>) влияют на выдачу Яндекса и Google — меняйте осознанно.</p></li>
+        <li><span class="mk">·</span><p>Поле <strong>«Адрес страницы (латиницей)»</strong> не меняйте у существующих страниц — сломаются ссылки. Это делается вместе с разработчиком.</p></li>
+        <li><span class="mk">·</span><p>Каждое сохранение — запись в истории. Любую правку можно <strong>откатить</strong>, ничего не теряется безвозвратно.</p></li>
+        <li><span class="mk">·</span><p>Кабинет меняет только <strong>содержимое</strong>. Цвета, шрифты и вёрстка — вне кабинета.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container guide">
+      <div class="eyebrow">Если что-то пошло не так</div>
+      <h2>Решение частых ситуаций</h2>
+      <ul class="plain">
+        <li><span class="mk">·</span><p><strong>Правка не появилась через 5 минут</strong> — проверьте, что нажали Save, и обновите страницу с <span class="field">Ctrl+Shift+R</span>.</p></li>
+        <li><span class="mk">·</span><p><strong>Кабинет пишет об ошибке доступа</strong> — истёк токен. Создайте новый по инструкции «Первый вход» выше.</p></li>
+        <li><span class="mk">·</span><p><strong>Что-то сломалось</strong> — напишите разработчику. Любое состояние восстанавливается из истории.</p></li>
+      </ul>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .guide-hero{padding-top:8px}
+  .guide{max-width:820px}
+  .note{margin:0 0 22px;max-width:60ch}
+
+  .urlchip{display:inline-flex;align-items:center;gap:10px;margin-top:26px;
+    background:rgba(244,242,233,.06);border:1px solid var(--dark-border);border-radius:var(--radius);
+    padding:11px 15px;font-family:var(--font-mono);font-size:14px;color:var(--dark-text);word-break:break-all}
+  .urlchip .lbl{color:var(--dark-muted);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+
+  .intro{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px}
+  .intro-k{font-family:var(--font-mono);font-size:13px;color:var(--accent-600);white-space:nowrap;padding-top:2px}
+  .intro p{margin:0}
+
+  .field{font-family:var(--font-mono);font-size:13.5px;background:var(--surface-alt);
+    border:1px solid var(--border);border-radius:var(--radius-sm);padding:1px 6px;white-space:nowrap}
+
+  ol.steps{list-style:none;counter-reset:s;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:18px}
+  ol.steps>li{counter-increment:s;display:grid;grid-template-columns:36px 1fr;gap:16px;align-items:start}
+  ol.steps>li::before{content:counter(s);font-family:var(--font-mono);font-size:15px;font-weight:500;
+    color:var(--accent);background:var(--accent-50);border:1px solid #cdddee;
+    width:36px;height:36px;border-radius:var(--radius);display:flex;align-items:center;justify-content:center}
+  .st-body{padding-top:4px}
+  .st-body p{margin:0}
+  .st-body p + p{margin-top:6px}
+  .st-body a{color:var(--accent-600);text-decoration:underline;text-underline-offset:3px}
+  .st-body a:hover{opacity:.75;text-decoration:none}
+
+  .callout{background:var(--accent-50);border:1px solid #cdddee;border-radius:var(--radius);padding:16px 18px;margin:14px 0 0}
+  .callout-t{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-600);margin:0 0 8px}
+  .callout ul{margin:0;padding-left:18px}
+  .callout li{margin:4px 0;font-size:15px}
+  .callout code,.st-body code{font-family:var(--font-mono);font-size:13px;background:var(--surface);
+    border:1px solid #cdddee;border-radius:var(--radius-sm);padding:0 5px}
+
+  .tablewrap{overflow-x:auto;margin-top:8px;border:1px solid var(--border);border-radius:var(--radius)}
+  table{border-collapse:collapse;width:100%;font-size:15px;min-width:520px}
+  th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--border);vertical-align:top}
+  thead th{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--muted);font-weight:500}
+  tbody tr:last-child td{border-bottom:0}
+  td.tname{font-weight:600;white-space:nowrap}
+  td.tname .cnt{display:block;font-family:var(--font-mono);font-size:11px;color:var(--muted);font-weight:400;margin-top:2px}
+
+  ul.plain{list-style:none;margin:8px 0 0;padding:0;border:1px solid var(--border);border-radius:var(--radius);
+    background:var(--surface);overflow:hidden}
+  ul.plain>li{padding:14px 18px;border-bottom:1px solid var(--border);display:grid;grid-template-columns:16px 1fr;gap:12px}
+  ul.plain>li:last-child{border-bottom:0}
+  ul.plain>li .mk{font-family:var(--font-mono);color:var(--accent);font-size:15px}
+  ul.plain>li p{margin:0;font-size:15px}
+
+  @media(max-width:520px){
+    ol.steps>li{grid-template-columns:30px 1fr;gap:12px}
+    ol.steps>li::before{width:30px;height:30px;font-size:13px}
+    .intro{grid-template-columns:1fr;gap:8px}
+  }
+</style>
