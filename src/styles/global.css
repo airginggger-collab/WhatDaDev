@@ -8,7 +8,6 @@
   --font-mono:"IBM Plex Mono",ui-monospace,monospace;
   --transition-fast:150ms ease;
   --transition-base:280ms ease;
-  --transition-slow:500ms ease;
   --transition-hover:border-color 280ms ease, box-shadow 280ms ease;
 }
 *{box-sizing:border-box}
@@ -59,11 +58,6 @@ a{color:inherit;text-decoration:none}
 .video-play-btn{position:absolute;bottom:14px;right:14px;z-index:3;width:44px;height:44px;border-radius:var(--radius-sm);background:rgba(244,242,233,.92);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s;color:#191D1B;font-size:14px}
 .video-play-btn:hover{background:#fff}
 .video-play-btn svg{width:16px;height:16px;fill:currentColor;pointer-events:none}
-/* placeholder shown when no video */
-.video-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--dark-muted);padding-top:32px}
-.video-placeholder .vp-icon{width:48px;height:48px;border-radius:var(--radius-sm);background:rgba(31,91,153,.18);border:1px solid rgba(31,91,153,.35);display:flex;align-items:center;justify-content:center}
-.video-placeholder .vp-icon svg{width:22px;height:22px;fill:#7FB0DA}
-.video-placeholder p{font-size:13px;text-align:center;max-width:220px;margin:0;line-height:1.4}
 /* cards */
 .grid{display:grid;gap:18px}
 .grid-2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}

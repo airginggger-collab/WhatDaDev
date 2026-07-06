@@ -32,9 +32,9 @@ src/
 ├── components/
 │   └── Breadcrumbs.astro       # хлебные крошки + JSON-LD BreadcrumbList
 ├── data/
-│   ├── directions.js           # 8 направлений → /services/vnedrenie/[slug]
-│   ├── industries.js           # 5 отраслей → /industries/[slug]
-│   └── team.js                 # команда → /company/about
+│   ├── directions.json           # 8 направлений → /services/vnedrenie/[slug]
+│   ├── industries.json           # 5 отраслей → /industries/[slug]
+│   └── team.json                 # команда → /company/about
 ├── styles/
 │   └── global.css              # CSS-переменные (токены) + все стили
 └── pages/                      # 21 .astro-файл → 32 URL
@@ -57,8 +57,8 @@ src/
 - `<meta og:*>` и Twitter Card
 - JSON-LD **Organization** + **WebSite** на каждой странице
 - Переданные `jsonld[]` блоки (Service, FAQPage, SoftwareApplication и т.д.)
-- `<link>` на Inter из Google Fonts (cyrillic)
-- `theme-color: #0B1220`
+- Шрифты self-hosted через Fontsource (Golos Text Variable + Piazzolla Variable + IBM Plex Mono) — импорт в `Base.astro`, без Google Fonts
+- `theme-color: #10151A`
 
 **Навигация (хардкод в Base):**
 ```
@@ -71,17 +71,22 @@ src/
 
 | Переменная | Значение | Назначение |
 |---|---|---|
-| `--accent` | `#4F46E5` | indigo, основной акцент (ADR-0011) |
-| `--accent-600` | `#4338CA` | hover-состояние кнопок |
-| `--bg` | `#F8FAFC` | фон светлых секций |
+| `--accent` | `#1F5B99` | корпоративный синий, акцент (ADR-0014) |
+| `--accent-600` | `#174873` | hover-состояние кнопок |
+| `--accent-50` | `#E7EEF6` | светлая подложка тегов |
+| `--bg` | `#FAF8F2` | тёплая бумага, фон светлых секций |
 | `--surface` | `#FFFFFF` | карточки |
-| `--text` | `#0F172A` | основной текст |
-| `--muted` | `#475569` | второстепенный текст |
-| `--dark-bg` | `#0B1220` | тёмный hero |
-| `--dark-surface` | `#111827` | тёмные карточки |
-| `--radius` | `16px` | скругления блоков |
+| `--surface-alt` | `#DFE0DA` | нейтральные alt-секции |
+| `--text` | `#191D1B` | основной текст (чернила) |
+| `--muted` | `#5A625D` | второстепенный текст |
+| `--border` | `#C4C5BB` | границы |
+| `--dark-bg` | `#10151A` | тёмный hero |
+| `--dark-surface` | `#171E26` | тёмные карточки |
+| `--radius` / `--radius-sm` | `6px` / `4px` | скругления (ADR-0013, без pill) |
 | `--container` | `1140px` | max-width контейнера |
-| `--font` | `"Inter", system-ui` | шрифт |
+| `--font` | `"Golos Text Variable"` | основной шрифт |
+| `--font-display` | `"Piazzolla Variable"` | заголовки H1/H2 |
+| `--font-mono` | `"IBM Plex Mono"` | цифры, подписи |
 
 Источник токенов — `docs/04-design/tokens.json`. При изменении дизайна — сначала там, потом переносить в `global.css`. **Tailwind не используется.**
 
@@ -95,7 +100,7 @@ src/
 | `/contacts/` | `pages/contacts.astro` | хардкод |
 | `/elma365/` | `pages/elma365.astro` | хардкод |
 | `/404` | `pages/404.astro` | хардкод |
-| `/company/about/` | `pages/company/about.astro` | `data/team.js` |
+| `/company/about/` | `pages/company/about.astro` | `data/team.json` |
 | `/products/express/` | `pages/products/express.astro` | хардкод |
 | `/products/express/dogovory/` | `pages/products/express/dogovory.astro` | хардкод |
 | `/products/express/ord/` | `pages/products/express/ord.astro` | хардкод |
@@ -106,14 +111,15 @@ src/
 | `/services/` | `pages/services/index.astro` | хардкод |
 | `/services/razrabotka/` | `pages/services/razrabotka.astro` | хардкод |
 | `/services/vnedrenie/` | `pages/services/vnedrenie/index.astro` | хардкод |
-| `/services/vnedrenie/[slug]/` ×8 | `pages/services/vnedrenie/[slug].astro` | `data/directions.js` |
+| `/services/vnedrenie/[slug]/` ×8 | `pages/services/vnedrenie/[slug].astro` | `data/directions.json` |
 | `/industries/` | `pages/industries/index.astro` | хардкод |
-| `/industries/[slug]/` ×5 | `pages/industries/[slug].astro` | `data/industries.js` |
-| `/press/` | `pages/press/index.astro` | хардкод |
-| `/press/articles/elma365-vs-bitrix24/` | `pages/press/articles/elma365-vs-bitrix24.astro` | хардкод |
-| `/press/articles/korobochnyy-edo-vs-oblachnyy/` | `pages/press/articles/korobochnyy-edo-vs-oblachnyy.astro` | хардкод |
+| `/industries/[slug]/` ×5 | `pages/industries/[slug].astro` | `data/industries.json` |
+| `/press/` | `pages/press/index.astro` | `content/articles/*.md` (getCollection) |
+| `/press/articles/[slug]/` ×20 | `pages/press/articles/[slug].astro` | `content/articles/*.md` (getCollection, фильтр !draft) |
+| `/press/glossary/` | `pages/press/glossary/index.astro` | `content/glossary/*.md` (getCollection) |
+| `/press/glossary/[slug]/` ×15 | `pages/press/glossary/[slug].astro` | `content/glossary/*.md` (getCollection, фильтр !draft) |
 
-**Итого:** 21 файл → 32 URL (динамические `[slug]` рендерят несколько страниц из одного файла).
+**Итого:** статьи и глоссарий — markdown-коллекции `src/content/`, рендерятся динамическими `[slug].astro`; всего сайт — 68 страниц (см. `sitemap-0.xml`).
 
 ---
 
@@ -141,7 +147,7 @@ docs/04-design/tokens.json
         ↓ (вручную переносим)
 src/styles/global.css          ← все компоненты используют CSS-переменные
 
-src/data/*.js                  ← динамические [slug].astro читают через getStaticPaths()
+src/data/*.json                  ← динамические [slug].astro читают через getStaticPaths()
 src/layouts/Base.astro         ← все страницы оборачиваются в Base
 src/components/Breadcrumbs.astro ← подключается на вложенных страницах
 

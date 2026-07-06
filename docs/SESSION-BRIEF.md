@@ -21,7 +21,7 @@
 - **Cloudflare Workers Static Assets** — `wrangler.jsonc`, автодеплой при `git push main`
 - **Стили** — обычный CSS + CSS-переменные в `src/styles/global.css` (без Tailwind)
 - **Токены** — `docs/04-design/tokens.json`, цвет `#4F46E5` (indigo), шрифт Inter
-- **Контент** — в `.astro` файлах и `src/data/*.js` (CMS отложена, ADR-0006)
+- **Контент** — в `src/data/*.json` и markdown-коллекциях `src/content/`; редактируется через кабинет Sveltia на `/admin/` (ADR-0015). Разметка страниц — в `.astro`.
 - **Коммит-автор обязателен**: `git -c user.email=airg.inggger@gmail.com -c user.name=airginggger-collab commit -m "..."`
 - **После каждого коммита — push**: `git push origin main`
 

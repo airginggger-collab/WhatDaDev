@@ -142,7 +142,7 @@ draft: false
               <td style="padding:0.75rem 1rem;border-bottom:1px solid var(--border,#C4C5BB)">Вручную, несколько каналов (почта + мессенджер)</td>
               <td style="padding:0.75rem 1rem;border-bottom:1px solid var(--border,#C4C5BB)">Единая форма, автоматическое назначение</td>
             </tr>
-            <tr style="background:var(--surface-alt2,rgba(99,102,241,0.07))">
+            <tr style="background:var(--surface-alt)">
               <td style="padding:0.75rem 1rem;border-bottom:1px solid var(--border,#C4C5BB)">Напоминания</td>
               <td style="padding:0.75rem 1rem;border-bottom:1px solid var(--border,#C4C5BB)">Вручную или простая автоматизация</td>
               <td style="padding:0.75rem 1rem;border-bottom:1px solid var(--border,#C4C5BB)">Автоматически: за 3 дня, за 1 день, при просрочке</td>
@@ -152,7 +152,7 @@ draft: false
               <td style="padding:0.75rem 1rem;border-bottom:1px solid var(--border,#C4C5BB)">Вручную, если руководитель заметил</td>
               <td style="padding:0.75rem 1rem;border-bottom:1px solid var(--border,#C4C5BB)">Автоматически по настроенному правилу</td>
             </tr>
-            <tr style="background:var(--surface-alt2,rgba(99,102,241,0.07))">
+            <tr style="background:var(--surface-alt)">
               <td style="padding:0.75rem 1rem;border-bottom:1px solid var(--border,#C4C5BB)">Аналитика</td>
               <td style="padding:0.75rem 1rem;border-bottom:1px solid var(--border,#C4C5BB)">Формулы в таблице, устаревает</td>
               <td style="padding:0.75rem 1rem;border-bottom:1px solid var(--border,#C4C5BB)">Живой дашборд, экспорт отчётов</td>
@@ -162,7 +162,7 @@ draft: false
               <td style="padding:0.75rem 1rem;border-bottom:1px solid var(--border,#C4C5BB)">Нет или неполная</td>
               <td style="padding:0.75rem 1rem;border-bottom:1px solid var(--border,#C4C5BB)">Полный лог: кто, когда, что изменил</td>
             </tr>
-            <tr style="background:var(--surface-alt2,rgba(99,102,241,0.07))">
+            <tr style="background:var(--surface-alt)">
               <td style="padding:0.75rem 1rem;border-bottom:1px solid var(--border,#C4C5BB)">Интеграция с документами</td>
               <td style="padding:0.75rem 1rem;border-bottom:1px solid var(--border,#C4C5BB)">Вручную (прикрепляете файл в переписке)</td>
               <td style="padding:0.75rem 1rem;border-bottom:1px solid var(--border,#C4C5BB)">Автосвязь с реестром документов</td>

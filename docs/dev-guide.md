@@ -61,9 +61,9 @@ src/
 ├── components/
 │   └── Breadcrumbs.astro   # хлебные крошки + JSON-LD BreadcrumbList
 ├── data/
-│   ├── directions.js       # 8 направлений внедрения (/services/vnedrenie/[slug])
-│   ├── industries.js       # 5 отраслей (/industries/[slug])
-│   └── team.js             # команда (/company/about)
+│   ├── directions.json       # 8 направлений внедрения (/services/vnedrenie/[slug])
+│   ├── industries.json       # 5 отраслей (/industries/[slug])
+│   └── team.json             # команда (/company/about)
 ├── styles/
 │   └── global.css          # CSS-переменные (токены), все стили сайта
 └── pages/
@@ -74,12 +74,13 @@ src/
     ├── company/about.astro
     ├── industries/
     │   ├── index.astro
-    │   └── [slug].astro    # рендерит 5 отраслей из data/industries.js
+    │   └── [slug].astro    # рендерит 5 отраслей из data/industries.json
     ├── press/
-    │   ├── index.astro
-    │   └── articles/
-    │       ├── elma365-vs-bitrix24.astro
-    │       └── korobochnyy-edo-vs-oblachnyy.astro
+    │   ├── index.astro                  # листит content/articles через getCollection
+    │   ├── articles/[slug].astro        # рендерит content/articles/*.md (20 статей)
+    │   └── glossary/
+    │       ├── index.astro              # листит content/glossary
+    │       └── [slug].astro             # рендерит content/glossary/*.md (15 терминов)
     ├── products/
     │   ├── express.astro               # /products/express
     │   ├── express/
@@ -95,7 +96,7 @@ src/
         ├── razrabotka.astro
         └── vnedrenie/
             ├── index.astro
-            └── [slug].astro            # рендерит 8 направлений из data/directions.js
+            └── [slug].astro            # рендерит 8 направлений из data/directions.json
 ```
 
 ## Как добавить страницу
@@ -111,8 +112,8 @@ src/
 
 | Файл | Данные | URL-ы |
 |---|---|---|
-| `services/vnedrenie/[slug].astro` | `src/data/directions.js` | `/services/vnedrenie/crm`, `/edo`, `/service-desk`, `/zakupki`, `/marketing`, `/proekty`, `/kedo`, `/prochee` |
-| `industries/[slug].astro` | `src/data/industries.js` | `/industries/proizvodstvo`, `/ritejl`, `/development`, `/logistika`, `/finansy` |
+| `services/vnedrenie/[slug].astro` | `src/data/directions.json` | `/services/vnedrenie/crm`, `/edo`, `/service-desk`, `/zakupki`, `/marketing`, `/proekty`, `/kedo`, `/prochee` |
+| `industries/[slug].astro` | `src/data/industries.json` | `/industries/proizvodstvo`, `/ritejl`, `/development`, `/logistika`, `/finansy` |
 
 ## CSS-конвенции
 

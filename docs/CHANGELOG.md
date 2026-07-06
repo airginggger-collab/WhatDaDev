@@ -2,6 +2,40 @@
 
 Все значимые изменения спеки проекта. Формат: семантические версии.
 
+## v0.71 — 2026-07-06
+
+### Чистка мёртвого кода, переменных, зависимостей + doc-drift (аудит)
+
+Многоагентный аудит (5 параллельных финдеров по измерениям + адверсариальная верификация каждой находки): 25 подтверждено, 3 ложных отброшено (4 обложки-webp реально используются; `public/.assetsignore` — легитимная часть Cloudflare-деплоя; строка `.js → JSON` в 19-cms-migration — описание плана, не ссылка).
+
+**Мёртвые/битые CSS-переменные:**
+- `--radius-lg` (about.astro, `.team-card`) — не определён, без фолбэка → карточки команды рендерились с прямыми углами (0px). Заменён на `var(--radius)` (6px, как все карточки). **Баг.**
+- `--surface-alt2` (статья kontrol-ispolneniya-porucheniy, ×3) — не определён, фолбэк `rgba(99,102,241,.07)` был **старым indigo**. Заменён на `var(--surface-alt)` — зебра таблицы теперь нейтральная, без чужой палитры.
+- `--bg-card` (coordo.astro, `.rm-item`) — не определён, работал на `#fff`. Заменён на реальный токен `var(--surface)`.
+- `--transition-slow` — определён в `:root`, 0 использований → удалён.
+
+**Мёртвый код и разметка:**
+- index.astro: удалён скрипт `videoPlaceholder` (`getElementById` на несуществующий id, обработчик `loadeddata` не мог сработать) + осиротевший CSS `.video-placeholder`/`.vp-icon` в global.css.
+- index.astro: удалён «призрачный» `id="heroVideoCard"` (нигде не читался).
+- press/index.astro: удалены мёртвое CSS-правило `.pc-lines` и пустой декоративный `<div class="pf-lines">` (без стилей — ничего не отображал).
+
+**Осиротевшие ассеты (удалены):**
+- `public/video/demo.mp4` (772 КБ) — нигде не использовался (в HTML только `coordo-demo.mp4`).
+- `public/og.svg` — не ссылался никто (OG — `og.png`); к тому же устаревшая идентичность (Inter/indigo).
+
+**SEO-консистентность:**
+- 4× JSON-LD `Service.url` без завершающего слэша (`/services/razrabotka`, `/services/vnedrenie`, `/services/vnedrenie/[slug]`, `/industries/[slug]`) → приведены к слэшу, совпадающему с canonical/OG.
+
+**Doc-drift (после миграции v0.69–v0.70):**
+- Ссылки на удалённые `.js` (team/directions/industries/articles) → `.json`/коллекции: README, `00-overview`, `ARCHITECTURE`, `dev-guide`, `editing-guide`, `portfolio-story`, `SESSION-BRIEF`, `HANDOFF`, `07-infra`.
+- Статус «CMS отложена/нет» → «CMS: Sveltia на `/admin/` (ADR-0015)»: README, `07-infra`, `portfolio-story`, `SESSION-BRIEF`.
+- `ARCHITECTURE.md`: таблица токенов и шрифты приведены к текущей идентичности (синий `#1F5B99`, Golos/Piazzolla/Plex Mono self-hosted, радиус 6px, `theme-color #10151A`); таблица роутинга пресс-центра — на markdown-коллекции вместо удалённых статичных `.astro`.
+- `editing-guide`/`dev-guide`: инструкции добавления статьи и правки команды — через кабинет/коллекции; пример синтаксиса исправлен с JS-объекта на валидный JSON.
+
+**Не тронуто (осознанно):** ветка IntersectionObserver `.fg`/`--p` в Base.astro + CSS `.ring .fg` — инертный (guarded) каркас кольца-метрики под реальные цифры кейсов (Фаза 0); удаление отложено до решения по метрике. `public/og.png` — в старой идентичности (уже в бэклоге HANDOFF).
+
+**Проверка:** сборка 68 страниц; превью — радиус карточек команды 6px, зебра статьи нейтральная, hero-видео и кнопка play работают, ошибок в консоли нет.
+
 ## v0.70 — 2026-07-06
 
 ### Личный кабинет — Этап 2: статьи и глоссарий в CMS (ADR-0015)

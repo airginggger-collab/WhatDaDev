@@ -5,7 +5,7 @@
 ## Стек (зафиксировано, ADR-0004)
 - **Фронт/рендер:** **Astro 5** (SSG) — отдаём готовый HTML, лучший SEO/перф. Выбран из кандидатов Astro / Next.js; интерактив (анимации, форма-демо) делается на лёгком клиентском JS без фреймворка.
 - **Sitemap:** `@astrojs/sitemap` (генерирует `sitemap.xml`).
-- **CMS:** 🔴 отложено (Directus / PayloadCMS self-hosted — кандидаты, ADR-0006). Пока контент в `.astro`-страницах и `src/data/*.js`.
+- **CMS:** ✅ Sveltia на `/admin/`, вход по GitHub-токену (ADR-0015). Контент в `src/data/*.json` и markdown-коллекциях `src/content/{articles,glossary}`; разметка страниц — в `.astro`.
 - **Стили:** обычный CSS с CSS-переменными в `src/styles/global.css`. Источник токенов — `04-design/tokens.json`. **Tailwind НЕ используется** (отказались в пользу лёгкого ванильного CSS).
 - **Анимации:** отложенная загрузка / reveal-on-scroll, reduced-motion-safe, не ломать Core Web Vitals.
 
@@ -36,7 +36,7 @@
 - Согласие на обработку ПД (ФЗ-152 РФ), политика конфиденциальности, cookie-уведомление.
 
 ## Прототип → текущий сайт
-- Стек: **Astro 5** (SSG), без CMS (контент в `.astro` и `src/data/*.js`). Стили — CSS-переменные из `tokens.json` в `src/styles/global.css`.
+- Стек: **Astro 5** (SSG) + Sveltia CMS на `/admin/` (ADR-0015); контент в `src/data/*.json` и `src/content/`. Стили — CSS-переменные из `tokens.json` в `src/styles/global.css`.
 - Сейчас собирается **32 страницы** (вкл. 404) — полная карта в `02-sitemap-ia.md`. Сборка: `npm run build` → `dist/` (статика).
 - **Деплой — Cloudflare Workers Static Assets** через `wrangler.jsonc` (`assets.directory = ./dist`, `not_found_handling = 404-page`). Авто-деплой при пуше в `main`.
   - Repository: `airginggger-collab/WhatDaDev`

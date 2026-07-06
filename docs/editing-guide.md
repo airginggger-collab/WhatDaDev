@@ -29,10 +29,10 @@
 | Контуры: договоры / ОРД / корреспонденция | `src/pages/products/express/dogovory.astro` (и `ord`, `korrespondenciya`) |
 | Цена продукта | `src/pages/products/express.astro` (ищи `690 000 ₽`) |
 | Услуги (общая) | `src/pages/services/index.astro` |
-| Направления внедрения (CRM, ЭДО…) | `src/data/directions.js` |
-| Отрасли | `src/data/industries.js` |
+| Направления внедрения (CRM, ЭДО…) | `src/data/directions.json` |
+| Отрасли | `src/data/industries.json` |
 | О компании | `src/pages/company/about.astro` |
-| **Команда** (имена, роли, описания) | `src/data/team.js` |
+| **Команда** (имена, роли, описания) | `src/data/team.json` |
 | Фото команды | папка `public/team/` |
 | Пресс-центр (список статей) | `src/pages/press/index.astro` |
 | Контакты | `src/pages/contacts.astro` |
@@ -53,12 +53,14 @@
 Файл `src/pages/products/express.astro`. Найди `от 690 000 ₽` и впиши новое число.
 
 ### Изменить участника команды
-Файл `src/data/team.js`. Каждый человек — блок в фигурных скобках `{ ... }`:
+Проще всего — через **кабинет** (`/admin/`, см. `docs/editing-cabinet.md`): раздел «Команда», формы с полями, без ручного JSON.
+
+Вручную: файл `src/data/team.json` — это JSON. Люди лежат в массиве `"members"`, каждый — блок `{ ... }` с **кавычками на ключах**:
+```json
+{ "name": "Иванников Иван", "initials": "ИИ", "role": "Руководитель проекта",
+  "photo": "/team/ivannikov.jpg", "bio": "Текст описания.", "telegram": null, "linkedin": null }
 ```
-{ name: "Иванников Иван", initials: "ИИ", role: "Руководитель проекта", photo: "/team/ivannikov.jpg",
-  bio: "Текст описания." },
-```
-Меняй только текст **в кавычках** (`"..."`). Кавычки, запятые и слова `name`, `role`, `bio` — оставь.
+Меняй только текст **в кавычках** (`"..."`). Ключи (`"name"`, `"role"`, `"bio"`) и структуру не трогай. В JSON у последнего блока в массиве **не должно быть запятой** в конце.
 
 ### Добавить нового участника
 Скопируй любой блок `{ ... },` целиком, вставь рядом и поменяй текст. Если нет фото — напиши `photo: null` (будут кружок с инициалами).
@@ -68,7 +70,9 @@
 Файл `src/layouts/Base.astro` — это подвал на всех страницах. Найди `+7 980 471-57-72`, `sales@whatdadev.ru`, `@WhatDaDev` и поменяй.
 
 ### Добавить статью в Пресс-центр
-Файл `src/pages/press/index.astro`. В списке `articles` скопируй строку и поменяй название/ссылку.
+Проще всего — через **кабинет** (`/admin/`, коллекция «Статьи», см. `docs/editing-cabinet.md`): кнопка «Создать», формы, черновики. Список на `/press/` соберётся сам.
+
+Вручную: создай новый `.md` в `src/content/articles/` по образцу соседнего файла (шапка между `---`: `name`, `slug_input`, `tag`, `order`, `draft`, `title`, `description`, `h1`; тело — текст статьи). `src/pages/press/index.astro` править не нужно — он листит все статьи из коллекции.
 
 ---
 
@@ -102,5 +106,5 @@ git push
 ## Что НЕЛЬЗЯ трогать (чтобы точно не сломать)
 - Строчки `---` в самом верху файлов `.astro`.
 - Английские теги и `class="..."`.
-- Кавычки `"` и запятые `,` в файлах `.js` (`directions.js`, `industries.js`, `team.js`).
+- Кавычки `"` и запятые `,` в `.json`-файлах (`directions.json`, `industries.json`, `team.json`) — синтаксис строгий.
 - Папки `node_modules`, `dist`, `.astro` (служебные).

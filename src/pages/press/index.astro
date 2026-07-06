@@ -62,9 +62,6 @@ const collectionPage = {
       <a class="press-featured reveal" href={`/press/articles/${featured.slug}/`} data-tag={featured.tag}>
         <div class="press-featured-cover" style={`background-image:url(${tagCovers[featured.tag] ?? '/covers/vnedrenie.webp'})`}>
           <span class="pf-tag">{featured.tag}</span>
-          <div class="pf-lines">
-            <span></span><span></span><span></span>
-          </div>
         </div>
         <div class="press-featured-body">
           <span class="press-tag-badge" style={`background:${tagColors[featured.tag] ?? '#1F5B99'}22;color:${tagColors[featured.tag] ?? '#1F5B99'}`}>{featured.tag}</span>
@@ -335,8 +332,6 @@ const collectionPage = {
     inset: 0;
     background: linear-gradient(to top, rgba(0,0,0,.35) 0%, rgba(0,0,0,.0) 60%);
   }
-  .pc-lines span:nth-child(1) { top: 35%; left: -20%; }
-  .pc-lines span:nth-child(2) { top: 70%; left: -20%; }
   .pc-body {
     padding: 20px;
     flex: 1;

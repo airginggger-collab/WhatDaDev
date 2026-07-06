@@ -15,7 +15,7 @@
 - **Astro** `^5` — статический генератор (SSG), отдаёт готовый HTML.
 - **@astrojs/sitemap** `^3.7.3` — генерация `sitemap.xml`.
 - **Стили** — обычный CSS с CSS-переменными в `src/styles/global.css` (токены — из `docs/04-design/tokens.json`). **Tailwind не используется.**
-- **CMS** — пока нет (ADR-0006): контент живёт в `.astro`-страницах и `src/data/*.js`.
+- **CMS** — Sveltia на `/admin/` (ADR-0015): контент в `src/data/*.json` и markdown-коллекциях `src/content/{articles,glossary}`; страничная разметка — в `.astro`.
 - **Хостинг** — Cloudflare Workers Static Assets (`wrangler.jsonc`, `assets.directory = ./dist`). Без SSR-воркера и без Astro-адаптера Cloudflare.
 
 Требуется Node.js 20+ (на сборке Cloudflare — `NODE_VERSION = 20`).
@@ -52,7 +52,7 @@ WhatDaDev/
 │  ├─ pages/            # маршруты (.astro), вкл. динамические [slug].astro
 │  ├─ layouts/          # Base.astro — общий каркас (head, шапка, подвал, меню)
 │  ├─ components/       # Breadcrumbs.astro и др.
-│  ├─ data/             # контент-данные: directions.js, industries.js, team.js
+│  ├─ data/             # контент-данные: directions.json, industries.json, team.json
 │  └─ styles/           # global.css (CSS-переменные/токены)
 ├─ public/              # статика (favicon, og.png, фото команды public/team/)
 ├─ docs/                # БАЗА ЗНАНИЙ — единый источник правды (Markdown, канон)

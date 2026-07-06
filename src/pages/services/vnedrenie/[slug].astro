@@ -6,7 +6,7 @@ export function getStaticPaths() {
   return directions.map((d) => ({ params: { slug: d.slug }, props: { d } }));
 }
 const { d } = Astro.props;
-const jsonld = [{ "@context": "https://schema.org", "@type": "Service", name: d.h1, url: `https://whatdadev.ru/services/vnedrenie/${d.slug}`, areaServed: ["RU", "KZ"], provider: { "@type": "Organization", name: "WhatDaDev", url: "https://whatdadev.ru" } }];
+const jsonld = [{ "@context": "https://schema.org", "@type": "Service", name: d.h1, url: `https://whatdadev.ru/services/vnedrenie/${d.slug}/`, areaServed: ["RU", "KZ"], provider: { "@type": "Organization", name: "WhatDaDev", url: "https://whatdadev.ru" } }];
 ---
 <Base title={d.title} description={d.desc} jsonld={jsonld}>
   <section class="hero">
