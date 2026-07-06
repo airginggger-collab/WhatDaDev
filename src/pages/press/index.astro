@@ -1,7 +1,7 @@
 ---
 import Base from "../../layouts/Base.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
-import { articles } from "../../data/articles.js";
+import { getCollection } from "astro:content";
 import contacts from "../../data/contacts.json";
 
 const title = "Пресс-центр WhatDaDev — статьи об ELMA365 и ЭДО | WhatDaDev";
@@ -28,7 +28,10 @@ const tagCovers: Record<string, string> = {
   "Low-code":         "/covers/razrabotka.webp",
 };
 
-const liveArticles = articles.filter(a => a.live);
+const entries = await getCollection("articles", ({ data }) => !data.draft);
+const liveArticles = entries
+  .map((e) => ({ slug: e.id, name: e.data.name, tag: e.data.tag ?? "Гайд", order: e.data.order }))
+  .sort((a, b) => a.order - b.order);
 const featured = liveArticles[0];
 const rest = liveArticles.slice(1);
 const allTags = [...new Set(liveArticles.map(a => a.tag))];

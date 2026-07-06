@@ -12,6 +12,81 @@ media_folder: public/uploads
 public_folder: /uploads
 
 collections:
+  - name: articles
+    label: Статьи (пресс-центр)
+    label_singular: Статья
+    folder: src/content/articles
+    extension: md
+    format: frontmatter
+    create: true
+    slug: "{{fields.slug_input}}"
+    identifier_field: name
+    sortable_fields: [order, name]
+    summary: "{{name}}"
+    fields:
+      - { name: name, label: Название (в списке статей), widget: string }
+      - { name: slug_input, label: "Адрес страницы (латиницей, задаётся один раз)", widget: string, pattern: ["^[a-z0-9-]+$", "Только латиница, цифры и дефис"], hint: "Например: kak-vybrat-sed. Менять у существующей статьи нельзя — сломается ссылка." }
+      - { name: tag, label: Тег, widget: string, hint: "Например: Гайд, Обзор, Сравнение, КЭДО" }
+      - { name: order, label: "Порядок в списке (меньше — выше)", widget: number, value_type: int, default: 100 }
+      - { name: draft, label: Черновик (не публиковать), widget: boolean, default: true }
+      - { name: title, label: "Title — заголовок вкладки для поисковиков", widget: string }
+      - { name: description, label: "Description — описание для поисковиков", widget: text }
+      - { name: headline, label: "Заголовок для соцсетей/поиска (Schema)", widget: string }
+      - { name: h1, label: Заголовок H1 на странице, widget: string }
+      - { name: eyebrow, label: Надзаголовок над H1, widget: string, required: false, default: "" }
+      - { name: lead, label: Вводный абзац (под H1), widget: text, required: false }
+      - name: crumbs
+        label: Хлебные крошки
+        widget: list
+        fields:
+          - { name: name, label: Название, widget: string }
+          - { name: href, label: "Ссылка (у последнего пункта оставьте пусто)", widget: string, required: false }
+      - name: faq
+        label: Частые вопросы (FAQ)
+        widget: list
+        required: false
+        fields:
+          - { name: q, label: Вопрос, widget: string }
+          - { name: a, label: Ответ, widget: text }
+      - { name: body, label: Текст статьи, widget: markdown, hint: "Основной текст. Можно вставлять готовые HTML-блоки." }
+
+  - name: glossary
+    label: Глоссарий (термины)
+    label_singular: Термин
+    folder: src/content/glossary
+    extension: md
+    format: frontmatter
+    create: true
+    slug: "{{fields.slug_input}}"
+    identifier_field: name
+    sortable_fields: [order, name]
+    summary: "{{name}}"
+    fields:
+      - { name: name, label: Название термина (в списке), widget: string }
+      - { name: slug_input, label: "Адрес страницы (латиницей, задаётся один раз)", widget: string, pattern: ["^[a-z0-9-]+$", "Только латиница, цифры и дефис"] }
+      - { name: order, label: "Порядок в списке (меньше — выше)", widget: number, value_type: int, default: 100 }
+      - { name: draft, label: Черновик (не публиковать), widget: boolean, default: true }
+      - { name: title, label: "Title для поисковиков", widget: string }
+      - { name: description, label: "Description для поисковиков", widget: text }
+      - { name: headline, label: "Заголовок для Schema", widget: string }
+      - { name: h1, label: Заголовок H1, widget: string }
+      - { name: eyebrow, label: Надзаголовок, widget: string, required: false, default: "Глоссарий" }
+      - { name: lead, label: Определение (под H1), widget: text, required: false }
+      - name: crumbs
+        label: Хлебные крошки
+        widget: list
+        fields:
+          - { name: name, label: Название, widget: string }
+          - { name: href, label: "Ссылка (у последнего пусто)", widget: string, required: false }
+      - name: faq
+        label: Частые вопросы (FAQ)
+        widget: list
+        required: false
+        fields:
+          - { name: q, label: Вопрос, widget: string }
+          - { name: a, label: Ответ, widget: text }
+      - { name: body, label: Текст термина, widget: markdown }
+
   - name: site
     label: Тексты и данные сайта
     files:

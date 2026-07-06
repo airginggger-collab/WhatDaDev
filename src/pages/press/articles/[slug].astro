@@ -1,0 +1,49 @@
+---
+import { getCollection, render } from "astro:content";
+import Base from "../../../layouts/Base.astro";
+import Breadcrumbs from "../../../components/Breadcrumbs.astro";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("articles", ({ data }) => !data.draft);
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const d = entry.data;
+const { Content } = await render(entry);
+
+const jsonld = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: d.headline,
+    description: d.description,
+    author: { "@type": "Organization", name: "WhatDaDev", url: "https://whatdadev.ru" },
+    publisher: { "@type": "Organization", name: "WhatDaDev", url: "https://whatdadev.ru" },
+    url: `https://whatdadev.ru/press/articles/${entry.id}/`,
+    inLanguage: "ru",
+  },
+  ...(d.faq.length
+    ? [{
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: d.faq.map(({ q, a }) => ({
+          "@type": "Question",
+          name: q,
+          acceptedAnswer: { "@type": "Answer", text: a },
+        })),
+      }]
+    : []),
+];
+---
+<Base title={d.title} description={d.description} jsonld={jsonld}>
+  <section class="hero">
+    <div class="container">
+      <Breadcrumbs items={d.crumbs} />
+      {d.eyebrow && <div class="eyebrow" style="color:#8FBBE0">{d.eyebrow}</div>}
+      <h1>{d.h1}</h1>
+      {d.lead && <p class="lead" set:html={d.lead} />}
+    </div>
+  </section>
+  <Content />
+</Base>
