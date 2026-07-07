@@ -1,0 +1,235 @@
+<title>WhatDaDev — тёмная тема для Stitch</title>
+<style>
+@font-face{font-family:'Piazzolla Variable';font-weight:100 900;font-style:normal;font-display:swap;src:url(../../node_modules/@fontsource-variable/piazzolla/files/piazzolla-cyrillic-wght-normal.woff2) format('woff2');}
+@font-face{font-family:'Golos Text Variable';font-weight:400 700;font-style:normal;font-display:swap;src:url(../../node_modules/@fontsource-variable/golos-text/files/golos-text-cyrillic-wght-normal.woff2) format('woff2');}
+@font-face{font-family:'IBM Plex Mono';font-weight:400;font-style:normal;font-display:swap;src:url(../../node_modules/@fontsource/ibm-plex-mono/files/ibm-plex-mono-cyrillic-400-normal.woff2) format('woff2');}
+@font-face{font-family:'IBM Plex Mono';font-weight:500;font-style:normal;font-display:swap;src:url(../../node_modules/@fontsource/ibm-plex-mono/files/ibm-plex-mono-cyrillic-500-normal.woff2) format('woff2');}
+@font-face{font-family:'IBM Plex Mono';font-weight:600;font-style:normal;font-display:swap;src:url(../../node_modules/@fontsource/ibm-plex-mono/files/ibm-plex-mono-cyrillic-600-normal.woff2) format('woff2');}
+:root{
+  --bg:#10151A; --surface:#171E26; --surface-alt:#1C242E; --text:#F4F2E9; --muted:#99A3AE; --border:#263140;
+  --accent:#1F5B99; --accent-300:#8FBBE0; --accent-200:#BFD7EC; --accent-50:#E7EEF6; --logo:#7FB0DA;
+  --radius:6px; --radius-sm:4px;
+  --font:"Golos Text Variable",system-ui,-apple-system,sans-serif;
+  --font-display:"Piazzolla Variable",Georgia,serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+.mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+h1,h2{font-family:var(--font-display);letter-spacing:-.01em;text-wrap:balance;font-weight:560}
+h1{font-size:clamp(30px,5vw,48px);line-height:1.12;margin:0 0 12px}
+h2{font-size:clamp(22px,3vw,32px);line-height:1.15;margin:0}
+h3{font-size:17px;font-weight:600;margin:0 0 4px}
+.eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500;display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.eyebrow::before{content:"";width:9px;height:9px;background:var(--accent-300);flex-shrink:0}
+
+header.top{border-bottom:1px solid var(--border);padding:60px 0 52px}
+header.top .lead{color:var(--muted);max-width:600px;font-size:17px;margin:0}
+.badge-row{display:flex;flex-wrap:wrap;gap:0;margin-top:28px;border:1px solid var(--border);border-radius:var(--radius-sm);overflow:hidden;width:fit-content;font-size:13px}
+.badge-row span{padding:9px 18px;border-right:1px solid var(--border);color:var(--muted)}
+.badge-row span:last-child{border-right:none}
+.badge-row b{color:var(--text);font-family:var(--font-mono);font-weight:600}
+
+section{padding:52px 0;border-bottom:1px solid var(--border)}
+.sec-head{margin-bottom:26px}
+.sec-head p{color:var(--muted);max-width:660px;margin:8px 0 0;font-size:15px}
+
+/* prompt block */
+.prompt{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:20px}
+.prompt-bar{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--border);background:var(--surface-alt)}
+.prompt-bar .lang{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-300);font-weight:600}
+.copy-btn{font-family:var(--font-mono);font-size:12px;font-weight:600;background:var(--accent);color:#fff;border:none;padding:7px 14px;border-radius:var(--radius-sm);cursor:pointer;transition:background .15s}
+.copy-btn:hover{background:#174873}
+.copy-btn.done{background:#16A34A}
+.prompt-body{padding:18px 16px;font-family:var(--font-mono);font-size:13px;line-height:1.7;color:var(--text);white-space:pre-wrap;word-break:break-word}
+
+/* mapping table */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface)}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th,.tbl td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--border)}
+.tbl tr:last-child td{border-bottom:none}
+.tbl th{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.tbl td.en{font-weight:600}
+.tbl td.ru{color:var(--muted)}
+.tbl td.val{font-family:var(--font-mono);font-weight:600;white-space:nowrap;color:var(--accent-300)}
+.tbl td .sw{display:inline-block;width:12px;height:12px;border-radius:2px;vertical-align:-1px;margin-right:6px;border:1px solid rgba(255,255,255,.2)}
+
+/* swatches */
+.swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px}
+.sw-card{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:var(--surface)}
+.sw-card .chip{height:70px;display:flex;align-items:flex-end;padding:8px 10px}
+.sw-card .chip .hex{font-family:var(--font-mono);font-size:12px;font-weight:600;padding:2px 6px;border-radius:3px}
+.sw-card .info{padding:10px 12px}
+.sw-card .info .nm{font-weight:600;font-size:14px}
+.sw-card .info .use{font-size:12.5px;color:var(--muted);margin-top:3px}
+.group-title{font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;margin:28px 0 14px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.group-title:first-of-type{margin-top:0}
+
+.scale{display:flex;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;flex-wrap:wrap}
+.scale .step{flex:1 1 110px;min-width:100px;padding:16px 12px;display:flex;flex-direction:column;gap:2px}
+.scale .step .lbl{font-family:var(--font-mono);font-size:12px;font-weight:600}
+.scale .step .hx{font-family:var(--font-mono);font-size:11.5px;opacity:.85}
+
+/* type */
+.type-list{display:flex;flex-direction:column}
+.type-row{display:grid;grid-template-columns:1fr 260px;gap:24px;align-items:baseline;padding:14px 0;border-top:1px solid var(--border)}
+.type-row:first-child{border-top:none}
+.type-spec{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.type-data{font-family:var(--font-mono);font-size:12.5px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 12px;align-self:center}
+.type-data b{color:var(--text);font-weight:600}
+.t-h1{font-family:var(--font-display);font-size:44px;line-height:1.12;font-weight:560;letter-spacing:-.01em}
+.t-h2{font-family:var(--font-display);font-size:32px;line-height:1.12;font-weight:560;letter-spacing:-.01em}
+.t-h3{font-size:20px;font-weight:600}
+.t-body{font-size:16px}
+.t-cap{font-size:13px}
+
+.note{font-size:13px;color:var(--muted);margin-top:14px}
+footer{padding:36px 0 56px;color:var(--muted)}
+footer .mono{font-size:12px}
+@media(max-width:600px){.type-row{grid-template-columns:1fr;gap:6px}.t-h1{font-size:34px}.t-h2{font-size:26px}}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <div class="eyebrow">Dark theme · Google Stitch</div>
+    <h1>WhatDaDev — тёмная тема для Stitch</h1>
+    <p class="lead">Всё для тёмной темы, упаковано под Google Stitch: готовый промпт (копируется), маппинг на поля панели Theme с подписями EN/RU и все тёмные токены. Значения — из <span class="mono">tokens.json</span> (dark) + <span class="mono">global.css</span>.</p>
+    <div class="badge-row">
+      <span>Mode <b>Dark</b></span>
+      <span>Primary <b>#1F5B99</b></span>
+      <span>BG <b>#10151A</b></span>
+    </div>
+  </div>
+</header>
+
+<!-- PROMPT -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">01 — Промпт для Stitch</div>
+      <h2>Вставить в поле запроса</h2>
+      <p>Вставьте этот блок в начало любого запроса в Stitch («Describe your design» / «Опишите дизайн») — он задаёт тёмную тему WhatDaDev. Затем допишите, какой экран нужен. Английский работает в Stitch надёжнее.</p>
+    </div>
+
+    <div class="prompt">
+      <div class="prompt-bar"><span class="lang">Prompt · English</span><button class="copy-btn" data-copy="p-en">Copy</button></div>
+      <div class="prompt-body" id="p-en">Dark mode UI, serious B2B, engineering-editorial tone, no emoji.
+Background: deep blue-black #10151A. Card / surface: #171E26. Secondary surface: #1C242E. Borders: 1px #263140, subtle.
+Primary text: warm off-white #F4F2E9. Muted / secondary text: #99A3AE.
+Primary action / accent color: corporate blue #1F5B99, label text white #FFFFFF. On dark surfaces use lighter tints for accents and links: #8FBBE0 and #BFD7EC. Not indigo, not red.
+Headings: serif display font Piazzolla (fallback Georgia), weight 560, tight line-height. Body: Golos Text (fallback system sans-serif). Numbers, labels, captions, breadcrumbs, tags, buttons in IBM Plex Mono, uppercase small caps for labels with letter-spacing.
+Corner radius: 6px for cards, 4px for buttons and tags. Rectangular geometry — no pill shapes, no glow, no soft blurred shadows; only a hard 3px offset shadow on hover.
+Container max-width 1140px, section padding 88px, generous whitespace.</div>
+    </div>
+
+    <div class="prompt">
+      <div class="prompt-bar"><span class="lang">Промпт · Русский</span><button class="copy-btn" data-copy="p-ru">Копировать</button></div>
+      <div class="prompt-body" id="p-ru">Тёмная тема, строгий B2B, инженерно-издательский тон, без эмодзи.
+Фон: сине-чёрный #10151A. Карточки / поверхность: #171E26. Вторая поверхность: #1C242E. Рамки: 1px #263140, деликатные.
+Основной текст: тёплый белый #F4F2E9. Приглушённый / вторичный текст: #99A3AE.
+Акцент / основное действие: корпоративный синий #1F5B99, текст на кнопке белый #FFFFFF. На тёмном для акцентов и ссылок — светлые оттенки #8FBBE0 и #BFD7EC. Не индиго, не красный.
+Заголовки: серифный шрифт Piazzolla (фолбэк Georgia), вес 560, плотный интерлиньяж. Текст: Golos Text (фолбэк системный sans-serif). Цифры, метки, подписи, крошки, теги, кнопки — IBM Plex Mono, метки капсом с трекингом.
+Скругления: 6px у карточек, 4px у кнопок и тегов. Прямоугольная геометрия — без pill, без свечения и мягких размытых теней; только жёсткая тень 3px на hover.
+Контейнер max-width 1140px, отступ секции 88px, много воздуха.</div>
+    </div>
+  </div>
+</section>
+
+<!-- THEME MAPPING -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">02 — Панель Theme</div>
+      <h2>Поле Stitch → значение</h2>
+      <p>Если правите тему через панель настроек Stitch — подставьте эти значения. Подписи слева — как в англ. интерфейсе, рядом русский вариант.</p>
+    </div>
+    <div class="tbl-wrap"><table class="tbl">
+      <tr><th>Stitch (EN)</th><th>Stitch (RU)</th><th>Значение</th></tr>
+      <tr><td class="en">Theme / Mode</td><td class="ru">Тема / Режим</td><td class="val">Dark · Тёмная</td></tr>
+      <tr><td class="en">Primary color</td><td class="ru">Основной цвет</td><td class="val"><span class="sw" style="background:#1F5B99"></span>#1F5B99</td></tr>
+      <tr><td class="en">Background</td><td class="ru">Фон</td><td class="val"><span class="sw" style="background:#10151A"></span>#10151A</td></tr>
+      <tr><td class="en">Surface / Card</td><td class="ru">Поверхность / Карточка</td><td class="val"><span class="sw" style="background:#171E26"></span>#171E26</td></tr>
+      <tr><td class="en">Text / Foreground</td><td class="ru">Текст</td><td class="val"><span class="sw" style="background:#F4F2E9"></span>#F4F2E9</td></tr>
+      <tr><td class="en">Muted / Secondary text</td><td class="ru">Вторичный текст</td><td class="val"><span class="sw" style="background:#99A3AE"></span>#99A3AE</td></tr>
+      <tr><td class="en">Border</td><td class="ru">Рамка</td><td class="val"><span class="sw" style="background:#263140"></span>#263140</td></tr>
+      <tr><td class="en">Accent on dark</td><td class="ru">Акцент на тёмном</td><td class="val"><span class="sw" style="background:#8FBBE0"></span>#8FBBE0 / #BFD7EC</td></tr>
+      <tr><td class="en">Display font (headings)</td><td class="ru">Шрифт заголовков</td><td class="val">Piazzolla (serif)</td></tr>
+      <tr><td class="en">Body font</td><td class="ru">Шрифт текста</td><td class="val">Golos Text</td></tr>
+      <tr><td class="en">Mono font (data/labels)</td><td class="ru">Моношрифт (данные)</td><td class="val">IBM Plex Mono</td></tr>
+      <tr><td class="en">Corner radius</td><td class="ru">Скругление углов</td><td class="val">6px · 4px</td></tr>
+    </table></table></div>
+    <p class="note">Панель Stitch не обязательно имеет все эти поля — чего нет в панели, то уже прописано в промпте выше, поэтому дублировать не нужно.</p>
+  </div>
+</section>
+
+<!-- DARK PALETTE -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">03 — Тёмная палитра</div>
+      <h2>Все тёмные токены</h2>
+    </div>
+    <div class="group-title">Слои и текст</div>
+    <div class="swatches">
+      <div class="sw-card"><div class="chip" style="background:#10151A"><span class="hex" style="background:rgba(244,242,233,.9);color:#10151A">#10151A</span></div><div class="info"><div class="nm">Bg</div><div class="use">Фон страницы</div></div></div>
+      <div class="sw-card"><div class="chip" style="background:#171E26"><span class="hex" style="background:rgba(244,242,233,.9);color:#171E26">#171E26</span></div><div class="info"><div class="nm">Surface</div><div class="use">Карточки</div></div></div>
+      <div class="sw-card"><div class="chip" style="background:#1C242E"><span class="hex" style="background:rgba(244,242,233,.9);color:#1C242E">#1C242E</span></div><div class="info"><div class="nm">Surface Alt</div><div class="use">Второй слой</div></div></div>
+      <div class="sw-card"><div class="chip" style="background:#F4F2E9"><span class="hex" style="background:rgba(16,21,26,.75);color:#F4F2E9">#F4F2E9</span></div><div class="info"><div class="nm">Text</div><div class="use">Основной текст</div></div></div>
+      <div class="sw-card"><div class="chip" style="background:#99A3AE"><span class="hex" style="background:rgba(16,21,26,.7);color:#F4F2E9">#99A3AE</span></div><div class="info"><div class="nm">Muted</div><div class="use">Вторичный текст</div></div></div>
+      <div class="sw-card"><div class="chip" style="background:#263140"><span class="hex" style="background:rgba(244,242,233,.85);color:#263140">#263140</span></div><div class="info"><div class="nm">Border</div><div class="use">Рамки, разделители</div></div></div>
+    </div>
+
+    <div class="group-title">Акцент на тёмном</div>
+    <div class="scale">
+      <div class="step" style="background:#BFD7EC;color:#174873"><span class="lbl">200</span><span class="hx">#BFD7EC</span></div>
+      <div class="step" style="background:#8FBBE0;color:#0f2f4d"><span class="lbl">300</span><span class="hx">#8FBBE0</span></div>
+      <div class="step" style="background:#7FB0DA;color:#0f2f4d"><span class="lbl">logo/nav</span><span class="hx">#7FB0DA</span></div>
+      <div class="step" style="background:#1F5B99;color:#fff"><span class="lbl">500 base</span><span class="hx">#1F5B99</span></div>
+      <div class="step" style="background:#174873;color:#fff"><span class="lbl">600</span><span class="hx">#174873</span></div>
+    </div>
+    <p class="note">На тёмном фоне заливка кнопок — <span class="mono">#1F5B99</span> (текст #FFFFFF). Ссылки, иконки, акцент-текст, лого и активная навигация — светлые <span class="mono">#8FBBE0 / #7FB0DA</span>, чтобы держать контраст.</p>
+  </div>
+</section>
+
+<!-- TYPE + GEOMETRY -->
+<section style="border-bottom:none">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">04 — Типографика и геометрия</div>
+      <h2>Быстрый справочник</h2>
+    </div>
+    <div class="type-list">
+      <div class="type-row"><div class="type-spec t-h1">Внедрение ELMA365</div><div class="type-data"><span><b>H1</b></span><span>54/32px</span><span>Piazzolla 560</span><span>lh 1.12</span></div></div>
+      <div class="type-row"><div class="type-spec t-h2">Услуги и продукты</div><div class="type-data"><span><b>H2</b></span><span>38/26px</span><span>Piazzolla 560</span></div></div>
+      <div class="type-row"><div class="type-spec t-h3">Автоматизация процессов</div><div class="type-data"><span><b>H3</b></span><span>22/18px</span><span>Golos 600</span></div></div>
+      <div class="type-row"><div class="type-spec t-body">Основной текст — Golos Text, 16px, интерлиньяж 1.55.</div><div class="type-data"><span><b>body</b></span><span>16px</span><span>Golos 400</span></div></div>
+      <div class="type-row"><div class="type-spec t-cap mono">CAPTION · EYEBROW · КРОШКИ · ТЕГИ</div><div class="type-data"><span><b>caption</b></span><span>13/12px</span><span>Plex Mono 500</span><span>ls .1em</span></div></div>
+    </div>
+    <div class="group-title" style="margin-top:32px">Геометрия и движение</div>
+    <div class="tbl-wrap"><table class="tbl">
+      <tr><td class="en">Radius</td><td class="ru">Скругление</td><td class="val">6px карточки · 4px кнопки/теги · 0 разделители</td></tr>
+      <tr><td class="en">Shadow</td><td class="ru">Тень</td><td class="val">3px 3px 0 #263140 (только hover)</td></tr>
+      <tr><td class="en">Spacing</td><td class="ru">Шаг отступов</td><td class="val">4·8·12·16·24·32·48·64·96·128</td></tr>
+      <tr><td class="en">Container</td><td class="ru">Контейнер</td><td class="val">1140px · gutter 24px · section 88px</td></tr>
+      <tr><td class="en">Motion</td><td class="ru">Анимация</td><td class="val">150/280/500ms · ease cubic-bezier(.16,1,.3,1)</td></tr>
+    </table></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap mono">Источник: tokens.json (dark, v0.67) + global.css · WhatDaDev · Piazzolla / Golos Text / IBM Plex Mono</div>
+</footer>
+
+<script>
+document.querySelectorAll('.copy-btn').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var el=document.getElementById(btn.dataset.copy);
+    var text=el.innerText;
+    var done=function(){var o=btn.textContent;btn.textContent='✓ OK';btn.classList.add('done');setTimeout(function(){btn.textContent=o;btn.classList.remove('done');},1600);};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,function(){fallback(text);done();});}
+    else{fallback(text);done();}
+  });
+});
+function fallback(text){var ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);}
+</script>

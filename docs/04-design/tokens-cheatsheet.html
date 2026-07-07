@@ -1,0 +1,363 @@
+<title>WhatDaDev — дизайн-токены</title>
+<style>
+@font-face{font-family:'Piazzolla Variable';font-weight:100 900;font-style:normal;font-display:swap;src:url(../../node_modules/@fontsource-variable/piazzolla/files/piazzolla-cyrillic-wght-normal.woff2) format('woff2');}
+@font-face{font-family:'Golos Text Variable';font-weight:400 700;font-style:normal;font-display:swap;src:url(../../node_modules/@fontsource-variable/golos-text/files/golos-text-cyrillic-wght-normal.woff2) format('woff2');}
+@font-face{font-family:'IBM Plex Mono';font-weight:400;font-style:normal;font-display:swap;src:url(../../node_modules/@fontsource/ibm-plex-mono/files/ibm-plex-mono-cyrillic-400-normal.woff2) format('woff2');}
+@font-face{font-family:'IBM Plex Mono';font-weight:500;font-style:normal;font-display:swap;src:url(../../node_modules/@fontsource/ibm-plex-mono/files/ibm-plex-mono-cyrillic-500-normal.woff2) format('woff2');}
+@font-face{font-family:'IBM Plex Mono';font-weight:600;font-style:normal;font-display:swap;src:url(../../node_modules/@fontsource/ibm-plex-mono/files/ibm-plex-mono-cyrillic-600-normal.woff2) format('woff2');}
+:root{
+  --bg:#FAF8F2; --surface:#FFFFFF; --surface-alt:#DFE0DA; --text:#191D1B; --muted:#5A625D; --subtle:#6B746E; --border:#C4C5BB;
+  --dark-bg:#10151A; --dark-surface:#171E26; --dark-surface-alt:#1C242E; --dark-text:#F4F2E9; --dark-muted:#99A3AE; --dark-border:#263140;
+  --accent:#1F5B99; --accent-600:#174873; --accent-50:#E7EEF6;
+  --radius:6px; --radius-sm:4px;
+  --font:"Golos Text Variable",system-ui,-apple-system,sans-serif;
+  --font-display:"Piazzolla Variable",Georgia,serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+.mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+h1,h2,h3{font-family:var(--font-display);letter-spacing:-.01em;text-wrap:balance}
+h1{font-size:clamp(32px,5vw,52px);line-height:1.12;font-weight:560;margin:0 0 12px}
+h2{font-size:clamp(24px,3vw,34px);line-height:1.15;font-weight:560;margin:0}
+h3{font-size:19px;font-weight:600;margin:0 0 4px;font-family:var(--font)}
+.eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500;display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.eyebrow::before{content:"";width:9px;height:9px;background:var(--accent);flex-shrink:0}
+
+/* header */
+header.top{background:var(--dark-bg);color:var(--dark-text);border-bottom:1px solid var(--dark-border);padding:64px 0 56px}
+header.top .eyebrow{color:var(--dark-muted)}
+header.top h1{color:var(--dark-text)}
+header.top .lead{color:var(--dark-muted);max-width:600px;font-size:17px;margin:0}
+.meta-row{display:flex;flex-wrap:wrap;gap:0;margin-top:30px;border:1px solid var(--dark-border);border-radius:var(--radius-sm);overflow:hidden;width:fit-content;font-size:13px}
+.meta-row span{padding:9px 18px;border-right:1px solid var(--dark-border);color:var(--dark-muted)}
+.meta-row span:last-child{border-right:none}
+.meta-row b{color:var(--dark-text);font-family:var(--font-mono);font-weight:600}
+
+/* sections */
+section{padding:56px 0;border-bottom:1px solid var(--border)}
+.sec-head{margin-bottom:28px}
+.sec-head p{color:var(--muted);max-width:640px;margin:8px 0 0;font-size:15px}
+
+/* type specimens */
+.type-list{display:flex;flex-direction:column;gap:2px}
+.type-row{display:grid;grid-template-columns:1fr 300px;gap:24px;align-items:baseline;padding:16px 0;border-top:1px solid var(--border)}
+.type-row:first-child{border-top:none}
+.type-spec{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.type-data{font-family:var(--font-mono);font-size:12.5px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 12px;align-self:center}
+.type-data b{color:var(--text);font-weight:600}
+.t-display{font-family:var(--font-display);font-size:64px;line-height:1.12;font-weight:560;letter-spacing:-.01em}
+.t-h1{font-family:var(--font-display);font-size:54px;line-height:1.12;font-weight:560;letter-spacing:-.01em}
+.t-h2{font-family:var(--font-display);font-size:38px;line-height:1.12;font-weight:560;letter-spacing:-.01em}
+.t-h3{font-size:22px;line-height:1.2;font-weight:600}
+.t-h4{font-size:20px;font-weight:600}
+.t-body{font-size:16px;line-height:1.55}
+.t-small{font-size:14px}
+.t-caption{font-size:13px}
+
+.families{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:32px}
+.fam{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.fam .glyphs{font-size:34px;line-height:1.2;margin-bottom:12px}
+.fam .name{font-family:var(--font-mono);font-size:13px;color:var(--accent-600);font-weight:600}
+.fam .role{font-size:13px;color:var(--muted);margin-top:4px}
+.fam-display .glyphs{font-family:var(--font-display);font-weight:560}
+.fam-sans .glyphs{font-family:var(--font)}
+.fam-mono .glyphs{font-family:var(--font-mono)}
+
+/* color grids */
+.swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px}
+.sw{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:var(--surface)}
+.sw .chip{height:76px;display:flex;align-items:flex-end;padding:8px 10px}
+.sw .chip .hex{font-family:var(--font-mono);font-size:12px;font-weight:600;padding:2px 6px;border-radius:3px;background:rgba(255,255,255,.85);color:#191D1B}
+.sw .chip.on-dark .hex{background:rgba(16,21,26,.7);color:#F4F2E9}
+.sw .info{padding:10px 12px}
+.sw .info .nm{font-weight:600;font-size:14px}
+.sw .info .var{font-family:var(--font-mono);font-size:11.5px;color:var(--muted);margin-top:2px}
+.sw .info .use{font-size:12.5px;color:var(--subtle);margin-top:4px}
+
+.group-title{font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;margin:30px 0 14px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.group-title:first-of-type{margin-top:0}
+
+/* accent scale strip */
+.scale{display:flex;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:4px;flex-wrap:wrap}
+.scale .step{flex:1 1 120px;min-width:110px;padding:16px 12px;display:flex;flex-direction:column;gap:2px}
+.scale .step .lbl{font-family:var(--font-mono);font-size:12px;font-weight:600}
+.scale .step .hx{font-family:var(--font-mono);font-size:11.5px;opacity:.85}
+
+/* spacing */
+.spacing{display:flex;flex-direction:column;gap:8px}
+.sp-row{display:grid;grid-template-columns:70px 1fr;gap:16px;align-items:center}
+.sp-row .val{font-family:var(--font-mono);font-size:13px;font-weight:600;text-align:right}
+.sp-bar{height:20px;background:var(--accent);border-radius:2px}
+
+/* radii + shadow */
+.mini-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.demo{background:var(--surface);border:1px solid var(--border);padding:22px;border-radius:var(--radius)}
+.demo .box{height:64px;background:var(--accent-50);border:1px solid var(--accent);margin-bottom:12px}
+.demo .r6{border-radius:6px}.demo .r4{border-radius:4px}.demo .r0{border-radius:0}
+.demo .shadowbox{height:64px;background:var(--surface);border:1px solid var(--border);box-shadow:3px 3px 0 var(--border);margin-bottom:12px;border-radius:6px}
+.demo .nm{font-weight:600;font-size:14px}
+.demo .var{font-family:var(--font-mono);font-size:12px;color:var(--muted);margin-top:3px}
+
+/* table */
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th,.tbl td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--border)}
+.tbl th{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.tbl td.k{font-family:var(--font-mono);font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tbl td.v{color:var(--muted)}
+.tbl-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface)}
+
+/* components bonus */
+.comp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.comp{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.comp h3{margin-bottom:14px}
+.btn{display:inline-block;background:var(--accent);color:#fff;padding:13px 26px;border-radius:var(--radius-sm);font-weight:500;font-size:15px}
+.btn2{display:inline-block;background:transparent;border:1px solid var(--border);color:var(--text);padding:13px 26px;border-radius:var(--radius-sm);font-weight:500;font-size:15px;margin-left:8px}
+.tag{display:inline-block;background:var(--accent-50);color:var(--accent-600);border-radius:var(--radius-sm);padding:4px 10px;font-family:var(--font-mono);font-size:12px;font-weight:500;letter-spacing:.03em}
+.comp .spec{font-family:var(--font-mono);font-size:12px;color:var(--muted);margin-top:14px;line-height:1.7}
+.comp .spec b{color:var(--text)}
+
+footer{padding:40px 0 60px;color:var(--muted);font-size:13px}
+footer .mono{font-size:12px}
+@media(max-width:640px){
+  .type-row{grid-template-columns:1fr;gap:8px}
+  .t-display{font-size:44px}.t-h1{font-size:38px}.t-h2{font-size:30px}
+}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <div class="eyebrow">Design tokens · tokens.json v0.67</div>
+    <h1>WhatDaDev — визуальная шпаргалка</h1>
+    <p class="lead">Все токены дизайн-системы одним листом для переноса в Figma: типографика, цвета с превью, отступы, радиусы, тени, сетка и движение. Источник правды — <span class="mono">docs/04-design/tokens.json</span> и <span class="mono">src/styles/global.css</span>.</p>
+    <div class="meta-row">
+      <span>Идентичность <b>ADR-0013</b></span>
+      <span>Акцент <b>ADR-0014</b></span>
+      <span>Hero: тёмный → светлый <b>ADR-0002</b></span>
+    </div>
+  </div>
+</header>
+
+<!-- TYPOGRAPHY -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">01 — Типографика</div>
+      <h2>Шрифты и масштаб</h2>
+      <p>Три гарнитуры, self-hosted через Fontsource. Piazzolla — только H1/H2. Mono — цифры, eyebrow, подписи, крошки, теги.</p>
+    </div>
+
+    <div class="families">
+      <div class="fam fam-display">
+        <div class="glyphs">Ag Бя 123</div>
+        <div class="name">Piazzolla Variable</div>
+        <div class="role">Display / заголовки H1–H2 · вес 560 · fallback Georgia, serif</div>
+      </div>
+      <div class="fam fam-sans">
+        <div class="glyphs">Ag Бя 123</div>
+        <div class="name">Golos Text Variable</div>
+        <div class="role">Body / основной текст · 400/500/600 · fallback system-ui</div>
+      </div>
+      <div class="fam fam-mono">
+        <div class="glyphs">Ag Бя 123</div>
+        <div class="name">IBM Plex Mono</div>
+        <div class="role">Data / цифры, метки, подписи · 400/500/600 · fallback ui-monospace</div>
+      </div>
+    </div>
+
+    <div class="type-list">
+      <div class="type-row"><div class="type-spec t-display">Экспресс внедрение</div><div class="type-data"><span><b>display</b></span><span>64/40px</span><span>Piazzolla 560</span><span>lh 1.12</span><span>ls −0.01em</span></div></div>
+      <div class="type-row"><div class="type-spec t-h1">Внедрение ELMA365</div><div class="type-data"><span><b>H1</b></span><span>54/32px</span><span>Piazzolla 560</span><span>lh 1.12</span><span>ls −0.01em</span></div></div>
+      <div class="type-row"><div class="type-spec t-h2">Услуги и продукты</div><div class="type-data"><span><b>H2</b></span><span>38/26px</span><span>Piazzolla 560</span><span>lh 1.12</span><span>ls −0.01em</span></div></div>
+      <div class="type-row"><div class="type-spec t-h3">Автоматизация процессов</div><div class="type-data"><span><b>H3</b></span><span>22/18px</span><span>Golos 600</span><span>lh 1.2</span></div></div>
+      <div class="type-row"><div class="type-spec t-h4">Подзаголовок карточки</div><div class="type-data"><span><b>H4</b></span><span>20/18px</span><span>Golos 600</span></div></div>
+      <div class="type-row"><div class="type-spec t-body">Основной текст абзаца — Golos Text, 16px, межстрочный 1.55.</div><div class="type-data"><span><b>body</b></span><span>16px</span><span>Golos 400</span><span>lh 1.55</span></div></div>
+      <div class="type-row"><div class="type-spec t-small">Мелкий текст, подписи форм, роли команды.</div><div class="type-data"><span><b>small</b></span><span>14px</span><span>Golos 400</span></div></div>
+      <div class="type-row"><div class="type-spec t-caption mono">CAPTION · EYEBROW · КРОШКИ</div><div class="type-data"><span><b>caption</b></span><span>13px</span><span>Plex Mono 500</span><span>ls .1em</span></div></div>
+    </div>
+
+    <div class="group-title" style="margin-top:36px">Line-height · межстрочные</div>
+    <div class="tbl-wrap"><table class="tbl">
+      <tr><th>Токен</th><th>Значение</th><th>Где</th></tr>
+      <tr><td class="k">tight</td><td class="k">1.12</td><td class="v">H1, H2 (display)</td></tr>
+      <tr><td class="k">snug</td><td class="k">1.30</td><td class="v">плотные блоки</td></tr>
+      <tr><td class="k">normal</td><td class="k">1.55</td><td class="v">body (по умолчанию)</td></tr>
+      <tr><td class="k">relaxed</td><td class="k">1.70</td><td class="v">lead, длинные абзацы, FAQ</td></tr>
+    </table></div>
+
+    <div class="group-title">Веса · font-weight</div>
+    <div class="tbl-wrap"><table class="tbl">
+      <tr><th>Название</th><th>Вес</th><th>Применение</th></tr>
+      <tr><td class="k">regular</td><td class="k">400</td><td class="v">основной текст</td></tr>
+      <tr><td class="k">medium</td><td class="k">500</td><td class="v">кнопки, eyebrow, активная навигация</td></tr>
+      <tr><td class="k">semibold</td><td class="k">600</td><td class="v">H3/H4, цифры, теги</td></tr>
+      <tr><td class="k">displayWeight</td><td class="k">560</td><td class="v">H1/H2 (Piazzolla)</td></tr>
+    </table></div>
+  </div>
+</section>
+
+<!-- COLORS -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">02 — Цвета</div>
+      <h2>Палитра с превью</h2>
+      <p>Тёплая бумага + чернила для светлого контента, тёмный слой для hero/шапки/подвала. Акцент — корпоративный синий (НЕ индиго). Красный — только для ошибок, не бренд.</p>
+    </div>
+
+    <div class="group-title">Светлая тема · light</div>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:#FAF8F2"><span class="hex">#FAF8F2</span></div><div class="info"><div class="nm">Bg</div><div class="var">--bg</div><div class="use">Фон страницы (бумага)</div></div></div>
+      <div class="sw"><div class="chip" style="background:#FFFFFF"><span class="hex">#FFFFFF</span></div><div class="info"><div class="nm">Surface</div><div class="var">--surface</div><div class="use">Карточки, формы</div></div></div>
+      <div class="sw"><div class="chip" style="background:#DFE0DA"><span class="hex">#DFE0DA</span></div><div class="info"><div class="nm">Surface Alt</div><div class="var">--surface-alt</div><div class="use">Секции-полосы, KPI-плитки</div></div></div>
+      <div class="sw"><div class="chip on-dark" style="background:#191D1B"><span class="hex">#191D1B</span></div><div class="info"><div class="nm">Text</div><div class="var">--text</div><div class="use">Основной текст (чернила)</div></div></div>
+      <div class="sw"><div class="chip on-dark" style="background:#5A625D"><span class="hex">#5A625D</span></div><div class="info"><div class="nm">Muted</div><div class="var">--muted</div><div class="use">Вторичный текст</div></div></div>
+      <div class="sw"><div class="chip on-dark" style="background:#6B746E"><span class="hex">#6B746E</span></div><div class="info"><div class="nm">Subtle</div><div class="var">textSubtle</div><div class="use">Третичный текст</div></div></div>
+      <div class="sw"><div class="chip" style="background:#C4C5BB"><span class="hex">#C4C5BB</span></div><div class="info"><div class="nm">Border</div><div class="var">--border</div><div class="use">Рамки, разделители</div></div></div>
+    </div>
+
+    <div class="group-title">Тёмная тема · dark (hero, шапка, подвал)</div>
+    <div class="swatches">
+      <div class="sw"><div class="chip on-dark" style="background:#10151A"><span class="hex">#10151A</span></div><div class="info"><div class="nm">Dark Bg</div><div class="var">--dark-bg</div><div class="use">Фон hero/подвала</div></div></div>
+      <div class="sw"><div class="chip on-dark" style="background:#171E26"><span class="hex">#171E26</span></div><div class="info"><div class="nm">Dark Surface</div><div class="var">--dark-surface</div><div class="use">Карточки на тёмном</div></div></div>
+      <div class="sw"><div class="chip on-dark" style="background:#1C242E"><span class="hex">#1C242E</span></div><div class="info"><div class="nm">Dark Surface Alt</div><div class="var">surfaceAlt</div><div class="use">Второй тёмный слой</div></div></div>
+      <div class="sw"><div class="chip" style="background:#F4F2E9"><span class="hex">#F4F2E9</span></div><div class="info"><div class="nm">Dark Text</div><div class="var">--dark-text</div><div class="use">Текст на тёмном</div></div></div>
+      <div class="sw"><div class="chip on-dark" style="background:#99A3AE"><span class="hex">#99A3AE</span></div><div class="info"><div class="nm">Dark Muted</div><div class="var">--dark-muted</div><div class="use">Вторичный на тёмном</div></div></div>
+      <div class="sw"><div class="chip on-dark" style="background:#263140"><span class="hex">#263140</span></div><div class="info"><div class="nm">Dark Border</div><div class="var">--dark-border</div><div class="use">Рамки на тёмном</div></div></div>
+    </div>
+
+    <div class="group-title">Акцент · корпоративный синий (ADR-0014)</div>
+    <div class="scale">
+      <div class="step" style="background:#E7EEF6;color:#174873"><span class="lbl">50</span><span class="hx">#E7EEF6</span></div>
+      <div class="step" style="background:#D9E6F3;color:#174873"><span class="lbl">100</span><span class="hx">#D9E6F3</span></div>
+      <div class="step" style="background:#BFD7EC;color:#174873"><span class="lbl">200</span><span class="hx">#BFD7EC</span></div>
+      <div class="step" style="background:#8FBBE0;color:#0f2f4d"><span class="lbl">300</span><span class="hx">#8FBBE0</span></div>
+      <div class="step" style="background:#3273B4;color:#fff"><span class="lbl">400</span><span class="hx">#3273B4</span></div>
+      <div class="step" style="background:#1F5B99;color:#fff"><span class="lbl">500 ·base</span><span class="hx">#1F5B99</span></div>
+      <div class="step" style="background:#174873;color:#fff"><span class="lbl">600</span><span class="hx">#174873</span></div>
+    </div>
+    <p style="font-size:13px;color:var(--muted);margin-top:12px" class="mono">--accent = 500 (#1F5B99) · --accent-600 = #174873 (hover) · --accent-50 = #E7EEF6 (плашки, теги, аватары) · на тёмном фоне — светлые 200/300 · contrastText #FFFFFF</p>
+
+    <div class="group-title">Семантика · только состояния (не бренд)</div>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:#16A34A"><span class="hex">#16A34A</span></div><div class="info"><div class="nm">Success</div><div class="var">success</div><div class="use">Успех, подтверждение</div></div></div>
+      <div class="sw"><div class="chip" style="background:#D97706"><span class="hex">#D97706</span></div><div class="info"><div class="nm">Warning</div><div class="var">warning</div><div class="use">Предупреждение</div></div></div>
+      <div class="sw"><div class="chip" style="background:#DC2626"><span class="hex">#DC2626</span></div><div class="info"><div class="nm">Danger</div><div class="var">danger</div><div class="use">Ошибка, валидация (ADR-0003)</div></div></div>
+    </div>
+
+    <div class="group-title">Служебные оттенки (из global.css)</div>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:#7FB0DA"><span class="hex">#7FB0DA</span></div><div class="info"><div class="nm">Logo / nav accent</div><div class="var">#7FB0DA</div><div class="use">Акцент лого и меню на тёмном</div></div></div>
+      <div class="sw"><div class="chip" style="background:#A8A99E"><span class="hex">#A8A99E</span></div><div class="info"><div class="nm">Border hover</div><div class="var">#A8A99E</div><div class="use">Рамка карточки при наведении</div></div></div>
+      <div class="sw"><div class="chip on-dark" style="background:#3D4540"><span class="hex">#3D4540</span></div><div class="info"><div class="nm">Card text</div><div class="var">#3D4540</div><div class="use">Текст внутри карточек</div></div></div>
+      <div class="sw"><div class="chip on-dark" style="background:#49525C"><span class="hex">#49525C</span></div><div class="info"><div class="nm">Crumb sep</div><div class="var">#49525C</div><div class="use">Разделитель хлебных крошек</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SPACING -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">03 — Отступы</div>
+      <h2>Шкала spacing</h2>
+      <p>Базовый шаг 4px. Значения из <span class="mono">spacingPx</span>. Ширина полос пропорциональна значению.</p>
+    </div>
+    <div class="spacing">
+      <div class="sp-row"><div class="val">4</div><div class="sp-bar" style="width:3.1%"></div></div>
+      <div class="sp-row"><div class="val">8</div><div class="sp-bar" style="width:6.3%"></div></div>
+      <div class="sp-row"><div class="val">12</div><div class="sp-bar" style="width:9.4%"></div></div>
+      <div class="sp-row"><div class="val">16</div><div class="sp-bar" style="width:12.5%"></div></div>
+      <div class="sp-row"><div class="val">24</div><div class="sp-bar" style="width:18.75%"></div></div>
+      <div class="sp-row"><div class="val">32</div><div class="sp-bar" style="width:25%"></div></div>
+      <div class="sp-row"><div class="val">48</div><div class="sp-bar" style="width:37.5%"></div></div>
+      <div class="sp-row"><div class="val">64</div><div class="sp-bar" style="width:50%"></div></div>
+      <div class="sp-row"><div class="val">96</div><div class="sp-bar" style="width:75%"></div></div>
+      <div class="sp-row"><div class="val">128</div><div class="sp-bar" style="width:100%"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- RADII + SHADOW -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">04 — Радиусы и тень</div>
+      <h2>Геометрия</h2>
+      <p>Прямоугольная геометрия (ADR-0013): pill / 9999 и крупные радиусы не используются. Тень — одна, жёсткая офсетная, на hover карточек-ссылок. Мягкий blur и glow запрещены.</p>
+    </div>
+    <div class="mini-grid">
+      <div class="demo"><div class="box r6"></div><div class="nm">Radius md — 6px</div><div class="var">--radius · карточки, кнопки-блоки, инпуты</div></div>
+      <div class="demo"><div class="box r4"></div><div class="nm">Radius sm — 4px</div><div class="var">--radius-sm · кнопки, теги, плашки, номера</div></div>
+      <div class="demo"><div class="box r0"></div><div class="nm">None — 0px</div><div class="var">eyebrow-квадрат, hairline-разделители</div></div>
+      <div class="demo"><div class="shadowbox"></div><div class="nm">Shadow hard</div><div class="var">3px 3px 0 var(--border) · hover карточек-ссылок</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LAYOUT + MOTION -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">05 — Сетка и движение</div>
+      <h2>Layout · Motion</h2>
+    </div>
+    <div class="mini-grid" style="grid-template-columns:1fr 1fr">
+      <div class="tbl-wrap"><table class="tbl">
+        <tr><th colspan="2">Layout</th></tr>
+        <tr><td class="k">container</td><td class="v">max-width 1140px</td></tr>
+        <tr><td class="k">gutter</td><td class="v">24px (padding контейнера)</td></tr>
+        <tr><td class="k">section padding-Y</td><td class="v">88px (60px на мобиле)</td></tr>
+        <tr><td class="k">grid gap</td><td class="v">18px (карточки)</td></tr>
+        <tr><td class="k">breakpoint</td><td class="v">840px, 480px</td></tr>
+      </table></div>
+      <div class="tbl-wrap"><table class="tbl">
+        <tr><th colspan="2">Motion</th></tr>
+        <tr><td class="k">ease</td><td class="v">cubic-bezier(.16,1,.3,1)</td></tr>
+        <tr><td class="k">fast</td><td class="v">150ms</td></tr>
+        <tr><td class="k">base</td><td class="v">280ms</td></tr>
+        <tr><td class="k">slow</td><td class="v">500ms</td></tr>
+        <tr><td class="k">reduced-motion</td><td class="v">уважать (анимации off)</td></tr>
+      </table></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPONENTS -->
+<section style="border-bottom:none">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">06 — Компоненты</div>
+      <h2>Готовые токены</h2>
+      <p>Частые элементы с точными значениями — чтобы собрать компоненты в Figma сразу.</p>
+    </div>
+    <div class="comp-grid">
+      <div class="comp">
+        <h3>Кнопки</h3>
+        <a class="btn">Оставить заявку</a><a class="btn2">Демо</a>
+        <div class="spec">primary: fill <b>--accent</b>, текст #fff, padding <b>13/26px</b>, radius <b>4px</b>, вес 500<br>hover: fill <b>--accent-600</b></div>
+      </div>
+      <div class="comp">
+        <h3>Тег / плашка</h3>
+        <span class="tag">ELMA365</span> <span class="tag">Coordo</span>
+        <div class="spec">fill <b>--accent-50</b>, текст <b>--accent-600</b><br>mono 12px, padding 4/10px, radius 4px</div>
+      </div>
+      <div class="comp">
+        <h3>Карточка</h3>
+        <div class="spec">fill <b>--surface</b>, border 1px <b>--border</b><br>radius <b>6px</b>, padding <b>26px</b><br>hover-ссылка: border <b>#191D1B</b> + shadow hard<br>featured: border <b>2px --accent</b></div>
+      </div>
+      <div class="comp">
+        <h3>Eyebrow</h3>
+        <div class="eyebrow" style="margin:0">Услуги</div>
+        <div class="spec">mono 12px, uppercase, ls <b>.1em</b>, --muted<br>квадрат-маркер 9×9px <b>--accent</b> слева</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap mono">
+    Источник: docs/04-design/tokens.json (v0.67) + src/styles/global.css · WhatDaDev · шрифты: Piazzolla / Golos Text / IBM Plex Mono
+  </div>
+</footer>

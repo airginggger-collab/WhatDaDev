@@ -16,6 +16,11 @@
 ## Токены (заполнить на этапе UI-kit)
 Файл `tokens.json` — ✅ v3 (ADR-0014): палитра light/dark, акцент синий `#1F5B99`, шрифты Piazzolla/Golos/Plex Mono, типошкала, радиусы 6/4px, motion. Это источник токенов для `src/styles/global.css`.
 
+## Визуальные шпаргалки (HTML, для Figma / Stitch)
+Собраны из `tokens.json` + `src/styles/global.css` — открывать в браузере, значения переносить в дизайн-инструмент. Шрифты подключены относительными путями к `node_modules` (после `npm install` рендерятся в настоящих гарнитурах; иначе — фолбэки Georgia/system).
+- **`tokens-cheatsheet.html`** — полная шпаргалка: типографика (гарнитуры, шкала desktop/mobile, веса, line-height), все цвета light/dark/accent/semantic с превью и hex, отступы, радиусы, тень, сетка, motion, токены компонентов. Для переноса в **Figma**.
+- **`stitch-dark.html`** — тёмная тема под **Google Stitch**: готовый промпт EN/RU (копируется), маппинг «поле Theme → значение» с подписями EN/RU, все тёмные токены. Вставлять промпт в начало запроса Stitch.
+
 ## Референсы
 - **Мировые продукты:** linear.app, stripe.com, vercel.com, notion.com, retool.com — тон, чистота, dark→light.
 - **Категория (BPM/ЭДО):** pipefy.com, kissflow.com, docusign.com, elma365.com — «из коробки/без кода», схемы маршрутов.
