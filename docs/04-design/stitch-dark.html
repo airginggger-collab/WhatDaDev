@@ -108,30 +108,44 @@ footer .mono{font-size:12px}
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">01 — Промпт для Stitch</div>
-      <h2>Вставить в поле запроса</h2>
-      <p>Вставьте этот блок в начало любого запроса в Stitch («Describe your design» / «Опишите дизайн») — он задаёт тёмную тему WhatDaDev. Затем допишите, какой экран нужен. Английский работает в Stitch надёжнее.</p>
+      <h2>Собрать UI-kit в Stitch</h2>
+      <p>Этот промпт заставляет Stitch собрать <b>UI-kit (style guide)</b> — один экран со свотчами цветов, типошкалой и компонентами в тёмной теме WhatDaDev, а НЕ лендинг. Вставьте его целиком в поле запроса Stitch («Describe your design» / «Опишите дизайн»). Английский работает надёжнее.</p>
     </div>
 
     <div class="prompt">
       <div class="prompt-bar"><span class="lang">Prompt · English</span><button class="copy-btn" data-copy="p-en">Copy</button></div>
-      <div class="prompt-body" id="p-en">Dark mode UI, serious B2B, engineering-editorial tone, no emoji.
-Background: deep blue-black #10151A. Card / surface: #171E26. Secondary surface: #1C242E. Borders: 1px #263140, subtle.
-Primary text: warm off-white #F4F2E9. Muted / secondary text: #99A3AE.
-Primary action / accent color: corporate blue #1F5B99, label text white #FFFFFF. On dark surfaces use lighter tints for accents and links: #8FBBE0 and #BFD7EC. Not indigo, not red.
-Headings: serif display font Piazzolla (fallback Georgia), weight 560, tight line-height. Body: Golos Text (fallback system sans-serif). Numbers, labels, captions, breadcrumbs, tags, buttons in IBM Plex Mono, uppercase small caps for labels with letter-spacing.
-Corner radius: 6px for cards, 4px for buttons and tags. Rectangular geometry — no pill shapes, no glow, no soft blurred shadows; only a hard 3px offset shadow on hover.
-Container max-width 1140px, section padding 88px, generous whitespace.</div>
+      <div class="prompt-body" id="p-en">Generate a UI KIT / design-system style guide as a single scrollable screen — showcase the styles and components, NOT a landing page or app screen. Dark mode, serious B2B, engineering-editorial tone, no emoji.
+
+Include these labeled sections:
+1. Color palette — swatches with hex captions: Background #10151A, Surface #171E26, Surface-alt #1C242E, Text #F4F2E9, Muted #99A3AE, Border #263140, Accent #1F5B99, Accent-on-dark #8FBBE0 and #BFD7EC.
+2. Typography — specimen rows for H1, H2, H3, body and caption, each with its name and pixel size.
+3. Buttons — primary (fill #1F5B99, white label) and secondary (outline), each shown in default and hover state.
+4. Inputs — a text field and a textarea, with focus state.
+5. Tags / badges plus status colors: success #16A34A, warning #D97706, danger #DC2626.
+6. Cards — a default card and a featured card with a 2px #1F5B99 border.
+7. Small parts — an eyebrow label and breadcrumbs.
+
+Styling tokens: background #10151A, surfaces #171E26 / #1C242E, borders 1px #263140, text #F4F2E9, muted #99A3AE. Accent corporate blue #1F5B99 with white label; on dark use lighter #8FBBE0 / #BFD7EC for links and accents. Not indigo, not red.
+Headings: serif Piazzolla (fallback Georgia), weight 560, tight line-height. Body: Golos Text (fallback system sans-serif). Numbers, labels, captions, breadcrumbs, tags, buttons: IBM Plex Mono, labels uppercase with letter-spacing.
+Corner radius 6px for cards, 4px for buttons and tags. Rectangular — no pill shapes, no glow, no blurred shadows; only a hard 3px offset shadow on hover.</div>
     </div>
 
     <div class="prompt">
       <div class="prompt-bar"><span class="lang">Промпт · Русский</span><button class="copy-btn" data-copy="p-ru">Копировать</button></div>
-      <div class="prompt-body" id="p-ru">Тёмная тема, строгий B2B, инженерно-издательский тон, без эмодзи.
-Фон: сине-чёрный #10151A. Карточки / поверхность: #171E26. Вторая поверхность: #1C242E. Рамки: 1px #263140, деликатные.
-Основной текст: тёплый белый #F4F2E9. Приглушённый / вторичный текст: #99A3AE.
-Акцент / основное действие: корпоративный синий #1F5B99, текст на кнопке белый #FFFFFF. На тёмном для акцентов и ссылок — светлые оттенки #8FBBE0 и #BFD7EC. Не индиго, не красный.
-Заголовки: серифный шрифт Piazzolla (фолбэк Georgia), вес 560, плотный интерлиньяж. Текст: Golos Text (фолбэк системный sans-serif). Цифры, метки, подписи, крошки, теги, кнопки — IBM Plex Mono, метки капсом с трекингом.
-Скругления: 6px у карточек, 4px у кнопок и тегов. Прямоугольная геометрия — без pill, без свечения и мягких размытых теней; только жёсткая тень 3px на hover.
-Контейнер max-width 1140px, отступ секции 88px, много воздуха.</div>
+      <div class="prompt-body" id="p-ru">Собери UI-KIT / style guide одним прокручиваемым экраном — покажи стили и компоненты, это НЕ лендинг и не экран приложения. Тёмная тема, строгий B2B, инженерно-издательский тон, без эмодзи.
+
+Включи эти секции с подписями:
+1. Палитра — свотчи с подписями hex: Фон #10151A, Поверхность #171E26, Поверхность-2 #1C242E, Текст #F4F2E9, Приглушённый #99A3AE, Рамка #263140, Акцент #1F5B99, Акцент-на-тёмном #8FBBE0 и #BFD7EC.
+2. Типографика — образцы строк H1, H2, H3, текст и caption, у каждой название и размер в px.
+3. Кнопки — основная (заливка #1F5B99, белый текст) и вторичная (обводка), каждая в обычном и hover-состоянии.
+4. Поля ввода — текстовое поле и textarea, с состоянием фокуса.
+5. Теги / бейджи + цвета состояний: success #16A34A, warning #D97706, danger #DC2626.
+6. Карточки — обычная и выделенная с рамкой 2px #1F5B99.
+7. Мелкие элементы — eyebrow-метка и хлебные крошки.
+
+Токены стиля: фон #10151A, поверхности #171E26 / #1C242E, рамки 1px #263140, текст #F4F2E9, приглушённый #99A3AE. Акцент — корпоративный синий #1F5B99, текст на кнопке белый; на тёмном для ссылок и акцентов — светлые #8FBBE0 / #BFD7EC. Не индиго, не красный.
+Заголовки: сериф Piazzolla (фолбэк Georgia), вес 560, плотный интерлиньяж. Текст: Golos Text (фолбэк системный sans-serif). Цифры, метки, подписи, крошки, теги, кнопки — IBM Plex Mono, метки капсом с трекингом.
+Скругления: 6px у карточек, 4px у кнопок и тегов. Прямоугольная геометрия — без pill, без свечения и размытых теней; только жёсткая тень 3px на hover.</div>
     </div>
   </div>
 </section>
