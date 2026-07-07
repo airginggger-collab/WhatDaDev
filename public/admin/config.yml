@@ -2,6 +2,10 @@ backend:
   name: github
   repo: airginggger-collab/WhatDaDev
   branch: main
+  # OAuth-прокси для входа «Sign In with GitHub» в один клик (см. cms-auth/README.md).
+  # Заработает после деплоя воркера cms-auth и создания GitHub OAuth App.
+  # Вход по токену («Sign In Using Access Token») работает всегда, даже без этого.
+  base_url: https://whatdadev-cms-auth.airg-inggger.workers.dev
   commit_messages:
     update: "content(cabinet): {{path}}"
     uploadMedia: "content(cabinet): загрузка {{path}}"

@@ -5,7 +5,7 @@
 ## Стек (зафиксировано, ADR-0004)
 - **Фронт/рендер:** **Astro 5** (SSG) — отдаём готовый HTML, лучший SEO/перф. Выбран из кандидатов Astro / Next.js; интерактив (анимации, форма-демо) делается на лёгком клиентском JS без фреймворка.
 - **Sitemap:** `@astrojs/sitemap` (генерирует `sitemap.xml`).
-- **CMS:** ✅ Sveltia на `/admin/`, вход по GitHub-токену (ADR-0015). Контент в `src/data/*.json` и markdown-коллекциях `src/content/{articles,glossary}`; разметка страниц — в `.astro`.
+- **CMS:** ✅ Sveltia на `/admin/` (ADR-0015). Вход «в один клик» через GitHub OAuth — отдельный Worker `cms-auth/` (`whatdadev-cms-auth.airg-inggger.workers.dev`, ADR-0016); вход по токену — запасной. Контент в `src/data/*.json` и markdown-коллекциях `src/content/{articles,glossary}`; разметка страниц — в `.astro`.
 - **Стили:** обычный CSS с CSS-переменными в `src/styles/global.css`. Источник токенов — `04-design/tokens.json`. **Tailwind НЕ используется** (отказались в пользу лёгкого ванильного CSS).
 - **Анимации:** отложенная загрузка / reveal-on-scroll, reduced-motion-safe, не ломать Core Web Vitals.
 

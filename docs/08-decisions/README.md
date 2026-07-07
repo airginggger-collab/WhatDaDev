@@ -19,3 +19,4 @@
 | [0013](0013-deai-identity.md) | Уход от «ИИшного» дизайна: Piazzolla + Golos + Plex Mono | ✅ Accepted |
 | [0014](0014-accent-corporate-blue.md) | Акцент — корпоративный синий #1F5B99 | ✅ Accepted |
 | [0015](0015-editing-cabinet.md) | Личный кабинет редактирования: Sveltia CMS (снял ADR-0006) | ✅ Accepted |
+| [0016](0016-oauth-github-login.md) | Вход в кабинет в один клик через GitHub (OAuth-прокси) | ✅ Accepted |

@@ -2,6 +2,19 @@
 
 Все значимые изменения спеки проекта. Формат: семантические версии.
 
+## v0.73 — 2026-07-07
+
+### Вход в кабинет «в один клик» через GitHub (OAuth, ADR-0016)
+
+По запросу — кнопка **«Sign In with GitHub»** вместо ручного токена. Настроен OAuth-прокси:
+
+- **`cms-auth/`** — отдельный Cloudflare Worker `whatdadev-cms-auth` (OAuth-прокси). `index.js` — официальный `sveltia/sveltia-cms-auth` (MIT) с шапкой-провенансом; `wrangler.toml` (`ALLOWED_DOMAINS` = рабочие домены; client id/secret — секретами); `README.md` — пошаговая настройка.
+- **`public/admin/config.yml`**: `backend.base_url` → `https://whatdadev-cms-auth.airg-inggger.workers.dev`. Вход по токену остаётся запасным (работает всегда).
+- **`/admin-guide/` и `docs/editing-cabinet.md`**: основной способ входа — «в один клик» (открыть `/admin/` → Sign In with GitHub → Authorize); токен-шаги перенесены в «Запасной способ».
+- ADR-0016, обновлены `07-infra`, индекс ADR.
+
+**Требует разового действия владельца (деплой нужен ключ Cloudflare, OAuth App — GitHub):** создать GitHub OAuth App + `wrangler login` + два `secret put` + `deploy` — см. `cms-auth/README.md`. До активации кнопка GitHub не сработает, но токен-вход работает — текущий кабинет не ломается.
+
 ## v0.72 — 2026-07-06
 
 ### Страница-инструкция кабинета на сайте: `/admin-guide/`

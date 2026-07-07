@@ -1,0 +1,14 @@
+# Отдельный Worker — OAuth-прокси для входа в кабинет через GitHub.
+# НЕ основной сайт (тот — в корневом wrangler.jsonc). Деплой вручную: см. README.md.
+name = "whatdadev-cms-auth"
+main = "index.js"
+compatibility_date = "2026-06-19"
+
+# Домены, где живёт кабинет /admin/ (значение публичное, секретом быть не должно).
+# После привязки whatdadev.ru он уже в списке.
+[vars]
+ALLOWED_DOMAINS = "whatdadev.airg-inggger.workers.dev,whatdadev.ru"
+
+# GITHUB_CLIENT_ID и GITHUB_CLIENT_SECRET задаются как секреты (не в этом файле!):
+#   npx wrangler secret put GITHUB_CLIENT_ID
+#   npx wrangler secret put GITHUB_CLIENT_SECRET

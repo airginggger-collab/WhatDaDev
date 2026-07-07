@@ -26,9 +26,17 @@ const description = "Инструкция по личному кабинету W
 
   <section class="section alt">
     <div class="container guide">
-      <div class="eyebrow">Шаг за шагом · один раз · ~3 минуты</div>
+      <div class="eyebrow">Вход · обычно в один клик</div>
       <h2>Первый вход</h2>
-      <p class="muted note">Кабинету нужен ключ доступа (токен), чтобы сохранять правки в репозиторий. Создаётся один раз. Страница GitHub открывается на английском — названия полей ниже даны так же, как на экране, ищите их по этим подписям.</p>
+      <p class="muted note">Обычный способ — кнопкой через GitHub, в один клик. Если кнопки нет или она сообщает об ошибке — вход по токену (ниже, тоже несложно).</p>
+
+      <div class="callout">
+        <p class="callout-t">В один клик</p>
+        <p>Откройте <span class="field">/admin/</span>, нажмите <strong>«Sign In with GitHub»</strong>, затем на странице GitHub — <strong>Authorize</strong>. Всё, вы в кабинете.</p>
+      </div>
+
+      <h3 class="sub">Запасной способ — вход по токену</h3>
+      <p class="muted note">Нужен, если кнопки «Sign In with GitHub» нет или она пишет ошибку. Токен создаётся один раз. Страница GitHub — на английском, названия полей ниже даны так же, как на экране.</p>
       <ol class="steps">
         <li><div class="st-body"><p>Войдите на <a href="https://github.com" target="_blank" rel="noopener">GitHub</a> под аккаунтом <strong>airginggger-collab</strong>.</p><p>Проверьте в правом верхнем углу, что вошли именно под <strong>airginggger-collab</strong>, а не под другим аккаунтом — иначе на следующих шагах проект <code>WhatDaDev</code> не появится в списке.</p></div></li>
         <li><div class="st-body"><p>Откройте страницу создания токена: <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">github.com/settings/personal-access-tokens/new</a></p></div></li>
@@ -167,8 +175,10 @@ const description = "Инструкция по личному кабинету W
   .st-body a{color:var(--accent-600);text-decoration:underline;text-underline-offset:3px}
   .st-body a:hover{opacity:.75;text-decoration:none}
 
+  .sub{margin:36px 0 0;font-size:clamp(17px,2vw,20px)}
   .callout{background:var(--accent-50);border:1px solid #cdddee;border-radius:var(--radius);padding:16px 18px;margin:14px 0 0}
   .callout-t{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-600);margin:0 0 8px}
+  .callout>p{margin:0;font-size:15px}
   .callout ul{margin:0;padding-left:18px}
   .callout li{margin:4px 0;font-size:15px}
   .callout code,.st-body code{font-family:var(--font-mono);font-size:13px;background:var(--surface);
