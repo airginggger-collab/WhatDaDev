@@ -38,7 +38,7 @@ html,body{margin:0;padding:0}
 .eyebrow::before{content:"";width:.85cqw;height:.85cqw;background:var(--warm)}
 .slide--dark .eyebrow{color:var(--coverAcc)}
 .slide--dark .eyebrow::before{background:var(--coverAcc)}
-h1.big{font-family:var(--sans);font-weight:700;font-size:4.5cqw;line-height:1.03;letter-spacing:-.025em;margin:0;color:var(--ink);max-width:86cqw}
+h1.big{font-family:var(--sans);font-weight:700;font-size:4.5cqw;line-height:1.03;letter-spacing:-.025em;margin:0;color:var(--deep);max-width:86cqw}
 .slide--dark h1.big{color:var(--coverFg)}
 .h-md{font-size:3.5cqw!important}
 .sub{font-size:1.55cqw;line-height:1.45;color:var(--muted);max-width:66cqw;margin:1.5cqw 0 0}
@@ -118,6 +118,20 @@ h1.big{font-family:var(--sans);font-weight:700;font-size:4.5cqw;line-height:1.03
 .contacts span{padding-right:1.6cqw;margin-right:1.6cqw;border-right:1px solid var(--coverBorder)}
 .contacts span:last-child{border:none;color:var(--coverMut)}
 
+
+/* cover-title (slide 1) */
+.cover .body{justify-content:center}
+.wordmark{font-family:var(--sans);font-weight:700;font-size:8.4cqw;line-height:.95;letter-spacing:-.035em;color:var(--coverFg);margin:0}
+.cover-sub{font-size:1.85cqw;line-height:1.4;color:var(--coverMut);margin-top:1.2cqw;max-width:62cqw}
+.accent-rule{width:8cqw;height:.45cqw;background:var(--coverAcc);margin:2.2cqw 0}
+.cover .pillars{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--coverBorder);border-radius:.5cqw;overflow:hidden}
+.cover .pillars .p{padding:1.8cqw 1.9cqw;border-right:1px solid var(--coverBorder)}
+.cover .pillars .p:last-child{border-right:none}
+.cover .pillars h3{font-family:var(--sans);font-weight:600;font-size:1.42cqw;margin:0 0 .55cqw;color:var(--coverFg);letter-spacing:-.01em;line-height:1.1}
+.cover .pillars p{font-size:1.15cqw;line-height:1.34;color:var(--coverMut);margin:0}
+.cover-trust{font-family:var(--mono);font-size:1.1cqw;color:var(--coverMut);margin-top:2cqw}
+.cover-trust b{color:var(--coverFg)}
+
 @media print{
   @page{size:1120px 630px;margin:0}
   .deck-wrap{background:#fff;padding:0}
@@ -132,19 +146,20 @@ h1.big{font-family:var(--sans);font-weight:700;font-size:4.5cqw;line-height:1.03
   <div class="deck-head"><b>WhatDaDev — презентация для знакомства</b><span>Продающая версия · 7 слайдов · 16:9</span></div>
   <div class="deck">
 
-  <!-- 1 · О нас -->
-  <section class="slide">
+  <!-- 1 · О нас (обложка-титул) -->
+  <section class="slide slide--dark cover">
     <div class="chrome chrome--top"><div class="brand"><span class="mark">WD</span><b>WhatDaDev</b></div><span class="tag">О компании</span></div>
     <div class="body">
-      <div class="eyebrow">Кто это решает</div>
-      <h1 class="big h-md">Не подрядчик со стороны — мы сами живём в ELMA365</h1>
-      <p class="sub">Свой документооборот, задачи и процессы ведём в системе, которую внедряем. Поэтому — по опыту, а не по учебнику.</p>
-      <div class="cards3">
-        <div class="ncard"><div class="k">01</div><b>Сами живём в ELMA365</b><small>Работаем на том, что внедряем — знаем систему изнутри.</small></div>
-        <div class="ncard"><div class="k">02</div><b>Сертифицированная команда</b><small>Аналитики и low-code разработчики, 10+ сертификатов ELMA.</small></div>
-        <div class="ncard"><div class="k">03</div><b>Продукт и услуги</b><small>Внедрение под ключ и готовый коробочный ЭДО Coordo.</small></div>
+      <div class="eyebrow">Знакомство · внедрение ELMA365</div>
+      <h1 class="wordmark">WhatDaDev</h1>
+      <div class="cover-sub">Внедряем ELMA365 под ключ и делаем готовый документооборот из коробки — и сами живём в этой системе.</div>
+      <div class="accent-rule"></div>
+      <div class="pillars">
+        <div class="p"><h3>Сами живём в ELMA365</h3><p>Работаем на том, что внедряем — знаем систему изнутри.</p></div>
+        <div class="p"><h3>Сертифицированная команда</h3><p>Аналитики и low-code разработчики, 10+ сертификатов ELMA.</p></div>
+        <div class="p"><h3>Продукт и услуги</h3><p>Внедрение под ключ и готовый коробочный ЭДО Coordo.</p></div>
       </div>
-      <div class="trust"><span><b>Россия</b> и <b>Казахстан</b></span><span>Руководитель — <b>5 лет</b> в ELMA365</span><span>Внедрение <b>+</b> продукт</span></div>
+      <div class="cover-trust"><b>Россия</b> и <b>Казахстан</b>   ·   Руководитель — <b>5 лет</b> в ELMA365   ·   внедрение <b>+</b> продукт</div>
     </div>
     <div class="chrome chrome--bot"><span>whatdadev.ru</span><span>01 / 07</span></div>
   </section>
