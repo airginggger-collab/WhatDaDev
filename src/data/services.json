@@ -1,0 +1,10 @@
+{
+  "items": [
+    { "name": "Внедрение",            "color": "#1F5B99", "desc": "Быстрое и качественное внедрение ELMA365 под ключ: CRM, ЭДО, ServiceDesk, закупки, проекты, КЭДО.", "href": "/services/vnedrenie/",  "cover": "/covers/vnedrenie.webp"  },
+    { "name": "Разработка",           "color": "#3B82F6", "desc": "Кастомные приложения и интеграции для ELMA365: 1С, API, доработки под ваши задачи.",                 "href": "/services/razrabotka/", "cover": "/covers/razrabotka.webp" },
+    { "name": "Поддержка и обучение", "color": "#10B981", "desc": "Техническая поддержка, сопровождение и обучение сотрудников.",                                       "href": null,                    "cover": "/covers/edo.webp"        },
+    { "name": "Консалтинг",           "color": "#7C3AED", "desc": "Консалтинг по автоматизации и цифровой трансформации.",                                              "href": null,                    "cover": "/covers/bpm.webp"        },
+    { "name": "Аудит",                "color": "#F59E0B", "desc": "Аудит уже внедрённых решений: проверка и оптимизация.",                                              "href": null,                    "cover": "/covers/audit.webp"      },
+    { "name": "Аутстаффинг",          "color": "#0D9488", "desc": "Аутстаффинг специалистов для работы с ELMA365: усиливаем вашу команду.",                            "href": null,                    "cover": "/covers/crm.webp"        }
+  ]
+}

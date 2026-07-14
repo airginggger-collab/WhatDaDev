@@ -2,6 +2,7 @@
 import Base from "../../layouts/Base.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import { faqLd } from "../../lib/schema.ts";
+import { items as services } from "../../data/services.json";
 import CtaHero from "../../components/CtaHero.astro";
 const title = "Услуги по ELMA365: от внедрения до поддержки | WhatDaDev";
 const description = "Полный цикл работы с ELMA365: внедрение под ключ, разработка и интеграции, поддержка и обучение, консалтинг, аудит, аутстаффинг. РФ и КЗ.";
@@ -12,24 +13,6 @@ const faqServices = [
   ["Можно ли мигрировать с другой системы?", "Да, помогаем с миграцией с Битрикс24, 1С:Документооборот и других систем. Разрабатываем план без потери данных."],
 ];
 const jsonld = [faqLd(faqServices)];
-
-const serviceColors: Record<string, string> = {
-  "Внедрение":            "#1F5B99",
-  "Разработка":           "#3B82F6",
-  "Поддержка и обучение": "#10B981",
-  "Консалтинг":           "#7C3AED",
-  "Аудит":                "#F59E0B",
-  "Аутстаффинг":          "#0D9488",
-};
-
-const services = [
-  { name: "Внедрение",            desc: "Быстрое и качественное внедрение ELMA365 под ключ: CRM, ЭДО, ServiceDesk, закупки, проекты, КЭДО.", href: "/services/vnedrenie/",  cover: "/covers/vnedrenie.webp"  },
-  { name: "Разработка",           desc: "Кастомные приложения и интеграции для ELMA365: 1С, API, доработки под ваши задачи.",                 href: "/services/razrabotka/", cover: "/covers/razrabotka.webp" },
-  { name: "Поддержка и обучение", desc: "Техническая поддержка, сопровождение и обучение сотрудников.",                                       href: null,                    cover: "/covers/edo.webp"        },
-  { name: "Консалтинг",           desc: "Консалтинг по автоматизации и цифровой трансформации.",                                              href: null,                    cover: "/covers/bpm.webp"        },
-  { name: "Аудит",                desc: "Аудит уже внедрённых решений: проверка и оптимизация.",                                              href: null,                    cover: "/covers/audit.webp"      },
-  { name: "Аутстаффинг",          desc: "Аутстаффинг специалистов для работы с ELMA365: усиливаем вашу команду.",                            href: null,                    cover: "/covers/crm.webp"        },
-];
 
 const featured = services[0];
 const rest = services.slice(1);
@@ -55,7 +38,7 @@ const rest = services.slice(1);
           <span class="cover-featured-label">{featured.name}</span>
         </div>
         <div class="cover-featured-body">
-          <span class="cover-badge" style={`background:${serviceColors[featured.name]}22;color:${serviceColors[featured.name]}`}>{featured.name}</span>
+          <span class="cover-badge" style={`background:${featured.color}22;color:${featured.color}`}>{featured.name}</span>
           <h2 style="margin-top:14px;margin-bottom:12px">Внедрение ELMA365 под ключ</h2>
           <p style="color:var(--muted);font-size:15px;line-height:1.65">{featured.desc} От анализа процессов до запуска и поддержки берём на себя весь цикл.</p>
           <p class="muted" style="margin-top:16px;font-size:14px">Подробнее →</p>
@@ -70,7 +53,7 @@ const rest = services.slice(1);
               <div class="cover-card-cover" style={`background-image:url(${s.cover})`}>
               </div>
               <div class="cover-card-body">
-                <span class="cover-card-tag" style={`color:${serviceColors[s.name]}`}>{s.name}</span>
+                <span class="cover-card-tag" style={`color:${s.color}`}>{s.name}</span>
                 <h3>{s.name}</h3>
                 <p class="muted">{s.desc}</p>
                 <p class="muted" style="font-size:13px;margin-top:auto">Подробнее →</p>
@@ -81,7 +64,7 @@ const rest = services.slice(1);
               <div class="cover-card-cover" style={`background-image:url(${s.cover})`}>
               </div>
               <div class="cover-card-body">
-                <span class="cover-card-tag" style={`color:${serviceColors[s.name]}`}>{s.name}</span>
+                <span class="cover-card-tag" style={`color:${s.color}`}>{s.name}</span>
                 <h3>{s.name}</h3>
                 <p class="muted">{s.desc}</p>
                 <p class="muted" style="font-size:13px;margin-top:auto;color:var(--accent)">Уточнить →</p>

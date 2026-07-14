@@ -1,6 +1,7 @@
 ---
 import Base from "../../../layouts/Base.astro";
 import Breadcrumbs from "../../../components/Breadcrumbs.astro";
+import { items as modules } from "../../../data/modules.json";
 const title = "Модули и решения для ELMA365 | WhatDaDev";
 const description = "Готовые модули для ELMA365: замещения, аудит СМК, экспорт объектной модели, связанные процессы, управление документами, коннектор RabbitMQ.";
 const itemList = {
@@ -11,14 +12,6 @@ const itemList = {
   url: "https://whatdadev.ru/products/modules/",
   inLanguage: "ru",
 };
-const modules = [
-  { name: "Замещения", desc: "Самостоятельная настройка замещений без участия администратора: задачи не встают из-за отпусков и отсутствий.", href: "/products/modules/zameshcheniya/" },
-  { name: "Аудит СМК", desc: "Проведение аудитов согласно национальному стандарту РФ ГОСТ Р ИСО 19011-2021.", href: null },
-  { name: "Экспорт объектной модели", desc: "Экспорт объектной модели и параметров решения в документ Word.", href: null },
-  { name: "Связанные бизнес-процессы", desc: "Просмотр всех связанных с элементом бизнес-процессов прямо в его карточке: инструмент администратора.", href: null },
-  { name: "Визуализация и управление документами", desc: "Быстрый доступ, скачивание, управление и обмен документами и файлами в одном решении.", href: null },
-  { name: "Коннектор RabbitMQ", desc: "Подключение ELMA365 к нескольким серверам RabbitMQ и нескольким очередям сообщений.", href: null },
-];
 ---
 <Base title={title} description={description} jsonld={[itemList]}>
   <section class="hero">

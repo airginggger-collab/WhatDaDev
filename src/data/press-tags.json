@@ -1,0 +1,10 @@
+{
+  "Сравнение":        { "color": "#1F5B99", "cover": "/covers/crm.webp" },
+  "Обзор":            { "color": "#3B82F6", "cover": "/covers/vnedrenie.webp" },
+  "Гайд":             { "color": "#10B981", "cover": "/covers/razrabotka.webp" },
+  "КЭДО":             { "color": "#7C3AED", "cover": "/covers/edo.webp" },
+  "ЭЦП":              { "color": "#F59E0B", "cover": "/covers/contracts.webp" },
+  "Процессы":         { "color": "#0D9488", "cover": "/covers/bpm.webp" },
+  "Импортозамещение": { "color": "#DC2626", "cover": "/covers/audit.webp" },
+  "Low-code":         { "color": "#EC4899", "cover": "/covers/razrabotka.webp" }
+}

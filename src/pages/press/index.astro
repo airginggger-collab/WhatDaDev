@@ -3,30 +3,12 @@ import Base from "../../layouts/Base.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import { getCollection } from "astro:content";
 import contacts from "../../data/contacts.json";
+import pressTags from "../../data/press-tags.json";
 
 const title = "Пресс-центр WhatDaDev: статьи об ELMA365 и ЭДО | WhatDaDev";
 const description = "Статьи, сравнения и обзоры об ELMA365, документообороте и автоматизации процессов.";
 
-const tagColors: Record<string, string> = {
-  "Сравнение":        "#1F5B99",
-  "Обзор":            "#3B82F6",
-  "Гайд":             "#10B981",
-  "КЭДО":             "#7C3AED",
-  "ЭЦП":              "#F59E0B",
-  "Процессы":         "#0D9488",
-  "Импортозамещение": "#DC2626",
-  "Low-code":         "#EC4899",
-};
-const tagCovers: Record<string, string> = {
-  "Сравнение":        "/covers/crm.webp",
-  "Обзор":            "/covers/vnedrenie.webp",
-  "Гайд":             "/covers/razrabotka.webp",
-  "КЭДО":             "/covers/edo.webp",
-  "ЭЦП":              "/covers/contracts.webp",
-  "Процессы":         "/covers/bpm.webp",
-  "Импортозамещение": "/covers/audit.webp",
-  "Low-code":         "/covers/razrabotka.webp",
-};
+const tags: Record<string, { color: string; cover: string }> = pressTags;
 
 const entries = await getCollection("articles", ({ data }) => !data.draft);
 const liveArticles = entries
@@ -60,11 +42,11 @@ const collectionPage = {
 
       <!-- FEATURED -->
       <a class="cover-featured reveal" href={`/press/articles/${featured.slug}/`} data-tag={featured.tag}>
-        <div class="cover-featured-cover" style={`background-image:url(${tagCovers[featured.tag] ?? '/covers/vnedrenie.webp'})`}>
+        <div class="cover-featured-cover" style={`background-image:url(${tags[featured.tag]?.cover ?? '/covers/vnedrenie.webp'})`}>
           <span class="cover-featured-label">{featured.tag}</span>
         </div>
         <div class="cover-featured-body">
-          <span class="cover-badge" style={`background:${tagColors[featured.tag] ?? '#1F5B99'}22;color:${tagColors[featured.tag] ?? '#1F5B99'}`}>{featured.tag}</span>
+          <span class="cover-badge" style={`background:${tags[featured.tag]?.color ?? '#1F5B99'}22;color:${tags[featured.tag]?.color ?? '#1F5B99'}`}>{featured.tag}</span>
           <h2 style="margin-top:14px;margin-bottom:12px">{featured.name}</h2>
           <p class="muted">Читать статью →</p>
         </div>
@@ -74,7 +56,7 @@ const collectionPage = {
       <div class="press-filters reveal" style="margin-top:48px;margin-bottom:28px">
         <button class="pf-btn active" data-filter="all">Все</button>
         {allTags.map(tag => (
-          <button class="pf-btn" data-filter={tag} style={`--tc:${tagColors[tag] ?? '#1F5B99'}`}>{tag}</button>
+          <button class="pf-btn" data-filter={tag} style={`--tc:${tags[tag]?.color ?? '#1F5B99'}`}>{tag}</button>
         ))}
       </div>
 
@@ -87,10 +69,10 @@ const collectionPage = {
             data-tag={a.tag}
             style={`transition-delay:${(i % 3) * 60}ms`}
           >
-            <div class="cover-card-cover" style={`background-image:url(${tagCovers[a.tag] ?? '/covers/vnedrenie.webp'})`}>
+            <div class="cover-card-cover" style={`background-image:url(${tags[a.tag]?.cover ?? '/covers/vnedrenie.webp'})`}>
             </div>
             <div class="cover-card-body">
-              <span class="cover-card-tag" style={`color:${tagColors[a.tag] ?? '#1F5B99'}`}>{a.tag}</span>
+              <span class="cover-card-tag" style={`color:${tags[a.tag]?.color ?? '#1F5B99'}`}>{a.tag}</span>
               <h3>{a.name}</h3>
               <p class="muted cover-read">Читать →</p>
             </div>

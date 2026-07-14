@@ -2,17 +2,10 @@
 import Base from "../../../layouts/Base.astro";
 import Breadcrumbs from "../../../components/Breadcrumbs.astro";
 import { items as directions } from "../../../data/directions.json";
+import { items as steps } from "../../../data/vnedrenie-steps.json";
 import CtaHero from "../../../components/CtaHero.astro";
 const title = "Внедрение ELMA365 под ключ: быстро и надёжно | WhatDaDev";
 const description = "Внедряем ELMA365 под ключ: CRM, ЭДО, ServiceDesk, закупки, проекты, КЭДО. Аналитика, настройка, поддержка. Работаем с релиза платформы.";
-const steps = [
-  { title: "Выявление потребностей", desc: "Интервью с ключевыми пользователями и руководителями. Анализируем текущие процессы, фиксируем боли и определяем приоритеты автоматизации." },
-  { title: "Заключение договора", desc: "Фиксируем объём, сроки и стоимость. Подписываем NDA при необходимости: конфиденциальность ваших данных гарантирована." },
-  { title: "Детальная аналитика", desc: "Описываем бизнес-процессы «как есть» и «как будет». Согласовываем схемы маршрутов, ролевую модель и интеграции." },
-  { title: "Проектная документация", desc: "Техническое задание, согласованное с заказчиком. Документация служит основой для разработки и приёмки. Без неё не начинаем." },
-  { title: "Разработка и тестирование", desc: "Настраиваем ELMA365 строго по ТЗ. Приёмочное тестирование проводим совместно: вы проверяете каждый сценарий до запуска." },
-  { title: "Промышленная эксплуатация", desc: "Обучаем пользователей, переносим данные, запускаем в рабочую среду и сопровождаем систему: техническая поддержка и развитие решения." },
-];
 const jsonld = [{ "@context": "https://schema.org", "@type": "Service", name: "Внедрение ELMA365 под ключ", serviceType: "Внедрение ELMA365", url: "https://whatdadev.ru/services/vnedrenie/", areaServed: ["RU", "KZ"], provider: { "@type": "Organization", name: "WhatDaDev", url: "https://whatdadev.ru" } }];
 ---
 <Base title={title} description={description} jsonld={jsonld}>

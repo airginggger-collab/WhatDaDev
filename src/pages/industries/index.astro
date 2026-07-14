@@ -6,21 +6,6 @@ import CtaHero from "../../components/CtaHero.astro";
 const title = "ELMA365 по отраслям: производство, ритейл, девелопмент, логистика, финансы | WhatDaDev";
 const description = "Документооборот и автоматизация процессов на ELMA365 под вашу отрасль. РФ и КЗ.";
 
-const industryColors: Record<string, string> = {
-  "proizvodstvo": "#1F5B99",
-  "ritejl":       "#3B82F6",
-  "development":  "#F59E0B",
-  "logistika":    "#0D9488",
-  "finance":      "#7C3AED",
-};
-const industryCovers: Record<string, string> = {
-  "proizvodstvo": "/covers/vnedrenie.webp",
-  "ritejl":       "/covers/crm.webp",
-  "development":  "/covers/razrabotka.webp",
-  "logistika":    "/covers/bpm.webp",
-  "finance":      "/covers/contracts.webp",
-};
-
 const getLabel = (h1: string) => h1.split(":")[0].replace("ELMA365 для ", "").replace("ELMA365 для", "");
 const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
@@ -43,11 +28,11 @@ const rest = industries.slice(1);
 
       <!-- FEATURED -->
       <a class="cover-featured reveal" href={`/industries/${featured.slug}/`}>
-        <div class="cover-featured-cover" style={`background-image:url(${industryCovers[featured.slug] ?? ''})`}>
+        <div class="cover-featured-cover" style={`background-image:url(${featured.cover ?? ''})`}>
           <span class="cover-featured-label">{capitalize(getLabel(featured.h1))}</span>
         </div>
         <div class="cover-featured-body">
-          <span class="cover-badge" style={`background:${industryColors[featured.slug] ?? '#1F5B99'}22;color:${industryColors[featured.slug] ?? '#1F5B99'}`}>{capitalize(getLabel(featured.h1))}</span>
+          <span class="cover-badge" style={`background:${featured.color ?? '#1F5B99'}22;color:${featured.color ?? '#1F5B99'}`}>{capitalize(getLabel(featured.h1))}</span>
           <h2 style="margin-top:14px;margin-bottom:12px">{featured.h1.split(":")[0]}</h2>
           <p style="color:var(--muted);font-size:15px;line-height:1.65">{featured.lead}</p>
           <p class="muted" style="margin-top:16px;font-size:14px">Подробнее →</p>
@@ -58,10 +43,10 @@ const rest = industries.slice(1);
       <div class="cover-grid" style="margin-top:32px">
         {rest.map((x, i) => {
           const label = capitalize(getLabel(x.h1));
-          const color = industryColors[x.slug] ?? '#1F5B99';
+          const color = x.color ?? '#1F5B99';
           return (
             <a class="cover-card reveal" href={`/industries/${x.slug}/`} style={`transition-delay:${(i%2)*60}ms`}>
-              <div class="cover-card-cover" style={`background-image:url(${industryCovers[x.slug] ?? ''})`}>
+              <div class="cover-card-cover" style={`background-image:url(${x.cover ?? ''})`}>
               </div>
               <div class="cover-card-body">
                 <span class="cover-card-tag" style={`color:${color}`}>{label}</span>

@@ -40,7 +40,11 @@ src/
 │   └── schema.ts               # faqLd()/articleLd() — объекты schema.org FAQPage/Article
 ├── data/
 │   ├── directions.json           # 8 направлений → /services/vnedrenie/[slug]
-│   ├── industries.json           # 5 отраслей → /industries/[slug]
+│   ├── industries.json           # 5 отраслей (+color/cover) → /industries/[slug]
+│   ├── services.json             # услуги (name/color/desc/href/cover) → /services
+│   ├── press-tags.json           # карта тег → {color, cover} для /press
+│   ├── modules.json              # модули → /products/modules
+│   ├── vnedrenie-steps.json      # этапы внедрения → /services/vnedrenie
 │   ├── contours.json             # 4 контурные страницы → ContourPage.astro
 │   └── team.json                 # команда → /company/about
 ├── styles/
