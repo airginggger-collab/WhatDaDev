@@ -2,7 +2,7 @@
 import Base from "../layouts/Base.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import contacts from "../data/contacts.json";
-const title = "Контакты WhatDaDev — внедрение ELMA365 | РФ и КЗ";
+const title = "Контакты WhatDaDev: внедрение ELMA365 | РФ и КЗ";
 const description = "Свяжитесь с WhatDaDev: Telegram, WhatsApp, email. Записаться на демо или обсудить внедрение ELMA365.";
 ---
 <Base title={title} description={description}>
@@ -18,7 +18,7 @@ const description = "Свяжитесь с WhatDaDev: Telegram, WhatsApp, email.
       <div class="card">
         <h3>Записаться на демо</h3>
         <form class="form" id="leadForm" style="margin-top:12px">
-          <p class="form-note" style="margin-bottom:2px">Поля со звёздочкой <span class="req">*</span> — обязательны</p>
+          <p class="form-note" style="margin-bottom:2px">Поля со звёздочкой <span class="req">*</span> обязательны</p>
           <label><span>Имя <span class="req" aria-hidden="true">*</span></span><input name="name" required autocomplete="name" placeholder="Иван Петров" /></label>
           <label><span>Телефон <span class="req" aria-hidden="true">*</span></span><input name="phone" type="tel" required autocomplete="tel" placeholder="+7 900 000-00-00" /></label>
           <label>Email<input name="email" type="email" autocomplete="email" placeholder="ivan@company.ru" /></label>
@@ -26,8 +26,8 @@ const description = "Свяжитесь с WhatDaDev: Telegram, WhatsApp, email.
           <label>Сообщение<textarea name="message" placeholder="Хочу автоматизировать согласование договоров, 50 сотрудников"></textarea></label>
           <label class="row"><input type="checkbox" required style="width:auto" /> <span>Согласен на обработку персональных данных <span class="req" aria-hidden="true">*</span></span></label>
           <button class="btn" type="submit">Записаться на демо</button>
-          <p class="form-note">Ответим в течение рабочего дня. Без спама — только по вашему запросу.</p>
-          <p class="form-note" id="formMsg">Онлайн-приём заявок подключается к CRM. Быстрее всего — написать нам напрямую в Telegram или WhatsApp.</p>
+          <p class="form-note">Ответим в течение рабочего дня. Без спама, только по вашему запросу.</p>
+          <p class="form-note" id="formMsg">Онлайн-приём заявок подключается к CRM. Быстрее всего написать нам напрямую в Telegram или WhatsApp.</p>
         </form>
       </div>
       <div class="card alt">
@@ -40,7 +40,7 @@ const description = "Свяжитесь с WhatDaDev: Telegram, WhatsApp, email.
         <p class="muted" style="font-size:13px">Карьера: резюме на <a href={`mailto:${contacts.career_email}`}>{contacts.career_email}</a>. Работаем удалённо, из любой точки мира.</p>
 
         <h3 style="margin-top:22px">Социальные сети</h3>
-        <p><a href={`https://t.me/${contacts.telegram_channel}`} target="_blank" rel="noopener">Telegram-канал @{contacts.telegram_channel}</a> — приёмы ELMA365</p>
+        <p><a href={`https://t.me/${contacts.telegram_channel}`} target="_blank" rel="noopener">Telegram-канал @{contacts.telegram_channel}</a>: приёмы ELMA365</p>
         <p><a href={contacts.instagram} target="_blank" rel="noopener">Instagram</a> · <a href={contacts.youtube} target="_blank" rel="noopener">YouTube</a> · <a href={contacts.vk} target="_blank" rel="noopener">VK</a> · <a href={contacts.tiktok} target="_blank" rel="noopener">TikTok</a></p>
 
         <h3 style="margin-top:22px">Реквизиты</h3>
@@ -55,8 +55,8 @@ const description = "Свяжитесь с WhatDaDev: Telegram, WhatsApp, email.
       e.preventDefault();
       const m = document.getElementById('formMsg');
       const data = new FormData(f);
-      const text = 'Заявка на демо: ' + (data.get('name') || '') + ', ' + (data.get('phone') || '') + (data.get('company') ? ', ' + data.get('company') : '') + (data.get('message') ? ' — ' + data.get('message') : '');
-      m.innerHTML = 'Приём заявок через сайт ещё подключается. Чтобы мы точно не потеряли ваш запрос — <a href="https://t.me/' + tgUser + '" target="_blank" rel="noopener" style="text-decoration:underline">отправьте его в Telegram</a> или <a href="https://wa.me/' + waPhone + '?text=' + encodeURIComponent(text) + '" target="_blank" rel="noopener" style="text-decoration:underline">в WhatsApp одним нажатием</a>.';
+      const text = 'Заявка на демо: ' + (data.get('name') || '') + ', ' + (data.get('phone') || '') + (data.get('company') ? ', ' + data.get('company') : '') + (data.get('message') ? ': ' + data.get('message') : '');
+      m.innerHTML = 'Приём заявок через сайт ещё подключается. Чтобы мы точно не потеряли ваш запрос, <a href="https://t.me/' + tgUser + '" target="_blank" rel="noopener" style="text-decoration:underline">отправьте его в Telegram</a> или <a href="https://wa.me/' + waPhone + '?text=' + encodeURIComponent(text) + '" target="_blank" rel="noopener" style="text-decoration:underline">в WhatsApp одним нажатием</a>.';
       m.classList.add('form-ok');
     });
   </script>

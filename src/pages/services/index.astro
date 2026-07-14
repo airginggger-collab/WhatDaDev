@@ -4,8 +4,8 @@ import Breadcrumbs from "../../components/Breadcrumbs.astro";
 const title = "Услуги по ELMA365: от внедрения до поддержки | WhatDaDev";
 const description = "Полный цикл работы с ELMA365: внедрение под ключ, разработка и интеграции, поддержка и обучение, консалтинг, аудит, аутстаффинг. РФ и КЗ.";
 const faqServices = [
-  ["С чего начать внедрение ELMA365?", "Начинаем с бесплатного демо — разбираем ваши процессы, показываем что можно автоматизировать. Занимает 30–45 минут онлайн."],
-  ["Вы работаете с малым бизнесом?", "Да. Экспресс внедрение специально создано для компаний от 10 сотрудников. Для крупных проектов — полное внедрение под ключ."],
+  ["С чего начать внедрение ELMA365?", "Начинаем с бесплатного демо: разбираем ваши процессы, показываем что можно автоматизировать. Занимает 30–45 минут онлайн."],
+  ["Вы работаете с малым бизнесом?", "Да. Экспресс внедрение специально создано для компаний от 10 сотрудников. Для крупных проектов предлагаем полное внедрение под ключ."],
   ["Что входит в услугу разработки?", "Проектирование бизнес-процессов, разработка модулей ELMA365, интеграции с 1С/CRM/ERP, тестирование и обучение пользователей."],
   ["Можно ли мигрировать с другой системы?", "Да, помогаем с миграцией с Битрикс24, 1С:Документооборот и других систем. Разрабатываем план без потери данных."],
 ];
@@ -28,7 +28,7 @@ const services = [
   { name: "Поддержка и обучение", desc: "Техническая поддержка, сопровождение и обучение сотрудников.",                                       href: null,                    cover: "/covers/edo.webp"        },
   { name: "Консалтинг",           desc: "Консалтинг по автоматизации и цифровой трансформации.",                                              href: null,                    cover: "/covers/bpm.webp"        },
   { name: "Аудит",                desc: "Аудит уже внедрённых решений: проверка и оптимизация.",                                              href: null,                    cover: "/covers/audit.webp"      },
-  { name: "Аутстаффинг",          desc: "Аутстаффинг специалистов для работы с ELMA365 — усиливаем вашу команду.",                            href: null,                    cover: "/covers/crm.webp"        },
+  { name: "Аутстаффинг",          desc: "Аутстаффинг специалистов для работы с ELMA365: усиливаем вашу команду.",                            href: null,                    cover: "/covers/crm.webp"        },
 ];
 
 const featured = services[0];
@@ -57,7 +57,7 @@ const rest = services.slice(1);
         <div class="srv-body">
           <span class="srv-badge" style={`background:${serviceColors[featured.name]}22;color:${serviceColors[featured.name]}`}>{featured.name}</span>
           <h2 style="margin-top:14px;margin-bottom:12px">Внедрение ELMA365 под ключ</h2>
-          <p style="color:var(--muted);font-size:15px;line-height:1.65">{featured.desc} От анализа процессов до запуска и поддержки — берём на себя весь цикл.</p>
+          <p style="color:var(--muted);font-size:15px;line-height:1.65">{featured.desc} От анализа процессов до запуска и поддержки берём на себя весь цикл.</p>
           <p class="muted" style="margin-top:16px;font-size:14px">Подробнее →</p>
         </div>
       </a>
@@ -114,7 +114,7 @@ const rest = services.slice(1);
   <section class="hero" style="min-height:auto">
     <div class="container center" style="padding-top:72px;padding-bottom:72px;width:100%">
       <h2 style="color:#fff;max-width:560px;margin:0 auto 16px">Обсудим вашу задачу</h2>
-      <p style="color:var(--dark-muted);margin-bottom:28px;max-width:440px;margin-left:auto;margin-right:auto">Расскажите о процессах — предложим решение и оценку.</p>
+      <p style="color:var(--dark-muted);margin-bottom:28px;max-width:440px;margin-left:auto;margin-right:auto">Расскажите о процессах, а мы предложим решение и оценку.</p>
       <div class="btn-row" style="justify-content:center">
         <a class="btn" href="/contacts/">Обсудить проект</a>
       </div>

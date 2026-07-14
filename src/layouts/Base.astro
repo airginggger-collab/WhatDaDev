@@ -5,7 +5,7 @@ import "@fontsource/ibm-plex-mono/400.css";
 import "@fontsource/ibm-plex-mono/500.css";
 import "../styles/global.css";
 import contacts from "../data/contacts.json";
-const { title = "WhatDaDev — внедрение ELMA365 и готовый ЭДО из коробки", description = "Внедрение ELMA365 под ключ и коробочные продукты для документооборота. РФ и КЗ.", jsonld = [], noindex = false } = Astro.props;
+const { title = "WhatDaDev: внедрение ELMA365 и готовый ЭДО из коробки", description = "Внедрение ELMA365 под ключ и коробочные продукты для документооборота. РФ и КЗ.", jsonld = [], noindex = false } = Astro.props;
 const org = {
   "@context": "https://schema.org", "@type": "Organization",
   name: "WhatDaDev", url: "https://whatdadev.ru",
@@ -48,7 +48,7 @@ const ogImage = new URL("/og.png", Astro.site).href;
   <body>
     <header class="site-header">
       <div class="container">
-        <a class="logo" href="/" aria-label="WhatDaDev — главная">
+        <a class="logo" href="/" aria-label="WhatDaDev, главная">
           <svg width="54" height="34" viewBox="0 0 54 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <!-- W -->
             <path d="M0 0 L6 0 L13 22 L19 9 L26 22 L32 0 L38 0 L28 34 L19 17 L10 34 Z" fill="currentColor"/>
@@ -91,7 +91,7 @@ const ogImage = new URL("/og.png", Astro.site).href;
           <p class="footer-heading">Продукты</p>
           <nav aria-label="Продукты">
             <a href="/products/express/">Экспресс внедрение</a>
-            <a href="/coordo/">Coordo — ЭДО из коробки</a>
+            <a href="/coordo/">Coordo: ЭДО из коробки</a>
             <a href="/products/express/pricing/">Цены</a>
             <a href="/products/modules/">Модули</a>
             <a href="/products/express/vs-razrabotka/">Vs разработка</a>
