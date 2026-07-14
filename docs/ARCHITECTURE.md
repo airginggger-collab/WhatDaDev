@@ -33,13 +33,15 @@ src/
 │   ├── Breadcrumbs.astro       # хлебные крошки + JSON-LD BreadcrumbList
 │   ├── CtaHero.astro           # финальный тёмный CTA-блок (title/lead/button, wide?)
 │   ├── Faq.astro               # FAQ на нативных <details> (faq: [q,a][])
-│   └── PressEntry.astro        # шаблон записи пресс-центра (статья/глоссарий)
+│   ├── PressEntry.astro        # шаблон записи пресс-центра (статья/глоссарий)
+│   └── ContourPage.astro       # шаблон контурной страницы (slug → src/data/contours.json)
 ├── lib/                        # общие TS-хелперы (не рендерят разметку)
 │   ├── jsonld.ts               # jsonLd() — безопасная сериализация JSON-LD (экранирует </>/&, защита от XSS)
 │   └── schema.ts               # faqLd()/articleLd() — объекты schema.org FAQPage/Article
 ├── data/
 │   ├── directions.json           # 8 направлений → /services/vnedrenie/[slug]
 │   ├── industries.json           # 5 отраслей → /industries/[slug]
+│   ├── contours.json             # 4 контурные страницы → ContourPage.astro
 │   └── team.json                 # команда → /company/about
 ├── styles/
 │   └── global.css              # CSS-переменные (токены) + все стили

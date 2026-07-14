@@ -1,0 +1,45 @@
+---
+// Шаблон «контурных» страниц Экспресс внедрения (Coordo): hero + сетка «боли» + сетка «решение» + FAQ.
+// Данные — в src/data/contours.json по ключу-слагу; страница передаёт slug.
+import Base from "../layouts/Base.astro";
+import Breadcrumbs from "./Breadcrumbs.astro";
+import Faq from "./Faq.astro";
+import { faqLd } from "../lib/schema.ts";
+import contours from "../data/contours.json";
+
+interface Props {
+  slug: keyof typeof contours;
+}
+const { slug } = Astro.props;
+const c = contours[slug];
+const faq = c.faq as [string, string][];
+const jsonld = [faqLd(faq)];
+---
+<Base title={c.title} description={c.description} jsonld={jsonld}>
+  <section class="hero">
+    <div class="container">
+      <Breadcrumbs items={c.crumbs} />
+      <div class="eyebrow eyebrow-light">{c.eyebrow}</div>
+      <h1>{c.h1}</h1>
+      <p class="lead">{c.lead}</p>
+      <div class="btn-row"><a class="btn" href="/contacts/">Записаться на демо</a></div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <h2>{c.painsHeading}</h2>
+      <div class="grid grid-3" style="margin-top:24px">
+        {c.pains.map((p) => (<div class="card"><p>{p}</p></div>))}
+      </div>
+    </div>
+  </section>
+  <section class="section alt">
+    <div class="container">
+      <h2>{c.solutionsHeading}</h2>
+      <div class="grid grid-2" style="margin-top:24px">
+        {c.solutions.map(([h, p]) => (<div class="card"><h3>{h}</h3><p>{p}</p></div>))}
+      </div>
+    </div>
+  </section>
+  <Faq faq={faq} cta="Записаться на демо" />
+</Base>
