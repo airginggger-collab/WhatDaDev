@@ -162,3 +162,52 @@ html.js .hero .reveal{opacity:1;transform:none;animation:fadeUp .6s ease both}
 .faq-a.open{display:block}
 @media print{.site-header,.site-footer,.btn-row{display:none!important}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* ── COVER CARDS (общие «обложечные» карточки: services / industries / press) ──
+   Различия между страницами параметризованы CSS-переменными, задаваемыми
+   модификаторами .cover-svc / .cover-ind / .cover-press на контейнере.
+   Дефолты переменных = значения services. */
+.cover-featured{display:grid;grid-template-columns:var(--cv-featured-col,320px) 1fr;border-radius:16px;overflow:hidden;border:1px solid var(--border);text-decoration:none;color:inherit;transition:box-shadow .25s,transform .25s}
+.cover-featured:hover{box-shadow:0 8px 32px rgba(0,0,0,.1);transform:translateY(-3px)}
+.cover-featured-cover{min-height:var(--cv-cover-h,240px);position:relative;display:flex;align-items:flex-end;padding:28px;overflow:hidden;background-size:cover;background-position:center top}
+.cover-featured-cover::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 50%);z-index:0}
+.cover-featured-label{color:#fff;font-size:13px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;position:relative;z-index:1}
+.cover-featured-body{padding:36px 40px;display:flex;flex-direction:column;justify-content:center}
+.cover-featured-body h2{font-size:var(--cv-h2,clamp(1.1rem,2vw,1.5rem));line-height:1.3}
+.cover-badge{display:inline-block;width:fit-content;font-size:12px;font-weight:600;padding:3px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.4px}
+
+.cover-grid{display:grid;grid-template-columns:repeat(var(--cv-cols,3),1fr);gap:20px}
+.cover-card{border-radius:12px;overflow:hidden;border:1px solid var(--border);text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s;cursor:pointer}
+.cover-card:hover{box-shadow:0 4px 20px rgba(0,0,0,.08);transform:translateY(-3px)}
+.cover-card.hidden{display:none}
+.cover-card-cover{height:104px;position:relative;overflow:hidden;background-size:cover;background-position:center top}
+.cover-card-cover::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.35) 0%,rgba(0,0,0,0) 60%)}
+.cover-card-body{padding:20px;flex:1;display:flex;flex-direction:column;gap:var(--cv-gap,6px)}
+.cover-card-tag{font-size:var(--cv-tag,11px);font-weight:600;text-transform:uppercase;letter-spacing:.4px}
+.cover-card-body h3{font-size:var(--cv-h3,clamp(.9rem,1.3vw,1rem));line-height:1.4;flex:var(--cv-h3-flex,0 1 auto)}
+.cover-card-body p{font-size:14px;line-height:var(--cv-p-lh,1.55)}
+.cover-card-body p.cover-read{font-size:13px;margin-top:auto}
+
+.cover-svc{--cv-cols:3;--cv-gap:6px}
+.cover-ind{--cv-cols:2;--cv-gap:8px;--cv-h3:clamp(.95rem,1.4vw,1.05rem);--cv-p-lh:1.6}
+.cover-press{--cv-featured-col:360px;--cv-cover-h:260px;--cv-h2:clamp(1.2rem,2.2vw,1.6rem);--cv-cols:3;--cv-gap:8px;--cv-tag:12px;--cv-h3:clamp(.9rem,1.4vw,1rem);--cv-h3-flex:1}
+
+@media (max-width:860px){
+  .cover-featured{grid-template-columns:1fr}
+  .cover-featured-cover{min-height:140px}
+  .cover-featured-body{padding:24px}
+  .cover-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:560px){
+  .cover-grid{grid-template-columns:1fr}
+}
+/* press использует свои брейкпоинты 900/600 и min-height 160 (выше специфичность → перекрывает общие) */
+@media (max-width:900px){
+  .cover-press .cover-featured{grid-template-columns:1fr}
+  .cover-press .cover-featured-cover{min-height:160px}
+  .cover-press .cover-featured-body{padding:24px}
+  .cover-press .cover-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:600px){
+  .cover-press .cover-grid{grid-template-columns:1fr}
+}

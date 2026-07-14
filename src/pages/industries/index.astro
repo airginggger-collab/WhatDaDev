@@ -39,15 +39,15 @@ const rest = industries.slice(1);
   </section>
 
   <section class="section">
-    <div class="container">
+    <div class="container cover-ind">
 
       <!-- FEATURED -->
-      <a class="ind-featured reveal" href={`/industries/${featured.slug}/`}>
-        <div class="ind-cover" style={`background-image:url(${industryCovers[featured.slug] ?? ''})`}>
-          <span class="ind-cover-label">{capitalize(getLabel(featured.h1))}</span>
+      <a class="cover-featured reveal" href={`/industries/${featured.slug}/`}>
+        <div class="cover-featured-cover" style={`background-image:url(${industryCovers[featured.slug] ?? ''})`}>
+          <span class="cover-featured-label">{capitalize(getLabel(featured.h1))}</span>
         </div>
-        <div class="ind-body">
-          <span class="ind-badge" style={`background:${industryColors[featured.slug] ?? '#1F5B99'}22;color:${industryColors[featured.slug] ?? '#1F5B99'}`}>{capitalize(getLabel(featured.h1))}</span>
+        <div class="cover-featured-body">
+          <span class="cover-badge" style={`background:${industryColors[featured.slug] ?? '#1F5B99'}22;color:${industryColors[featured.slug] ?? '#1F5B99'}`}>{capitalize(getLabel(featured.h1))}</span>
           <h2 style="margin-top:14px;margin-bottom:12px">{featured.h1.split(":")[0]}</h2>
           <p style="color:var(--muted);font-size:15px;line-height:1.65">{featured.lead}</p>
           <p class="muted" style="margin-top:16px;font-size:14px">Подробнее →</p>
@@ -55,16 +55,16 @@ const rest = industries.slice(1);
       </a>
 
       <!-- GRID -->
-      <div class="ind-grid" style="margin-top:32px">
+      <div class="cover-grid" style="margin-top:32px">
         {rest.map((x, i) => {
           const label = capitalize(getLabel(x.h1));
           const color = industryColors[x.slug] ?? '#1F5B99';
           return (
-            <a class="ind-card reveal" href={`/industries/${x.slug}/`} style={`transition-delay:${(i%2)*60}ms`}>
-              <div class="ind-card-cover" style={`background-image:url(${industryCovers[x.slug] ?? ''})`}>
+            <a class="cover-card reveal" href={`/industries/${x.slug}/`} style={`transition-delay:${(i%2)*60}ms`}>
+              <div class="cover-card-cover" style={`background-image:url(${industryCovers[x.slug] ?? ''})`}>
               </div>
-              <div class="ind-card-body">
-                <span class="ind-card-tag" style={`color:${color}`}>{label}</span>
+              <div class="cover-card-body">
+                <span class="cover-card-tag" style={`color:${color}`}>{label}</span>
                 <h3>{label}</h3>
                 <p class="muted">{x.lead}</p>
                 <p class="muted" style="font-size:13px;margin-top:auto">Подробнее →</p>
@@ -80,111 +80,3 @@ const rest = industries.slice(1);
   <CtaHero wide title="Автоматизируем процессы под вашу отрасль" lead="Покажем как ELMA365 решает задачи именно вашего бизнеса." button="Записаться на демо" />
 
 </Base>
-
-<style>
-  /* FEATURED */
-  .ind-featured {
-    display: grid;
-    grid-template-columns: 320px 1fr;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    text-decoration: none;
-    color: inherit;
-    transition: box-shadow .25s, transform .25s;
-  }
-  .ind-featured:hover { box-shadow: 0 8px 32px rgba(0,0,0,.1); transform: translateY(-3px); }
-  .ind-cover {
-    min-height: 240px;
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-    padding: 28px;
-    overflow: hidden;
-    background-size: cover;
-    background-position: center top;
-  }
-  .ind-cover::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,.55) 0%, rgba(0,0,0,.0) 50%);
-    z-index: 0;
-  }
-  .ind-cover-label {
-    color: #fff;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: .5px;
-    text-transform: uppercase;
-    position: relative;
-    z-index: 1;
-  }
-  .ind-body {
-    padding: 36px 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .ind-body h2 { font-size: clamp(1.1rem, 2vw, 1.5rem); line-height: 1.3; }
-  .ind-badge {
-    display: inline-block;
-    width: fit-content;
-    font-size: 12px;
-    font-weight: 600;
-    padding: 3px 10px;
-    border-radius: 20px;
-    text-transform: uppercase;
-    letter-spacing: .4px;
-  }
-
-  /* GRID */
-  .ind-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-  .ind-card {
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-    flex-direction: column;
-    transition: box-shadow .2s, transform .2s;
-  }
-  .ind-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,.08); transform: translateY(-3px); }
-  .ind-card-cover {
-    height: 104px;
-    position: relative;
-    overflow: hidden;
-    background-size: cover;
-    background-position: center top;
-  }
-  .ind-card-cover::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,.35) 0%, rgba(0,0,0,.0) 60%);
-  }
-  .ind-card-body {
-    padding: 20px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  .ind-card-tag { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .4px; }
-  .ind-card-body h3 { font-size: clamp(.95rem, 1.4vw, 1.05rem); line-height: 1.4; }
-  .ind-card-body p { font-size: 14px; line-height: 1.6; }
-
-  @media (max-width: 860px) {
-    .ind-featured { grid-template-columns: 1fr; }
-    .ind-cover { min-height: 140px; }
-    .ind-body { padding: 24px; }
-  }
-  @media (max-width: 560px) {
-    .ind-grid { grid-template-columns: 1fr; }
-  }
-</style>
