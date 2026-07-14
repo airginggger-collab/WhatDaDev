@@ -1,6 +1,7 @@
 ---
 import Base from "../../../layouts/Base.astro";
 import Breadcrumbs from "../../../components/Breadcrumbs.astro";
+import { faqLd } from "../../../lib/schema.ts";
 const title = "Согласование договоров на ELMA365 электронно | WhatDaDev";
 const description = "Электронное согласование договоров на ELMA365: маршруты, сроки, контроль, единый реестр. Доходные договоры из коробки.";
 const faq = [
@@ -9,13 +10,13 @@ const faq = [
   ["Это отдельный продукт или часть ELMA365?", "Готовый контур на платформе ELMA365 в составе Экспресс внедрения (Coordo)."],
   ["Есть единый реестр договоров?", "Да, с поиском, статусами и контролем сроков действия."],
 ];
-const jsonld = [{ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) }];
+const jsonld = [faqLd(faq)];
 ---
 <Base title={title} description={description} jsonld={jsonld}>
   <section class="hero">
     <div class="container">
       <Breadcrumbs items={[{ name: "Главная", href: "/" }, { name: "Экспресс внедрение", href: "/products/express/" }, { name: "Согласование договоров" }]} />
-      <div class="eyebrow" style="color:#8FBBE0">Экспресс внедрение (Coordo) · Контур</div>
+      <div class="eyebrow eyebrow-light">Экспресс внедрение (Coordo) · Контур</div>
       <h1>Согласование договоров на ELMA365: электронно, по маршрутам</h1>
       <p class="lead">Договор проходит путь от инициации до подписания по заданному маршруту: со сроками, контролем и единым реестром. Без потерянных листов согласования и бесконечных пересылок.</p>
       <div class="btn-row"><a class="btn" href="/contacts/">Записаться на демо</a></div>

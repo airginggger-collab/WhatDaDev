@@ -1,6 +1,7 @@
 ---
 import Base from "../../../layouts/Base.astro";
 import Breadcrumbs from "../../../components/Breadcrumbs.astro";
+import { faqLd } from "../../../lib/schema.ts";
 const title = "Согласование приказов и ОРД на ELMA365 | WhatDaDev";
 const description = "Электронное согласование и ознакомление с приказами и ОРД на ELMA365: маршруты, листы ознакомления, контроль сроков.";
 const faq = [
@@ -8,13 +9,13 @@ const faq = [
   ["Можно настроить разные маршруты для разных приказов?", "Да, без кода: условные маршруты по типу документа."],
   ["Это часть ELMA365?", "Да, готовый контур на ELMA365 в составе Экспресс внедрения (Coordo)."],
 ];
-const jsonld = [{ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) }];
+const jsonld = [faqLd(faq)];
 ---
 <Base title={title} description={description} jsonld={jsonld}>
   <section class="hero">
     <div class="container">
       <Breadcrumbs items={[{ name: "Главная", href: "/" }, { name: "Экспресс внедрение", href: "/products/express/" }, { name: "ОРД и приказы" }]} />
-      <div class="eyebrow" style="color:#8FBBE0">Экспресс внедрение (Coordo) · Контур</div>
+      <div class="eyebrow eyebrow-light">Экспресс внедрение (Coordo) · Контур</div>
       <h1>Согласование приказов и ОРД на ELMA365</h1>
       <p class="lead">Приказы, распоряжения и служебные записки идут по электронному маршруту, с листами ознакомления и контролем исполнения. Без бумаги и потерянных подписей.</p>
       <div class="btn-row"><a class="btn" href="/contacts/">Записаться на демо</a></div>

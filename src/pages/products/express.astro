@@ -2,6 +2,7 @@
 import Base from "../../layouts/Base.astro";
 import pricing from "../../data/pricing.json";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import { faqLd } from "../../lib/schema.ts";
 const title = "Экспресс‑внедрение ЭДО на ELMA365 из коробки | WhatDaDev";
 const description = "Готовый электронный документооборот на ELMA365: договоры, ОРД, корреспонденция. Запуск без долгой разработки. Разово, без подписки.";
 const faq = [
@@ -20,7 +21,7 @@ const jsonld = [
     offers: { "@type": "Offer", price: pricing.price_number_rub, priceCurrency: "RUB", availability: "https://schema.org/InStock", url: "https://whatdadev.ru/products/express/" },
     provider: { "@type": "Organization", name: "WhatDaDev", url: "https://whatdadev.ru" },
   },
-  { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) },
+  faqLd(faq),
 ];
 ---
 <Base title={title} description={description} jsonld={jsonld}>
@@ -28,7 +29,7 @@ const jsonld = [
     <div class="container hero-split">
       <div>
         <Breadcrumbs items={[{ name: "Главная", href: "/" }, { name: "Продукты", href: "/products/modules/" }, { name: "Экспресс внедрение" }]} />
-        <div class="eyebrow" style="color:#8FBBE0">Продукт · Экспресс внедрение (Coordo)</div>
+        <div class="eyebrow eyebrow-light">Продукт · Экспресс внедрение (Coordo)</div>
         <h1>Экспресс‑внедрение ЭДО на ELMA365: из коробки, без месяцев разработки</h1>
         <p class="lead">Готовые контуры согласования договоров, ОРД и корреспонденции на ELMA365. Запуск за недели. Платите один раз, без подписки и доплат за пользователей.</p>
         <div class="btn-row"><a class="btn" href="/contacts/">Записаться на демо</a></div>
@@ -104,7 +105,7 @@ const jsonld = [
       <h2>Один раз и навсегда. Без подписки</h2>
       <div class="price" style="color:var(--accent);margin:8px 0">{pricing.express_from}</div>
       <p class="muted">Ядро + готовые контуры · установка и адаптация · 6 месяцев поддержки · обновления. Без доплат за пользователей.</p>
-      <div class="btn-row" style="justify-content:center"><a class="btn" href="/contacts/">Записаться на демо</a></div>
+      <div class="btn-row center"><a class="btn" href="/contacts/">Записаться на демо</a></div>
     </div>
   </section>
 

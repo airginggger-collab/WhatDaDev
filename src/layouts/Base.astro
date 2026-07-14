@@ -138,10 +138,6 @@ const ogImage = new URL("/og.png", Astro.site).href;
         for (const e of entries) {
           if (!e.isIntersecting) continue;
           e.target.classList.add('in');
-          if (e.target.dataset.p) {
-            const fg = e.target.querySelector('.fg');
-            if (fg) fg.style.setProperty('--p', e.target.dataset.p);
-          }
           io.unobserve(e.target);
         }
       }, { threshold: 0.2 });

@@ -60,6 +60,7 @@ src/
 │   └── Base.astro          # общий каркас: <head>, nav, footer, JSON-LD Organization
 ├── components/
 │   └── Breadcrumbs.astro   # хлебные крошки + JSON-LD BreadcrumbList
+├── lib/                    # TS-хелперы: jsonld.ts (безопасная сериализация JSON-LD), schema.ts (faqLd/articleLd)
 ├── data/
 │   ├── directions.json       # 8 направлений внедрения (/services/vnedrenie/[slug])
 │   ├── industries.json       # 5 отраслей (/industries/[slug])

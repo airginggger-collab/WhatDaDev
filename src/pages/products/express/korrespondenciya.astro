@@ -1,6 +1,7 @@
 ---
 import Base from "../../../layouts/Base.astro";
 import Breadcrumbs from "../../../components/Breadcrumbs.astro";
+import { faqLd } from "../../../lib/schema.ts";
 const title = "Учёт корреспонденции на ELMA365: канцелярия | WhatDaDev";
 const description = "Регистрация входящей и исходящей корреспонденции на ELMA365: журналы, поручения, контроль исполнения. Электронная канцелярия из коробки.";
 const faq = [
@@ -8,13 +9,13 @@ const faq = [
   ["Можно ставить поручения по письму?", "Да, с ответственными, сроками и контролем исполнения."],
   ["Это часть ELMA365?", "Да, готовый контур на ELMA365 в составе Экспресс внедрения (Coordo)."],
 ];
-const jsonld = [{ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) }];
+const jsonld = [faqLd(faq)];
 ---
 <Base title={title} description={description} jsonld={jsonld}>
   <section class="hero">
     <div class="container">
       <Breadcrumbs items={[{ name: "Главная", href: "/" }, { name: "Экспресс внедрение", href: "/products/express/" }, { name: "Корреспонденция" }]} />
-      <div class="eyebrow" style="color:#8FBBE0">Экспресс внедрение (Coordo) · Контур</div>
+      <div class="eyebrow eyebrow-light">Экспресс внедрение (Coordo) · Контур</div>
       <h1>Учёт входящей и исходящей корреспонденции на ELMA365</h1>
       <p class="lead">Электронная канцелярия: регистрация писем, резолюции, поручения и контроль исполнения ведутся в едином журнале, а не в бумажных книгах.</p>
       <div class="btn-row"><a class="btn" href="/contacts/">Записаться на демо</a></div>
