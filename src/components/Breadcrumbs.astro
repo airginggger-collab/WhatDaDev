@@ -1,4 +1,5 @@
 ---
+import { jsonLd } from "../lib/jsonld.ts";
 const { items } = Astro.props;
 const site = "https://whatdadev.ru";
 const ld = {
@@ -20,4 +21,4 @@ const ld = {
     </>
   ))}
 </nav>
-<script type="application/ld+json" set:html={JSON.stringify(ld)} />
+<script type="application/ld+json" set:html={jsonLd(ld)} />

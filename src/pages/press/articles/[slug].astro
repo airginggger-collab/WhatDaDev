@@ -42,7 +42,7 @@ const jsonld = [
       <Breadcrumbs items={d.crumbs} />
       {d.eyebrow && <div class="eyebrow" style="color:#8FBBE0">{d.eyebrow}</div>}
       <h1>{d.h1}</h1>
-      {d.lead && <p class="lead" set:html={d.lead} />}
+      {d.lead && <p class="lead">{d.lead}</p>}
     </div>
   </section>
   <Content />

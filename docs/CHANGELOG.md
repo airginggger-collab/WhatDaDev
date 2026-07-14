@@ -2,6 +2,16 @@
 
 Все значимые изменения спеки проекта. Формат: семантические версии.
 
+## v0.86 — 2026-07-14
+
+### Security-фиксы: XSS в JSON-LD, XSS в lead, пиннинг CMS
+
+Security review нашёл три реальных уязвимости, все починены и проверены сборкой (70 страниц, зелёная).
+- **Stored XSS через разрыв `<script type="application/ld+json">`.** `JSON.stringify` не экранирует `<`, `>`, `&`, поэтому CMS-редактируемое текстовое поле со значением `…</script><script>…` разрывало тег и давало исполнение JS на публичной странице (страницы отраслей/услуг/статей — единственный sink у контент-редактора). Фикс: новый хелпер `src/lib/jsonld.ts` (`jsonLd()` экранирует три символа в `\uXXXX`, валидность schema.org сохраняется), применён в `Base.astro:47` и `Breadcrumbs.astro:24`. Проверено: в собранном HTML `&` в JSON-LD стал `&`, разрывов `</script>` нет.
+- **Stored XSS в поле `lead`.** `press/articles/[slug].astro` и `press/glossary/[slug].astro` выводили вводный абзац через `set:html`, хотя в CMS (`config.yml`) это `widget: text` (простой текст, HTML не ожидается). Фикс: `set:html={d.lead}` → `{d.lead}` (Astro экранирует по умолчанию). Проверено: HTML-тегов в существующих `lead` нет — контент не пострадал.
+- **Supply chain: движок CMS с CDN без пиннинга и SRI.** `public/admin/index.html` тянул `@sveltia/cms` как «latest» с unpkg без Subresource Integrity — на странице, где живёт GitHub-токен со scope `repo`. Фикс: версия зафиксирована `@0.170.8` + `integrity=sha384-…` + `crossorigin`. Обновление версии теперь ручное (сменить версию и пересчитать хэш `openssl dgst -sha384`).
+- Урок про JSON-LD/`set:html` записан в `docs/LESSONS.md`.
+
 ## v0.85 — 2026-07-14
 
 ### Новая страница /kz/ — усиление под рынок Казахстана
