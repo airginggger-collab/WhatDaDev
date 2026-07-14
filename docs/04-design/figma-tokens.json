@@ -1,0 +1,111 @@
+{
+  "$description": "WhatDaDev design tokens в формате Tokens Studio for Figma. Импорт: плагин Tokens Studio → Tools → Import → вставить этот JSON. Значения 1-в-1 с docs/04-design/tokens.json (v3, ADR-0013/0014) и src/styles/global.css. НЕ индиго/Inter — идентичность инженерно-издательская.",
+  "color": {
+    "light": {
+      "bg":         { "value": "#FAF8F2", "type": "color", "description": "Тёплая бумага — фон светлого контента" },
+      "surface":    { "value": "#FFFFFF", "type": "color", "description": "Карточки/поверхности" },
+      "surfaceAlt": { "value": "#DFE0DA", "type": "color", "description": "Секции .alt" },
+      "text":       { "value": "#191D1B", "type": "color", "description": "Основной текст (чернила)" },
+      "textMuted":  { "value": "#5A625D", "type": "color", "description": "Приглушённый текст" },
+      "textSubtle": { "value": "#6B746E", "type": "color", "description": "Ещё светлее (подписи)" },
+      "border":     { "value": "#C4C5BB", "type": "color", "description": "Границы карточек" }
+    },
+    "dark": {
+      "bg":         { "value": "#10151A", "type": "color", "description": "Тёмный hero — фон" },
+      "surface":    { "value": "#171E26", "type": "color" },
+      "surfaceAlt": { "value": "#1C242E", "type": "color" },
+      "text":       { "value": "#F4F2E9", "type": "color", "description": "Текст на тёмном" },
+      "textMuted":  { "value": "#99A3AE", "type": "color" },
+      "textSubtle": { "value": "#6B746E", "type": "color" },
+      "border":     { "value": "#263140", "type": "color" }
+    },
+    "accent": {
+      "$description": "Корпоративный синий (ADR-0014). НЕ индиго #4F46E5. На тёмном фоне — светлые 200/300.",
+      "50":  { "value": "#E7EEF6", "type": "color" },
+      "100": { "value": "#D9E6F3", "type": "color" },
+      "200": { "value": "#BFD7EC", "type": "color" },
+      "300": { "value": "#8FBBE0", "type": "color", "description": "--accent-light: eyebrow на тёмном фоне" },
+      "400": { "value": "#3273B4", "type": "color" },
+      "500": { "value": "#1F5B99", "type": "color", "description": "--accent: основной акцент, кнопки, ссылки" },
+      "600": { "value": "#174873", "type": "color", "description": "--accent-600: hover" },
+      "contrastText": { "value": "#FFFFFF", "type": "color" }
+    },
+    "semantic": {
+      "$description": "danger=красный ТОЛЬКО для ошибок/валидации, НЕ бренд-акцент (ADR-0003).",
+      "success": { "value": "#16A34A", "type": "color" },
+      "warning": { "value": "#D97706", "type": "color" },
+      "danger":  { "value": "#DC2626", "type": "color" }
+    }
+  },
+  "fontFamily": {
+    "display": { "value": "Piazzolla",     "type": "fontFamilies", "description": "H1/H2. Google Fonts — доступен в Figma нативно" },
+    "sans":    { "value": "Golos Text",    "type": "fontFamilies", "description": "Текст. Google Fonts" },
+    "mono":    { "value": "IBM Plex Mono",  "type": "fontFamilies", "description": "Цифры, eyebrow, подписи, крошки. Google Fonts" }
+  },
+  "fontWeight": {
+    "regular":  { "value": "400", "type": "fontWeights" },
+    "medium":   { "value": "500", "type": "fontWeights" },
+    "semibold": { "value": "600", "type": "fontWeights" },
+    "display":  { "value": "560", "type": "fontWeights", "description": "Вес Piazzolla Variable в заголовках" }
+  },
+  "fontSize": {
+    "display": { "value": "64", "type": "fontSizes" },
+    "h1":      { "value": "54", "type": "fontSizes" },
+    "h2":      { "value": "38", "type": "fontSizes" },
+    "h3":      { "value": "22", "type": "fontSizes" },
+    "h4":      { "value": "20", "type": "fontSizes" },
+    "body":    { "value": "16", "type": "fontSizes" },
+    "small":   { "value": "14", "type": "fontSizes" },
+    "caption": { "value": "13", "type": "fontSizes" }
+  },
+  "fontSizeMobile": {
+    "display": { "value": "40", "type": "fontSizes" },
+    "h1":      { "value": "32", "type": "fontSizes" },
+    "h2":      { "value": "26", "type": "fontSizes" },
+    "h3":      { "value": "18", "type": "fontSizes" },
+    "h4":      { "value": "18", "type": "fontSizes" },
+    "body":    { "value": "16", "type": "fontSizes" }
+  },
+  "lineHeight": {
+    "tight":   { "value": "112%", "type": "lineHeights", "description": "Заголовки" },
+    "snug":    { "value": "130%", "type": "lineHeights" },
+    "normal":  { "value": "155%", "type": "lineHeights", "description": "Основной текст" },
+    "relaxed": { "value": "170%", "type": "lineHeights" }
+  },
+  "typography": {
+    "$description": "Композитные текстовые стили (desktop). Импортируются как Figma text styles.",
+    "display": { "value": { "fontFamily": "{fontFamily.display}", "fontWeight": "{fontWeight.display}", "fontSize": "{fontSize.display}", "lineHeight": "{lineHeight.tight}" }, "type": "typography" },
+    "h1":      { "value": { "fontFamily": "{fontFamily.display}", "fontWeight": "{fontWeight.display}", "fontSize": "{fontSize.h1}", "lineHeight": "{lineHeight.tight}" }, "type": "typography" },
+    "h2":      { "value": { "fontFamily": "{fontFamily.display}", "fontWeight": "{fontWeight.display}", "fontSize": "{fontSize.h2}", "lineHeight": "{lineHeight.snug}" }, "type": "typography" },
+    "h3":      { "value": { "fontFamily": "{fontFamily.sans}", "fontWeight": "{fontWeight.semibold}", "fontSize": "{fontSize.h3}", "lineHeight": "{lineHeight.snug}" }, "type": "typography" },
+    "h4":      { "value": { "fontFamily": "{fontFamily.sans}", "fontWeight": "{fontWeight.semibold}", "fontSize": "{fontSize.h4}", "lineHeight": "{lineHeight.snug}" }, "type": "typography" },
+    "body":    { "value": { "fontFamily": "{fontFamily.sans}", "fontWeight": "{fontWeight.regular}", "fontSize": "{fontSize.body}", "lineHeight": "{lineHeight.normal}" }, "type": "typography" },
+    "small":   { "value": { "fontFamily": "{fontFamily.sans}", "fontWeight": "{fontWeight.regular}", "fontSize": "{fontSize.small}", "lineHeight": "{lineHeight.normal}" }, "type": "typography" },
+    "eyebrow": { "value": { "fontFamily": "{fontFamily.mono}", "fontWeight": "{fontWeight.medium}", "fontSize": "{fontSize.caption}", "lineHeight": "{lineHeight.snug}" }, "type": "typography", "description": "Надзаголовок/подписи/цифры — IBM Plex Mono" }
+  },
+  "spacing": {
+    "4":   { "value": "4",   "type": "spacing" },
+    "8":   { "value": "8",   "type": "spacing" },
+    "12":  { "value": "12",  "type": "spacing" },
+    "16":  { "value": "16",  "type": "spacing" },
+    "24":  { "value": "24",  "type": "spacing", "description": "Gutter сетки" },
+    "32":  { "value": "32",  "type": "spacing" },
+    "48":  { "value": "48",  "type": "spacing" },
+    "64":  { "value": "64",  "type": "spacing" },
+    "96":  { "value": "96",  "type": "spacing" },
+    "128": { "value": "128", "type": "spacing" }
+  },
+  "borderRadius": {
+    "$description": "Прямоугольная геометрия (ADR-0013): pill/9999 и крупные радиусы НЕ используются.",
+    "sm": { "value": "4", "type": "borderRadius" },
+    "md": { "value": "6", "type": "borderRadius", "description": "Основной радиус карточек/кнопок" }
+  },
+  "boxShadow": {
+    "hard": { "value": { "x": "3", "y": "3", "blur": "0", "spread": "0", "color": "#C4C5BB", "type": "dropShadow" }, "type": "boxShadow", "description": "Жёсткая офсет-тень на hover карточек-ссылок. Мягкие blur/glow НЕ используются." }
+  },
+  "layout": {
+    "containerMax":   { "value": "1140", "type": "sizing", "description": "Макс. ширина контейнера" },
+    "gutter":         { "value": "24",   "type": "spacing" },
+    "sectionPaddingY":{ "value": "88",   "type": "spacing", "description": "Вертикальные отступы секций" }
+  }
+}

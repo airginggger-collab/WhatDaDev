@@ -2,6 +2,15 @@
 
 Все значимые изменения спеки проекта. Формат: семантические версии.
 
+## v0.92 — 2026-07-14
+
+### Комплект для переноса в Figma
+
+Собрано всё необходимое, чтобы поднять проект в Figma. Значения — из кода (`tokens.json` v3, `global.css`), не выдуманы.
+- **`docs/04-design/figma-tokens.json`** — токены в формате **Tokens Studio for Figma** (12 групп: color light/dark/accent/semantic, fontFamily/Weight/Size + mobile, lineHeight, композитная typography, spacing, borderRadius, boxShadow, layout). Плагин Tokens Studio импортирует их и создаёт Figma-переменные + текст-стили. JSON валиден.
+- **`docs/04-design/FIGMA-HANDOFF.md`** — мастер-инструкция: комплект, импорт токенов, шрифты (Piazzolla/Golos Text/IBM Plex Mono — все в Google Fonts, доступны в Figma нативно), ассеты (covers/team/favicon/og/video с путями), каркас, инвентарь компонентов (кнопки/карточки/cover-*/eyebrow/крошки/FAQ/сетки/форма), инвентарь 70 страниц (сгруппирован, ~15 уникальных шаблонов), правила макета (не indigo/красный/pill), опция сборки через Figma MCP.
+- `docs/04-design/README.md` дополнен ссылками на новый комплект. Существующие `tokens-cheatsheet.html` (визуальная шпаргалка) и `stitch-dark.html` (Google Stitch) остаются в силе.
+
 ## v0.91 — 2026-07-14
 
 ### Сокращение кода: релокация данных в src/data (шаг 9, опциональный)
