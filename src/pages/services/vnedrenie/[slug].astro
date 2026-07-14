@@ -2,6 +2,7 @@
 import Base from "../../../layouts/Base.astro";
 import Breadcrumbs from "../../../components/Breadcrumbs.astro";
 import { items as directions } from "../../../data/directions.json";
+import CtaHero from "../../../components/CtaHero.astro";
 export function getStaticPaths() {
   return directions.map((d) => ({ params: { slug: d.slug }, props: { d } }));
 }
@@ -27,10 +28,5 @@ const jsonld = [{ "@context": "https://schema.org", "@type": "Service", name: d.
       {d.note && (<p class="muted" style="margin-top:18px">{d.note} <a href={d.noteHref} style="color:var(--accent)">Подробнее →</a></p>)}
     </div>
   </section>
-  <section class="hero">
-    <div class="container center">
-      <h2 style="color:#fff">Обсудим вашу задачу</h2>
-      <div class="btn-row center"><a class="btn" href="/contacts/">Обсудить проект</a></div>
-    </div>
-  </section>
+  <CtaHero title="Обсудим вашу задачу" button="Обсудить проект" />
 </Base>

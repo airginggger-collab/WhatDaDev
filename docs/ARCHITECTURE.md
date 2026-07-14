@@ -30,7 +30,10 @@ src/
 ├── layouts/
 │   └── Base.astro              # единый каркас всех страниц
 ├── components/
-│   └── Breadcrumbs.astro       # хлебные крошки + JSON-LD BreadcrumbList
+│   ├── Breadcrumbs.astro       # хлебные крошки + JSON-LD BreadcrumbList
+│   ├── CtaHero.astro           # финальный тёмный CTA-блок (title/lead/button, wide?)
+│   ├── Faq.astro               # FAQ на нативных <details> (faq: [q,a][])
+│   └── PressEntry.astro        # шаблон записи пресс-центра (статья/глоссарий)
 ├── lib/                        # общие TS-хелперы (не рендерят разметку)
 │   ├── jsonld.ts               # jsonLd() — безопасная сериализация JSON-LD (экранирует </>/&, защита от XSS)
 │   └── schema.ts               # faqLd()/articleLd() — объекты schema.org FAQPage/Article

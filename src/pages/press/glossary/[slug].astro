@@ -1,8 +1,6 @@
 ---
-import { getCollection, render } from "astro:content";
-import Base from "../../../layouts/Base.astro";
-import Breadcrumbs from "../../../components/Breadcrumbs.astro";
-import { articleLd } from "../../../lib/schema.ts";
+import { getCollection } from "astro:content";
+import PressEntry from "../../../components/PressEntry.astro";
 
 export async function getStaticPaths() {
   const entries = await getCollection("glossary", ({ data }) => !data.draft);
@@ -10,19 +8,5 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const d = entry.data;
-const { Content } = await render(entry);
-
-const jsonld = articleLd(d, `https://whatdadev.ru/press/glossary/${entry.id}/`);
 ---
-<Base title={d.title} description={d.description} jsonld={jsonld}>
-  <section class="hero">
-    <div class="container">
-      <Breadcrumbs items={d.crumbs} />
-      {d.eyebrow && <div class="eyebrow eyebrow-light">{d.eyebrow}</div>}
-      <h1>{d.h1}</h1>
-      {d.lead && <p class="lead">{d.lead}</p>}
-    </div>
-  </section>
-  <Content />
-</Base>
+<PressEntry entry={entry} url={`https://whatdadev.ru/press/glossary/${entry.id}/`} />

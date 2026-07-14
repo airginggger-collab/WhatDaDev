@@ -2,6 +2,17 @@
 
 Все значимые изменения спеки проекта. Формат: семантические версии.
 
+## v0.88 — 2026-07-14
+
+### Сокращение кода: компоненты CtaHero, Faq, PressEntry (шаги 4-6)
+
+Второй проход дедупликации (реализация — Opus-субагент, ревью и верификация — ведущий). HTML/визуал/SEO идентичны, контент передаётся пропсами без изменений. Сборка зелёная (70 страниц), проверено в превью, консоль чистая.
+- **`src/components/CtaHero.astro`** — финальный тёмный CTA-блок (`section.hero > .container.center > h2 + p? + .btn-row.center > a.btn`). Пропсы `title`, `button`, `href`, `lead?`, `titleColor`, `wide?`, `leadMaxWidth`. Два реальных варианта (обычный + широкий с верт. отступами). Мигрировано 8 страниц: `index`, `industries/{index,[slug]}`, `services/{index,razrabotka,vnedrenie/index,vnedrenie/[slug]}`, `kz`. НЕ мигрированы `coordo` (две кнопки), `about`/`pricing` (уникальная разметка lead) — оставлены как есть.
+- **`src/components/Faq.astro`** — нативные `<details><summary>` без JS. Пропсы `faq: [q,a][]`, `heading`, `cta?`, `ctaHref`. Мигрировано 5 уже-`<details>`-страниц: `express/{dogovory,ord,korrespondenciya,vs-razrabotka}`, `modules/zameshcheniya`. Четыре «кнопочные» аккордеон-страницы (`express`, `coordo`, `kz`, `services/index`) НЕ трогали — перевод на `<details>` сменил бы поведение раскрытия. FAQPage JSON-LD у всех уже через `faqLd()`.
+- **`src/components/PressEntry.astro`** — общий hero + рендер markdown-тела для статей/глоссария. Оба слага (`press/articles/[slug]`, `press/glossary/[slug]`) схлопнуты до `getStaticPaths` + `<PressEntry entry url=.../>`. Коллекции и роуты раздельные. JSON-LD через `articleLd()` (воспроизводит оригинал 1-в-1), `lead` через `{d.lead}` (XSS-защита v0.86).
+- Дифф страниц: 15 файлов, +32/−133 (нетто −101) + 3 компонента (+91). Устранено дублирование CTA/FAQ/press-entry. Крупный строковый выигрыш — впереди в шагах 7-8 (обложечные карточки, data-driven контуры).
+- Примечание к dist: имя общего CSS-чанка переехало (`admin-guide.*` → `_slug_.*`), хэш и содержимое байт-в-байт те же — косметика Astro, не регрессия.
+
 ## v0.87 — 2026-07-14
 
 ### Сокращение кода: хелперы schema, мёртвый CSS, токен --accent-light (шаги 1-3)

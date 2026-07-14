@@ -1,0 +1,29 @@
+---
+// Общий шаблон записи пресс-центра (статья/глоссарий): hero + рендер markdown-тела.
+// Коллекции и роуты остаются раздельными — слаги передают entry и готовый url.
+// lead — {d.lead} (plain-текст, НЕ set:html): защита от XSS, см. v0.86.
+import { render } from "astro:content";
+import Base from "../layouts/Base.astro";
+import Breadcrumbs from "./Breadcrumbs.astro";
+import { articleLd } from "../lib/schema.ts";
+
+interface Props {
+  entry: any;
+  url: string;
+}
+const { entry, url } = Astro.props;
+const d = entry.data;
+const { Content } = await render(entry);
+const jsonld = articleLd(d, url);
+---
+<Base title={d.title} description={d.description} jsonld={jsonld}>
+  <section class="hero">
+    <div class="container">
+      <Breadcrumbs items={d.crumbs} />
+      {d.eyebrow && <div class="eyebrow eyebrow-light">{d.eyebrow}</div>}
+      <h1>{d.h1}</h1>
+      {d.lead && <p class="lead">{d.lead}</p>}
+    </div>
+  </section>
+  <Content />
+</Base>

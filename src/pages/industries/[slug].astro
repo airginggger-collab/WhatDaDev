@@ -2,6 +2,7 @@
 import Base from "../../layouts/Base.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import { items as industries } from "../../data/industries.json";
+import CtaHero from "../../components/CtaHero.astro";
 export function getStaticPaths() {
   return industries.map((x) => ({ params: { slug: x.slug }, props: { x } }));
 }
@@ -34,10 +35,5 @@ const jsonld = [{ "@context": "https://schema.org", "@type": "Service", name: x.
       </div>
     </div>
   </section>
-  <section class="hero">
-    <div class="container center">
-      <h2 style="color:#fff">Покажем на ваших процессах</h2>
-      <div class="btn-row center"><a class="btn" href="/contacts/">Записаться на демо</a></div>
-    </div>
-  </section>
+  <CtaHero title="Покажем на ваших процессах" button="Записаться на демо" />
 </Base>

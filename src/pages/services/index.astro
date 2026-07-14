@@ -2,6 +2,7 @@
 import Base from "../../layouts/Base.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import { faqLd } from "../../lib/schema.ts";
+import CtaHero from "../../components/CtaHero.astro";
 const title = "Услуги по ELMA365: от внедрения до поддержки | WhatDaDev";
 const description = "Полный цикл работы с ELMA365: внедрение под ключ, разработка и интеграции, поддержка и обучение, консалтинг, аудит, аутстаффинг. РФ и КЗ.";
 const faqServices = [
@@ -109,16 +110,7 @@ const rest = services.slice(1);
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="hero" style="min-height:auto">
-    <div class="container center" style="padding-top:72px;padding-bottom:72px;width:100%">
-      <h2 style="color:#fff;max-width:560px;margin:0 auto 16px">Обсудим вашу задачу</h2>
-      <p style="color:var(--dark-muted);margin-bottom:28px;max-width:440px;margin-left:auto;margin-right:auto">Расскажите о процессах, а мы предложим решение и оценку.</p>
-      <div class="btn-row center">
-        <a class="btn" href="/contacts/">Обсудить проект</a>
-      </div>
-    </div>
-  </section>
+  <CtaHero wide title="Обсудим вашу задачу" lead="Расскажите о процессах, а мы предложим решение и оценку." button="Обсудить проект" />
 
 </Base>
 

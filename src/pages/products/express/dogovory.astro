@@ -2,6 +2,7 @@
 import Base from "../../../layouts/Base.astro";
 import Breadcrumbs from "../../../components/Breadcrumbs.astro";
 import { faqLd } from "../../../lib/schema.ts";
+import Faq from "../../../components/Faq.astro";
 const title = "Согласование договоров на ELMA365 электронно | WhatDaDev";
 const description = "Электронное согласование договоров на ELMA365: маршруты, сроки, контроль, единый реестр. Доходные договоры из коробки.";
 const faq = [
@@ -43,11 +44,5 @@ const jsonld = [faqLd(faq)];
       </div>
     </div>
   </section>
-  <section class="section">
-    <div class="container faq">
-      <h2>Частые вопросы</h2>
-      {faq.map(([q, a]) => (<details><summary>{q}</summary><p>{a}</p></details>))}
-      <div class="btn-row"><a class="btn" href="/contacts/">Записаться на демо</a></div>
-    </div>
-  </section>
+  <Faq faq={faq} cta="Записаться на демо" />
 </Base>

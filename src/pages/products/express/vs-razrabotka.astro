@@ -2,6 +2,7 @@
 import Base from "../../../layouts/Base.astro";
 import Breadcrumbs from "../../../components/Breadcrumbs.astro";
 import { faqLd } from "../../../lib/schema.ts";
+import Faq from "../../../components/Faq.astro";
 const title = "Коробка или разработка ЭДО с нуля: как выбрать | WhatDaDev";
 const description = "Честное сравнение: готовый ЭДО на ELMA365 из коробки или разработка с нуля. Когда что выгоднее.";
 const faq = [
@@ -37,10 +38,5 @@ const jsonld = [faqLd(faq)];
       <div class="btn-row"><a class="btn" href="/products/express/">Смотреть продукт</a><a class="btn btn-ghost" href="/services/razrabotka/">Разработка</a></div>
     </div>
   </section>
-  <section class="section">
-    <div class="container faq">
-      <h2>Частые вопросы</h2>
-      {faq.map(([q, a]) => (<details><summary>{q}</summary><p>{a}</p></details>))}
-    </div>
-  </section>
+  <Faq faq={faq} />
 </Base>

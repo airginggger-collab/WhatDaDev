@@ -1,0 +1,43 @@
+---
+// Финальный тёмный CTA-блок (section.hero > .container.center > h2 + p? + .btn-row.center > a.btn).
+// Собирает повторяющуюся разметку CTA. Тексты — только пропсами, контент не меняем.
+// wide — «широкий» вариант (min-height:auto + вертикальные отступы + ограничение ширины),
+// как на index отраслей/услуг и /kz/. Обычный вариант — компактный, без доп. стилей секции.
+interface Props {
+  title: string;
+  button: string;
+  href?: string;
+  lead?: string;
+  titleColor?: string;
+  wide?: boolean;
+  leadMaxWidth?: number;
+}
+const {
+  title,
+  button,
+  href = "/contacts/",
+  lead,
+  titleColor = "#fff",
+  wide = false,
+  leadMaxWidth = 440,
+} = Astro.props;
+---
+{wide ? (
+  <section class="hero" style="min-height:auto">
+    <div class="container center" style="padding-top:72px;padding-bottom:72px;width:100%">
+      <h2 style={`color:${titleColor};max-width:560px;margin:0 auto 16px`}>{title}</h2>
+      {lead && (
+        <p style={`color:var(--dark-muted);margin-bottom:28px;max-width:${leadMaxWidth}px;margin-left:auto;margin-right:auto`}>{lead}</p>
+      )}
+      <div class="btn-row center"><a class="btn" href={href}>{button}</a></div>
+    </div>
+  </section>
+) : (
+  <section class="hero">
+    <div class="container center">
+      <h2 style={`color:${titleColor}`}>{title}</h2>
+      {lead && <p class="lead" style="margin:0 auto">{lead}</p>}
+      <div class="btn-row center"><a class="btn" href={href}>{button}</a></div>
+    </div>
+  </section>
+)}

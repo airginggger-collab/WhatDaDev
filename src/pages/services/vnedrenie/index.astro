@@ -2,6 +2,7 @@
 import Base from "../../../layouts/Base.astro";
 import Breadcrumbs from "../../../components/Breadcrumbs.astro";
 import { items as directions } from "../../../data/directions.json";
+import CtaHero from "../../../components/CtaHero.astro";
 const title = "Внедрение ELMA365 под ключ: быстро и надёжно | WhatDaDev";
 const description = "Внедряем ELMA365 под ключ: CRM, ЭДО, ServiceDesk, закупки, проекты, КЭДО. Аналитика, настройка, поддержка. Работаем с релиза платформы.";
 const steps = [
@@ -70,10 +71,5 @@ const jsonld = [{ "@context": "https://schema.org", "@type": "Service", name: "�
   .tl-body h3 { font-size: 1.05rem; margin-bottom: 6px; }
   .tl-body p { color: var(--muted); font-size: 15px; line-height: 1.6; margin: 0; }
 </style>
-  <section class="hero">
-    <div class="container center">
-      <h2 style="color:#fff">Обсудим вашу задачу</h2>
-      <div class="btn-row center"><a class="btn" href="/contacts/">Обсудить проект</a></div>
-    </div>
-  </section>
+  <CtaHero title="Обсудим вашу задачу" button="Обсудить проект" />
 </Base>

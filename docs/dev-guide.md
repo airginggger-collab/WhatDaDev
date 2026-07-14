@@ -59,7 +59,10 @@ src/
 ├── layouts/
 │   └── Base.astro          # общий каркас: <head>, nav, footer, JSON-LD Organization
 ├── components/
-│   └── Breadcrumbs.astro   # хлебные крошки + JSON-LD BreadcrumbList
+│   ├── Breadcrumbs.astro   # хлебные крошки + JSON-LD BreadcrumbList
+│   ├── CtaHero.astro       # тёмный CTA-блок (пропсы title/lead/button/wide)
+│   ├── Faq.astro           # FAQ на нативных <details> (faq: [q,a][])
+│   └── PressEntry.astro    # общий шаблон статьи/термина глоссария
 ├── lib/                    # TS-хелперы: jsonld.ts (безопасная сериализация JSON-LD), schema.ts (faqLd/articleLd)
 ├── data/
 │   ├── directions.json       # 8 направлений внедрения (/services/vnedrenie/[slug])

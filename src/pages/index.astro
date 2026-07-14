@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import CtaHero from "../components/CtaHero.astro";
 import home from "../data/home.json";
 ---
 <Base>
@@ -179,11 +180,5 @@ import home from "../data/home.json";
     </div>
   </section>
 
-  <section class="hero">
-    <div class="container center">
-      <h2 style="color:var(--dark-text)">{home.cta.title}</h2>
-      <p class="lead" style="margin:0 auto">{home.cta.lead}</p>
-      <div class="btn-row center"><a class="btn" href="/contacts/">{home.cta.button}</a></div>
-    </div>
-  </section>
+  <CtaHero title={home.cta.title} lead={home.cta.lead} button={home.cta.button} titleColor="var(--dark-text)" />
 </Base>

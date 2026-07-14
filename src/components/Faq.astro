@@ -1,0 +1,19 @@
+---
+// Блок FAQ на нативных <details> (без JS): section.section > .container.faq > h2 + <details> + опц. CTA.
+// JSON-LD FAQPage генерируется на странице через faqLd() отдельно (способ раскрытия != schema).
+// cta — текст кнопки под списком; если не задан, кнопки нет (как на vs-razrabotka).
+interface Props {
+  faq: [string, string][];
+  heading?: string;
+  cta?: string;
+  ctaHref?: string;
+}
+const { faq, heading = "Частые вопросы", cta, ctaHref = "/contacts/" } = Astro.props;
+---
+<section class="section">
+  <div class="container faq">
+    <h2>{heading}</h2>
+    {faq.map(([q, a]) => (<details><summary>{q}</summary><p>{a}</p></details>))}
+    {cta && <div class="btn-row"><a class="btn" href={ctaHref}>{cta}</a></div>}
+  </div>
+</section>
