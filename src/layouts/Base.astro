@@ -9,12 +9,28 @@ import { jsonLd } from "../lib/jsonld.ts";
 const { title = "WhatDaDev: внедрение ELMA365 и готовый ЭДО из коробки", description = "Внедрение ELMA365 под ключ и коробочные продукты для документооборота. РФ и КЗ.", jsonld = [], noindex = false } = Astro.props;
 const org = {
   "@context": "https://schema.org", "@type": "Organization",
+  "@id": "https://whatdadev.ru/#org",
   name: "WhatDaDev", url: "https://whatdadev.ru",
   description: "Внедрение ELMA365 под ключ и готовые продукты для документооборота. РФ и КЗ.",
+  logo: { "@type": "ImageObject", url: "https://whatdadev.ru/og.png" },
   email: contacts.email, telephone: contacts.phone,
-  areaServed: ["RU", "KZ"], sameAs: [`https://t.me/${contacts.telegram}`],
+  areaServed: ["RU", "KZ"],
+  contactPoint: {
+    "@type": "ContactPoint", contactType: "sales",
+    telephone: contacts.phone, email: contacts.email,
+    areaServed: ["RU", "KZ"], availableLanguage: "ru",
+  },
+  sameAs: [
+    `https://t.me/${contacts.telegram}`,
+    contacts.instagram, contacts.youtube, contacts.vk, contacts.tiktok,
+  ],
 };
-const website = { "@context": "https://schema.org", "@type": "WebSite", name: "WhatDaDev", url: "https://whatdadev.ru", inLanguage: ["ru", "en"] };
+const website = {
+  "@context": "https://schema.org", "@type": "WebSite",
+  "@id": "https://whatdadev.ru/#website",
+  name: "WhatDaDev", url: "https://whatdadev.ru",
+  inLanguage: "ru", publisher: { "@id": "https://whatdadev.ru/#org" },
+};
 const blocks = [org, website, ...jsonld];
 const currentPath = Astro.url.pathname;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;

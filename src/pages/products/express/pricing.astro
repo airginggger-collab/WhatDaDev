@@ -15,16 +15,6 @@ const jsonld = [
     "@type": "FAQPage",
     mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })),
   },
-  {
-    "@context": "https://schema.org",
-    "@type": "Offer",
-    name: "Экспресс внедрение (Coordo)",
-    description: "Готовый ЭДО на ELMA365 за фиксированную цену",
-    seller: { "@type": "Organization", name: "WhatDaDev", url: "https://whatdadev.ru" },
-    priceCurrency: "RUB",
-    availability: "https://schema.org/InStock",
-    url: "https://whatdadev.ru/products/express/pricing/",
-  },
 ];
 ---
 <Base title={title} description={description} jsonld={jsonld}>

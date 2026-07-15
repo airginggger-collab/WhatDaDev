@@ -1,9 +1,10 @@
 # HANDOFF — снимок состояния проекта
 
-Обновлено: 2026-07-15 · версия **v0.93**
+Обновлено: 2026-07-16 · версия **v0.94**
 Цель файла: чтобы новая сессия (Claude или человек) за минуту поняла, где мы.
 
-> **v0.93 — llms.txt для AI-видимости:** `/llms.txt` (endpoint `src/pages/llms.txt.ts`) генерится на билде из `src/data` + коллекций (услуги/продукты/отрасли/статьи/глоссарий, абсолютные URL). Внешние AI-агенты точнее понимают сайт. Пареллельно прогнан JSON-LD аудит (workflow) — внедрение находок отдельно. См. CHANGELOG v0.93.
+> **v0.94 — JSON-LD аудит-фиксы:** Organization обогащён (@id/logo/contactPoint/полный sameAs), WebSite (@id/publisher/inLanguage ru), @id-граф (author/publisher/provider → #org), /kz FAQPage больше не размечает {{...}}-заглушки, ItemList модулей наполнен, пустой Offer убран, priceValidUntil в express/coordo. Проверено в dist. Остаток (P2/P3 покрытие + Article-даты + риск домена) — `docs/05-seo/jsonld-audit-backlog.md`. См. CHANGELOG v0.94.
+> **v0.93 — llms.txt:** `/llms.txt` (endpoint `src/pages/llms.txt.ts`) из `src/data` + коллекций. Внешние AI-агенты точнее понимают сайт.
 
 > **v0.81 — deliverable, не сайт:** продающая демо-презентация (7 слайдов, инфографика) в `deliverables/WhatDaDev_Презентация_Знакомство.{pdf,pptx,html}`. Слайд 1 — **обложка-титул** (navy, вордмарк + опоры «О нас»); дальше Проблема · ELMA365 · Coordo · Доказательство · Экосистема · CTA. Палитра — **моно-синяя корпоративная**, синий усилен: navy-«крышки» (обложка+CTA) + navy-заголовки контента `#123F73` + электрик-азур `#1668C0` акценты; оранжевого нет, WCAG AA. Идентичность дека отдельная от сайта — только демо; **сайт и ADR-0013/0014 не трогаем.** PPTX — Arial/Courier New, PDF/HTML — IBM Plex. Детали — `deliverables/README.md`, `docs/CHANGELOG.md` v0.81.
 

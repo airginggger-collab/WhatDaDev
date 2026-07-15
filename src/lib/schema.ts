@@ -35,8 +35,8 @@ export function articleLd(d: ArticleData, url: string) {
     "@type": "Article",
     headline: d.headline,
     description: d.description,
-    author: { "@type": "Organization", name: "WhatDaDev", url: "https://whatdadev.ru" },
-    publisher: { "@type": "Organization", name: "WhatDaDev", url: "https://whatdadev.ru" },
+    author: { "@id": "https://whatdadev.ru/#org" },
+    publisher: { "@id": "https://whatdadev.ru/#org" },
     url,
     inLanguage: "ru",
   };

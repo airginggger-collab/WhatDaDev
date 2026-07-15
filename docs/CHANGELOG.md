@@ -2,6 +2,17 @@
 
 Все значимые изменения спеки проекта. Формат: семантические версии.
 
+## v0.94 — 2026-07-16
+
+### JSON-LD аудит: обогащение entity-графа + correctness
+
+Прогнан exhaustive-аудит JSON-LD (4 измерения × адверсариальная верификация, 9 агентов). P0 не найдено. Внедрены CONFIRMED-находки:
+- Глобальный `Organization` (`Base.astro`) обогащён: `@id` (#org), `logo` (og.png), `contactPoint` (sales), полный `sameAs` (Telegram, Instagram, YouTube, VK, TikTok из `contacts.json`). `WebSite` получил `@id` (#website), `publisher: {@id #org}`, `inLanguage` исправлен с `["ru","en"]` на `"ru"` (EN-версии нет).
+- @id-граф: `articleLd` author/publisher (`schema.ts`) и `Offer.provider` (express, coordo) переведены с инлайн-дублей `Organization` на `{@id: #org}`.
+- Policy-фикс: на `/kz` FAQPage сериализовал `{{...}}`-заглушки Фазы 0 как факты (референсы Air Astana/Bereke) — теперь фильтруются до `faqLd`. Видимые заглушки остаются контент-задачей Фазы 0.
+- Correctness: `ItemList` модулей (`/products/modules/`) был пустым, наполнен из `modules.json`; standalone `Offer` без цены на `/products/express/pricing/` удалён; в `Offer` express/coordo добавлен `priceValidUntil: 2026-07-31` (= promo_until).
+Проверено в `dist/*.html`. Сборка зелёная (70 страниц). Остаток аудита (P2/P3 покрытие + Article-даты + риск site=whatdadev.ru) вынесен в `docs/05-seo/jsonld-audit-backlog.md`.
+
 ## v0.93 — 2026-07-15
 
 ### llms.txt для AI-видимости

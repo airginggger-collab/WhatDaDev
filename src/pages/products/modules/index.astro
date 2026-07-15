@@ -11,6 +11,12 @@ const itemList = {
   description,
   url: "https://whatdadev.ru/products/modules/",
   inLanguage: "ru",
+  itemListElement: modules.map((m, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: m.name,
+    ...(m.href ? { url: `https://whatdadev.ru${m.href}` } : {}),
+  })),
 };
 ---
 <Base title={title} description={description} jsonld={[itemList]}>
