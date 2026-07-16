@@ -5,6 +5,7 @@ import "@fontsource/ibm-plex-mono/400.css";
 import "@fontsource/ibm-plex-mono/500.css";
 import "../styles/global.css";
 import contacts from "../data/contacts.json";
+import Analytics from "../components/Analytics.astro";
 import { jsonLd } from "../lib/jsonld.ts";
 const { title = "WhatDaDev: внедрение ELMA365 и готовый ЭДО из коробки", description = "Внедрение ELMA365 под ключ и коробочные продукты для документооборота. РФ и КЗ.", jsonld = [], noindex = false } = Astro.props;
 const org = {
@@ -61,6 +62,7 @@ const ogImage = new URL("/og.png", Astro.site).href;
     <meta name="twitter:image" content={ogImage} />
     <script is:inline>document.documentElement.classList.add('js');</script>
     {blocks.map((b) => <script type="application/ld+json" set:html={jsonLd(b)} />)}
+    <Analytics />
   </head>
   <body>
     <header class="site-header">

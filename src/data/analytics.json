@@ -1,0 +1,5 @@
+{
+  "_comment": "ID счётчиков. Пустая строка = счётчик не подключается (ни скрипта, ни запросов). Метрика: 8 цифр из metrika.yandex.ru. GA4: Measurement ID вида G-XXXXXXXXXX. Счётчики работают только на проде, на localhost отключены.",
+  "yandex_metrika_id": "",
+  "ga4_measurement_id": ""
+}

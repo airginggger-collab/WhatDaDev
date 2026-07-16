@@ -1,7 +1,9 @@
 # HANDOFF — снимок состояния проекта
 
-Обновлено: 2026-07-16 · версия **v0.94**
+Обновлено: 2026-07-16 · версия **v0.95**
 Цель файла: чтобы новая сессия (Claude или человек) за минуту поняла, где мы.
+
+> **v0.95 — аналитика + заглушки с /kz/:** обвязка счётчиков готова, ID вынесены в `src/data/analytics.json` (пустой ID = скрипта нет в HTML). Метрика и/или GA4 через `src/components/Analytics.astro`, только на проде. События делегированием: `cta_click`, `messenger_click`, `email_click`, `phone_click`, `lead_form_submit`, `scroll_depth` (25/50/75/100). Проверено в браузере на тестовых ID. **Ждём от владельца реальные ID** — до этого счётчиков на проде нет. Параллельно: `/kz/` больше не показывает `{{...}}`-заглушки Фазы 0 (карточка «Локальный партнёр» и секция «Локализация РК» скрыты целиком, FAQ 2 из 4). Содержание не выдумано, только скрыто. Работа по `AUDIT-2026-07-16-whatdadev.md`, остальные пункты в очереди. См. CHANGELOG v0.95.
 
 > **v0.94 — JSON-LD аудит-фиксы:** Organization обогащён (@id/logo/contactPoint/полный sameAs), WebSite (@id/publisher/inLanguage ru), @id-граф (author/publisher/provider → #org), /kz FAQPage больше не размечает {{...}}-заглушки, ItemList модулей наполнен, пустой Offer убран, priceValidUntil в express/coordo. Проверено в dist. Остаток (P2/P3 покрытие + Article-даты + риск домена) — `docs/05-seo/jsonld-audit-backlog.md`. См. CHANGELOG v0.94.
 > **v0.93 — llms.txt:** `/llms.txt` (endpoint `src/pages/llms.txt.ts`) из `src/data` + коллекций. Внешние AI-агенты точнее понимают сайт.

@@ -1,0 +1,76 @@
+---
+// Счётчики + события. ID берём из src/data/analytics.json: пустой ID = скрипт не
+// рендерится вообще. В dev-режиме счётчиков нет, чтобы не мусорить в статистику.
+import analytics from "../data/analytics.json";
+
+const ymId = analytics.yandex_metrika_id?.trim();
+const gaId = analytics.ga4_measurement_id?.trim();
+const on = import.meta.env.PROD && (ymId || gaId);
+---
+{on && (
+  <>
+    {ymId && (
+      <script is:inline define:vars={{ ymId }}>
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
+        window.ym(Number(ymId), "init", { clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: true });
+      </script>
+    )}
+    {gaId && (
+      <>
+        <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+        <script is:inline define:vars={{ gaId }}>
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = function () { window.dataLayer.push(arguments); };
+          window.gtag("js", new Date());
+          window.gtag("config", gaId);
+        </script>
+      </>
+    )}
+
+    <script is:inline define:vars={{ ymId, gaId }}>
+      // Единая точка отправки: цель уходит в оба счётчика, какой подключён.
+      window.wddTrack = function (name, params) {
+        if (ymId && window.ym) window.ym(Number(ymId), "reachGoal", name, params);
+        if (gaId && window.gtag) window.gtag("event", name, params || {});
+      };
+
+      // События вешаем делегированием, чтобы не править каждую страницу руками.
+      document.addEventListener("click", function (e) {
+        var a = e.target.closest && e.target.closest("a");
+        if (!a) return;
+        var href = a.getAttribute("href") || "";
+        if (/^https:\/\/(t\.me|wa\.me)/.test(href)) {
+          window.wddTrack("messenger_click", { channel: href.indexOf("t.me") > -1 ? "telegram" : "whatsapp", page: location.pathname });
+        } else if (/^mailto:/.test(href)) {
+          window.wddTrack("email_click", { page: location.pathname });
+        } else if (/^tel:/.test(href)) {
+          window.wddTrack("phone_click", { page: location.pathname });
+        } else if (a.classList.contains("btn") || a.classList.contains("btn-secondary")) {
+          window.wddTrack("cta_click", { label: (a.innerText || "").trim().slice(0, 60), page: location.pathname });
+        }
+      }, { passive: true });
+
+      document.addEventListener("submit", function (e) {
+        if (e.target && e.target.id === "leadForm") window.wddTrack("lead_form_submit", { page: location.pathname });
+      });
+
+      // Глубина просмотра: по одному событию на порог, без повторов.
+      var marks = [25, 50, 75, 100], hit = {};
+      window.addEventListener("scroll", function () {
+        var h = document.documentElement.scrollHeight - window.innerHeight;
+        if (h <= 0) return;
+        var pct = (window.scrollY / h) * 100;
+        for (var i = 0; i < marks.length; i++) {
+          var m = marks[i];
+          if (pct >= m && !hit[m]) { hit[m] = 1; window.wddTrack("scroll_depth", { depth: m, page: location.pathname }); }
+        }
+      }, { passive: true });
+    </script>
+
+    {ymId && (
+      <noscript><div><img src={`https://mc.yandex.ru/watch/${ymId}`} style="position:absolute;left:-9999px" alt="" /></div></noscript>
+    )}
+  </>
+)}

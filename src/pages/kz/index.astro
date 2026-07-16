@@ -38,10 +38,16 @@ const faqKz = [
   ["Чем ELMA365 отличается от иностранных систем?", "Разворачивается локально, лицензия выкупная, а не по подписке, платформа low-code позволяет развивать решение своей командой без привязки к вендору."],
 ];
 
-// Заглушки {{...}} (Фаза 0) НЕ размечаем как факты: разметка отзывов/референсов,
-// которых нет как подтверждённого контента, нарушает правило проекта. Фильтруем до faqLd.
-// Видимые заглушки остаются контент-задачей владельца (Фаза 0).
-const jsonld = [faqLd(faqKz.filter(([, a]) => !a.includes("{{")))];
+// Заглушки {{...}} (Фаза 0) не рендерим вообще: ни в JSON-LD, ни на экране.
+// Содержание не выдумываем, ждём подтверждения заказчика. Пустой блок лучше,
+// чем блок с «уточнить». Один фильтр на разметку и на вывод: видимый FAQ и
+// FAQPage совпадают.
+const draft = (s) => s.includes("{{");
+const argsReady = args.filter((a) => !draft(a.d) && !draft(a.t));
+const localReady = local.filter((l) => !draft(l.d) && !draft(l.t));
+const faqReady = faqKz.filter(([q, a]) => !draft(a) && !draft(q));
+
+const jsonld = [faqLd(faqReady)];
 ---
 <Base title={title} description={description} jsonld={jsonld}>
 
@@ -81,7 +87,7 @@ const jsonld = [faqLd(faqKz.filter(([, a]) => !a.includes("{{")))];
       <div class="eyebrow reveal">Почему on-prem</div>
       <h2 class="reveal">Контроль над процессами и данными остаётся у вас</h2>
       <div class="grid grid-2" style="margin-top:32px;align-items:start">
-        {args.map((a) => (
+        {argsReady.map((a) => (
           <div class="card reveal">
             <h3>{a.t}</h3>
             <p class="muted">{a.d}</p>
@@ -91,22 +97,23 @@ const jsonld = [faqLd(faqKz.filter(([, a]) => !a.includes("{{")))];
     </div>
   </section>
 
-  <!-- ЛОКАЛИЗАЦИЯ РК -->
-  <section class="section">
-    <div class="container">
-      <div class="eyebrow reveal">Локализация РК</div>
-      <h2 class="reveal">Под требования казахстанского рынка</h2>
-      <p class="muted reveal" style="max-width:640px">Ниже блок фактов по локализации. Формулировки заполняются после подтверждения заказчиком, чтобы не публиковать неточные заявления.</p>
-      <div class="grid grid-2" style="margin-top:32px;align-items:start">
-        {local.map((l) => (
-          <div class="card reveal">
-            <h3>{l.t}</h3>
-            <p class="muted">{l.d}</p>
-          </div>
-        ))}
+  <!-- ЛОКАЛИЗАЦИЯ РК (скрыта целиком, пока все факты в статусе Фазы 0) -->
+  {localReady.length > 0 && (
+    <section class="section">
+      <div class="container">
+        <div class="eyebrow reveal">Локализация РК</div>
+        <h2 class="reveal">Под требования казахстанского рынка</h2>
+        <div class="grid grid-2" style="margin-top:32px;align-items:start">
+          {localReady.map((l) => (
+            <div class="card reveal">
+              <h3>{l.t}</h3>
+              <p class="muted">{l.d}</p>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  )}
 
   <CtaHero wide title="Покажем ELMA365 на вашем процессе" lead="Разберём задачу и предложим путь: готовый продукт из коробки или внедрение под ключ." button="Записаться на демо" leadMaxWidth={460} />
 
@@ -116,7 +123,7 @@ const jsonld = [faqLd(faqKz.filter(([, a]) => !a.includes("{{")))];
       <div class="eyebrow reveal">FAQ</div>
       <h2 class="reveal">Вопросы про ELMA365 в Казахстане</h2>
       <div class="faq reveal" style="margin-top:32px">
-        {faqKz.map(([q, a]) => (
+        {faqReady.map(([q, a]) => (
           <div class="faq-item">
             <button class="faq-q" aria-expanded="false">{q}</button>
             <div class="faq-a"><p>{a}</p></div>
