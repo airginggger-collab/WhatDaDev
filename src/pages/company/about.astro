@@ -2,6 +2,7 @@
 import Base from "../../layouts/Base.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import { members as team } from "../../data/team.json";
+import { ORG_REF, SITE } from "../../lib/schema.ts";
 const title = "О компании WhatDaDev: эксперты ELMA365 | РФ и КЗ";
 const description = "WhatDaDev занимается внедрением ELMA365 и развивает собственные продукты. С релиза платформы, сертифицированные эксперты. Работаем в РФ и КЗ.";
 const aboutPage = {
@@ -9,11 +10,26 @@ const aboutPage = {
   "@type": "AboutPage",
   name: "О компании WhatDaDev",
   description,
-  url: "https://whatdadev.ru/company/about/",
+  url: `${SITE}/company/about/`,
   inLanguage: "ru",
+  about: ORG_REF,
 };
+
+// Команда как Person: сигнал E-E-A-T, кто стоит за экспертизой. Данные только из
+// team.json, ничего не достраиваем: founder не ставим, «Руководитель компании» в
+// данных не означает основателя.
+const people = team.map((m) => ({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: m.name,
+  jobTitle: m.role,
+  description: m.bio,
+  worksFor: ORG_REF,
+  ...(m.photo ? { image: SITE + m.photo } : {}),
+  ...(m.linkedin ? { sameAs: [m.linkedin] } : {}),
+}));
 ---
-<Base title={title} description={description} jsonld={[aboutPage]}>
+<Base title={title} description={description} jsonld={[aboutPage, ...people]}>
   <section class="hero">
     <div class="container">
       <Breadcrumbs items={[{ name: "Главная", href: "/" }, { name: "О компании" }]} />

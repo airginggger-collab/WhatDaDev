@@ -4,6 +4,7 @@ import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import { getCollection } from "astro:content";
 import contacts from "../../data/contacts.json";
 import pressTags from "../../data/press-tags.json";
+import { collectionPageLd, SITE } from "../../lib/schema.ts";
 
 const title = "Пресс-центр WhatDaDev: статьи об ELMA365 и ЭДО | WhatDaDev";
 const description = "Статьи, сравнения и обзоры об ELMA365, документообороте и автоматизации процессов.";
@@ -18,14 +19,13 @@ const featured = liveArticles[0];
 const rest = liveArticles.slice(1);
 const allTags = [...new Set(liveArticles.map(a => a.tag))];
 
-const collectionPage = {
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
+// CollectionPage был пустым узлом: перечня статей в нём не было. Наполняем ItemList.
+const collectionPage = collectionPageLd({
   name: "Пресс-центр WhatDaDev",
   description,
-  url: "https://whatdadev.ru/press/",
-  inLanguage: "ru",
-};
+  url: `${SITE}/press/`,
+  items: liveArticles.map((a) => ({ name: a.name, url: `${SITE}/press/articles/${a.slug}/` })),
+});
 ---
 <Base title={title} description={description} jsonld={[collectionPage]}>
 

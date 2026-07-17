@@ -2,6 +2,10 @@
 import { jsonLd } from "../lib/jsonld.ts";
 const { items } = Astro.props;
 const site = "https://whatdadev.ru";
+// Условие вывода item совпадает с условием ссылки в разметке ниже: текущая
+// страница (последний пункт) остаётся без item, даже если href ей передали.
+// Раньше правила расходились, и разметка могла обещать ссылку, которой нет.
+const isLink = (it, i) => Boolean(it.href) && i < items.length - 1;
 const ld = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -9,7 +13,7 @@ const ld = {
     "@type": "ListItem",
     position: i + 1,
     name: it.name,
-    ...(it.href ? { item: site + it.href } : {}),
+    ...(isLink(it, i) ? { item: site + it.href } : {}),
   })),
 };
 ---
@@ -17,7 +21,7 @@ const ld = {
   {items.map((it, i) => (
     <>
       {i > 0 && <span class="sep">/</span>}
-      {it.href && i < items.length - 1 ? <a href={it.href}>{it.name}</a> : <span aria-current="page">{it.name}</span>}
+      {isLink(it, i) ? <a href={it.href}>{it.name}</a> : <span aria-current="page">{it.name}</span>}
     </>
   ))}
 </nav>

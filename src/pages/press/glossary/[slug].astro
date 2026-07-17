@@ -9,4 +9,4 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 ---
-<PressEntry entry={entry} url={`https://whatdadev.ru/press/glossary/${entry.id}/`} />
+<PressEntry entry={entry} url={`https://whatdadev.ru/press/glossary/${entry.id}/`} kind="term" />

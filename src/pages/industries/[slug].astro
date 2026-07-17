@@ -3,11 +3,20 @@ import Base from "../../layouts/Base.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import { items as industries } from "../../data/industries.json";
 import CtaHero from "../../components/CtaHero.astro";
+import { serviceLd, SITE } from "../../lib/schema.ts";
 export function getStaticPaths() {
   return industries.map((x) => ({ params: { slug: x.slug }, props: { x } }));
 }
 const { x } = Astro.props;
-const jsonld = [{ "@context": "https://schema.org", "@type": "Service", name: x.h1, url: `https://whatdadev.ru/industries/${x.slug}/`, areaServed: ["RU", "KZ"], provider: { "@type": "Organization", name: "WhatDaDev", url: "https://whatdadev.ru" } }];
+// Service был тонким: без description, а provider дублировал Organization инлайном.
+const jsonld = [
+  serviceLd({
+    name: x.h1,
+    description: x.desc,
+    url: `${SITE}/industries/${x.slug}/`,
+    serviceType: "Внедрение ELMA365",
+  }),
+];
 ---
 <Base title={x.title} description={x.desc} jsonld={jsonld}>
   <section class="hero">

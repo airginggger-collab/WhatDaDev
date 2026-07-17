@@ -1,6 +1,8 @@
 ---
 name: "Service Desk"
 order: 14
+date_published: "2026-07-06"
+date_modified: "2026-07-14"
 title: "Service Desk: что это такое, определение и применение | WhatDaDev"
 description: "Что такое Service Desk (сервисный стол): определение, применение в документообороте и автоматизации процессов на базе ELMA365."
 headline: "Service Desk: что это такое"

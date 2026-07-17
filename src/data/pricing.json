@@ -1,5 +1,7 @@
 {
+  "_comment_promo": "promo_until для людей, promo_until_iso та же дата для разметки (priceValidUntil). Менять ОБА вместе. Раньше ISO-дата была захардкожена на страницах express и coordo и неизбежно разошлась бы с этой.",
   "promo_until": "31 июля 2026",
+  "promo_until_iso": "2026-07-31",
   "price_number_rub": "690000",
   "price_rub": "690 000 ₽",
   "price_kzt": "4 140 000 ₸",

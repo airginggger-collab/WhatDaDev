@@ -2,14 +2,18 @@
 import Base from "../../../layouts/Base.astro";
 import Breadcrumbs from "../../../components/Breadcrumbs.astro";
 import { getCollection } from "astro:content";
+import { definedTermSetLd, SITE } from "../../../lib/schema.ts";
 const title = "Глоссарий по ЭДО и автоматизации процессов | WhatDaDev";
 const description = "Словарь терминов: ЭДО, СЭД, BPM, КЭДО, ОРД, ЭЦП, ЮЗЭДО и другие понятия документооборота.";
 const entries = await getCollection("glossary", ({ data }) => !data.draft);
 const terms = entries
   .map((e) => ({ slug: e.id, name: e.data.name, order: e.data.order }))
   .sort((a, b) => a.order - b.order);
+
+// Набор терминов: страницы терминов ссылаются сюда через inDefinedTermSet.
+const jsonld = [definedTermSetLd(terms.map((t) => ({ name: t.name, url: `${SITE}/press/glossary/${t.slug}/` })))];
 ---
-<Base title={title} description={description}>
+<Base title={title} description={description} jsonld={jsonld}>
   <section class="hero">
     <div class="container">
       <Breadcrumbs items={[{ name:"Главная", href:"/" }, { name:"Пресс-центр", href:"/press/" }, { name:"Глоссарий" }]} />

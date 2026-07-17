@@ -2,10 +2,43 @@
 import Base from "../layouts/Base.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import contacts from "../data/contacts.json";
+import { ORG_REF, SITE } from "../lib/schema.ts";
 const title = "Контакты WhatDaDev: внедрение ELMA365 | РФ и КЗ";
 const description = "Свяжитесь с WhatDaDev: Telegram, WhatsApp, email. Записаться на демо или обсудить внедрение ELMA365.";
+
+// ContactPage со списком реальных точек связи. Значения из contacts.json.
+const contactPage = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  name: "Контакты WhatDaDev",
+  description,
+  url: `${SITE}/contacts/`,
+  inLanguage: "ru",
+  about: ORG_REF,
+  mainEntity: {
+    ...ORG_REF,
+    "@type": "Organization",
+    contactPoint: [
+      {
+        "@type": "ContactPoint", contactType: "sales",
+        telephone: contacts.phone, email: contacts.email,
+        areaServed: ["RU", "KZ"], availableLanguage: "ru",
+      },
+      {
+        "@type": "ContactPoint", contactType: "technical support",
+        email: contacts.support_email,
+        areaServed: ["RU", "KZ"], availableLanguage: "ru",
+      },
+      {
+        "@type": "ContactPoint", contactType: "HR",
+        email: contacts.career_email,
+        availableLanguage: "ru",
+      },
+    ],
+  },
+};
 ---
-<Base title={title} description={description}>
+<Base title={title} description={description} jsonld={[contactPage]}>
   <section class="hero">
     <div class="container">
       <Breadcrumbs items={[{ name: "Главная", href: "/" }, { name: "Контакты" }]} />

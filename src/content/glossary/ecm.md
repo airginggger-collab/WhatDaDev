@@ -1,6 +1,8 @@
 ---
 name: "ECM (Enterprise Content Management)"
 order: 3
+date_published: "2026-06-23"
+date_modified: "2026-07-14"
 title: "ECM: что это такое, определение и применение | WhatDaDev"
 description: "Что такое ECM (Enterprise Content Management): определение, применение в документообороте и автоматизации процессов."
 headline: "ECM: что это такое"

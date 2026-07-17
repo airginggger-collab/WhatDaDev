@@ -1,7 +1,7 @@
 ---
 import Base from "../../layouts/Base.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
-import { faqLd } from "../../lib/schema.ts";
+import { faqLd, collectionPageLd, SITE } from "../../lib/schema.ts";
 import { items as services } from "../../data/services.json";
 import CtaHero from "../../components/CtaHero.astro";
 const title = "Услуги по ELMA365: от внедрения до поддержки | WhatDaDev";
@@ -12,7 +12,17 @@ const faqServices = [
   ["Что входит в услугу разработки?", "Проектирование бизнес-процессов, разработка модулей ELMA365, интеграции с 1С/CRM/ERP, тестирование и обучение пользователей."],
   ["Можно ли мигрировать с другой системы?", "Да, помогаем с миграцией с Битрикс24, 1С:Документооборот и других систем. Разрабатываем план без потери данных."],
 ];
-const jsonld = [faqLd(faqServices)];
+// Листинг услуг: перечень в ItemList. У направлений без своей страницы url не
+// выдумываем, остаётся только name.
+const jsonld = [
+  faqLd(faqServices),
+  collectionPageLd({
+    name: "Услуги по ELMA365",
+    description,
+    url: `${SITE}/services/`,
+    items: services.map((s) => ({ name: s.name, ...(s.href ? { url: SITE + s.href } : {}) })),
+  }),
+];
 
 const featured = services[0];
 const rest = services.slice(1);
@@ -47,31 +57,18 @@ const rest = services.slice(1);
 
       <!-- GRID -->
       <div class="cover-grid" style="margin-top:32px">
-        {rest.map((s, i) => s.href
-          ? (
-            <a class="cover-card reveal" href={s.href} style={`transition-delay:${(i%3)*60}ms`}>
-              <div class="cover-card-cover" style={`background-image:url(${s.cover})`}>
-              </div>
-              <div class="cover-card-body">
-                <span class="cover-card-tag" style={`color:${s.color}`}>{s.name}</span>
-                <h3>{s.name}</h3>
-                <p class="muted">{s.desc}</p>
-                <p class="muted" style="font-size:13px;margin-top:auto">Подробнее →</p>
-              </div>
-            </a>
-          ) : (
-            <div class="cover-card reveal" style={`transition-delay:${(i%3)*60}ms`}>
-              <div class="cover-card-cover" style={`background-image:url(${s.cover})`}>
-              </div>
-              <div class="cover-card-body">
-                <span class="cover-card-tag" style={`color:${s.color}`}>{s.name}</span>
-                <h3>{s.name}</h3>
-                <p class="muted">{s.desc}</p>
-                <p class="muted" style="font-size:13px;margin-top:auto;color:var(--accent)">Уточнить →</p>
-              </div>
+        {rest.map((s, i) => (
+          <a class="cover-card reveal" href={s.href ?? "/contacts/"} style={`transition-delay:${(i%3)*60}ms`}>
+            <div class="cover-card-cover" style={`background-image:url(${s.cover})`}>
             </div>
-          )
-        )}
+            <div class="cover-card-body">
+              <span class="cover-card-tag" style={`color:${s.color}`}>{s.name}</span>
+              <h3>{s.name}</h3>
+              <p class="muted">{s.desc}</p>
+              <p class="muted" style="font-size:13px;margin-top:auto">{s.href ? "Подробнее" : "Обсудить"} →</p>
+            </div>
+          </a>
+        ))}
       </div>
 
     </div>

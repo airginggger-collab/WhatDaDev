@@ -2,6 +2,8 @@
 name: "ELMA365 vs Directum: что выбрать"
 tag: "Сравнение"
 order: 13
+date_published: "2026-06-23"
+date_modified: "2026-07-14"
 title: "ELMA365 vs Directum: что выбрать для документооборота | WhatDaDev"
 description: "Сравнение ELMA365 и Directum по функциям, стоимости и сценариям внедрения. Без рекламы: кому что подойдёт."
 headline: "ELMA365 vs Directum: что выбрать для документооборота"

@@ -32,6 +32,8 @@ collections:
       - { name: slug_input, label: "Адрес страницы (латиницей, задаётся один раз)", widget: string, pattern: ["^[a-z0-9-]+$", "Только латиница, цифры и дефис"], hint: "Например: kak-vybrat-sed. Менять у существующей статьи нельзя — сломается ссылка." }
       - { name: tag, label: Тег, widget: string, hint: "Например: Гайд, Обзор, Сравнение, КЭДО" }
       - { name: order, label: "Порядок в списке (меньше — выше)", widget: number, value_type: int, default: 100 }
+      - { name: date_published, label: "Дата публикации", widget: datetime, format: "YYYY-MM-DD", date_format: "DD.MM.YYYY", time_format: false, required: false, hint: "Уходит в разметку для поисковиков. У существующих проставлена из истории правок, менять не нужно." }
+      - { name: date_modified, label: "Дата последнего обновления", widget: datetime, format: "YYYY-MM-DD", date_format: "DD.MM.YYYY", time_format: false, required: false, hint: "Обновляйте, если правили текст по существу." }
       - { name: draft, label: Черновик (не публиковать), widget: boolean, default: true }
       - { name: title, label: "Title — заголовок вкладки для поисковиков", widget: string }
       - { name: description, label: "Description — описание для поисковиков", widget: text }
@@ -69,6 +71,8 @@ collections:
       - { name: name, label: Название термина (в списке), widget: string }
       - { name: slug_input, label: "Адрес страницы (латиницей, задаётся один раз)", widget: string, pattern: ["^[a-z0-9-]+$", "Только латиница, цифры и дефис"] }
       - { name: order, label: "Порядок в списке (меньше — выше)", widget: number, value_type: int, default: 100 }
+      - { name: date_published, label: "Дата публикации", widget: datetime, format: "YYYY-MM-DD", date_format: "DD.MM.YYYY", time_format: false, required: false, hint: "Уходит в разметку для поисковиков. У существующих проставлена из истории правок, менять не нужно." }
+      - { name: date_modified, label: "Дата последнего обновления", widget: datetime, format: "YYYY-MM-DD", date_format: "DD.MM.YYYY", time_format: false, required: false, hint: "Обновляйте, если правили текст по существу." }
       - { name: draft, label: Черновик (не публиковать), widget: boolean, default: true }
       - { name: title, label: "Title для поисковиков", widget: string }
       - { name: description, label: "Description для поисковиков", widget: text }

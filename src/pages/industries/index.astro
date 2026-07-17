@@ -3,6 +3,7 @@ import Base from "../../layouts/Base.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import { items as industries } from "../../data/industries.json";
 import CtaHero from "../../components/CtaHero.astro";
+import { collectionPageLd, SITE } from "../../lib/schema.ts";
 const title = "ELMA365 по отраслям: производство, ритейл, девелопмент, логистика, финансы | WhatDaDev";
 const description = "Документооборот и автоматизация процессов на ELMA365 под вашу отрасль. РФ и КЗ.";
 
@@ -11,8 +12,17 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 const featured = industries[0];
 const rest = industries.slice(1);
+
+const jsonld = [
+  collectionPageLd({
+    name: "ELMA365 по отраслям",
+    description,
+    url: `${SITE}/industries/`,
+    items: industries.map((x) => ({ name: x.h1.split(":")[0], url: `${SITE}/industries/${x.slug}/` })),
+  }),
+];
 ---
-<Base title={title} description={description}>
+<Base title={title} description={description} jsonld={jsonld}>
 
   <section class="hero">
     <div class="container">

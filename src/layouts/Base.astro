@@ -7,7 +7,7 @@ import "../styles/global.css";
 import contacts from "../data/contacts.json";
 import Analytics from "../components/Analytics.astro";
 import { jsonLd } from "../lib/jsonld.ts";
-const { title = "WhatDaDev: внедрение ELMA365 и готовый ЭДО из коробки", description = "Внедрение ELMA365 под ключ и коробочные продукты для документооборота. РФ и КЗ.", jsonld = [], noindex = false } = Astro.props;
+const { title = "WhatDaDev: внедрение ELMA365 и готовый ЭДО из коробки", description = "Внедрение ELMA365 под ключ и коробочные продукты для документооборота. РФ и КЗ.", jsonld = [], noindex = false, ogType = "website" } = Astro.props;
 const org = {
   "@context": "https://schema.org", "@type": "Organization",
   "@id": "https://whatdadev.ru/#org",
@@ -48,7 +48,7 @@ const ogImage = new URL("/og.png", Astro.site).href;
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="theme-color" content="#10151A" />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content="WhatDaDev" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />

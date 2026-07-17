@@ -1,7 +1,7 @@
 ---
 import Base from "../../layouts/Base.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
-import { faqLd } from "../../lib/schema.ts";
+import { faqLd, serviceLd, SITE } from "../../lib/schema.ts";
 import CtaHero from "../../components/CtaHero.astro";
 
 const title = "Внедрение ELMA365 в Казахстане: автоматизация процессов on-prem | WhatDaDev";
@@ -47,7 +47,16 @@ const argsReady = args.filter((a) => !draft(a.d) && !draft(a.t));
 const localReady = local.filter((l) => !draft(l.d) && !draft(l.t));
 const faqReady = faqKz.filter(([q, a]) => !draft(a) && !draft(q));
 
-const jsonld = [faqLd(faqReady)];
+const jsonld = [
+  serviceLd({
+    name: "Внедрение ELMA365 в Казахстане",
+    description,
+    url: `${SITE}/kz/`,
+    serviceType: "Внедрение ELMA365",
+    areaServed: ["KZ"],
+  }),
+  faqLd(faqReady),
+];
 ---
 <Base title={title} description={description} jsonld={jsonld}>
 

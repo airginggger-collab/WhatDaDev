@@ -1,6 +1,8 @@
 ---
 name: "Low-code: разработка без кода"
 order: 9
+date_published: "2026-06-23"
+date_modified: "2026-07-14"
 title: "Low-code: что это такое, определение и применение | WhatDaDev"
 description: "Что такое Low-code (Low-code разработка): определение, применение в документообороте и автоматизации процессов."
 headline: "Low-code: что это такое"

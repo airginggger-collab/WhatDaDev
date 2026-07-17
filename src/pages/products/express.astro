@@ -2,7 +2,7 @@
 import Base from "../../layouts/Base.astro";
 import pricing from "../../data/pricing.json";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
-import { faqLd } from "../../lib/schema.ts";
+import { faqLd, coordoProductLd } from "../../lib/schema.ts";
 const title = "Экспресс‑внедрение ЭДО на ELMA365 из коробки | WhatDaDev";
 const description = "Готовый электронный документооборот на ELMA365: договоры, ОРД, корреспонденция. Запуск без долгой разработки. Разово, без подписки.";
 const faq = [
@@ -12,15 +12,9 @@ const faq = [
   ["Есть ли поддержка после запуска?", "Да, в пакет входит сопровождение на старте. После этого доступна техподдержка по отдельному договору."],
   ["Работаете ли вы с компаниями из Казахстана?", "Да, мы работаем по всей России и Казахстане. Все документы оформляем дистанционно."],
 ];
+// Тот же продукт, что на /coordo/: общий @id, дата акции из pricing.json.
 const jsonld = [
-  {
-    "@context": "https://schema.org", "@type": "SoftwareApplication",
-    name: "Экспресс внедрение (Coordo)", applicationCategory: "BusinessApplication",
-    operatingSystem: "ELMA365", url: "https://whatdadev.ru/products/express/",
-    description: "Готовый ЭДО на ELMA365: согласование договоров, ОРД и корреспонденции. Маршруты без кода. Разово, без подписки.",
-    offers: { "@type": "Offer", price: pricing.price_number_rub, priceCurrency: "RUB", availability: "https://schema.org/InStock", priceValidUntil: "2026-07-31", url: "https://whatdadev.ru/products/express/" },
-    provider: { "@id": "https://whatdadev.ru/#org" },
-  },
+  coordoProductLd({ price: pricing.price_number_rub, priceValidUntil: pricing.promo_until_iso }),
   faqLd(faq),
 ];
 ---
