@@ -74,13 +74,41 @@ const ogImage = new URL("/og.png", Astro.site).href;
         </a>
         <button class="nav-toggle" id="navToggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav">☰</button>
         <nav class="nav" id="nav">
-          <a href="/products/express/" aria-current={currentPath.startsWith('/products/') ? 'page' : undefined}>Продукты</a>
+          <div class="nav-group">
+            <button type="button" class="nav-trigger" aria-expanded="false" data-active={currentPath.startsWith('/products/') || currentPath === '/coordo/' ? '' : undefined}>Продукты<span class="nav-caret" aria-hidden="true"></span></button>
+            <div class="nav-panel">
+              <a href="/products/express/">Экспресс внедрение</a>
+              <a href="/coordo/">Coordo: ЭДО из коробки</a>
+              <a href="/products/express/pricing/">Цены</a>
+              <a href="/products/modules/">Модули</a>
+              <a href="/products/express/vs-razrabotka/">Vs разработка</a>
+            </div>
+          </div>
           <a class="nav-highlight" href="/coordo/" aria-current={currentPath === '/coordo/' ? 'page' : undefined}>Coordo</a>
-          <a href="/services/" aria-current={currentPath.startsWith('/services/') ? 'page' : undefined}>Услуги</a>
-          <a href="/industries/" aria-current={currentPath.startsWith('/industries/') ? 'page' : undefined}>Отрасли</a>
-          <a href="/press/" aria-current={currentPath.startsWith('/press/') ? 'page' : undefined}>Пресс-центр</a>
-          <a href="/company/about/" aria-current={currentPath.startsWith('/company/') ? 'page' : undefined}>О команде</a>
-          <a href="/contacts/" aria-current={currentPath === '/contacts/' ? 'page' : undefined}>Контакты</a>
+          <div class="nav-group">
+            <button type="button" class="nav-trigger" aria-expanded="false" data-active={currentPath.startsWith('/services/') || currentPath.startsWith('/industries/') ? '' : undefined}>Услуги<span class="nav-caret" aria-hidden="true"></span></button>
+            <div class="nav-panel">
+              <a href="/services/">Все услуги</a>
+              <a href="/services/vnedrenie/">Внедрение ELMA365</a>
+              <a href="/services/razrabotka/">Разработка</a>
+              <a href="/industries/">Отрасли</a>
+            </div>
+          </div>
+          <div class="nav-group">
+            <button type="button" class="nav-trigger" aria-expanded="false" data-active={currentPath.startsWith('/company/') || currentPath.startsWith('/elma365') || currentPath === '/contacts/' ? '' : undefined}>Компания<span class="nav-caret" aria-hidden="true"></span></button>
+            <div class="nav-panel">
+              <a href="/company/about/">О команде</a>
+              <a href="/elma365/">ELMA365</a>
+              <a href="/contacts/">Контакты</a>
+            </div>
+          </div>
+          <div class="nav-group">
+            <button type="button" class="nav-trigger" aria-expanded="false" data-active={currentPath.startsWith('/press/') ? '' : undefined}>Пресс-центр<span class="nav-caret" aria-hidden="true"></span></button>
+            <div class="nav-panel">
+              <a href="/press/">Все статьи</a>
+              <a href="/press/glossary/">Глоссарий ЭДО</a>
+            </div>
+          </div>
           <a class="btn" href="/contacts/">Записаться на демо</a>
         </nav>
       </div>
@@ -144,6 +172,19 @@ const ogImage = new URL("/og.png", Astro.site).href;
       t && t.addEventListener('click', () => {
         const open = n.classList.toggle('open');
         t.setAttribute('aria-expanded', String(open));
+      });
+      const triggers = Array.from(document.querySelectorAll('.nav-trigger'));
+      triggers.forEach((tr) => {
+        tr.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const open = tr.getAttribute('aria-expanded') === 'true';
+          triggers.forEach((o) => o !== tr && o.setAttribute('aria-expanded', 'false'));
+          tr.setAttribute('aria-expanded', String(!open));
+        });
+      });
+      document.addEventListener('click', () => triggers.forEach((tr) => tr.setAttribute('aria-expanded', 'false')));
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') triggers.forEach((tr) => tr.setAttribute('aria-expanded', 'false'));
       });
       const io = new IntersectionObserver((entries) => {
         for (const e of entries) {
