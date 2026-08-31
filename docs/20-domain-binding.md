@@ -1,6 +1,22 @@
-# 20 — Привязка домена whatdadev.ru
+# 20 — Привязка домена
 
-Статус: 🔴 не сделано · версия v0.1 · 2026-06-20
+Статус: 🟡 частично · версия v0.2 · 2026-08-28
+
+> **Сайт live на `https://what-da-dev.ru/` (сообщил владелец 2026-08-28).** Домен с дефисами взят потому, что `whatdadev.ru` продолжает отдавать старый сайт заказчика на WordPress 7.1. Проверено curl: what-da-dev.ru → наш Astro-сайт (title «WhatDaDev: внедрение ELMA365 и готовый ЭДО из коробки»), whatdadev.ru → WordPress (title «Внедрение ELMA365 - WhatDaDev»), оба отвечают 200.
+
+## 🔴 Открытый дефект: canonical уводит на чужой сайт
+
+`astro.config.mjs → site` остался `https://whatdadev.ru`, поэтому на живом `what-da-dev.ru` каждая страница отдаёт:
+
+- `<link rel="canonical" href="https://whatdadev.ru/...">` и `og:url` туда же;
+- 68 адресов в `sitemap-0.xml` на домене `whatdadev.ru`;
+- JSON-LD `@id` организации и сайта, `BreadcrumbList`, `llms.txt` — тоже на `whatdadev.ru`.
+
+Пока `whatdadev.ru` держит WordPress, это указание поисковику индексировать старый сайт вместо нового. SEO — ведущее требование проекта, поэтому вопрос закрывать до индексации.
+
+**Решение владельца требуется:** менять `site` на `https://what-da-dev.ru` (и хардкоды в `src/layouts/Base.astro`, `src/components/Breadcrumbs.astro`, `src/lib/schema.ts`, `src/pages/press/articles/[slug].astro`, `src/pages/services/*`) или ждать переезда `whatdadev.ru` на новый сайт. Почта на домене (`sales@whatdadev.ru` и др. в `contacts.json`) от выбора не зависит, её не трогать.
+
+## Прежний план (привязка whatdadev.ru)
 
 > Факты из `astro.config.mjs` и `wrangler.jsonc`. Текущий live-URL — Workers-поддомен, не продакшн-домен.
 
@@ -8,9 +24,9 @@
 
 | | |
 |---|---|
-| **Живой сайт** | https://whatdadev.airg-inggger.workers.dev/ |
-| **Целевой домен** | https://whatdadev.ru (сейчас — старый WordPress) |
-| **`astro.config.mjs → site`** | `'https://whatdadev.ru'` (canonical уже указывает на прод) |
+| **Живой сайт** | https://what-da-dev.ru/ (плюс технический https://whatdadev.airg-inggger.workers.dev/) |
+| **Домен заказчика** | https://whatdadev.ru — по-прежнему старый WordPress 7.1 |
+| **`astro.config.mjs → site`** | `'https://whatdadev.ru'` — расходится с реальным доменом, см. дефект выше |
 | **Хостинг** | Cloudflare Workers Static Assets (`wrangler.jsonc`) |
 | **Авто-деплой** | git push → main → Cloudflare собирает `npm run build` → `dist/` |
 
