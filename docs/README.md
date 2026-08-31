@@ -38,6 +38,7 @@
 | — | [design-principles.md](design-principles.md) | Что сработало в дизайне — паттерны для след. проектов |
 | — | [SESSION-BRIEF.md](SESSION-BRIEF.md) | Брифинг для новой сессии (читать первым) |
 | — | [portfolio-story.md](portfolio-story.md) | История проекта для портфолио |
+| — | [portfolio-context.md](portfolio-context.md) | Контекст продукта для портфолио (блок на 5 секунд чтения) |
 
 ## Статусы
 - 🟢 утверждено · 🟡 черновик · 🔴 открытый вопрос
