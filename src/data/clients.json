@@ -1,0 +1,21 @@
+{
+  "section": {
+    "eyebrow": "Клиенты",
+    "title": "Наши клиенты",
+    "lead": "Мы работаем с компаниями из разных отраслей и бережём доверие каждого клиента."
+  },
+  "items": [
+    { "name": "А101", "logo": "/clients/a101.png", "width": 129, "height": 128 },
+    { "name": "Барус", "logo": "/clients/barus.png", "width": 207, "height": 128 },
+    { "name": "INSON", "logo": "/clients/inson.svg", "width": 185, "height": 31 },
+    { "name": "ОАК, Яковлев Рапарт", "logo": "/clients/oak-yakovlev-rapart.png", "width": 520, "height": 94 },
+    { "name": "SFT Group", "logo": "/clients/sft-group.svg", "width": 611, "height": 220 },
+    { "name": "Sulpak", "logo": "/clients/sulpak.svg", "width": 205, "height": 71 },
+    { "name": "TechnoNICOL Master", "logo": "/clients/technonicol-master.svg", "width": 179, "height": 51 },
+    { "name": "Зотов Центр", "logo": "/clients/zotov-center.svg", "width": 132, "height": 120 },
+    { "name": "Северсталь", "logo": "/clients/severstal.png", "width": 411, "height": 128 },
+    { "name": "Красцветмет", "logo": "/clients/krascvetmet.png", "width": 520, "height": 124 },
+    { "name": "Элемент Лизинг", "logo": "/clients/element-leasing.svg", "width": 135, "height": 49 },
+    { "name": "Лента", "logo": "/clients/lenta.svg", "width": 91, "height": 30 }
+  ]
+}

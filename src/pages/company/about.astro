@@ -1,6 +1,7 @@
 ---
 import Base from "../../layouts/Base.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import Clients from "../../components/Clients.astro";
 import { members as team } from "../../data/team.json";
 import { ORG_REF, SITE } from "../../lib/schema.ts";
 const title = "О компании WhatDaDev: эксперты ELMA365 | РФ и КЗ";
@@ -107,6 +108,8 @@ const people = team.map((m) => ({
       </div>
     </div>
   </section>
+
+  <Clients />
 
   <section class="hero">
     <div class="container center">

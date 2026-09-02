@@ -1,6 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import CtaHero from "../components/CtaHero.astro";
+import Clients from "../components/Clients.astro";
 import home from "../data/home.json";
 ---
 <Base>
@@ -67,6 +68,9 @@ import home from "../data/home.json";
       });
     }
   </script>
+
+  <!-- Клиенты: логотипы компаний, с которыми работаем -->
+  <Clients alt={true} />
 
   <!-- Возможности: реальные экраны ELMA365 -->
   <section class="section">

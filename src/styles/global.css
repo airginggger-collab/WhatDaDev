@@ -229,3 +229,20 @@ html.js .hero .reveal{opacity:1;transform:none;animation:fadeUp .6s ease both}
 @media (max-width:600px){
   .cover-press .cover-grid{grid-template-columns:1fr}
 }
+
+/* Клиенты: сетка логотипов (Clients.astro). Тонкая сетка без теней, логотипы
+   в фирменных цветах на белых ячейках (выбор владельца, v0.99.3): так все знаки
+   читаются, включая светлые. Нет файла логотипа: в ячейке название текстом. */
+.clients-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:var(--surface)}
+.client-cell{display:flex;align-items:center;justify-content:center;min-height:112px;padding:20px 24px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);margin:0 -1px -1px 0}
+.client-logo{max-width:100%;max-height:44px;width:auto;height:auto;object-fit:contain}
+.client-name{font-size:17px;font-weight:600;color:var(--muted);text-align:center;line-height:1.3;transition:color var(--transition-base)}
+.client-cell:hover .client-name{color:var(--text)}
+@media (max-width:840px){
+  .clients-grid{grid-template-columns:repeat(3,1fr)}
+  .client-cell{min-height:96px;padding:16px}
+  .client-name{font-size:15px}
+}
+@media (max-width:560px){
+  .clients-grid{grid-template-columns:repeat(2,1fr)}
+}

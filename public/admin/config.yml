@@ -217,6 +217,26 @@ collections:
               - { name: telegram, label: "Telegram (без @, можно пусто)", widget: string, required: false }
               - { name: linkedin, label: "LinkedIn (ссылка, можно пусто)", widget: string, required: false }
 
+      - name: clients
+        label: Клиенты (логотипы)
+        file: src/data/clients.json
+        fields:
+          - name: section
+            label: Заголовок секции
+            widget: object
+            fields:
+              - { name: eyebrow, label: Надзаголовок, widget: string }
+              - { name: title, label: Заголовок H2, widget: string }
+              - { name: lead, label: Подзаголовок, widget: text }
+          - name: items
+            label: Компании
+            widget: list
+            fields:
+              - { name: name, label: "Название компании (показывается, если нет логотипа)", widget: string }
+              - { name: logo, label: "Логотип (SVG или PNG на прозрачном фоне)", widget: image, required: false, media_folder: /public/clients, public_folder: /clients }
+              - { name: width, label: "Ширина файла в пикселях (можно пусто)", widget: number, value_type: int, required: false }
+              - { name: height, label: "Высота файла в пикселях (можно пусто)", widget: number, value_type: int, required: false }
+
       - name: directions
         label: Направления услуг (внедрение)
         file: src/data/directions.json

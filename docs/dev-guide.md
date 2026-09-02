@@ -60,6 +60,7 @@ src/
 │   └── Base.astro          # общий каркас: <head>, nav, footer, JSON-LD Organization
 ├── components/
 │   ├── Breadcrumbs.astro   # хлебные крошки + JSON-LD BreadcrumbList
+│   ├── Clients.astro       # секция «Наши клиенты»: сетка логотипов (clients.json)
 │   ├── CtaHero.astro       # тёмный CTA-блок (пропсы title/lead/button/wide)
 │   ├── Faq.astro           # FAQ на нативных <details> (faq: [q,a][])
 │   ├── PressEntry.astro    # общий шаблон статьи/термина глоссария
@@ -68,7 +69,8 @@ src/
 ├── data/
 │   ├── directions.json       # 8 направлений внедрения (/services/vnedrenie/[slug])
 │   ├── industries.json       # 5 отраслей (/industries/[slug])
-│   └── team.json             # команда (/company/about)
+│   ├── team.json             # команда (/company/about)
+│   └── clients.json          # клиенты и логотипы (/ и /company/about)
 ├── styles/
 │   └── global.css          # CSS-переменные (токены), все стили сайта
 └── pages/

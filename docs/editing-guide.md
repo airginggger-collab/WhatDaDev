@@ -34,6 +34,10 @@
 | О компании | `src/pages/company/about.astro` |
 | **Команда** (имена, роли, описания) | `src/data/team.json` |
 | Фото команды | папка `public/team/` |
+| **Клиенты** (список компаний, заголовок секции) | `src/data/clients.json` |
+| Логотипы клиентов | папка `public/clients/` |
+
+**Логотип клиента:** SVG или PNG на прозрачном либо белом фоне, высота знака от 80px, имя файла латиницей (`severstal.svg`). Файл кладём в `public/clients/`, путь прописываем в `src/data/clients.json` в поле `logo` как `/clients/имя.svg`, там же ширину и высоту исходника. Пока `logo` пустой, в ячейке выводится название компании текстом, секция не ломается.
 | Пресс-центр (список статей) | `src/pages/press/index.astro` |
 | Контакты | `src/pages/contacts.astro` |
 | Телефон / почта / Telegram в подвале | `src/layouts/Base.astro` |

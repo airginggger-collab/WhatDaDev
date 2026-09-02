@@ -1,0 +1,45 @@
+---
+// Секция «Наши клиенты»: сетка логотипов из src/data/clients.json.
+// Логотип необязателен: пока файла нет (logo: null), в ячейке стоит название
+// текстом, по образцу initials в team.json. Файлы кладём в public/clients.
+import clients from "../data/clients.json";
+
+interface Props {
+  alt?: boolean;      // светло-серая подложка секции (.section.alt)
+  heading?: "h2" | "h3";
+}
+const { alt = false, heading = "h2" } = Astro.props;
+const { section, items } = clients;
+
+// Оптическое выравнивание: у логотипов разные пропорции, и одна высота на всех
+// делает квадратные знаки мелкими, а вытянутые вордмарки огромными. Высоту
+// подбираем по соотношению сторон, чтобы площадь знаков совпадала на глаз.
+function logoHeight(w: number | null, h: number | null): number {
+  if (!w || !h) return 42;
+  const r = w / h;
+  if (r >= 4.5) return 30;
+  if (r >= 3) return 36;
+  if (r >= 1.8) return 42;
+  if (r >= 1.2) return 52;
+  return 58;
+}
+const Heading = heading;
+---
+<section class={alt ? "section alt" : "section"} id="clients">
+  <div class="container">
+    <div class="eyebrow reveal">{section.eyebrow}</div>
+    <Heading class="reveal">{section.title}</Heading>
+    <p class="lead reveal" style="margin-bottom:32px">{section.lead}</p>
+
+    <ul class="clients-grid reveal">
+      {items.map((c) => (
+        <li class="client-cell">
+          {c.logo
+            ? <img class="client-logo" src={c.logo} alt={c.name} width={c.width ?? 160} height={c.height ?? 48} style={`max-height:${logoHeight(c.width, c.height)}px`} loading="lazy" />
+            : <span class="client-name">{c.name}</span>
+          }
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

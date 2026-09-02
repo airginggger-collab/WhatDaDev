@@ -31,6 +31,7 @@ src/
 │   └── Base.astro              # единый каркас всех страниц
 ├── components/
 │   ├── Breadcrumbs.astro       # хлебные крошки + JSON-LD BreadcrumbList
+│   ├── Clients.astro           # секция «Наши клиенты»: сетка логотипов (data/clients.json)
 │   ├── CtaHero.astro           # финальный тёмный CTA-блок (title/lead/button, wide?)
 │   ├── Faq.astro               # FAQ на нативных <details> (faq: [q,a][])
 │   ├── PressEntry.astro        # шаблон записи пресс-центра (статья/глоссарий)
@@ -46,7 +47,8 @@ src/
 │   ├── modules.json              # модули → /products/modules
 │   ├── vnedrenie-steps.json      # этапы внедрения → /services/vnedrenie
 │   ├── contours.json             # 4 контурные страницы → ContourPage.astro
-│   └── team.json                 # команда → /company/about
+│   ├── team.json                 # команда → /company/about
+│   └── clients.json              # 12 клиентов (логотипы в public/clients) → / и /company/about
 ├── styles/
 │   └── global.css              # CSS-переменные (токены) + все стили
 └── pages/                      # 21 .astro-файл → 32 URL
@@ -108,11 +110,11 @@ src/
 
 | URL | Файл | Данные |
 |---|---|---|
-| `/` | `pages/index.astro` | хардкод |
+| `/` | `pages/index.astro` | `data/home.json`, `data/clients.json` |
 | `/contacts/` | `pages/contacts.astro` | хардкод |
 | `/elma365/` | `pages/elma365.astro` | хардкод |
 | `/404` | `pages/404.astro` | хардкод |
-| `/company/about/` | `pages/company/about.astro` | `data/team.json` |
+| `/company/about/` | `pages/company/about.astro` | `data/team.json`, `data/clients.json` |
 | `/products/express/` | `pages/products/express.astro` | хардкод |
 | `/products/express/dogovory/` | `pages/products/express/dogovory.astro` | хардкод |
 | `/products/express/ord/` | `pages/products/express/ord.astro` | хардкод |
