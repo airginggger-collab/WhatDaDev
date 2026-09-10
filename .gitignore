@@ -16,6 +16,9 @@ _local-assets/
 скрины/
 скрины ватдадев/
 
+# договоры и акты с заказчиками (реквизиты, персональные данные), только локально
+документы/
+
 # stray binaries dumped at repo root (curated assets live in references/ & deliverables/)
 /*.png
 /*.jpg
