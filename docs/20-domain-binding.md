@@ -1,20 +1,18 @@
 # 20 — Привязка домена
 
-Статус: 🟡 частично · версия v0.2 · 2026-08-28
+Статус: 🟢 основной домен выбран · версия v0.3 · 2026-09-17
 
 > **Сайт live на `https://what-da-dev.ru/` (сообщил владелец 2026-08-28).** Домен с дефисами взят потому, что `whatdadev.ru` продолжает отдавать старый сайт заказчика на WordPress 7.1. Проверено curl: what-da-dev.ru → наш Astro-сайт (title «WhatDaDev: внедрение ELMA365 и готовый ЭДО из коробки»), whatdadev.ru → WordPress (title «Внедрение ELMA365 - WhatDaDev»), оба отвечают 200.
 
-## 🔴 Открытый дефект: canonical уводит на чужой сайт
+## ✅ Закрыто 2026-09-17: canonical ведёт на what-da-dev.ru
 
-`astro.config.mjs → site` остался `https://whatdadev.ru`, поэтому на живом `what-da-dev.ru` каждая страница отдаёт:
+Владелец выбрал основной домен **`https://what-da-dev.ru`** (v0.99.8). Раньше `astro.config.mjs → site` стоял на `https://whatdadev.ru`, и живой сайт отдавал canonical, `og:url`, sitemap, robots, JSON-LD и `llms.txt` на старый домен, где `/kz/` и другие новые адреса отвечают 404.
 
-- `<link rel="canonical" href="https://whatdadev.ru/...">` и `og:url` туда же;
-- 68 адресов в `sitemap-0.xml` на домене `whatdadev.ru`;
-- JSON-LD `@id` организации и сайта, `BreadcrumbList`, `llms.txt` — тоже на `whatdadev.ru`.
+Что поменяно на `https://what-da-dev.ru`: `astro.config.mjs` (`site`), `public/robots.txt` (строка `Sitemap`), `src/layouts/Base.astro` (JSON-LD Organization и WebSite), `src/components/Breadcrumbs.astro`, `src/lib/schema.ts` (`SITE`), `src/pages/press/articles/[slug].astro`, `src/pages/press/glossary/[slug].astro`, `src/pages/services/vnedrenie/index.astro`, `src/pages/services/vnedrenie/[slug].astro`, `src/pages/services/razrabotka.astro`, `src/pages/products/modules/index.astro`, `src/pages/llms.txt.ts`.
 
-Пока `whatdadev.ru` держит WordPress, это указание поисковику индексировать старый сайт вместо нового. SEO — ведущее требование проекта, поэтому вопрос закрывать до индексации.
+**Не менялось:** почта `sales@`, `support@`, `iperushev@whatdadev.ru` (ящики живут на старом домене и работают), адрес кабинета в `public/admin/config.yml` (workers.dev). В `src/pages/admin-guide.astro` осталась фраза «после привязки домена адрес станет whatdadev.ru/admin/»: работает ли вход в кабинет с `what-da-dev.ru/admin/`, не проверялось (OAuth-воркер может не принимать новый origin), поэтому текст не трогали.
 
-**Решение владельца требуется:** менять `site` на `https://what-da-dev.ru` (и хардкоды в `src/layouts/Base.astro`, `src/components/Breadcrumbs.astro`, `src/lib/schema.ts`, `src/pages/press/articles/[slug].astro`, `src/pages/services/*`) или ждать переезда `whatdadev.ru` на новый сайт. Почта на домене (`sales@whatdadev.ru` и др. в `contacts.json`) от выбора не зависит, её не трогать.
+**Что дальше:** Google Search Console и Яндекс.Вебмастер на `what-da-dev.ru`, отправить `https://what-da-dev.ru/sitemap-index.xml`. Если когда-нибудь `whatdadev.ru` переедет на новый сайт, поставить 301 со старого домена на `what-da-dev.ru` (или наоборот сменить `site`, но это снова правка всех файлов выше).
 
 ## Прежний план (привязка whatdadev.ru)
 

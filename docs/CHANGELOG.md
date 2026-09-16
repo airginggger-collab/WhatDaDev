@@ -2,6 +2,18 @@
 
 Все значимые изменения спеки проекта. Формат: семантические версии.
 
+## v0.99.8 — 2026-09-17
+
+### Canonical, sitemap и robots переведены на what-da-dev.ru
+
+Владелец выбрал основной домен `https://what-da-dev.ru`. Закрыт дефект из `docs/20-domain-binding.md`: живой сайт отдавал canonical, `og:url`, sitemap и robots на `whatdadev.ru`, где стоит старый WordPress. Для новых адресов это было указанием на 404: `what-da-dev.ru/kz/` ссылался canonical на `whatdadev.ru/kz/`, который не существует, поэтому страницу не проиндексировал бы ни Google, ни Яндекс.
+
+- `site` в `astro.config.mjs`, строка `Sitemap` в `public/robots.txt`, JSON-LD в `Base.astro`, `Breadcrumbs.astro`, `SITE` в `src/lib/schema.ts`, абсолютные URL в статьях, глоссарии, услугах и модулях, `llms.txt`.
+- Почта на `whatdadev.ru` и адрес кабинета не менялись. Фраза про адрес кабинета в `admin-guide.astro` оставлена: вход через `what-da-dev.ru/admin/` не проверялся.
+- Проверка сборки: в `dist/` не осталось ни одного `https://whatdadev.ru`, canonical `/kz/` равен `https://what-da-dev.ru/kz/`, sitemap-index и robots на новом домене.
+- Доки: `20-domain-binding.md` (дефект закрыт, список файлов), `ARCHITECTURE.md`, `dev-guide.md`, `23-analytics-baseline.md`, `24-kz-market-entry.md`, `portfolio-context.md`.
+- `docs/LESSONS.md`: запись о сорвавшейся замене в zsh.
+
 ## v0.99.7 — 2026-09-17
 
 ### Исследование выхода на рынок Казахстана

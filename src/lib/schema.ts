@@ -22,7 +22,7 @@ export function faqLd(faq: FaqItem[]) {
   };
 }
 
-export const SITE = "https://whatdadev.ru";
+export const SITE = "https://what-da-dev.ru";
 export const ORG_REF = { "@id": `${SITE}/#org` };
 export const TERMSET_ID = `${SITE}/press/glossary/#termset`;
 export const COORDO_ID = `${SITE}/#coordo`;

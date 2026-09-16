@@ -42,7 +42,7 @@ npm run preview  # предпросмотр dist/
    grep -oE '/_astro/[^"]+\.(css|js)' dist/index.html
    ```
    Совпадают → прод = HEAD. Расходятся → подожди завершения деплоя Cloudflare и повтори.
-3. **Проверяй боевой `*.workers.dev`**, а НЕ `whatdadev.ru` — последний пока указывает на старый WordPress и не привязан к Workers.
+3. **Проверяй боевой `what-da-dev.ru`** (или `*.workers.dev`), а НЕ `whatdadev.ru`: последний пока указывает на старый WordPress и не привязан к Workers.
 
 ## Стек
 

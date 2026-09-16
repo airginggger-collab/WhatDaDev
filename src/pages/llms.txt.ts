@@ -8,7 +8,7 @@ import contacts from "../data/contacts.json";
 // Генерирует /llms.txt на билде (Astro static endpoint) из src/data + коллекций.
 // Формат llms.txt: заголовок, аннотация, разделы со ссылками и описаниями, чтобы
 // внешние AI-агенты (ChatGPT, Perplexity) точно понимали услуги, продукты и контент.
-// Абсолютные URL строятся от Astro.site (whatdadev.ru), как canonical/og.
+// Абсолютные URL строятся от Astro.site (what-da-dev.ru), как canonical/og.
 
 type Item = { name?: string; h1?: string; title?: string; desc?: string; lead?: string; href?: string; slug?: string };
 
@@ -19,7 +19,7 @@ const industries = (industriesData as { items: Item[] }).items;
 const clean = (s: string) => (s || "").replace(/\s+/g, " ").trim();
 
 export const GET: APIRoute = async ({ site }) => {
-  const base = (site?.href || "https://whatdadev.ru/").replace(/\/$/, "");
+  const base = (site?.href || "https://what-da-dev.ru/").replace(/\/$/, "");
   const abs = (p: string) => `${base}${p.startsWith("/") ? p : `/${p}`}`;
 
   const articles = (await getCollection("articles"))

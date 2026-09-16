@@ -9,13 +9,13 @@ const itemList = {
   "@type": "ItemList",
   name: "Готовые модули и решения для ELMA365",
   description,
-  url: "https://whatdadev.ru/products/modules/",
+  url: "https://what-da-dev.ru/products/modules/",
   inLanguage: "ru",
   itemListElement: modules.map((m, i) => ({
     "@type": "ListItem",
     position: i + 1,
     name: m.name,
-    ...(m.href ? { url: `https://whatdadev.ru${m.href}` } : {}),
+    ...(m.href ? { url: `https://what-da-dev.ru${m.href}` } : {}),
   })),
 };
 ---

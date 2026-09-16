@@ -141,7 +141,7 @@ src/
 
 ### `astro.config.mjs`
 ```js
-site: 'https://whatdadev.ru'   // canonical base (целевой домен, не Workers-URL)
+site: 'https://what-da-dev.ru'   // canonical base (основной домен с v0.99.8, не Workers-URL)
 integrations: [sitemap()]       // автогенерация sitemap-index.xml
 ```
 
@@ -176,4 +176,4 @@ npm run build → dist/          ← git push → Cloudflare → live
 - `docs/07-infra.md` — инфраструктура (Cloudflare, домен)
 - `docs/04-design/README.md` — дизайн-токены, референсы
 - `docs/08-decisions/` — ADR (почему так, а не иначе)
-- `docs/20-domain-binding.md` — план привязки домена whatdadev.ru
+- `docs/20-domain-binding.md` — привязка домена: основной what-da-dev.ru, история плана по whatdadev.ru
