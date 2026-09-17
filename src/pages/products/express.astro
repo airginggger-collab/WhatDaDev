@@ -12,9 +12,9 @@ const faq = [
   ["Есть ли поддержка после запуска?", "Да, в пакет входит сопровождение на старте. После этого доступна техподдержка по отдельному договору."],
   ["Работаете ли вы с компаниями из Казахстана?", "Да, мы работаем по всей России и Казахстане. Все документы оформляем дистанционно."],
 ];
-// Тот же продукт, что на /coordo/: общий @id, дата акции из pricing.json.
+// Тот же продукт, что на /coordo/: общий @id, цена из pricing.json.
 const jsonld = [
-  coordoProductLd({ price: pricing.price_number_rub, priceValidUntil: pricing.promo_until_iso }),
+  coordoProductLd({ price: pricing.price_number_rub }),
   faqLd(faq),
 ];
 ---

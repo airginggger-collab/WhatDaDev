@@ -31,7 +31,7 @@ export const COORDO_ID = `${SITE}/#coordo`;
 // объявляла свой SoftwareApplication под близким именем, и в графе это читалось
 // как два разных продукта. Теперь обе отдают один @id, канонический url ведёт
 // на /products/express/. Имя по ADR-0010: описание ведёт, «Coordo» рядом.
-export function coordoProductLd(opts: { price: string; priceValidUntil: string }) {
+export function coordoProductLd(opts: { price: string }) {
   return {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -47,7 +47,6 @@ export function coordoProductLd(opts: { price: string; priceValidUntil: string }
       price: opts.price,
       priceCurrency: "RUB",
       availability: "https://schema.org/InStock",
-      priceValidUntil: opts.priceValidUntil,
       url: `${SITE}/products/express/`,
     },
     provider: ORG_REF,

@@ -167,19 +167,14 @@ collections:
               - { name: button, label: Кнопка, widget: string }
 
       - name: pricing
-        label: Цены и акция Coordo
+        label: Цены Coordo
         file: src/data/pricing.json
         fields:
-          - { name: promo_until, label: "Акция действует до (текст)", widget: string }
           - { name: price_number_rub, label: "Цена числом для поисковиков (только цифры)", widget: string, pattern: ["^[0-9]+$", "Только цифры, без пробелов"] }
           - { name: price_rub, label: Цена в рублях, widget: string }
           - { name: price_kzt, label: Цена в тенге, widget: string }
           - { name: price_usd, label: Цена в долларах, widget: string }
           - { name: price_eur, label: Цена в евро, widget: string }
-          - { name: old_price_rub, label: Старая цена в рублях, widget: string }
-          - { name: old_price_kzt, label: Старая цена в тенге, widget: string }
-          - { name: old_price_usd, label: Старая цена в долларах, widget: string }
-          - { name: old_price_eur, label: Старая цена в евро, widget: string }
           - { name: express_from, label: "Цена на странице продукта («от …»)", widget: string }
           - { name: support_renewal, label: Условие продления поддержки, widget: string }
 
